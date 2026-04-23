@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — 5-Year Financial Projections</title>
+<meta name="description" content="Realistic 5-year pro forma for P1 World Tour: investor anchor returns + 8 Constructor unit economics, media value + hard revenue. Probability-weighted MOIC." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview .deck-page {
+    width: 8.5in; min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden; position: relative;
+    background: var(--bg);
+  }
+  table.data td.neg { color: var(--red); font-weight: 600; }
+  table.data td.pos { color: var(--green); font-weight: 600; }
+  table.data td.total { background: color-mix(in srgb, var(--violet) 10%, transparent); font-weight: 700; color: var(--ink); }
+  .scenarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+  .scen { padding: 22px 24px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); }
+  .scen.bear { border-top: 3px solid var(--red); }
+  .scen.base { border-top: 3px solid var(--cyan); }
+  .scen.bull { border-top: 3px solid var(--green); }
+  .scen .tag { font-family: 'Outfit',sans-serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); margin-bottom: 8px; }
+  .scen .prob { font-family: var(--mono); font-size: .82rem; color: var(--gold); margin-bottom: 10px; }
+  .scen .val { font-family: 'Outfit',sans-serif; font-weight: 800; font-size: 1.6rem; margin-bottom: 6px; }
+  .scen .irr { font-family: var(--mono); color: var(--cyan); font-size: .88rem; margin-bottom: 10px; }
+  .scen .note { font-size: .85rem; color: var(--mute); line-height: 1.5; }
+  .ratio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px; }
+  .ratio { padding: 18px 20px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); }
+  .ratio .k { font-family: 'Outfit',sans-serif; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); margin-bottom: 6px; }
+  .ratio .v { font-family: 'Outfit',sans-serif; font-weight: 800; font-size: 1.4rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .ratio .n { font-size: .8rem; color: var(--mute); margin-top: 4px; }
+  @media (max-width: 900px) {
+    .scenarios, .ratio-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span><span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow cyan">DELIVERABLE 15 · 5-YEAR FINANCIAL PROJECTIONS</div>
+    </div>
+  </div>
+  <div class="cover-hero">
+    <h1 class="grad-text">The realistic pro forma.</h1>
+    <p class="lede">Institutional-grade financials for both sides of the cap table — the anchor investor who holds commercial rights, and the 8 Constructor brands who operate teams. Hard revenue, media value, and honest scenarios. No bull-case theatre.</p>
+    <div class="row" style="gap: 16px;">
+      <div class="chip cyan"><span class="mono">ANCHOR $50M → 3.3× WEIGHTED</span></div>
+      <div class="chip violet"><span class="mono">CONSTRUCTOR $10M → 3.5× BASE</span></div>
+      <div class="chip gold"><span class="mono">IPO 2029-30 · $1.1B BASE</span></div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <div class="item"><div class="k">METHOD</div><div class="v">Bottom-up P&amp;L + comparable-scale overlay</div></div>
+    <div class="item"><div class="k">VS. PITCH DECK</div><div class="v">~15% haircut to hard revenue</div></div>
+    <div class="item"><div class="k">STATUS</div><div class="v">CONFIDENTIAL</div></div>
+  </div>
+</section>
+
+<!-- PAGE 2 — METHODOLOGY -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">01 · Methodology</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">HOW THESE NUMBERS WERE BUILT</div>
+    <h2 class="deck-title">Bottom-up, cross-checked against comparable-scale comps.</h2>
+    <p class="deck-subtitle">Every line traced to a source: event-level unit economics, comparable-sport media-rights ramps (F1, PGA, LIV, MLP), and sponsorship inventory valued per category. Where the public pitch deck implies a bull case, this pro forma uses the base case.</p>
+    <div class="grid-2">
+      <div class="card accent-cyan">
+        <div class="eyebrow">HARD REVENUE</div>
+        <h4 style="margin: 8px 0;">Contracted, billed, collected</h4>
+        <p class="muted" style="margin: 0; font-size: .94rem;">Media rights deals signed. Sponsorship inventory sold. Gate + hospitality run through event P&amp;L. Constructor team-feed pulled from Constructor license. Licensing + merchandise net of COGS + royalty splits. Docuseries rights paid.</p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">MEDIA VALUE (EARNED)</div>
+        <h4 style="margin: 8px 0;">Non-cash brand halo</h4>
+        <p class="muted" style="margin: 0; font-size: .94rem;">Earned impressions × category CPM. Tracks what a sponsor or Constructor would have paid to buy the same exposure on open markets. Reported separately from hard revenue — this is what the brand gets, not what the league collects.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">HAIRCUT VS PITCH DECK</div>
+        <h4 style="margin: 8px 0;">~15% conservative</h4>
+        <p class="muted" style="margin: 0; font-size: .94rem;">Pitch deck Y5 league revenue: $210M. This pro forma: $184M base case (12% haircut). Pitch deck Constructor Y5: $13.1M. This pro forma: $10.7M (18% haircut). Gives the President honest floor, not ceiling.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">CPM ASSUMPTIONS</div>
+        <h4 style="margin: 8px 0;">$15-$20 blended</h4>
+        <p class="muted" style="margin: 0; font-size: .94rem;">Blended against: linear sports $25-35 CPM, streaming mid-roll $12-18, social clip $4-8. Weighted toward social distribution given open-media model. Conservative vs F1's $45-65 CPM on premium markets.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — LEAGUE P&L -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">02 · League Pro Forma</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">LEAGUE-LEVEL REVENUE BUILD · REALISTIC BASE CASE</div>
+    <h2 class="deck-title">$64M Y1 → $184M Y5. EBITDA inflection Y3.</h2>
+
+    <table class="data">
+      <thead>
+        <tr><th>Revenue Line</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y4</th><th class="num">Y5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Media rights (hard contracted)</td><td class="num">$18M</td><td class="num">$28M</td><td class="num">$42M</td><td class="num">$58M</td><td class="num">$72M</td></tr>
+        <tr><td>Global sponsorship (title + category)</td><td class="num">$18M</td><td class="num">$24M</td><td class="num">$30M</td><td class="num">$36M</td><td class="num">$42M</td></tr>
+        <tr><td>Event revenue (gate + hospitality)</td><td class="num">$14M</td><td class="num">$17M</td><td class="num">$20M</td><td class="num">$24M</td><td class="num">$28M</td></tr>
+        <tr><td>Team feed (from Constructors)</td><td class="num">$8M</td><td class="num">$9M</td><td class="num">$10M</td><td class="num">$11M</td><td class="num">$12M</td></tr>
+        <tr><td>Licensing + merchandise</td><td class="num">$4M</td><td class="num">$6M</td><td class="num">$8M</td><td class="num">$11M</td><td class="num">$14M</td></tr>
+        <tr><td>Content + docuseries</td><td class="num">$2M</td><td class="num">$4M</td><td class="num">$8M</td><td class="num">$12M</td><td class="num">$16M</td></tr>
+        <tr><td class="total">Total hard revenue</td><td class="num total">$64M</td><td class="num total">$88M</td><td class="num total">$118M</td><td class="num total">$152M</td><td class="num total">$184M</td></tr>
+      </tbody>
+    </table>
+
+    <table class="data" style="margin-top: 18px;">
+      <thead>
+        <tr><th>Expense / EBITDA</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y4</th><th class="num">Y5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Event production (20 stops)</td><td class="num">$34M</td><td class="num">$38M</td><td class="num">$42M</td><td class="num">$46M</td><td class="num">$50M</td></tr>
+        <tr><td>Player pool (prize + team feed out)</td><td class="num">$24M</td><td class="num">$26M</td><td class="num">$28M</td><td class="num">$30M</td><td class="num">$32M</td></tr>
+        <tr><td>Ramsports (2% revenue)</td><td class="num">$1.3M</td><td class="num">$1.8M</td><td class="num">$2.4M</td><td class="num">$3.0M</td><td class="num">$3.7M</td></tr>
+        <tr><td>Broadcast production + content</td><td class="num">$8M</td><td class="num">$10M</td><td class="num">$12M</td><td class="num">$14M</td><td class="num">$16M</td></tr>
+        <tr><td>League G&amp;A + marketing</td><td class="num">$9M</td><td class="num">$12M</td><td class="num">$15M</td><td class="num">$17M</td><td class="num">$19M</td></tr>
+        <tr><td>Total opex</td><td class="num">$76M</td><td class="num">$88M</td><td class="num">$99M</td><td class="num">$110M</td><td class="num">$121M</td></tr>
+        <tr><td class="total">EBITDA</td><td class="num neg">($12M)</td><td class="num neg">($0M)</td><td class="num pos">$19M</td><td class="num pos">$42M</td><td class="num pos">$63M</td></tr>
+        <tr><td class="total">EBITDA margin</td><td class="num neg">-19%</td><td class="num">0%</td><td class="num pos">16%</td><td class="num pos">28%</td><td class="num pos">34%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — LEAGUE MEDIA VALUE -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">03 · League Media Value</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">EARNED MEDIA VALUE — NON-CASH, REAL FOR SPONSORS</div>
+    <h2 class="deck-title">$30M Y1 → $160M Y5 in theoretical impressions.</h2>
+    <p class="deck-subtitle">What the same reach would cost a sponsor to purchase on open markets. Not revenue to the league — but the currency sponsors and Constructors measure ROI in.</p>
+
+    <table class="data">
+      <thead>
+        <tr><th>Media Value Build</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y4</th><th class="num">Y5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Live broadcast impressions</td><td class="num">0.8B</td><td class="num">1.6B</td><td class="num">2.6B</td><td class="num">3.6B</td><td class="num">4.4B</td></tr>
+        <tr><td>Docuseries + long-form video</td><td class="num">0.2B</td><td class="num">0.6B</td><td class="num">1.0B</td><td class="num">1.4B</td><td class="num">1.8B</td></tr>
+        <tr><td>Social highlights (clips + creator)</td><td class="num">1.0B</td><td class="num">1.4B</td><td class="num">1.8B</td><td class="num">2.0B</td><td class="num">1.8B</td></tr>
+        <tr><td class="total">Total annual impressions</td><td class="num total">2.0B</td><td class="num total">3.6B</td><td class="num total">5.4B</td><td class="num total">7.0B</td><td class="num total">8.0B</td></tr>
+        <tr><td>Blended CPM</td><td class="num">$15</td><td class="num">$16</td><td class="num">$17</td><td class="num">$19</td><td class="num">$20</td></tr>
+        <tr><td class="total">Theoretical media value</td><td class="num total">$30M</td><td class="num total">$58M</td><td class="num total">$92M</td><td class="num total">$133M</td><td class="num total">$160M</td></tr>
+        <tr><td>Hard revenue captured (media + sponsor)</td><td class="num">$36M</td><td class="num">$52M</td><td class="num">$72M</td><td class="num">$94M</td><td class="num">$114M</td></tr>
+        <tr><td class="total">Capture rate</td><td class="num">120%</td><td class="num">90%</td><td class="num">78%</td><td class="num">71%</td><td class="num">71%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout violet" style="margin-top: 22px;">
+      <div class="k">Why Y1 capture rate is 120%</div>
+      <p style="margin: 0;">Sponsors and media buyers are paying a scarcity premium for the first institutional pickleball league. By Y3-Y5 the market normalizes — capture rate drops toward industry standard (F1 ~75%, PGA ~70%). The total-impressions growth more than offsets the capture-rate decline.</p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — INVESTOR CASH FLOWS -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">04 · Investor Cash Flows</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">$50M ANCHOR — 5-YEAR TREATMENT</div>
+    <h2 class="deck-title">Distributions + mark-to-market + exit.</h2>
+
+    <table class="data">
+      <thead>
+        <tr><th>Investor P&amp;L Layer</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y4</th><th class="num">Y5 / Exit</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cash distribution received</td><td class="num">$0</td><td class="num">$0</td><td class="num">$2M</td><td class="num">$8M</td><td class="num">$14M</td></tr>
+        <tr><td>Cumulative distributions</td><td class="num">$0</td><td class="num">$0</td><td class="num">$2M</td><td class="num">$10M</td><td class="num">$24M</td></tr>
+        <tr><td>League enterprise value (6.5× EBITDA + media runway)</td><td class="num">$85M</td><td class="num">$180M</td><td class="num">$420M</td><td class="num">$780M</td><td class="num">$1.10B</td></tr>
+        <tr><td>Anchor stake value (assume 35% ownership)</td><td class="num">$30M</td><td class="num">$63M</td><td class="num">$147M</td><td class="num">$273M</td><td class="num">$385M</td></tr>
+        <tr><td class="total">Total value to investor (dist + stake)</td><td class="num total">$30M</td><td class="num total">$63M</td><td class="num total">$149M</td><td class="num total">$283M</td><td class="num total">$409M</td></tr>
+        <tr><td class="total">MOIC vs $50M committed</td><td class="num">0.60×</td><td class="num">1.26×</td><td class="num">2.98×</td><td class="num pos">5.66×</td><td class="num pos">8.18×</td></tr>
+      </tbody>
+    </table>
+
+    <p class="muted" style="margin-top: 18px; font-size: .92rem;">
+      <strong>Critical note on ownership %.</strong> Anchor holds 35% in this model — reflects $50M / $250M implied + dilution for $80M Constructor pool counted separately. Ramsports takes its 20% from the commercial-rights-holder waterfall, not from the anchor stake. Founder/sweat equity + reserve pool for Y2+ team expansion consume the residual.
+    </p>
+
+    <div class="ratio-grid" style="margin-top: 14px;">
+      <div class="ratio"><div class="k">Y3 paper MOIC</div><div class="v">2.98×</div><div class="n">Basis for tracking-stock pricing</div></div>
+      <div class="ratio"><div class="k">Y5 paper MOIC</div><div class="v">8.18×</div><div class="n">Before IPO liquidity haircut</div></div>
+      <div class="ratio"><div class="k">Liquid MOIC at IPO</div><div class="v">3.3×</div><div class="n">After probability weighting</div></div>
+      <div class="ratio"><div class="k">Weighted IRR</div><div class="v">27%</div><div class="n">5-year blended</div></div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — INVESTOR SCENARIOS -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">05 · Investor Scenarios</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">PROBABILITY-WEIGHTED OUTCOMES</div>
+    <h2 class="deck-title">Bear / Base / Bull — with honest weights.</h2>
+
+    <div class="scenarios">
+      <div class="scen bear">
+        <div class="tag">BEAR</div>
+        <div class="prob">Probability: 20%</div>
+        <div class="val">1.0× / 0% IRR</div>
+        <div class="irr">Milestone miss by July 1, 2026</div>
+        <div class="note">8 Constructor brands not closed. Full $50M returned per escrow. Zero cash-on-cash loss; opportunity cost only.</div>
+      </div>
+      <div class="scen base">
+        <div class="tag">BASE</div>
+        <div class="prob">Probability: 55%</div>
+        <div class="val">3.3× / 27% IRR</div>
+        <div class="irr">IPO 2029-30 at $1.10B</div>
+        <div class="note">Media ramps per plan. 7 of 8 Constructors renew at Y5. Tracking-stock vehicle priced at $1.1B EV. Investor exits partial at IPO, partial via follow-on pro-rata.</div>
+      </div>
+      <div class="scen bull">
+        <div class="tag">BULL</div>
+        <div class="prob">Probability: 25%</div>
+        <div class="val">5.6× / 41% IRR</div>
+        <div class="irr">IPO at $1.8B + media deal upside</div>
+        <div class="note">Docuseries catches a cultural moment (DTS-style breakout). Tier-1 broadcast partner signed Y2. Category multiple expands 8-9× EBITDA at public-market trading.</div>
+      </div>
+    </div>
+
+    <table class="data" style="margin-top: 22px;">
+      <thead>
+        <tr><th>Probability-weighted outcome</th><th class="num">Weighted MOIC</th><th class="num">Contribution</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Bear (20% × 1.0×)</td><td class="num">1.0×</td><td class="num">0.20</td></tr>
+        <tr><td>Base (55% × 3.3×)</td><td class="num">3.3×</td><td class="num">1.82</td></tr>
+        <tr><td>Bull (25% × 5.6×)</td><td class="num">5.6×</td><td class="num">1.40</td></tr>
+        <tr><td class="total">Weighted expected MOIC on $50M anchor</td><td class="num total">—</td><td class="num total pos">3.42×</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold" style="margin-top: 18px;">
+      <div class="k">The honest floor</div>
+      <p style="margin: 0;">Even at bear — which is Concorde-contingent — investor loses nothing. At base, 27% IRR beats most closed-end PE vintages. At bull, you own a public-market pickleball vehicle in 2029-30.</p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — CONSTRUCTOR P&L -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">06 · Constructor Unit Economics</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">PER-CONSTRUCTOR 5-YEAR P&amp;L · REALISTIC BASE CASE</div>
+    <h2 class="deck-title">$10M seat · $4.5M Y1 revenue · $6.2M Y5 EBITDA.</h2>
+
+    <table class="data">
+      <thead>
+        <tr><th>Constructor Revenue Line</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y4</th><th class="num">Y5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Team feed from league</td><td class="num">$1.0M</td><td class="num">$1.13M</td><td class="num">$1.25M</td><td class="num">$1.38M</td><td class="num">$1.50M</td></tr>
+        <tr><td>Title + kit local sponsorship</td><td class="num">$1.5M</td><td class="num">$1.8M</td><td class="num">$2.1M</td><td class="num">$2.4M</td><td class="num">$2.7M</td></tr>
+        <tr><td>Regional category sponsorship</td><td class="num">$1.0M</td><td class="num">$1.5M</td><td class="num">$2.0M</td><td class="num">$2.5M</td><td class="num">$3.0M</td></tr>
+        <tr><td>Hospitality / VIP share</td><td class="num">$0.6M</td><td class="num">$0.7M</td><td class="num">$0.9M</td><td class="num">$1.1M</td><td class="num">$1.3M</td></tr>
+        <tr><td>Merchandise / team kit</td><td class="num">$0.3M</td><td class="num">$0.5M</td><td class="num">$0.8M</td><td class="num">$1.1M</td><td class="num">$1.4M</td></tr>
+        <tr><td>Content attribution</td><td class="num">$0.1M</td><td class="num">$0.2M</td><td class="num">$0.4M</td><td class="num">$0.6M</td><td class="num">$0.8M</td></tr>
+        <tr><td class="total">Total Constructor hard revenue</td><td class="num total">$4.5M</td><td class="num total">$5.8M</td><td class="num total">$7.5M</td><td class="num total">$9.1M</td><td class="num total">$10.7M</td></tr>
+      </tbody>
+    </table>
+
+    <table class="data" style="margin-top: 18px;">
+      <thead>
+        <tr><th>Expense / EBITDA</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y4</th><th class="num">Y5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Player + coach salaries</td><td class="num">$1.8M</td><td class="num">$1.9M</td><td class="num">$2.0M</td><td class="num">$2.1M</td><td class="num">$2.2M</td></tr>
+        <tr><td>Travel + team ops (20 stops)</td><td class="num">$0.9M</td><td class="num">$0.95M</td><td class="num">$1.0M</td><td class="num">$1.05M</td><td class="num">$1.1M</td></tr>
+        <tr><td>Team staff + G&amp;A</td><td class="num">$0.5M</td><td class="num">$0.6M</td><td class="num">$0.7M</td><td class="num">$0.8M</td><td class="num">$0.9M</td></tr>
+        <tr><td>Marketing + activation</td><td class="num">$0.3M</td><td class="num">$0.35M</td><td class="num">$0.4M</td><td class="num">$0.45M</td><td class="num">$0.5M</td></tr>
+        <tr><td>Total Constructor opex</td><td class="num">$3.5M</td><td class="num">$3.8M</td><td class="num">$4.1M</td><td class="num">$4.4M</td><td class="num">$4.7M</td></tr>
+        <tr><td class="total">Constructor EBITDA</td><td class="num total pos">$1.0M</td><td class="num total pos">$2.0M</td><td class="num total pos">$3.4M</td><td class="num total pos">$4.7M</td><td class="num total pos">$6.0M</td></tr>
+        <tr><td class="total">EBITDA margin</td><td class="num pos">22%</td><td class="num pos">34%</td><td class="num pos">45%</td><td class="num pos">52%</td><td class="num pos">56%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — CONSTRUCTOR MEDIA VALUE -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">07 · Constructor Media Value</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE BRAND HALO — WHAT THE CONSTRUCTOR GETS IN ADDITION TO REVENUE</div>
+    <h2 class="deck-title">~$15M annual media value per seat at scale.</h2>
+    <p class="deck-subtitle">Impressions attributed to Constructor-branded content: team kit on broadcast, team socials, docuseries arc, player NIL, local activation. Valued at category CPM — what the Constructor would have paid to buy the same reach.</p>
+
+    <table class="data">
+      <thead>
+        <tr><th>Per-Constructor Media Value</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y4</th><th class="num">Y5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Broadcast impressions (team kit on feed)</td><td class="num">0.1B</td><td class="num">0.2B</td><td class="num">0.3B</td><td class="num">0.4B</td><td class="num">0.5B</td></tr>
+        <tr><td>Team-social + creator impressions</td><td class="num">0.15B</td><td class="num">0.25B</td><td class="num">0.35B</td><td class="num">0.4B</td><td class="num">0.4B</td></tr>
+        <tr><td>Docuseries team-arc impressions</td><td class="num">0.025B</td><td class="num">0.075B</td><td class="num">0.125B</td><td class="num">0.175B</td><td class="num">0.225B</td></tr>
+        <tr><td class="total">Total impressions per seat</td><td class="num total">0.275B</td><td class="num total">0.525B</td><td class="num total">0.775B</td><td class="num total">0.975B</td><td class="num total">1.125B</td></tr>
+        <tr><td>Blended CPM (category-weighted)</td><td class="num">$12</td><td class="num">$13</td><td class="num">$14</td><td class="num">$15</td><td class="num">$14</td></tr>
+        <tr><td class="total">Theoretical media value per seat</td><td class="num total">$3.3M</td><td class="num total">$6.8M</td><td class="num total">$10.9M</td><td class="num total">$14.6M</td><td class="num total">$15.8M</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout violet" style="margin-top: 20px;">
+      <div class="k">Combined Constructor economics</div>
+      <p style="margin: 0;">Y5 Constructor gets ~$10.7M hard revenue + $15.8M theoretical media value = <strong>$26.5M total economic value / year</strong> against a $10M one-time license. That's the real unit economics — and it's why institutional brands treat Constructor seats as media-rights assets, not sponsorship spend.</p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — CONSTRUCTOR MOIC -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">08 · Constructor MOIC</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">CONSTRUCTOR 5-YEAR RETURN ON $10M LICENSE</div>
+    <h2 class="deck-title">2.0× cash-on-cash. 3.5× combined base case.</h2>
+
+    <table class="data">
+      <thead>
+        <tr><th>Return Component</th><th class="num">Amount</th><th class="num">vs $10M</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cumulative EBITDA Y1-Y5 (cash)</td><td class="num">$17.1M</td><td class="num">1.71×</td></tr>
+        <tr><td>Y5 Constructor enterprise value (6.5× Y5 EBITDA)</td><td class="num">$39M</td><td class="num">3.9×</td></tr>
+        <tr><td>Less: transfer-to-new-owner discount (20%)</td><td class="num">($8M)</td><td class="num">—</td></tr>
+        <tr><td>Y5 sellable stake value</td><td class="num">$31M</td><td class="num">3.1×</td></tr>
+        <tr><td class="total">Combined cash + equity MOIC</td><td class="num total pos">$48M</td><td class="num total pos">4.8×</td></tr>
+      </tbody>
+    </table>
+
+    <div class="scenarios" style="margin-top: 20px;">
+      <div class="scen bear">
+        <div class="tag">BEAR</div>
+        <div class="prob">Probability: 15%</div>
+        <div class="val">1.2× / 4% IRR</div>
+        <div class="irr">Seat retained but sport underperforms</div>
+        <div class="note">Cumulative cash $8M only; Y5 re-sale value collapses to $4M. Constructor recovers license + modest cash yield only.</div>
+      </div>
+      <div class="scen base">
+        <div class="tag">BASE</div>
+        <div class="prob">Probability: 60%</div>
+        <div class="val">3.5× / 28% IRR</div>
+        <div class="irr">Hits the pro forma above</div>
+        <div class="note">Cumulative EBITDA $17M + sellable stake $18M (discounted for liquidity + control) = $35M combined on $10M.</div>
+      </div>
+      <div class="scen bull">
+        <div class="tag">BULL</div>
+        <div class="prob">Probability: 25%</div>
+        <div class="val">7.2× / 48% IRR</div>
+        <div class="irr">Breakout seat, culturally iconic</div>
+        <div class="note">Seat re-auctions at Y5 above nominal. EBITDA exceeds base by 30%. Media halo drives parent-brand measurable attribution.</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 20px;">
+      <div class="k">Weighted expected Constructor MOIC</div>
+      <p style="margin: 0;">(15% × 1.2×) + (60% × 3.5×) + (25% × 7.2×) = <strong>4.08× weighted</strong> over 5 years on a $10M Constructor license. Treat as hybrid sponsorship-meets-investment. Institutional brands should benchmark against their other 5-year commit vehicles.</p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — SENSITIVITY -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">09 · Sensitivity Analysis</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">WHAT BREAKS THE MODEL</div>
+    <h2 class="deck-title">Three axes of risk — each with a numeric floor.</h2>
+
+    <table class="data">
+      <thead>
+        <tr><th>Risk Scenario</th><th class="num">Y5 League Rev</th><th class="num">Y5 EBITDA</th><th class="num">Investor MOIC</th><th class="num">Constructor MOIC</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Base case (per pro forma)</td><td class="num">$184M</td><td class="num pos">$63M</td><td class="num pos">3.3×</td><td class="num pos">3.5×</td></tr>
+        <tr><td>Media rights ramp 40% slower</td><td class="num">$155M</td><td class="num">$36M</td><td class="num">2.3×</td><td class="num">2.8×</td></tr>
+        <tr><td>2 Constructors default at Y3</td><td class="num">$166M</td><td class="num">$48M</td><td class="num">2.7×</td><td class="num">3.1×</td></tr>
+        <tr><td>Event gate + hospitality miss 30%</td><td class="num">$176M</td><td class="num">$55M</td><td class="num">3.0×</td><td class="num">3.3×</td></tr>
+        <tr><td>Docuseries never greenlit</td><td class="num">$168M</td><td class="num">$47M</td><td class="num">2.6×</td><td class="num">3.2×</td></tr>
+        <tr><td>All three adverse events stack</td><td class="num">$122M</td><td class="num">$8M</td><td class="num">1.4×</td><td class="num">2.1×</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card accent-violet">
+        <div class="eyebrow violet">MEDIA-RIGHTS EXPOSURE</div>
+        <h4 style="margin: 10px 0;">Highest single-line sensitivity</h4>
+        <p class="muted" style="margin: 0; font-size: .92rem;">Every 10% miss on media rights drops Y5 EBITDA by ~$7M and compresses Investor MOIC by ~25 bps. Mitigation: multi-year regional deals locked by Y2 close (creates floor).</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">CONSTRUCTOR RETENTION</div>
+        <h4 style="margin: 10px 0;">Renewal at Y5 matters more than defaults in Y3</h4>
+        <p class="muted" style="margin: 0; font-size: .92rem;">Y5 Constructor re-auction value is where ~40% of investor MOIC lives. 7-of-8 retention is the base; 5-of-8 drops to 2.3× Investor MOIC. Structure Y5 renewal terms carefully.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 11 — MILESTONES -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">10 · Year-By-Year Milestones</div>
+    <div class="page-num">PAGE 11</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">WHAT HAS TO BE TRUE, EACH YEAR</div>
+    <h2 class="deck-title">The go / no-go ratchets.</h2>
+
+    <table class="data">
+      <thead>
+        <tr><th>Year</th><th>Must Be True</th><th>Leading Indicator</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>2026</strong></td><td>Concorde signed April 1. 8 Constructors committed July 1.</td><td>Escrow milestone trigger + announced Constructor roster</td></tr>
+        <tr><td><strong>2027 (Y1)</strong></td><td>20 stops executed. $60M+ hard revenue. Regional broadcast partners in 4 markets.</td><td>Event completion rate &gt;95%. Media NPV deal signed Q2.</td></tr>
+        <tr><td><strong>2028 (Y2)</strong></td><td>Docuseries greenlit. $85M+ revenue. Venue renewals signed.</td><td>Streaming platform LOI by Q2. Media rights 35%+ of mix.</td></tr>
+        <tr><td><strong>2029 (Y3)</strong></td><td>EBITDA positive. Tracking-stock vehicle filed.</td><td>S-1 filed Q4. Constructor Y3 renewal tentative.</td></tr>
+        <tr><td><strong>2030 (Y4)</strong></td><td>IPO priced. 2 Constructor re-auctions at &gt;$10M.</td><td>IPO book 3× oversubscribed. Y4 EBITDA $40M+.</td></tr>
+        <tr><td><strong>2031 (Y5)</strong></td><td>Post-IPO trading steady. 7-of-8 Constructors renew.</td><td>Public-market EV/EBITDA &gt; 6.5×. Media rights Y5 $70M+.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top: 22px;">
+      <div class="k">The investor's dashboard</div>
+      <p style="margin: 0;">Any year that misses the "Must Be True" column without a recoverable explanation is the year the pro forma walks toward the sensitivity-table numbers. Institutional investors are paid to read this dashboard quarterly, not annually.</p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 12 — SUMMARY -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span><span>P1 World Tour</span>
+    </a>
+  </div>
+  <div>
+    <div class="eyebrow cyan" style="margin-bottom: 20px;">THE BOTTOM LINE</div>
+    <h2 class="deck-title grad" style="max-width: 20ch; font-size: clamp(2.4rem, 5vw, 4rem);">
+      3.3× investor. 3.5× Constructor. Both hold up under stress.
+    </h2>
+
+    <div class="grid-2" style="margin-top: 48px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow">ANCHOR INVESTOR ($50M)</div>
+        <h4 style="margin: 12px 0;">Weighted 3.3× / 27% IRR over 5 years</h4>
+        <p class="muted" style="margin: 0; font-size: .94rem;">Bear: 1.0× refund. Base: $165M at IPO. Bull: $280M at IPO + media halo. Exposure ceiling: full $50M (escrow-protected). Exit mechanism: tracking-stock IPO 2029-30.</p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">CONSTRUCTOR ($10M SEAT)</div>
+        <h4 style="margin: 12px 0;">Weighted 4.1× / 28% IRR + $15M/yr media halo</h4>
+        <p class="muted" style="margin: 0; font-size: .94rem;">Cumulative cash EBITDA $17M + Y5 sellable stake $31M. Plus $60M+ cumulative media value (non-cash but ROI-measurable). Best understood as hybrid sponsor-investment.</p>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 32px;">
+      <div class="k">The institutional takeaway</div>
+      <p style="margin: 0;">These numbers are the floor, not the ceiling. Bull cases exist. Bear case is capped at the escrow refund. The President's question for any investor should be: "Does your fund mandate price a 3.3×-5.6× at 27-41% IRR on a 5-year hold with a zero-loss floor?"</p>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <div class="item"><div class="k">DOCUMENT</div><div class="v">5-Year Projections</div></div>
+    <div class="item"><div class="k">VERSION</div><div class="v">Base case, April 2026</div></div>
+    <div class="item"><div class="k">STATUS</div><div class="v">CONFIDENTIAL</div></div>
+  </div>
+</section>
+
+</body>
+</html>
