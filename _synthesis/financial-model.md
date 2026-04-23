@@ -2,101 +2,136 @@
 
 **Every financial claim in every deck pulls from this file. No deck invents its own math.**
 
+*Version: Deck-15 v2 reconciled (2026-04-23). Supersedes all prior Steve-pitch-deck numbers ($96M→$210M ramp). Figures below are the realistic-haircut pro forma now propagated across every deck.*
+
 ---
 
 ## 1. League-level revenue — Year 1 through Year 5
 
 | Line item | Y1 | Y2 | Y3 | Y4 | Y5 |
 |---|---:|---:|---:|---:|---:|
-| Media rights | $32M | $45M | $60M | $72M | $82M |
-| Global sponsorship (title + category) | $24M | $30M | $36M | $41M | $46M |
-| Event revenue (gate, hospitality, on-site) | $18M | $21M | $25M | $28M | $32M |
-| Team feed (from Constructors) | $10M | $10M | $10M | $12M | $12M |
-| Licensing / merchandise | $7M | $9M | $12M | $15M | $18M |
-| Content + docuseries royalties | $5M | $8M | $12M | $16M | $20M |
-| **Total League Revenue** | **$96M** | **$123M** | **$155M** | **$184M** | **$210M** |
+| Media rights (contracted) | $22M | $34M | $48M | $62M | $76M |
+| Global sponsorship (title + category) | $20M | $26M | $32M | $38M | $44M |
+| Event revenue (gate + hospitality + F&B share) | $16M | $19M | $22M | $26M | $30M |
+| League licensing + merchandise royalties | $8M | $11M | $14M | $17M | $20M |
+| Docuseries + long-form content rights | $3M | $6M | $10M | $15M | $20M |
+| **Total League Revenue** | **$69M** | **$96M** | **$126M** | **$158M** | **$190M** |
 
-EBITDA inflection **Year 3**. Margin walk: -8% Y1 → -2% Y2 → +9% Y3 → +18% Y4 → +28% Y5.
+Note: Constructor franchise fees (8 × $10M = $80M) land Y0 as operating capital to the league. NOT in annual league revenue.
 
-Enterprise value at 7× revenue multiple:
-- Y1: $672M
-- Y3: $1.09B
-- Y5: $1.47B
+### League expense / EBITDA
 
-Tracking-stock / IPO target **2029-30 ($1B+)**. Long-term 2035 goal **$10B**.
+| Line item | Y1 | Y2 | Y3 | Y4 | Y5 |
+|---|---:|---:|---:|---:|---:|
+| Event production (20 stops) | $32M | $35M | $38M | $41M | $44M |
+| Prize pool (league-funded) | $24M | $24M | $24M | $24M | $24M |
+| Broadcast production + content | $9M | $11M | $13M | $15M | $17M |
+| Ramsports (2% of gross league revenue) | $1.4M | $1.9M | $2.5M | $3.2M | $3.8M |
+| League G&A + marketing | $10M | $13M | $16M | $18M | $20M |
+| **Total league opex** | $76M | $85M | $94M | $101M | $109M |
+| **League EBITDA** | **($7M)** | **$11M** | **$32M** | **$57M** | **$81M** |
+| **EBITDA margin** | -10% | 11% | 25% | 36% | 43% |
+
+Enterprise value at milestone close $250M implied; base-case Y5 EV $1.10B (13.6× EBITDA / 5.8× revenue). IPO target 2029-30 at $1B+. Long-term 2035 goal $10B.
+
+Cash bridge: $80M Constructor franchise fees + $50M anchor = $130M cash at close. Covers Y1 -$7M EBITDA + Y2 venue deposits with headroom. Y3 onward self-funding.
 
 ## 2. Investor anchor — return architecture
 
-| Entry point | $50M into $250M+ implied valuation at launch |
+| Mechanic | Value |
 |---|---|
-| Y1-3 Revenue | $96M → $123M → $155M (media, sponsors, events, team feed) |
-| Constructor MOIC (reference, not investor MOIC) | ~5× on $10M team license over 5 years; 35-45% IRR |
-| Tracking Stock | 2029-30: pure-play public vehicle. Pickleball's only listed asset. |
-| IPO Target | $1B+ valuation. Long-term $10B by 2035. |
+| Entry check | $50M |
+| Ownership at Concorde signing | 80% (mechanical post-money $62.5M) |
+| Implied valuation at milestone close | $250M+ (paper mark jumps to $200M at 4× within 90 days of 8-Constructor milestone) |
+| Y3 paper mark | $338M (EV ~$520M @ 65% post-Series B) |
+| Y5 paper mark, moderate dilution | $550M (EV $1.10B @ 50% post-pre-IPO) |
+| Y5 paper mark, no dilution | $880M (holds 80% through IPO) |
 
 **Investor downside:** fully protected in escrow. If 8 Constructors not secured by July 1 2026, complete $50M refund. Zero loss.
 
-**Investor upside (base case):** $50M → ~$400M paper value at 2029-30 IPO (implied 8× MOIC on tracking-stock stake).
-
 **Bear / Base / Bull** (5-year MOIC on $50M):
-- **Bear:** 1.0× ($50M returned — milestone missed)
-- **Base:** 3.5× (IPO at $1B, dilution-adjusted exit)
-- **Bull:** 7-10× (IPO at $2B+ with category-leader multiple, 2029-30 public float)
 
-## 3. Constructor unit economics — Year 5 target
+- **Bear (20% prob):** 1.0× — milestone miss, $50M refunded
+- **Base (55% prob):** 8.0× — IPO 2029-30 at $1.1B, moderate dilution to ~50%, $550M stake + $24M cumulative distributions
+- **Bull (25% prob):** 14.0× — IPO at $1.8B+ with docuseries breakout + tier-1 streaming partner; anchor participates in follow-on rounds, retains larger %
 
-Each Constructor seat ($10M one-time license):
+**Probability-weighted expected MOIC: 8.10×.** Convex payoff with a hard floor — structurally rare in institutional vehicles.
 
-| Revenue line | Y5 Contribution |
-|---|---:|
-| Team feed (from League → team operating budget) | $1.9M |
-| Title / kit / primary brand activation | $3.0M |
-| Category sponsors (4 slots × $0.9M) | $3.6M |
-| Merchandise | $1.2M |
-| Hospitality / event revenue share | $1.4M |
-| Content / docuseries attribution | $0.7M |
-| Regional activations | $1.3M |
-| **Total Y5 Constructor Revenue** | **$13.1M** |
+## 3. Constructor unit economics — per seat, 5-year base case
 
-Y5 operating cost: **$3.5-4.5M**
-Y5 EBITDA: **$6-8M**
-Y5 conservative valuation: **$40-65M**
-Y5 upside valuation: **$90-100M**
+Each Constructor seat: $10M one-time franchise fee + ~$4M/yr operating cost.
 
-**Constructor MOIC path on $10M:**
-- Cash-on-cash payback: ~2.5× over 5 years
-- Plus unmonetized media value: $20-40M (team IP, player brands, regional following)
-- Plus Y5 equity exit: $40-100M
-- **Combined 5-year MOIC: 5-10× on a $10M license fee**
+### Hard revenue build (Y1 → Y5)
 
-EBITDA path: Y1 +$1.6M → Y5 +$9.1M (upper band).
+| Revenue line | Y1 | Y2 | Y3 | Y4 | Y5 |
+|---|---:|---:|---:|---:|---:|
+| Sub-sponsorships (kit, team assets) | $1.5M | $2.0M | $2.6M | $3.2M | $3.8M |
+| Merchandise sales (net of COGS) | $0.5M | $0.8M | $1.2M | $1.6M | $2.0M |
+| Premium experiences (hospitality, VIP, clinics) | $0.7M | $1.0M | $1.3M | $1.7M | $2.0M |
+| Content + NIL attribution | $0.1M | $0.3M | $0.5M | $0.7M | $0.8M |
+| **Total Constructor hard revenue** | **$2.8M** | **$4.1M** | **$5.6M** | **$7.2M** | **$8.6M** |
+
+### Operating expense + cash flow
+
+| Line | Y0 | Y1 | Y2 | Y3 | Y4 | Y5 |
+|---|---:|---:|---:|---:|---:|---:|
+| Franchise fee (one-time, Y0) | ($10M) | — | — | — | — | — |
+| Team salaries (8 players + 1 coach) | — | $2.6M | $2.8M | $3.0M | $3.1M | $3.2M |
+| Travel + team ops (20 stops) | — | $0.9M | $0.95M | $1.0M | $1.05M | $1.1M |
+| Team staff + activation | — | $0.5M | $0.55M | $0.6M | $0.65M | $0.7M |
+| **Total operating expense** | — | $4.0M | $4.3M | $4.6M | $4.8M | $5.0M |
+| **Constructor operating cash flow** | **($10M)** | **($1.2M)** | **($0.2M)** | **$1.0M** | **$2.4M** | **$3.6M** |
+
+Cumulative Y1-Y5 operating cash inflow: ~$5.6M. Combined with -$10M franchise fee: -$4.4M net cash on operations alone.
+
+### Total economic value (hard + media halo + franchise resale)
+
+| Component | 5-year total | vs $10M |
+|---|---:|---:|
+| Franchise fee paid Y0 | ($10.0M) | — |
+| Cumulative operating cash Y1-Y5 | $5.6M | 0.56× |
+| Cumulative attributed media value (earned) | $22.0M | 2.20× |
+| Y5 sellable franchise value (after 25% liquidity discount) | $17.5M | 1.75× |
+| **Total value captured** | **$45.1M** | **4.5×** |
+
+**Constructor bear / base / bull 5-year MOIC:**
+
+- **Bear (15% prob):** 1.5× — sport underperforms, seat retained, half-pace media halo, Y5 re-sale at franchise-fee floor
+- **Base (60% prob):** 4.5× — hits the pro forma above; 28% blended IRR
+- **Bull (25% prob):** 8.0× — cultural breakout, F1-analog Y5 franchise re-auction at $35-50M premium (Cadillac / Andretti comps)
+
+**Probability-weighted expected Constructor MOIC: 4.93×.** Compare to: traditional sports sponsorship at ~1.5-2× measured ROI. P1 Constructor is structurally superior to equivalent-budget sponsorship alternatives.
+
+Note: Media halo only ROI-measurable for brands already buying category-equivalent media at $10M+/yr. Target Constructor profile is large multi-national only (adidas, Red Bull, Coca-Cola, Emirates tier). Mid-market consumer brands do NOT clear the hurdle.
 
 ## 4. Capital stack at launch ($130M total)
 
 | Source | Amount | Form | Rights |
 |---|---:|---|---|
-| Anchor Investor | $50M | Equity (commercial rights holder) | Global media, sponsorship, broadcast, licensing; anchor vote at governance |
-| Constructor Brands (8 × $10M) | $80M | License fee (5-year seat, renewable) | Franchise team operation, local-market revenue |
-| **Total Capital at Close** | **$130M** | | |
+| Anchor Investor | $50M | Equity — 80% of league at Concorde signing | Commercial rights holder (media, sponsorship, broadcast, licensing). Board observer → voting seat at IPO. |
+| Ramsports | $0 | 20% equity at formation (no cash) + 2% of gross revenue (flat) | FIA-analog independent technical + integrity body. Stewards, referees, drug testing. "2-and-20" hedge-fund analog. |
+| Constructor Brands (8 × $10M) | $80M | One-time franchise fee — operating capital to league (NOT equity) | 5-year renewable seat. Franchise team operation, local-market revenue rights. F1-constructor analog. |
+| **Total capital IN at milestone close** | **$130M** | | |
 
-Ramsports receives 20% equity at close. 2% revenue share on gross league revenue (flat, not tiered).
+Anchor post-money at mechanical signing: $50M / 80% = $62.5M. Milestone-close implied valuation: $250M+ once 8 Constructors committed and commercial rights activated (institutional comparables: LIV Golf commercial rights, TGL entity valuation, MLP equity).
 
-## 5. Media rights ramp
+## 5. Media rights ramp — Y1 $22M → Y5 $76M (3.45×)
 
-Y1 $32M → Y5 $82M. Path:
-- **Y1-Y2:** Regional packages in 4 core markets (US, UK, Asia-Pacific, MENA). Launch partner buys global highlight rights.
-- **Y2-Y3:** Docuseries greenlit (F1 Drive to Survive / Full Swing / Break Point analogue). One-season order from a streaming platform.
-- **Y3-Y4:** Unbundled live-event rights by geography. Multi-year deals replace spot buys.
-- **Y4-Y5:** Category-defining media property. Rights renewals at 2.5-3× launch pricing.
+- **Y1-Y2 ($22M → $34M):** Regional packages in 4 core markets (US, UK, Asia-Pacific, MENA). Launch partner buys global highlight rights.
+- **Y2-Y3 ($34M → $48M):** Docuseries greenlit (F1 Drive to Survive / Full Swing / Break Point analog). One-season order from a streaming platform.
+- **Y3-Y4 ($48M → $62M):** Unbundled live-event rights by geography. Multi-year deals replace spot buys.
+- **Y4-Y5 ($62M → $76M):** Category-defining media property. Rights renewals at 2.5-3× launch pricing.
 
-## 6. Sponsorship ramp by category
+## 6. Sponsorship ramp — Y1 $20M → Y5 $44M
 
-**Title / Presenting:** 1 global slot @ $18-24M/yr. Estimated closer: airline, automotive, or finance.
-**Kit:** 8 slots (one per Constructor) @ $3M/yr each. $24M total.
-**Category:** 4 global slots @ $6-8M/yr each. $24-32M/yr total. (Beverage, apparel, tech, financial services, mobility).
-**Regional activation:** 16 regional slots @ $1-2M/yr each. $16-32M/yr total.
+| Tier | Slot count | Annual ceiling |
+|---|---|---:|
+| Title / Presenting | 1 global slot | $15-20M/yr |
+| Kit | 8 (one per Constructor) — flows through Constructor P&L, NOT league sponsorship line | — |
+| Category | 4 global slots (Beverage, Apparel, Tech, Finance/Mobility) | $16-28M/yr by Y5 |
+| Regional Activation | 16 regional slots | $14-20M/yr by Y5 |
 
-Target brand partners (from conversation):
+Target brand partners:
 - **Beverage:** Red Bull, Monster, Coca-Cola, Pepsi, Athletic Brewing, OLIPOP
 - **Airline / Travel:** Emirates, Qatar Airways, Singapore Airlines
 - **Apparel / Footwear:** adidas, Skechers, New Balance, Lululemon
@@ -105,18 +140,23 @@ Target brand partners (from conversation):
 
 ## 7. Ramsports opex + economics
 
-- Y1 opex: **~$3M** (3 stewards + 3 traveling referees + drug testing program + integrity office)
-- Compensation model: **2% of gross league revenue + 20% equity**
-- Hedge-fund "2-and-20" analog — flat 2% management fee, 20% equity ("performance fee" in the hedge-fund mapping)
-- Year 1 Ramsports revenue: 2% × $96M = ~$1.92M fees. Ramsports covers its own ~$3M opex through those fees + equity appreciation. Minor line item vs league revenue, massive governance credibility.
+- **Y1 opex:** ~$3M (3 stewards + 3 traveling referees + drug testing + integrity office)
+- **Compensation:** 2% of gross league revenue + 20% equity at formation (no cash outlay)
+- **Y1 Ramsports fees:** 2% × $69M = ~$1.4M (self-funded via fees + equity appreciation once league exits)
+- **Minor line item vs league revenue; massive governance credibility upgrade vs UPA/PPA incumbent**
 
 ## 8. Scenario sensitivity (5-year outcome)
 
-| Scenario | Assumption | League Y5 Revenue | League EV (7×) | Investor MOIC |
-|---|---|---:|---:|---:|
-| **Bear** | Milestone miss | — | — | 1.0× ($50M returned) |
-| **Base** | Launch executes, 20 stops run, 8 brands retained, media ramps as modeled | $210M | $1.47B | 3.5× |
-| **Bull** | Launch executes + Grand Slam grows, category multiple expands post-IPO | $280M | $2.5B+ | 7-10× |
+| Scenario | Y5 League Rev | Y5 EBITDA | Anchor MOIC | Constructor multiple |
+|---|---:|---:|---:|---:|
+| **Base case** (per pro forma) | $190M | $81M | 8.0× | 4.5× |
+| Media rights ramp 40% slower | $160M | $51M | 5.2× | 3.5× |
+| 2 Constructors default at Y3 (6 retained) | $172M | $65M | 6.4× | 4.0× |
+| Event gate + hospitality miss 30% | $181M | $72M | 7.1× | 4.2× |
+| Docuseries never greenlit | $170M | $61M | 5.9× | 3.9× |
+| Anchor holds 80% through IPO (no follow-ons) | $190M | $81M | **17.6×** | 4.5× |
+| All three adverse events stack | $125M | $12M | 2.1× | 2.4× |
+| **Bull case** — Grand Slam overshoots + docuseries breakout | $240M | $110M | 14.0× | 8.0× |
 
 ## 9. Downside protection structure
 

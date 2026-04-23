@@ -121,10 +121,10 @@ Q16. How many players per team?
 A. 8-player roster + 1 coach per Constructor. 64 contracted pros total across the league.
 
 Q17. How are players paid?
-A. Roughly 50/50 split between team salary (Constructor-funded team feed of ~$1.9M Y5) and prize money (event-funded, $24M prize pool annual). Prize money does NOT count against Constructor salary cap.
+A. Team salaries are Constructor-paid ($2.6M Y1 → $3.2M Y5 per team for 8 players + 1 coach). Prize money is league-funded and additive ($24M annual pool) — does NOT count against Constructor salary cap. Combined ~$50M player pool at Y5.
 
 Q18. What's the Constructor 5-year return?
-A. ~2.5× cash-on-cash payback + $20-40M unmonetized media value + $40-100M Y5 equity exit = combined 5-10× MOIC on $10M license.
+A. 4.9× probability-weighted MOIC on $10M franchise fee. Base case: $5.6M cumulative operating cash + $22M cumulative earned media halo + $17.5M Y5 sellable franchise = $45M combined (4.5×). Bull case (25% prob): F1-analog franchise re-auction at $35-50M premium → 8×. Bear case (15% prob): 1.5× at franchise-fee floor.
 
 **Market / Comparables**
 

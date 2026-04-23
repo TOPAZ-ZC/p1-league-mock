@@ -61,13 +61,13 @@ Player pool combined: **$50M+** (includes salary feed from Constructors, prize m
 
 *(Note: earlier public drafts cited $28M; corrected to $24M after event-count reconciliation. See Q&A #3.)*
 
-## 5. Team economics — 8-player + 1-coach cap, 50/50 split
+## 5. Team economics — 8-player + 1-coach cap, Constructor-paid + league prize
 
 Each Constructor fields:
 - **8 players** (cap) + **1 coach** (cap)
-- Approx 50/50 split between **salary** (team feed) and **prize money** (events)
-- Prize money is funded entirely by the 54-event system — does NOT count against the team salary cap
-- Total player compensation industry-wide projected >$50M/yr by Y3
+- Team salaries are **Constructor-paid** ($2.6M Y1 → $3.2M Y5 per team)
+- Prize money is **league-funded and additive** — $24M annual pool. Does NOT count against the team salary cap
+- Combined ~$50M player pool at Y5 (8 teams × $3.2M Constructor salaries + $24M league prize pool)
 
 ## 6. Ramsports — the operating engine
 

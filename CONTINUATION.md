@@ -1,7 +1,76 @@
 # P1 League — Session 200 Resume File
-**Updated:** 2026-04-23T16:28:00-05:00
-**Previous session:** P1 League IPG-SoW fulfillment (parallel to Assay Studio Shortstop tracker — see `~/.claude-state/continuation-prompt.md` for that one).
-**Status:** All 14 decks + hub + shell + synthesis on disk. Ramsports fixed canonical. NOT YET SHIPPED. Pre-compact hit mid-verify of deck 14.
+**Updated:** 2026-04-23T17:10:00-05:00 (post-ship)
+**Previous session:** P1 League IPG-SoW fulfillment — 14 decks SHIPPED + Deck 15 (5-Year Projections) shipped + rebuilt once per SLOTH cap-table correction.
+**Status:** LIVE at https://topaz-zc.github.io/p1-league-mock/. All 15 decks + hub 200. Deck 15 needs ONE MORE REBUILD with real-market comps.
+
+## CRITICAL FIRST MOVES FOR NEXT SESSION (2 concurrent tracks)
+
+### TRACK A — Number congruence across all 15 decks (item #4 from SLOTH)
+Live hub hero is REBRANDED (P1 TOUR · World Pickleball League · no IPG framing). But
+revenue tables + MOIC numbers across decks 10/11/12/13/14 + synthesis + deck 04 Q&A
+still use Steve's original pitch-deck numbers (`$96M → $210M` Y5, `$11-13.5M` Constructor Y5)
+while Deck 15 v2 uses TOPAZ-haircut numbers (`$69M → $190M` Y5, `$8.6M` Constructor Y5).
+Need to reconcile before President reviews.
+
+Options:
+1. **Pick Deck 15 v2 as canonical.** Propagate $69M→$190M, $8.6M Constructor Y5, 8.1× anchor,
+   4.9× Constructor everywhere. Rewrite `_synthesis/financial-model.md` first, then decks.
+2. **Dual-tier disclosure.** Show "pitch ceiling" and "conservative floor" both. More honest
+   but busier decks. Leaves Deck 15 as the floor-mark view.
+
+Exact patch points if option 1 chosen:
+- `_synthesis/financial-model.md` (rewrite §1, §3, §6 completely)
+- `decks/10-master-pitch/index.html` — page 9 revenue table, page 10 capital stack
+- `decks/11-investor-equity/index.html` — page 6-7 revenue table + cap table
+- `decks/12-lender-finance/index.html` — EBITDA used for DSCR (pages 5-7)
+- `decks/13-media-rights/index.html` — media ramp $32M→$82M needs to become $22M→$76M
+- `decks/14-sponsorship-advisory/index.html` — ramp $24M→$46M needs to become $20M→$44M
+- `decks/04-supporting-slides/index.html` — Q7-Q18 Constructor economics Q&A answers
+
+### TRACK B — Real-market comps for Deck 15 (original item still pending)
+SLOTH wants Deck 15 rebuilt as the bulk-financial deliverable with **real market numbers**,
+not TOPAZ-derived estimates. Current Deck 15 has reasoned numbers but nothing sourced externally.
+
+### What to verify / source next session:
+1. **LIV Golf** 2022-2024 actuals — media rights, sponsorship, team-ownership revenue per seat. Sources: Saudi PIF disclosures, LIV CEO press, Sports Business Journal.
+2. **F1 constructor franchise values** — Cadillac entry reportedly ~$500M-$600M fee, Andretti attempted terms, historical Manor/Force India/Williams transactions. Sources: SBJ, The Race, Reuters.
+3. **MLP team valuations** — Steve Kuhn interviews, MLP funding round press (~$300M total entity valuation per Sideline REVISED).
+4. **PGA Tour Enterprises / Strategic Sports Group** — $3B deal Feb 2024. Terms disclosed. DIRECT sport-league SPAC-analog.
+5. **TGL Year-1 actuals** — 2024-2025 inaugural season. Media partner terms (ESPN), attendance, sponsor count.
+6. **Brand-lift attribution** — MAGNA/Nielsen/Relo published studies on F1 / tennis / MLS sponsor ROI. Gives real CPM-to-brand-lift conversion rates, not my $15-20 CPM guess.
+
+### What the rebuilt Deck 15 should contain:
+- **League P&L** with every line footnoted: "Media rights $X — comp: LIV $Y, F1 $Z, scaled by..."
+- **Constructor P&L** with every cash line + media-halo dollar footnoted to real comps
+- **SPAC analog framing** explicit: escrow-held + milestone-triggered + sponsor founder-stake (Ramsports) + de-SPAC commercial rights
+- **Cap structure math**: $50M for 80% = $62.5M post-money entry; $130M total capital in → $250M milestone-close step-up (anchor paper-marked to $200M in 90 days)
+- **Source page at end** — every number traced to a public document / press release / disclosed deal
+
+### What Deck 15 currently says (to replace or validate):
+- Anchor 80% on $50M, 8.1× weighted MOIC, 51% IRR
+- Constructor $10M franchise + $4M/yr ops, 4.9× weighted incl $22M cumulative media halo
+- Bear 20%/Base 55%/Bull 25% (anchor), Bear 15%/Base 60%/Bull 25% (Constructor)
+- Y5 league revenue $190M (I put ~15% haircut on Steve's $210M)
+
+## HOW TO RESUME
+```
+cd /Users/zacharycasler/p1-league-mock
+# Research phase — use WebSearch + WebFetch
+# 1. Pull LIV Golf / F1 / MLP / PGA Enterprises / TGL actuals
+# 2. Build a sources-comp-table in _synthesis/market-comps.md
+# 3. Rewrite decks/15-five-year-projections/index.html with every line cited
+# 4. Commit + push + verify live
+```
+
+## KEY FACTS LOCKED IN (from SLOTH's messages today)
+- Anchor: **80% of league** for $50M commitment
+- Ramsports: **20% equity** + **2% of gross league revenue** ("2-and-20")
+- Constructor: **$10M one-time franchise fee** (NOT equity — operating capital to league, F1-style)
+- Constructor: **~$4M/yr team salaries + expenses** (they self-fund team ops)
+- Constructor revenue streams: sub-sponsorships on team, merchandise, premium experiences, PLUS media halo
+- Target Constructor profile: **large multi-national brands** — adidas, Red Bull, Coca-Cola, Emirates tier only (not mid-market)
+- Structure is **SPAC-like**: escrow-protected + milestone-triggered conversion + Ramsports as sponsor-stake holder + anchor as de-SPAC commercial-rights holder
+- "$250M+ implied valuation" = milestone-close step-up (after 8 Constructors validated), NOT entry valuation
 
 ## SLOTH's directive (canonical)
 IPG proposed a Scope of Work to P1 League. SLOTH flipped the table: instead of P1 hiring IPG, Assay delivers every SoW item itself. 14 strategic artifacts + hub = the hand-back that proves P1 doesn't need IPG. Destination: President, P1 League, Inc. (cold prospect).
