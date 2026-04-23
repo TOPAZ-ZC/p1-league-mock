@@ -1,0 +1,296 @@
+/* P1 League — deck spread layout primitives
+   Every deck page is a .deck-page with padding, and uses .deck-header,
+   .deck-title, .deck-body, .deck-footer for consistency. */
+
+.deck-page {
+  position: relative;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 64px 72px 56px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.deck-page.cover {
+  padding: 90px 72px;
+  justify-content: space-between;
+  background:
+    radial-gradient(60% 60% at 20% 20%, rgba(124, 92, 255, 0.32), transparent 70%),
+    radial-gradient(50% 50% at 85% 60%, rgba(107, 227, 255, 0.24), transparent 70%),
+    radial-gradient(40% 40% at 50% 110%, rgba(244, 198, 91, 0.14), transparent 70%),
+    var(--bg);
+}
+
+.deck-page.tint-violet {
+  background: linear-gradient(180deg, rgba(124, 92, 255, 0.08), transparent 40%),
+    var(--bg);
+}
+.deck-page.tint-cyan {
+  background: linear-gradient(180deg, rgba(107, 227, 255, 0.08), transparent 40%),
+    var(--bg);
+}
+.deck-page.tint-gold {
+  background: linear-gradient(180deg, rgba(244, 198, 91, 0.08), transparent 40%),
+    var(--bg);
+}
+
+.deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 40px;
+  flex-shrink: 0;
+}
+.deck-header .page-label {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.deck-header .page-num {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--mute);
+}
+
+.deck-title {
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  margin: 0 0 18px;
+  max-width: 22ch;
+}
+.deck-title.grad {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.deck-subtitle {
+  font-size: 1.15rem;
+  color: var(--mute);
+  max-width: 62ch;
+  margin: 0 0 36px;
+}
+
+.deck-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.deck-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mute);
+  flex-shrink: 0;
+}
+
+/* Cover layouts */
+.cover-hero h1 {
+  font-size: clamp(3.4rem, 7vw, 5.6rem);
+  max-width: 16ch;
+  line-height: 0.95;
+  margin-bottom: 18px;
+}
+.cover-hero .lede {
+  font-size: 1.25rem;
+  color: var(--mute);
+  max-width: 62ch;
+  margin-bottom: 48px;
+}
+.cover-meta {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.cover-meta .item .k {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.cover-meta .item .v {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+/* Stat bars */
+.stat-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.stat-bar.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.stat-bar.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.stat-bar .cell {
+  padding: 22px 20px;
+  border-right: 1px solid var(--line);
+}
+.stat-bar .cell:last-child {
+  border-right: none;
+}
+.stat-bar .cell .num {
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+.stat-bar .cell .lbl {
+  font-size: 0.74rem;
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-top: 6px;
+}
+
+/* Callout block */
+.callout {
+  border-left: 3px solid var(--cyan);
+  padding: 20px 26px;
+  background: color-mix(in srgb, var(--cyan) 6%, transparent);
+  border-radius: 0 12px 12px 0;
+}
+.callout.violet {
+  border-left-color: var(--violet);
+  background: color-mix(in srgb, var(--violet) 6%, transparent);
+}
+.callout.gold {
+  border-left-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 6%, transparent);
+}
+.callout .k {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.callout.violet .k {
+  color: var(--violet);
+}
+.callout.gold .k {
+  color: var(--gold);
+}
+
+/* Two-column comparison (vs / vs) */
+.vs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.vs .side {
+  padding: 24px 26px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.vs .side.bad {
+  border-color: color-mix(in srgb, var(--red) 35%, transparent);
+  background: color-mix(in srgb, var(--red) 4%, transparent);
+}
+.vs .side.good {
+  border-color: color-mix(in srgb, var(--green) 35%, transparent);
+  background: color-mix(in srgb, var(--green) 4%, transparent);
+}
+.vs h4 {
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  color: var(--mute);
+}
+.vs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vs ul li {
+  padding-left: 22px;
+  position: relative;
+  font-size: 0.95rem;
+}
+.vs .side.bad li::before {
+  content: "\2717";
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-weight: 700;
+}
+.vs .side.good li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* Print override for deck-page padding */
+@media print {
+  .deck-page {
+    padding: 0.6in 0.7in 0.5in;
+    min-height: 10in;
+  }
+  .deck-page.cover {
+    padding: 0.9in 0.7in;
+  }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .deck-page {
+    padding: 28px 20px 24px;
+    min-height: auto;
+  }
+  .deck-page.cover {
+    padding: 48px 20px;
+  }
+  .deck-title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+  }
+  .stat-bar,
+  .stat-bar.cols-3,
+  .stat-bar.cols-5 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stat-bar .cell {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .vs {
+    grid-template-columns: 1fr;
+  }
+}

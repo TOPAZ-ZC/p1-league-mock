@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Organizational Chart</title>
+<meta name="description" content="Top-level org. Ramsports internal structure. Constructor template. League operations. RACI matrix. External advisory tier. Reporting lines across governance." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Org-box primitive */
+  .org-box {
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 72px;
+  }
+  .org-box.anchor { border-color: color-mix(in srgb, var(--cyan) 45%, transparent); background: color-mix(in srgb, var(--cyan) 5%, var(--card)); }
+  .org-box.ramsports { border-color: color-mix(in srgb, var(--violet) 45%, transparent); background: color-mix(in srgb, var(--violet) 5%, var(--card)); }
+  .org-box.constructor { border-color: color-mix(in srgb, var(--gold) 45%, transparent); background: color-mix(in srgb, var(--gold) 5%, var(--card)); }
+  .org-box.ops { border-color: color-mix(in srgb, var(--lav) 45%, transparent); background: color-mix(in srgb, var(--lav) 5%, var(--card)); }
+  .org-box .role {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 2px;
+  }
+  .org-box .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .org-box .scope {
+    font-size: 0.74rem;
+    color: var(--mute);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+  .org-box.small { min-height: 58px; padding: 10px 12px; }
+  .org-box.small .name { font-size: 0.8rem; }
+  .org-box.small .scope { font-size: 0.7rem; }
+
+  .top-org {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .top-tier {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .op-tier {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .constructor-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .tier-label {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+
+  .connector {
+    height: 1px;
+    background: var(--line-strong);
+    margin: 6px 0;
+  }
+  .concorde-band {
+    padding: 12px 16px;
+    border: 1px dashed var(--line-strong);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--gold) 4%, transparent);
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin: 6px 0;
+  }
+
+  /* Ramsports internal layout */
+  .rams-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .rams-exec {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .rams-roles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .rams-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Constructor template layout */
+  .con-layout { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .con-head { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .con-mid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .con-roster {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    padding: 12px;
+    border: 1px dashed var(--line-strong);
+    border-radius: 10px;
+  }
+  .roster-slot {
+    padding: 8px 6px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--card);
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--mute);
+  }
+
+  /* League ops grid */
+  .ops-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .ops-card {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .ops-card .head {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 6px;
+  }
+  .ops-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 8px;
+  }
+  .ops-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--ink);
+  }
+  .ops-card ul li { padding-left: 12px; position: relative; }
+  .ops-card ul li::before { content: "–"; position: absolute; left: 0; color: var(--mute); }
+
+  /* RACI table */
+  table.raci {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+  }
+  table.raci th, table.raci td {
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+    text-align: center;
+  }
+  table.raci th {
+    background: var(--card-2);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  table.raci td.decision { text-align: left; font-weight: 600; color: var(--ink); }
+  table.raci .R { color: var(--cyan); font-weight: 800; }
+  table.raci .A { color: var(--gold); font-weight: 800; }
+  table.raci .C { color: var(--violet); font-weight: 700; }
+  table.raci .I { color: var(--mute); }
+
+  /* Advisor profile grid */
+  .adv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .adv-card {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .adv-card .role {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .adv-card .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  .adv-card .scope {
+    font-size: 0.82rem;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+
+  /* Reporting lines */
+  .reporting {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .reporting .col {
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .reporting ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .reporting li {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--ink);
+    padding: 8px 10px;
+    border-left: 2px solid var(--cyan);
+    background: color-mix(in srgb, var(--cyan) 4%, transparent);
+  }
+  .reporting .col.ramsports li { border-left-color: var(--violet); background: color-mix(in srgb, var(--violet) 4%, transparent); }
+  .reporting .col.commercial li { border-left-color: var(--cyan); background: color-mix(in srgb, var(--cyan) 4%, transparent); }
+
+  @media (max-width: 900px) {
+    .top-tier, .op-tier, .constructor-row, .rams-exec, .rams-roles, .rams-board,
+    .con-head, .con-mid, .ops-grid, .adv-grid, .reporting {
+      grid-template-columns: 1fr !important;
+    }
+    .con-roster { grid-template-columns: repeat(4, 1fr) !important; }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow violet">DECK 06 · ORG CHART</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">Organizational Chart</h1>
+    <p class="lede">
+      Reporting lines, role scopes, and decision authority across all three bodies — plus league operations, the
+      Constructor team template, and the external advisory tier. Every role has a charter.
+    </p>
+    <div class="row" style="gap: 16px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">3 BODIES</span></div>
+      <div class="chip violet"><span class="mono">8 CONSTRUCTOR SLOTS</span></div>
+      <div class="chip gold"><span class="mono">6-MEMBER RAMSPORTS BOARD</span></div>
+      <div class="chip"><span class="mono">RACI MATRIX</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Office of the President, P1 League Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — TOP-LEVEL ORG -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">01 · Top-Level Org</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE THREE BODIES + LEAGUE OPERATIONS</div>
+    <h2 class="deck-title">Every role bound by the Concorde covenant.</h2>
+
+    <div class="top-org">
+      <div class="tier-label">Tier 1 — Governance Bodies</div>
+      <div class="top-tier">
+        <div class="org-box anchor">
+          <div class="role">Commercial Rights</div>
+          <div class="name">Investor Entity (Anchor)</div>
+          <div class="scope">$50M anchor at $250M+ implied. Holds global media, sponsorship, broadcast, licensing. Board observer → voting at tracking-stock.</div>
+        </div>
+        <div class="org-box ramsports">
+          <div class="role">Regulation &amp; Integrity</div>
+          <div class="name">Ramsports</div>
+          <div class="scope">Independent technical + integrity body. CEO + President + 6-member board. 3 stewards, 3 refs, integrity office, drug-testing program.</div>
+        </div>
+        <div class="org-box constructor">
+          <div class="role">Franchise Brands</div>
+          <div class="name">8 Constructor Seats</div>
+          <div class="scope">$10M each → $80M total. Scarce. 5-year renewable. Team ops, 8-player rosters, regional revenue.</div>
+        </div>
+      </div>
+
+      <div class="concorde-band">The Concorde Agreement · binding covenant across all three bodies</div>
+
+      <div class="tier-label">Tier 2 — The Eight Constructor Slots</div>
+      <div class="constructor-row">
+        <div class="org-box constructor small"><div class="role">Seat 1</div><div class="name">Constructor A</div><div class="scope">Primary HQ · kit slot</div></div>
+        <div class="org-box constructor small"><div class="role">Seat 2</div><div class="name">Constructor B</div><div class="scope">Primary HQ · kit slot</div></div>
+        <div class="org-box constructor small"><div class="role">Seat 3</div><div class="name">Constructor C</div><div class="scope">Primary HQ · kit slot</div></div>
+        <div class="org-box constructor small"><div class="role">Seat 4</div><div class="name">Constructor D</div><div class="scope">Primary HQ · kit slot</div></div>
+      </div>
+      <div class="constructor-row" style="margin-top: 10px;">
+        <div class="org-box constructor small"><div class="role">Seat 5</div><div class="name">Constructor E</div><div class="scope">Primary HQ · kit slot</div></div>
+        <div class="org-box constructor small"><div class="role">Seat 6</div><div class="name">Constructor F</div><div class="scope">Primary HQ · kit slot</div></div>
+        <div class="org-box constructor small"><div class="role">Seat 7</div><div class="name">Constructor G</div><div class="scope">Primary HQ · kit slot</div></div>
+        <div class="org-box constructor small"><div class="role">Seat 8</div><div class="name">Constructor H</div><div class="scope">Primary HQ · kit slot</div></div>
+      </div>
+
+      <div class="tier-label" style="margin-top: 10px;">Tier 3 — League Operations (reports to Investor entity; Ramsports holds sanctioning veto)</div>
+      <div class="op-tier">
+        <div class="org-box ops small"><div class="role">Operations</div><div class="name">Event Production</div><div class="scope">20-stop calendar · venues · load-in</div></div>
+        <div class="org-box ops small"><div class="role">Broadcast</div><div class="name">Host Feed + Distribution</div><div class="scope">Live · highlight · docuseries</div></div>
+        <div class="org-box ops small"><div class="role">Commercial</div><div class="name">Sponsorship + Licensing</div><div class="scope">Title · category · regional · kit</div></div>
+        <div class="org-box ops small"><div class="role">Development</div><div class="name">Player Pipeline</div><div class="scope">Academy · rating · Olympic pathway</div></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 18px;">
+      <div class="k">Tier logic</div>
+      <p style="margin: 0; font-size: 0.88rem;">
+        Tier 1 bodies are charter-level — each has its own mandate and cannot be overruled inside its scope.
+        Tier 2 Constructors operate franchise teams under Ramsports sanctioning. Tier 3 League Operations execute
+        day-to-day, reporting commercially to the Investor entity with Ramsports veto on integrity &amp; competition.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Org Chart</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — RAMSPORTS INTERNAL ORG -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">02 · Ramsports Internal</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE OPERATING ENGINE</div>
+    <h2 class="deck-title grad">Independent · compensated on equity · already running.</h2>
+
+    <div class="rams-layout">
+      <div class="tier-label">Executive</div>
+      <div class="rams-exec">
+        <div class="org-box ramsports">
+          <div class="role">CEO</div>
+          <div class="name">Richard Gossett</div>
+          <div class="scope">Operating cadence + technical mandate. Reports to 6-member board. Sets annual steward / ref assignments, integrity protocol, drug-testing scope.</div>
+        </div>
+        <div class="org-box ramsports">
+          <div class="role">President</div>
+          <div class="name">Alex Yuen</div>
+          <div class="scope">Asia-region deployment, broadcaster + government liaisons. 25y China. Ex-VP NBA BIG3 China. Owns P1 Asia operating footprint.</div>
+        </div>
+      </div>
+
+      <div class="tier-label">Competition Operations</div>
+      <div class="rams-roles">
+        <div class="org-box ramsports small"><div class="role">Steward 1</div><div class="name">Chief Steward</div><div class="scope">Lead rulings on conduct, format, play.</div></div>
+        <div class="org-box ramsports small"><div class="role">Steward 2</div><div class="name">Steward (Regional)</div><div class="scope">Asia-Pacific swing lead.</div></div>
+        <div class="org-box ramsports small"><div class="role">Steward 3</div><div class="name">Steward (Regional)</div><div class="scope">Americas / Europe swing lead.</div></div>
+        <div class="org-box ramsports small"><div class="role">Ref Crew</div><div class="name">3 Traveling Refs</div><div class="scope">On-court officiating rotation.</div></div>
+      </div>
+
+      <div class="tier-label">Integrity + Testing</div>
+      <div class="rams-exec">
+        <div class="org-box ramsports">
+          <div class="role">Director</div>
+          <div class="name">Integrity Office</div>
+          <div class="scope">Betting-integrity monitoring. Appeal-review pipeline. Conduct investigations. Written findings published. Independent of commercial entity.</div>
+        </div>
+        <div class="org-box ramsports">
+          <div class="role">Program Lead</div>
+          <div class="name">Drug-Testing Program</div>
+          <div class="scope">Event-day + out-of-competition testing. WADA-aligned panel. Accredited lab partnerships. Published annual prevalence data.</div>
+        </div>
+      </div>
+
+      <div class="tier-label">6-Member Board</div>
+      <div class="rams-board">
+        <div class="org-box ramsports small"><div class="role">Chair · CEO</div><div class="name">Richard Gossett</div><div class="scope">Operating lead</div></div>
+        <div class="org-box ramsports small"><div class="role">Director</div><div class="name">Alex Yuen</div><div class="scope">Asia lead</div></div>
+        <div class="org-box ramsports small"><div class="role">Advisor</div><div class="name">Seymour Rifkind</div><div class="scope">WPF / Olympic path</div></div>
+        <div class="org-box ramsports small"><div class="role">Advisor</div><div class="name">Steve Kuhn</div><div class="scope">DUPR / rating</div></div>
+      </div>
+      <div class="rams-board" style="margin-top: 10px;">
+        <div class="org-box ramsports small"><div class="role">Advisor</div><div class="name">Tenniel Chu</div><div class="scope">Asia venues</div></div>
+        <div class="org-box ramsports small"><div class="role">Advisor</div><div class="name">Philip Mok</div><div class="scope">HKTA / ITF</div></div>
+        <div class="org-box ramsports small"><div class="role">Observer</div><div class="name">Anchor Investor</div><div class="scope">Non-voting on integrity</div></div>
+        <div class="org-box ramsports small"><div class="role">Counsel</div><div class="name">Independent Legal</div><div class="scope">Charter + arbitration</div></div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 14px;">
+      <div class="k">Y1 Opex anchored</div>
+      <p style="margin: 0; font-size: 0.86rem;">
+        ~$3M Y1 opex (stewards + refs + integrity office + drug testing). Comp model: 2% of gross league revenue + 20% equity (flat, not tiered). Hedge-fund "2-and-20" analog.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Org Chart</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — CONSTRUCTOR TEMPLATE ORG -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">03 · Constructor Template</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">REPEATED 8× ACROSS THE LEAGUE</div>
+    <h2 class="deck-title">One Constructor. Six roles. Eight players.</h2>
+    <p class="deck-subtitle">
+      Template applies to each of 8 licensed Constructor brands. Brands fill this shape with their own
+      executives; the structure is constant across the league for broadcast-production and integrity clarity.
+    </p>
+
+    <div class="con-layout">
+      <div class="tier-label">Executive</div>
+      <div class="con-head">
+        <div class="org-box constructor">
+          <div class="role">Team President</div>
+          <div class="name">Constructor CEO / Principal</div>
+          <div class="scope">Reports to Constructor brand parent. Owns P&amp;L, sponsor stacks, regional-activation calendar, player-contract signature authority.</div>
+        </div>
+        <div class="org-box constructor">
+          <div class="role">Head Coach</div>
+          <div class="name">Coach (1 cap)</div>
+          <div class="scope">Reports to Team President. Sets lineup, practice cadence, division strategy. Ramsports-licensed per Constructor seat.</div>
+        </div>
+      </div>
+
+      <div class="tier-label">Operating Functions</div>
+      <div class="con-mid">
+        <div class="org-box constructor small">
+          <div class="role">Marketing</div>
+          <div class="name">Brand + Content Lead</div>
+          <div class="scope">Team social, creator pipeline, kit merchandise, daily-content quota delivery.</div>
+        </div>
+        <div class="org-box constructor small">
+          <div class="role">Regional Ops</div>
+          <div class="name">Home-Stop Activation</div>
+          <div class="scope">Owns home-stop hospitality, regional-sponsor activation, fan-zone programming.</div>
+        </div>
+        <div class="org-box constructor small">
+          <div class="role">Player Services</div>
+          <div class="name">Performance + Welfare</div>
+          <div class="scope">Training, medical, travel, agent interface. Reports to Team President.</div>
+        </div>
+      </div>
+
+      <div class="tier-label">Player Roster (Cap: 8 + 1 Coach)</div>
+      <div class="con-roster">
+        <div class="roster-slot">Player 1</div>
+        <div class="roster-slot">Player 2</div>
+        <div class="roster-slot">Player 3</div>
+        <div class="roster-slot">Player 4</div>
+        <div class="roster-slot">Player 5</div>
+        <div class="roster-slot">Player 6</div>
+        <div class="roster-slot">Player 7</div>
+        <div class="roster-slot">Player 8</div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 8px;">
+        <div class="card">
+          <div class="eyebrow gold">Economics per team</div>
+          <div style="font-size: 0.86rem; color: var(--ink); line-height: 1.7; margin-top: 6px;">
+            $10M one-time license · Y5 revenue $11-13.5M · Y5 EBITDA $6-8M · Y5 valuation (conservative) $40-65M,
+            upside $90-100M · 5-year combined MOIC 5-10×.
+          </div>
+        </div>
+        <div class="card accent-gold">
+          <div class="eyebrow gold">Payroll doctrine</div>
+          <div style="font-size: 0.86rem; color: var(--ink); line-height: 1.7; margin-top: 6px;">
+            8 players + 1 coach cap. ~50/50 split between Constructor-funded team salary and event-funded prize
+            money. Prize money does NOT count against Constructor cap. ~$1.9M Y5 team feed.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Org Chart</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — LEAGUE OPERATIONS -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">04 · League Operations</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">DAY-TO-DAY EXECUTION ENGINE</div>
+    <h2 class="deck-title">Five functions. One reporting line. Ramsports integrity veto.</h2>
+
+    <div class="ops-grid">
+      <div class="ops-card">
+        <div class="head">01 · Event Production</div>
+        <h4>The 20-stop machine</h4>
+        <ul>
+          <li>Venue contracting (4-8k arenas)</li>
+          <li>Festival-weekend load-in / out</li>
+          <li>Local promoter partner per stop</li>
+          <li>Gate · hospitality · on-site commerce</li>
+          <li>Ramsports sanctioning coordination</li>
+        </ul>
+      </div>
+      <div class="ops-card">
+        <div class="head">02 · Broadcast</div>
+        <h4>Live + highlight feed</h4>
+        <ul>
+          <li>Host-broadcaster feed production</li>
+          <li>Sky / ESPN / DAZN / beIN distribution</li>
+          <li>Regional-partner packaging</li>
+          <li>Highlight syndication pipeline</li>
+          <li>Y2-3 media ramp: $32M → $60M</li>
+        </ul>
+      </div>
+      <div class="ops-card">
+        <div class="head">03 · Content + Docuseries</div>
+        <h4>Storytelling drives adoption</h4>
+        <ul>
+          <li>Daily-content quotas per stop</li>
+          <li>Creator pipeline (open-media model)</li>
+          <li>Season-long docuseries rights</li>
+          <li>Platform sale (F1 DTS analog)</li>
+          <li>Y3-5 content / docu royalty: $12M → $20M</li>
+        </ul>
+      </div>
+      <div class="ops-card">
+        <div class="head">04 · Sponsorship Activation</div>
+        <h4>Title · category · regional · kit</h4>
+        <ul>
+          <li>1 title slot @ $18-24M/yr</li>
+          <li>4 global category slots @ $6-8M each</li>
+          <li>16 regional slots @ $1-2M each</li>
+          <li>8 kit slots (Constructor-owned)</li>
+          <li>Category exclusivity enforcement</li>
+        </ul>
+      </div>
+      <div class="ops-card">
+        <div class="head">05 · Player Development</div>
+        <h4>Pipeline + rating + academy</h4>
+        <ul>
+          <li>Academy-partnership network</li>
+          <li>DUPR rating-system integration</li>
+          <li>Junior pathway (Ramsports-chartered)</li>
+          <li>Olympic pathway via WPF</li>
+          <li>Player-welfare + agent interface</li>
+        </ul>
+      </div>
+      <div class="ops-card">
+        <div class="head">06 · Finance + Legal</div>
+        <h4>Shared services backbone</h4>
+        <ul>
+          <li>Escrow administration</li>
+          <li>Tax + royalty distribution</li>
+          <li>Constructor-contract compliance</li>
+          <li>International rights clearance</li>
+          <li>Insurance + indemnity stack</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 14px;">
+      <div class="k">Reporting line</div>
+      <p style="margin: 0; font-size: 0.88rem;">
+        League Operations reports commercially to the Investor entity. Ramsports holds an integrity + competition
+        veto on any operating decision that affects sanctioning, player-welfare, or on-court format. The separation
+        is explicit in the charter.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Org Chart</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — RACI MATRIX -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">05 · RACI Matrix</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">RESPONSIBLE · ACCOUNTABLE · CONSULT · INFORM</div>
+    <h2 class="deck-title">Ten critical decisions. One clear owner per decision.</h2>
+
+    <table class="raci">
+      <thead>
+        <tr>
+          <th style="width: 28%; text-align: left;">Decision</th>
+          <th>Investor</th>
+          <th>Ramsports CEO</th>
+          <th>Ramsports Board</th>
+          <th>Constructors</th>
+          <th>League Ops</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="decision">Season calendar &amp; venue selection</td>
+          <td class="C">C</td>
+          <td class="A">A</td>
+          <td class="C">C</td>
+          <td class="C">C</td>
+          <td class="R">R</td>
+        </tr>
+        <tr>
+          <td class="decision">Global media-rights deal</td>
+          <td class="A">A</td>
+          <td class="C">C</td>
+          <td class="I">I</td>
+          <td class="C">C</td>
+          <td class="R">R</td>
+        </tr>
+        <tr>
+          <td class="decision">Title / category sponsor award</td>
+          <td class="A">A</td>
+          <td class="C">C</td>
+          <td class="I">I</td>
+          <td class="C">C</td>
+          <td class="R">R</td>
+        </tr>
+        <tr>
+          <td class="decision">Constructor seat admission</td>
+          <td class="A">A</td>
+          <td class="C">C</td>
+          <td class="C">C</td>
+          <td class="I">I</td>
+          <td class="R">R</td>
+        </tr>
+        <tr>
+          <td class="decision">Player registration &amp; eligibility</td>
+          <td class="I">I</td>
+          <td class="A">A</td>
+          <td class="C">C</td>
+          <td class="C">C</td>
+          <td class="I">I</td>
+        </tr>
+        <tr>
+          <td class="decision">Integrity / doping sanction</td>
+          <td class="I">I</td>
+          <td class="R">R</td>
+          <td class="A">A</td>
+          <td class="I">I</td>
+          <td class="I">I</td>
+        </tr>
+        <tr>
+          <td class="decision">Prize-pool sizing per event</td>
+          <td class="A">A</td>
+          <td class="C">C</td>
+          <td class="I">I</td>
+          <td class="C">C</td>
+          <td class="R">R</td>
+        </tr>
+        <tr>
+          <td class="decision">Player-transfer approval</td>
+          <td class="I">I</td>
+          <td class="A">A</td>
+          <td class="C">C</td>
+          <td class="R">R</td>
+          <td class="I">I</td>
+        </tr>
+        <tr>
+          <td class="decision">Docuseries rights sale</td>
+          <td class="A">A</td>
+          <td class="I">I</td>
+          <td class="I">I</td>
+          <td class="C">C</td>
+          <td class="R">R</td>
+        </tr>
+        <tr>
+          <td class="decision">Governance amendment</td>
+          <td class="A">A</td>
+          <td class="A">A</td>
+          <td class="A">A</td>
+          <td class="A">A</td>
+          <td class="I">I</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-4" style="margin-top: 16px;">
+      <div class="card tight"><div class="eyebrow">R</div><div style="font-size: 0.82rem; color: var(--ink); margin-top: 4px;">Responsible — does the work</div></div>
+      <div class="card tight"><div class="eyebrow gold">A</div><div style="font-size: 0.82rem; color: var(--ink); margin-top: 4px;">Accountable — final say</div></div>
+      <div class="card tight"><div class="eyebrow violet">C</div><div style="font-size: 0.82rem; color: var(--ink); margin-top: 4px;">Consulted — 2-way input</div></div>
+      <div class="card tight"><div class="eyebrow">I</div><div style="font-size: 0.82rem; color: var(--ink); margin-top: 4px;">Informed — 1-way notice</div></div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Org Chart</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — EXTERNAL ADVISORY TIER -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">06 · External Advisory Tier</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">GLOBAL PICKLEBALL AUTHORITY · ALREADY ALIGNED</div>
+    <h2 class="deck-title">Four external advisors. Each owns a category no one else can cover.</h2>
+
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="role">Olympic &amp; Federation Pathway</div>
+        <div class="name">Seymour Rifkind</div>
+        <div class="scope">
+          Founder World Pickleball Federation + IPTPA. Driving force for Olympic inclusion. Owns global-federation
+          interface + Olympic-pathway strategy. Critical to Olympic qualification (LA 2028 aspirational window).
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="role">Rating System &amp; Sport Architecture</div>
+        <div class="name">Steve Kuhn</div>
+        <div class="scope">
+          Founder MLP (valued $300M). Founder DUPR global rating system. Key architect of pickleball as a
+          competitive sport. Owns rating-integration, player-identity doctrine, and cross-league portability.
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="role">Asia Venue Network &amp; Hospitality</div>
+        <div class="name">Tenniel Chu</div>
+        <div class="scope">
+          Vice Chairman Mission Hills Group — world's largest golf resort developer in China. Owns Asia venue
+          relationships, festival-weekend hospitality design, cross-cultural operational doctrine for Swing 3.
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="role">Racquet-Sport Federation &amp; MENA</div>
+        <div class="name">Philip Mok</div>
+        <div class="scope">
+          President HKTA 2015-23. Elected to ITF. Driving force behind Hong Kong Olympic Committee. Owns
+          racquet-sport federation liaison, Hong Kong + MENA relationships, Olympic committee interface.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 16px;">
+      <div class="k">Why this bench is the moat</div>
+      <p style="margin: 0; font-size: 0.9rem;">
+        No competing league has this level of global pickleball authority on the bench. Rifkind + Kuhn together
+        own the federation and rating-system substrate of the sport. Chu + Mok own the Asia + Hong Kong venue
+        and government interface. This is not advisory-in-name — it is the operational interface between P1 and
+        every sanctioning body on Earth that matters to pickleball's next decade.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Org Chart</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — REPORTING LINES -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">07 · Reporting Lines</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">WHO REPORTS TO WHOM</div>
+    <h2 class="deck-title">Two reporting spines. Clean separation.</h2>
+    <p class="deck-subtitle">
+      Every role reports up through one of two spines: the commercial spine (to the Investor entity) or the
+      regulatory spine (to Ramsports). Roles never report to both. Escalation paths published in charter.
+    </p>
+
+    <div class="reporting">
+      <div class="col commercial">
+        <div class="eyebrow cyan" style="margin-bottom: 8px;">Commercial Spine</div>
+        <h4 style="margin: 0 0 12px; font-family: 'Outfit', sans-serif;">Reports up to Investor Entity</h4>
+        <ul>
+          <li>League Ops — Event Production → Investor Commercial Committee</li>
+          <li>League Ops — Broadcast → Investor Commercial Committee</li>
+          <li>League Ops — Sponsorship Activation → Investor Commercial Committee</li>
+          <li>League Ops — Content / Docuseries → Investor Commercial Committee</li>
+          <li>League Ops — Finance &amp; Legal → Investor CFO / Board</li>
+          <li>8 Constructor Team Presidents → Constructor Parent Brand (dotted: Investor)</li>
+        </ul>
+      </div>
+      <div class="col ramsports">
+        <div class="eyebrow violet" style="margin-bottom: 8px;">Regulatory Spine</div>
+        <h4 style="margin: 0 0 12px; font-family: 'Outfit', sans-serif;">Reports up to Ramsports Board</h4>
+        <ul>
+          <li>3 Stewards → Ramsports CEO → Board</li>
+          <li>3 Traveling Refs → Chief Steward → CEO → Board</li>
+          <li>Integrity Office Director → Ramsports CEO → Board</li>
+          <li>Drug-Testing Program Lead → Integrity Office → CEO → Board</li>
+          <li>Player-Development Pipeline → Ramsports CEO (dotted: League Ops)</li>
+          <li>External Advisors (Rifkind / Kuhn / Chu / Mok) → Board chair</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 16px;">
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Concorde-level escalation</div>
+        <div style="font-size: 0.88rem; color: var(--ink); line-height: 1.7; margin-top: 6px;">
+          Disputes that span both spines (e.g., a commercial-sponsor conflict with an integrity finding) escalate
+          to a Concorde-convened joint committee: Investor chair + Ramsports CEO + 2 Constructor delegates.
+          Decision by majority. Reasoned finding published.
+        </div>
+      </div>
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">External-appeal path</div>
+        <div style="font-size: 0.88rem; color: var(--ink); line-height: 1.7; margin-top: 6px;">
+          Beyond Concorde joint committee, final appeal to Court of Arbitration for Sport or equivalent neutral
+          body. Scope limited to matters of procedural integrity — not substitution of judgment on factual
+          integrity findings. F1 / FIA analog.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 14px;">
+      <div class="k">The principle</div>
+      <p style="margin: 0; font-size: 0.88rem;">
+        Dual reporting spines prevent the single failure mode of the incumbent model — a regulator reporting up
+        to its operator. Every role knows which chain it is on; every dispute knows which spine adjudicates it.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Org Chart</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+</body>
+</html>

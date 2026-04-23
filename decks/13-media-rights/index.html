@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Media Rights Deck</title>
+<meta name="description" content="The media-rights architecture. $32M Y1 to $82M Y5. Open-media model. 360 live hours + 80 docuseries hours. Regional tiers across US, UK, Asia-Pacific, MENA, LatAm." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Media-specific primitives */
+  .inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .inventory-card {
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+  .inventory-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .inventory-card .v {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 6px 0 8px;
+  }
+  .inventory-card p { margin: 0; font-size: 0.86rem; color: var(--mute); line-height: 1.5; }
+
+  .region-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 1fr 140px;
+    gap: 18px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+    font-size: 0.92rem;
+  }
+  .region-row:first-of-type { border-top: none; }
+  .region-row .n {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+  .region-row .buyers {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--cyan);
+  }
+  .region-row .note { color: var(--mute); font-size: 0.88rem; }
+  .region-row .y3 {
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    color: var(--gold);
+    text-align: right;
+    font-weight: 700;
+  }
+
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .partner-card {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    text-align: center;
+  }
+  .partner-card .logo {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .partner-card .region {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  .comp-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 120px;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    align-items: center;
+  }
+  .comp-row:first-of-type { border-top: none; }
+  .comp-row .n {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+  .comp-row .d {
+    font-size: 0.88rem;
+    color: var(--mute);
+  }
+  .comp-row .v {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--cyan);
+    text-align: right;
+    font-weight: 700;
+  }
+
+  .ramp-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .ramp-grid .col {
+    padding: 22px 18px;
+    border-right: 1px solid var(--line);
+  }
+  .ramp-grid .col:last-child { border-right: none; }
+  .ramp-grid .y {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--mute);
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+  .ramp-grid .amt {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    line-height: 1;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .ramp-grid .lbl {
+    font-size: 0.76rem;
+    color: var(--mute);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .pipeline-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .pipeline-row:first-of-type { border-top: none; }
+  .pipeline-row .d {
+    font-family: var(--mono);
+    font-size: 0.86rem;
+    color: var(--violet);
+    font-weight: 700;
+  }
+  .pipeline-row .t {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .pipeline-row p { margin: 0; font-size: 0.88rem; color: var(--mute); }
+
+  @media (max-width: 900px) {
+    .inventory-grid, .partner-grid { grid-template-columns: 1fr 1fr; }
+    .region-row, .comp-row { grid-template-columns: 1fr; gap: 4px; }
+    .region-row .y3, .comp-row .v { text-align: left; }
+    .ramp-grid { grid-template-columns: 1fr 1fr; }
+    .ramp-grid .col { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow cyan">DELIVERABLE 13 &middot; MEDIA RIGHTS DECK</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">The open-media model for the fastest-growing sport on Earth.</h1>
+    <p class="lede">
+      20 events. 17 countries. 360 live hours. 80 docuseries hours.
+      $32M Y1 &rarr; $82M Y5. Fans film, creators amplify, rights compound.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">$82M Y5 MEDIA</span></div>
+      <div class="chip violet"><span class="mono">360 LIVE HRS</span></div>
+      <div class="chip gold"><span class="mono">DOCUSERIES Y2</span></div>
+      <div class="chip"><span class="mono">OPEN-MEDIA MODEL</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Media Rights Partners &middot; Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — EXECUTIVE SUMMARY -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">01 &middot; Executive Summary</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE MEDIA ASK IN ONE PAGE</div>
+    <h2 class="deck-title grad">$32M Y1 &rarr; $82M Y5. A 2.56&times; ramp.</h2>
+
+    <div class="stat-bar cols-4">
+      <div class="cell"><div class="num">$32M</div><div class="lbl">Y1 media revenue</div></div>
+      <div class="cell"><div class="num">$82M</div><div class="lbl">Y5 media revenue</div></div>
+      <div class="cell"><div class="num">360h</div><div class="lbl">Live sport per year</div></div>
+      <div class="cell"><div class="num">80h</div><div class="lbl">Docuseries per year (Y3+)</div></div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">The shape</div>
+      <p style="margin: 0; font-size: 1rem;">
+        Regional rights bundled with a launch-partner global highlight buyer Y1-Y2. Unbundled regional
+        live plus dedicated docuseries platform Y3+. Renewal cycle at 2.5-3&times; launch pricing by Y5.
+        Every camera in every arena is a content-supply engine; fans and creators amplify what the
+        broadcast feed produces.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow">WHAT THE MEDIA PARTNER BUYS</div>
+        <h3 style="margin: 10px 0;">Live + docuseries + highlight rights</h3>
+        <p class="muted" style="margin: 0;">20 stops, 4 Grand Slams, 360 hours live, 80 hours docuseries. Bundled Y1-Y2 as launch packages. Unbundled geographically + by product Y3+.</p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">WHY THE VALUE COMPOUNDS</div>
+        <h3 style="margin: 10px 0;">Open-media + creator flywheel</h3>
+        <p class="muted" style="margin: 0;">Fans film everywhere. Creators amplify every stop. Docuseries pipeline greenlit Y2. Every season adds inventory without adding production load &mdash; incremental hours are largely zero-marginal-cost.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — WHY DIFFERENT -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">02 &middot; Why P1 Media Is Different</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE INCUMBENT IS BROKEN</div>
+    <h2 class="deck-title">Open-media model vs PPA's closed model.</h2>
+    <p class="deck-subtitle">
+      PPA's media posture is a replay of F1's pre-2017 mistake. Fan filming banned. Creators capped at
+      2 minutes per day. Rights concentrated. P1 is architected on the Liberty-F1 post-2017 playbook,
+      from Season 1.
+    </p>
+
+    <div class="vs">
+      <div class="side bad">
+        <h4>PPA / UPA &mdash; closed model</h4>
+        <ul>
+          <li>Fan filming banned at courts and arenas.</li>
+          <li>Creators capped at 2 min/day &mdash; kills amplification loop.</li>
+          <li>U.S.-only rights footprint &mdash; no international currency.</li>
+          <li>Docuseries inventory absent &mdash; no Drive-to-Survive analog.</li>
+          <li>Single-buyer concentration in each market &mdash; no pricing tension.</li>
+        </ul>
+      </div>
+      <div class="side good">
+        <h4>P1 &mdash; open-media model</h4>
+        <ul>
+          <li>Fans encouraged to film + share. Creators amplify every stop.</li>
+          <li>Daily content drops from every event &mdash; 60-sec + 15-min formats.</li>
+          <li>17 countries, 5 regional tiers with independent broadcasters.</li>
+          <li>Docuseries pipeline greenlit Y2, premieres Y3, renewal Y4.</li>
+          <li>Unbundled live vs docuseries vs highlights &mdash; three buyers per region.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 28px;">
+      <div class="k">The pattern that compounded F1</div>
+      <p style="margin: 0; font-size: 0.96rem;">
+        Pre-2017: F1 banned on-track filming and locked rights to a single market. Post-Liberty:
+        open-media, unbundled rights, Drive-to-Survive. F1 valuation compounded from ~$4B to $20B+
+        in seven years. P1 starts in the post-2017 posture &mdash; no ten-year correction required.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — CONTENT INVENTORY -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">03 &middot; Content Inventory</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">20 EVENTS / 17 COUNTRIES / 5 DIVISIONS</div>
+    <h2 class="deck-title">What the season produces.</h2>
+    <p class="deck-subtitle">
+      The 20-stop / 17-country calendar produces roughly 360 hours of live sport plus 80 hours of
+      docuseries-tier content per year. That's the bundleable supply &mdash; before highlight syndication,
+      creator-led content, and branded integrations layer in.
+    </p>
+
+    <div class="inventory-grid">
+      <div class="inventory-card">
+        <div class="k">LIVE SPORT</div>
+        <div class="v">~360h</div>
+        <p>20 stops &times; ~18 live broadcast hours per weekend. Singles + doubles + mixed across 5 divisions. Four Grand Slams produce double-length feeds.</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">DOCUSERIES</div>
+        <div class="v">~80h</div>
+        <p>Y3 premiere. 6-10 episodes per season, 60-90 min each, plus specials around Grand Slams. Character-first storytelling anchored on 8 Constructor teams.</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">HIGHLIGHTS</div>
+        <div class="v">Daily</div>
+        <p>60-second daily drops from every stop. 15-min post-match breakdowns. Weekly power-rankings show. Creator-friendly licensing terms.</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">GRAND SLAMS</div>
+        <div class="v">4 / yr</div>
+        <p>Miami, London, Singapore, Dubai. Each with tentpole media windows &mdash; double broadcast hours, extended docuseries follow-up, premium advertising inventory.</p>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 28px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow">PER STANDARD STOP</div>
+        <h4 style="margin: 10px 0;">16 hours live</h4>
+        <p style="margin: 0; font-size: 0.9rem; color: var(--mute);">4-day event, 4-6 hours live per day. Pro-am Thursday + semis + finals + celebrity match.</p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">PER GRAND SLAM</div>
+        <h4 style="margin: 10px 0;">24+ hours live</h4>
+        <p style="margin: 0; font-size: 0.9rem; color: var(--mute);">5-day Grand Slam windows &mdash; extended primetime broadcast, opening ceremony, trophy presentation.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">FAN IMPRESSIONS</div>
+        <h4 style="margin: 10px 0;">200-400M per stop</h4>
+        <p style="margin: 0; font-size: 0.9rem; color: var(--mute);">Live + highlight + docuseries residual. Creator amplification additive &mdash; measured separately.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — REGIONAL TIERS -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">04 &middot; Regional Rights Tiers</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">5 REGIONAL MARKETS &middot; Y3 INDICATIVE VALUATIONS</div>
+    <h2 class="deck-title">The geographic rights map.</h2>
+    <p class="deck-subtitle">
+      Y1-Y2 bundled with one global launch partner (likely Sky or a multi-market streaming platform).
+      Y3+ unbundled by region. Each region sized against its broadcaster depth, streaming concentration,
+      and pickleball-market growth.
+    </p>
+
+    <div class="card">
+      <div class="region-row">
+        <div class="n">UNITED STATES</div>
+        <div class="buyers">ESPN+ &middot; TNT &middot; DAZN</div>
+        <div class="note">Largest single market &middot; Miami + Austin + LA + NY anchors. Streaming-native demographic.</div>
+        <div class="y3">Y3 ~$22-28M</div>
+      </div>
+      <div class="region-row">
+        <div class="n">UNITED KINGDOM</div>
+        <div class="buyers">Sky Sports &middot; BBC &middot; Eurosport</div>
+        <div class="note">London Grand Slam anchor &middot; Europe's largest pickleball growth market (3&times; YoY).</div>
+        <div class="y3">Y3 ~$10-14M</div>
+      </div>
+      <div class="region-row">
+        <div class="n">ASIA-PACIFIC</div>
+        <div class="buyers">Mediacorp &middot; beIN Asia &middot; DAZN Japan</div>
+        <div class="note">Singapore Grand Slam + Tokyo + Sydney + HK + Seoul. Time-zone bridge for APAC + MENA.</div>
+        <div class="y3">Y3 ~$12-16M</div>
+      </div>
+      <div class="region-row">
+        <div class="n">MIDDLE EAST &amp; N AFRICA</div>
+        <div class="buyers">beIN MENA &middot; Abu Dhabi Sports &middot; DAZN MENA</div>
+        <div class="note">Dubai Grand Slam / Tour Championship anchor. Riyadh + Doha + Cairo stops. Sovereign-funded sports market.</div>
+        <div class="y3">Y3 ~$8-12M</div>
+      </div>
+      <div class="region-row">
+        <div class="n">LATIN AMERICA</div>
+        <div class="buyers">ESPN LatAm &middot; DirecTV &middot; Globo</div>
+        <div class="note">Mexico City anchor + spillover from Miami broadcast footprint. Phase-2 growth: S&atilde;o Paulo, BA.</div>
+        <div class="y3">Y3 ~$4-6M</div>
+      </div>
+      <div class="region-row">
+        <div class="n">CONTINENTAL EUROPE</div>
+        <div class="buyers">Eurosport &middot; Movistar+ &middot; Sky DE / IT</div>
+        <div class="note">Madrid + Paris + Milan + Berlin. Padel-market crossover (Spain + Italy strongest).</div>
+        <div class="y3">Y3 ~$6-10M</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 24px;">
+      <div class="k">Bundled Y1-Y2 &rarr; unbundled Y3+</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Y1-Y2 sold as a global launch package to a single multi-market partner (Sky, ESPN+, or a global
+        streaming platform) at $32-45M/yr. Y3+ unbundled regionally to extract market-specific pricing
+        and trigger renewal tension. Docuseries sold separately starting Y2 under dedicated rights.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — DOCUSERIES -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">05 &middot; Docuseries Pipeline</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE DRIVE-TO-SURVIVE ANALOG</div>
+    <h2 class="deck-title">Greenlit Y2. Premiere Y3. Renewal Y4.</h2>
+    <p class="deck-subtitle">
+      Character-first. Constructor-team-anchored. 6-10 episodes per season at 60-90 min. Shot across
+      the 20-stop tour with access embedded in player contracts from Day 1. Single-streamer license
+      model, with renewal trigger on audience milestones.
+    </p>
+
+    <div class="pipeline-row">
+      <div class="d">2026 Q2-Q3</div>
+      <div>
+        <div class="t">Production company + showrunner signed</div>
+        <p>Box To Box Films (Drive to Survive), Film 45 (Tour de France docs), or Boardwalk Pictures (Chef's Table) as producer. Showrunner with sports-character-doc credentials.</p>
+      </div>
+    </div>
+    <div class="pipeline-row">
+      <div class="d">2027 Q1</div>
+      <div>
+        <div class="t">Season 1 production &middot; Y1 tour</div>
+        <p>Cameras embedded with all 8 Constructor teams across the 20-stop tour. Access clauses baked into every player contract. 800+ hours raw footage for 6-10 hour final cut.</p>
+      </div>
+    </div>
+    <div class="pipeline-row">
+      <div class="d">2027 Q4</div>
+      <div>
+        <div class="t">Streaming platform greenlight</div>
+        <p>Rights sold to a single platform: Netflix, Apple TV+, Amazon Prime Video, or a tier-one regional streamer. Target: $15-25M per-season license at Y2 pricing.</p>
+      </div>
+    </div>
+    <div class="pipeline-row">
+      <div class="d">2028 Q1-Q2</div>
+      <div>
+        <div class="t">Season 1 premiere</div>
+        <p>Launch windowed with start of Y2 tour. 6-episode drop + weekly follow-up doc specials around each Grand Slam. Targets Drive-to-Survive-style audience pull into live sport.</p>
+      </div>
+    </div>
+    <div class="pipeline-row">
+      <div class="d">2028-29</div>
+      <div>
+        <div class="t">Renewal + Season 2</div>
+        <p>Renewal triggered at audience milestone (~X million viewing households). Season 2 license at 1.5-2&times; Season 1 pricing. Audience data unlocks second-order media multiples.</p>
+      </div>
+    </div>
+    <div class="pipeline-row">
+      <div class="d">2029-30</div>
+      <div>
+        <div class="t">Docuseries = $20M line by Y5</div>
+        <p>$5M Y1 &rarr; $20M Y5 in content / docuseries royalties. Third-largest media line after live rights and sponsorship. Compounding residual from catalog.</p>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 24px;">
+      <div class="k">The second-order effect</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Drive to Survive didn't just sell as docuseries &mdash; it lifted F1's live-sport audience by an
+        estimated 40%+ in the US. Docuseries converts passive audiences into active fans who tune into
+        live broadcast. The docuseries line is $20M in royalties by Y5; the unlock on live-rights ramp
+        is a multiple of that.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — HIGHLIGHT SYNDICATION -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">06 &middot; Highlight Syndication</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">OPEN-MEDIA IN PRACTICE</div>
+    <h2 class="deck-title">Daily drops. Weekly shows. Creator-ready licensing.</h2>
+    <p class="deck-subtitle">
+      Highlight syndication is the content-supply engine that feeds social, creator, and licensed-clip
+      markets. Every stop produces a minimum cadence of short-form and mid-form output &mdash; all
+      licensable on creator-friendly terms.
+    </p>
+
+    <div class="inventory-grid">
+      <div class="inventory-card">
+        <div class="k">60-SEC DAILY DROPS</div>
+        <div class="v">1,400+</div>
+        <p>20 stops &times; ~70 daily clips each = ~1,400 60-second pieces per year. Distributed free to broadcast partners, licensed to platforms and creators.</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">15-MIN BREAKDOWNS</div>
+        <div class="v">~400</div>
+        <p>Post-match analysis with commentary. Single-match format. Perfect YouTube / creator syndication unit &mdash; similar to ATP / F1 post-race packages.</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">WEEKLY POWER-RANKINGS</div>
+        <div class="v">52</div>
+        <p>30-45 min weekly show. Constructor standings, player storylines, tour calendar look-ahead. Host-led format. Tier-one creator / studio partnership.</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">GRAND-SLAM SPECIALS</div>
+        <div class="v">4 / yr</div>
+        <p>90-min post-Grand-Slam specials. Constructor-team-focused storytelling. Bridge content into the docuseries pipeline.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">Creator-ready licensing</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Every clip is registered to the P1 content catalog with creator-friendly licensing terms:
+        free-use on amplification platforms (TikTok, Shorts, Reels) with attribution; paid-commercial on
+        brand-sponsored creator content. Fans amplify. Creators build. P1 captures the residual.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — COMPARABLES -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">07 &middot; Comparable-Value Analog</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">WHERE P1 SITS IN THE MEDIA-VALUE LADDER</div>
+    <h2 class="deck-title">Where media rights price today.</h2>
+    <p class="deck-subtitle">
+      Global sports-media rights are benchmarked by live + ancillary revenue. P1's Y1 $32M entry matches
+      LIV Golf's estimated launch media spend; Y5 $82M pulls past MLP by roughly 2&times; and sits at
+      roughly 12% of PGA Tour's current media line. F1's $2.3B/yr is the 10-year target horizon.
+    </p>
+
+    <div class="card">
+      <div class="comp-row">
+        <div class="n">F1 (global rights)</div>
+        <div class="d">Liberty-era post-2017. Global rights holder model. Drive to Survive category creator. Open-media flagship. Roughly 24 races, ~280 hours live per year.</div>
+        <div class="v">~$2.3B / yr</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">PGA Tour (US + global)</div>
+        <div class="d">~40 events, ~480 hours live. Fragmented streaming era. Post-LIV settlement. Structural analog for pro-tour media model.</div>
+        <div class="v">~$700M / yr</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">ATP + WTA</div>
+        <div class="d">Combined ~55 events, ~600 hours live. Multi-market tour. Closest racquet-sport comp &mdash; scale reference for pickleball's Y10 target.</div>
+        <div class="v">~$200M / yr</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">LIV Golf (est.)</div>
+        <div class="d">14 events, ~85 hours live. Sovereign-funded, single-buyer market. P1's Y1 launch deal comp &mdash; similar volume, similar single-partner structure.</div>
+        <div class="v">~$100M / yr</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">MLP (est.)</div>
+        <div class="d">U.S.-only pickleball. Closed-media model. Limited docuseries inventory. P1 surpasses this by Y2-Y3 on global rights alone.</div>
+        <div class="v">~$40M / yr</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">P1 Year 1 (2027)</div>
+        <div class="d">20 events / 17 countries / 360 hrs live. Open-media from launch. Launch-partner global package.</div>
+        <div class="v">$32M / yr</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">P1 Year 5 (2031)</div>
+        <div class="d">Unbundled regional rights + docuseries catalog + highlight syndication. Category-defining pickleball property.</div>
+        <div class="v">$82M / yr</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 20px;">
+      <div class="k">The compounding thesis</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Every year the sport grows, P1's rights become rarer. 75M &rarr; 300M players by 2032 expands the
+        addressable audience 4&times;. P1 is the only institutional-grade media property built against that
+        growth curve &mdash; the price of P1 rights compounds with the addressable audience.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — Y1-Y5 RAMP -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">08 &middot; Y1 &rarr; Y5 Media Revenue Build</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE CANONICAL RAMP</div>
+    <h2 class="deck-title">$32M &rarr; $45M &rarr; $60M &rarr; $72M &rarr; $82M.</h2>
+
+    <div class="ramp-grid">
+      <div class="col">
+        <div class="y">Y1 2027</div>
+        <div class="amt">$32M</div>
+        <div class="lbl">Launch-partner global package &middot; regional bundles in 4 core markets</div>
+      </div>
+      <div class="col">
+        <div class="y">Y2 2028</div>
+        <div class="amt">$45M</div>
+        <div class="lbl">Docuseries Season 1 license &middot; secondary-market regional sales</div>
+      </div>
+      <div class="col">
+        <div class="y">Y3 2029</div>
+        <div class="amt">$60M</div>
+        <div class="lbl">Unbundled regional live &middot; multi-year deals replace spot buys</div>
+      </div>
+      <div class="col">
+        <div class="y">Y4 2030</div>
+        <div class="amt">$72M</div>
+        <div class="lbl">Docuseries renewal S2 &middot; category-defining property</div>
+      </div>
+      <div class="col">
+        <div class="y">Y5 2031</div>
+        <div class="amt">$82M</div>
+        <div class="lbl">Rights renewals at 2.5-3&times; launch pricing</div>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">The phased strategy</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Years</th>
+          <th>Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Launch bundle</td>
+          <td>Y1-Y2</td>
+          <td>Regional packages in 4 core markets (US, UK, Asia-Pacific, MENA). Launch partner buys global highlight rights.</td>
+        </tr>
+        <tr>
+          <td>Docuseries greenlight</td>
+          <td>Y2-Y3</td>
+          <td>Drive-to-Survive analog. One-season order from a streaming platform. Audience unlock for live broadcast renewals.</td>
+        </tr>
+        <tr>
+          <td>Unbundled live</td>
+          <td>Y3-Y4</td>
+          <td>Live-event rights unbundled by geography. Multi-year deals replace spot buys. Regional pricing extraction.</td>
+        </tr>
+        <tr>
+          <td>Category-defining</td>
+          <td>Y4-Y5</td>
+          <td>Rights renewals at 2.5-3&times; launch pricing. Docuseries + highlight catalog residuals compound.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — PARTNER MATRIX -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">09 &middot; Target Partner Matrix</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">WHO WE'RE TALKING TO</div>
+    <h2 class="deck-title">Launch partners by market + docuseries.</h2>
+    <p class="deck-subtitle">
+      Regional broadcast and streaming partners mapped by Year 1 rights coverage. Docuseries partners
+      mapped by precedent with ATP / F1 / PGA analogs. All listed buyers have sports-rights depth and
+      format fit for P1 inventory.
+    </p>
+
+    <h4 style="margin: 0 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan);">Live rights &middot; regional</h4>
+    <div class="partner-grid">
+      <div class="partner-card"><div class="logo">Sky Sports</div><div class="region">UK / EU</div></div>
+      <div class="partner-card"><div class="logo">ESPN / ESPN+</div><div class="region">US / LATAM</div></div>
+      <div class="partner-card"><div class="logo">DAZN</div><div class="region">US / DE / IT / JP / MENA</div></div>
+      <div class="partner-card"><div class="logo">beIN Sports</div><div class="region">APAC / MENA</div></div>
+      <div class="partner-card"><div class="logo">Mediacorp</div><div class="region">SG / APAC</div></div>
+      <div class="partner-card"><div class="logo">TNT Sports</div><div class="region">US</div></div>
+      <div class="partner-card"><div class="logo">Eurosport</div><div class="region">EU</div></div>
+      <div class="partner-card"><div class="logo">Fox Sports AU</div><div class="region">AU / NZ</div></div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet);">Docuseries &middot; single-streamer</h4>
+    <div class="partner-grid">
+      <div class="partner-card"><div class="logo">Netflix</div><div class="region">DRIVE-TO-SURVIVE PRECEDENT</div></div>
+      <div class="partner-card"><div class="logo">Apple TV+</div><div class="region">F1 MOVIE + TRENDING TOWARD SPORTS</div></div>
+      <div class="partner-card"><div class="logo">Amazon Prime</div><div class="region">ATP / NFL / SPORTS-DOC FIT</div></div>
+      <div class="partner-card"><div class="logo">HBO Max</div><div class="region">PREMIUM SPORTS-DOC CATALOG</div></div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);">Highlights + creator-native</h4>
+    <div class="partner-grid">
+      <div class="partner-card"><div class="logo">YouTube</div><div class="region">GLOBAL &middot; CREATOR-NATIVE</div></div>
+      <div class="partner-card"><div class="logo">TikTok</div><div class="region">60-SEC DROPS</div></div>
+      <div class="partner-card"><div class="logo">Instagram</div><div class="region">REELS + BRAND ACTIVATIONS</div></div>
+      <div class="partner-card"><div class="logo">Twitch</div><div class="region">STREAMING-NATIVE AUDIENCE</div></div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 11 — BUNDLING STRATEGY -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">10 &middot; Bundling Strategy</div>
+    <div class="page-num">PAGE 11</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">BUNDLE AT LAUNCH. UNBUNDLE FOR VALUE.</div>
+    <h2 class="deck-title">Y1-Y2 bundled. Y3+ unbundled.</h2>
+    <p class="deck-subtitle">
+      Bundling at launch creates a single launch partner willing to invest marketing behind P1.
+      Unbundling at maturity extracts region-specific pricing and triggers multi-buyer tension in
+      each market. The sequence matters &mdash; unbundle too early and you lose launch-partner
+      marketing lift; bundle too long and you cap the value ceiling.
+    </p>
+
+    <div class="grid-2">
+      <div class="card accent-cyan">
+        <div class="eyebrow">Y1-Y2 &middot; BUNDLED LAUNCH</div>
+        <h3 style="margin: 10px 0;">One global partner</h3>
+        <ul style="padding-left: 20px; margin: 10px 0; font-size: 0.92rem;">
+          <li>Global rights + regional highlight rights bundled in one package.</li>
+          <li>Launch partner commits to marketing spend in exchange for exclusivity.</li>
+          <li>Targets: Sky, ESPN+, DAZN, Amazon &mdash; multi-market platforms.</li>
+          <li>Pricing: $32-45M/yr &mdash; launch-partner bundled ceiling.</li>
+        </ul>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">Y3+ &middot; UNBUNDLED</div>
+        <h3 style="margin: 10px 0;">Three products, six regions</h3>
+        <ul style="padding-left: 20px; margin: 10px 0; font-size: 0.92rem;">
+          <li>Live sport &middot; regional deals (5-6 markets).</li>
+          <li>Docuseries &middot; single-streamer global license.</li>
+          <li>Highlights &middot; creator-native syndication, per-platform deals.</li>
+          <li>Pricing: $60-82M/yr across all product lines by Y5.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">Separability</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Live vs docuseries vs highlights are separable from Day 1. Regional rights are separable
+        geographically. Grand Slams are separable from standard stops. Each of those seams is a future
+        value-extraction trigger &mdash; the league unlocks them as the property matures.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 12 — BEYOND RIGHTS -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">11 &middot; Monetization Beyond Rights</div>
+    <div class="page-num">PAGE 12</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE RIGHTS LINE IS NOT THE ONLY LINE</div>
+    <h2 class="deck-title">Sponsorship, integrations, licensing, NIL.</h2>
+    <p class="deck-subtitle">
+      Media rights are $82M by Y5. The content catalog produces another $46M in sponsorship, plus
+      branded integrations within broadcasts, licensed clip inventory, and NIL deals that flow back
+      into the P1 ecosystem. Every hour of content is a monetization surface with three or four
+      parallel lines.
+    </p>
+
+    <div class="inventory-grid">
+      <div class="inventory-card">
+        <div class="k">IN-BROADCAST SPONSORSHIP</div>
+        <div class="v">$46M Y5</div>
+        <p>Title, category, and regional sponsorship inventory served within the broadcast feed. Global sponsorship line: $24M Y1 &rarr; $46M Y5.</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">BRANDED INTEGRATIONS</div>
+        <div class="v">~200 / yr</div>
+        <p>Constructor-branded segments within docuseries + highlight shows. Sponsorship-adjacent revenue, booked against Category sponsor spend.</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">LICENSED CLIPS</div>
+        <div class="v">Catalog</div>
+        <p>P1 content catalog licensable to ads, brand content, creators. Long-tail residual, conservative forecast within the licensing/merch line ($7M &rarr; $18M).</p>
+      </div>
+      <div class="inventory-card">
+        <div class="k">NIL + CREATOR ECON</div>
+        <div class="v">Ecosystem</div>
+        <p>Individual player NIL + creator deals flow through P1-managed representation. Revenue share framework finalizes at Concorde formation (April 1, 2026); earliest monetization Y3 when the docuseries halo drives creator demand.</p>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 28px;">
+      <div class="k">The ecosystem effect</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Media rights ($82M Y5) + sponsorship inventory within broadcast ($46M Y5) + licensing / merch
+        attached to media catalog ($18M Y5) + docuseries royalties ($20M Y5) =
+        <strong>$166M Y5</strong>: nearly 80% of total League revenue runs through the media +
+        commercial-rights engine.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Media Rights</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+</body>
+</html>

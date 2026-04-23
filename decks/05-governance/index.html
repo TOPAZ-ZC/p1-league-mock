@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — League Structure &amp; Governance Overview</title>
+<meta name="description" content="Three-body architecture. Ramsports independence. The Concorde Agreement. Escrow mechanics. Decision-rights matrix. Dispute resolution. The governance spine that unlocks institutional scale." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  .arch-diagram {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+    margin: 18px 0;
+  }
+  .arch-body {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+    display: flex;
+    flex-direction: column;
+  }
+  .arch-body.center {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--violet) 10%, var(--card)), var(--card));
+    border-color: color-mix(in srgb, var(--violet) 40%, transparent);
+  }
+  .arch-body .label {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .arch-body.center .label { color: var(--violet); }
+  .arch-body .title-line {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+  .arch-body .analog {
+    font-size: 0.82rem;
+    color: var(--mute);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .arch-body .body-text {
+    font-size: 0.86rem;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .arch-body .mini-stats {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--mute);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .concorde-flow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .step {
+    padding: 20px 22px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    position: relative;
+  }
+  .step .label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--cyan);
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+  .step h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .step .date {
+    font-size: 0.8rem;
+    color: var(--mute);
+    margin-bottom: 10px;
+  }
+  .step ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.84rem;
+    color: var(--ink);
+  }
+  .step ul li { padding-left: 14px; position: relative; }
+  .step ul li::before { content: "\2022"; position: absolute; left: 0; color: var(--cyan); }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .team-card {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .team-card .role {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .team-card .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 0.98rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .team-card .bio {
+    font-size: 0.8rem;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+
+  .protection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .protection-grid .card { padding: 18px; }
+  .protection-grid .num {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+
+  table.rights {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+  }
+  table.rights th, table.rights td {
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  table.rights th {
+    background: var(--card-2);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  table.rights td.cat {
+    text-align: left;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  table.rights .yes { color: var(--green); font-weight: 700; }
+  table.rights .lead { color: var(--cyan); font-weight: 700; }
+  table.rights .con { color: var(--violet); font-weight: 700; }
+  table.rights .vote { color: var(--gold); font-weight: 700; }
+
+  .dispute-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .dispute-flow .stage {
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .dispute-flow .stage .n {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+  }
+  .dispute-flow .stage h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.9rem;
+    margin: 0 0 6px;
+  }
+  .dispute-flow .stage p {
+    font-size: 0.78rem;
+    color: var(--mute);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .failure-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+  }
+  .failure-table th, .failure-table td {
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    vertical-align: top;
+  }
+  .failure-table th {
+    background: var(--card-2);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+    text-align: left;
+  }
+  .failure-table td.fail { color: var(--red); font-weight: 600; }
+  .failure-table td.fix { color: var(--green); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .arch-diagram, .concorde-flow, .team-grid, .protection-grid, .dispute-flow {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow cyan">DECK 05 · GOVERNANCE</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">League Structure &amp; Governance Overview</h1>
+    <p class="lede">
+      Three bodies. Separated by design. The F1-style architecture that unlocks institutional capital — and the
+      Concorde Agreement that protects every dollar until the Constructor side of the cap table is proven.
+    </p>
+    <div class="row" style="gap: 16px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">THREE-BODY ARCHITECTURE</span></div>
+      <div class="chip violet"><span class="mono">CONCORDE AGREEMENT</span></div>
+      <div class="chip gold"><span class="mono">CAPITAL RETURN GUARANTEE</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Office of the President, P1 League Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — EXECUTIVE SUMMARY -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">01 · Executive Summary</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE ARCHITECTURE, IN ONE PAGE</div>
+    <h2 class="deck-title grad">Governance locked before a dollar deploys.</h2>
+
+    <p style="font-size: 1.05rem; color: var(--ink); max-width: 64ch;">
+      P1 is structured as three separate bodies — an Investor entity holding global commercial rights, an
+      independent Ramsports regulatory + integrity body, and eight Constructor franchise brands. The three-body
+      pattern is the structural lesson of F1 under Liberty Media: separation of regulation from commercial rights
+      is what unlocked a $20B+ category. P1 ports the pattern on day zero — not in year ten.
+    </p>
+
+    <div class="stat-bar cols-4">
+      <div class="cell"><div class="num">3</div><div class="lbl">Independent Bodies</div></div>
+      <div class="cell"><div class="num">$130M</div><div class="lbl">Capital at Launch</div></div>
+      <div class="cell"><div class="num">$50M</div><div class="lbl">Escrow-Protected</div></div>
+      <div class="cell"><div class="num">100%</div><div class="lbl">Returned on Miss</div></div>
+    </div>
+
+    <div class="callout violet">
+      <div class="k">Why this matters</div>
+      <p style="margin: 0;">
+        The incumbent failure (PPA / UPA) is governance conflict — a regulator owned by the operator.
+        Institutional capital will not back that structure. Ramsports is chartered as independent, compensated on a
+        hedge-fund-style 2-and-20 analog, and cannot be overruled by the Investor on technical matters. The
+        Concorde Agreement wraps all three bodies in a single covenant with milestone-triggered capital release
+        and full refund on missed milestone. Zero loss, zero penalty.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card accent-cyan">
+        <div class="eyebrow">Investor Body</div>
+        <h4 style="margin: 8px 0 6px;">Commercial Rights</h4>
+        <p class="muted" style="font-size: 0.88rem; margin: 0;">Global media, sponsorship, broadcast, licensing. $50M anchor at $250M+ implied.</p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">Ramsports</div>
+        <h4 style="margin: 8px 0 6px;">Regulation &amp; Integrity</h4>
+        <p class="muted" style="font-size: 0.88rem; margin: 0;">Stewards, refs, drug testing, player registration. 2% gross revenue + 20% equity.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Constructors</div>
+        <h4 style="margin: 8px 0 6px;">Franchise Teams</h4>
+        <p class="muted" style="font-size: 0.88rem; margin: 0;">8 brands × $10M seat. Team ops, player development, regional revenue.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — THE THREE-BODY DIAGRAM -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">02 · The Three-Body Architecture</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">F1-STYLE ARCHITECTURE, PORTED TO PICKLEBALL</div>
+    <h2 class="deck-title">Investor. Ramsports. Constructors.</h2>
+    <p class="deck-subtitle">
+      Three entities, separated by design. Each has defined authority, defined revenue, defined scope.
+      No single body can override the others on matters within its charter.
+    </p>
+
+    <div class="arch-diagram">
+      <div class="arch-body">
+        <div class="label">LIBERTY MEDIA EQUIVALENT</div>
+        <div class="title-line">Investor — Anchor</div>
+        <div class="analog">Commercial rights holder</div>
+        <div class="body-text">
+          Holds global commercial rights — media deals, sponsorship, broadcast, licensing, merchandise. Anchor
+          $50M stake at $250M+ implied valuation. Board observer seat at close; voting seat at tracking-stock
+          activation (2029-30).
+        </div>
+        <div class="mini-stats">
+          <div>Entry: $50M @ $250M+ implied</div>
+          <div>Rights: media · sponsor · broadcast</div>
+          <div>Exit: tracking stock 2029-30</div>
+        </div>
+      </div>
+      <div class="arch-body center">
+        <div class="label">FIA EQUIVALENT</div>
+        <div class="title-line">Ramsports</div>
+        <div class="analog">Independent technical &amp; integrity body</div>
+        <div class="body-text">
+          Three stewards, three traveling referees, independent drug-testing, betting-integrity monitoring,
+          dispute resolution. Controls player registration, event sanctioning, on-site stewardship. Cannot be
+          overruled by Investor on technical calls. Operating business — not a vision doc.
+        </div>
+        <div class="mini-stats">
+          <div>Comp: 2% revenue + 20% equity</div>
+          <div>Y1 Opex: ~$3M</div>
+          <div>6-member board, global reach</div>
+        </div>
+      </div>
+      <div class="arch-body">
+        <div class="label">FRANCHISE BRANDS</div>
+        <div class="title-line">8 Constructors</div>
+        <div class="analog">Licensed team operators</div>
+        <div class="body-text">
+          Eight licensed Constructor brands at $10M each. Scarce by design. Operate franchises, develop 8-player
+          rosters + 1 coach, drive local-market revenue, participate in category-defining commercial upside.
+          5-year renewable seats.
+        </div>
+        <div class="mini-stats">
+          <div>Entry: $10M / seat · 8 total</div>
+          <div>Y5 team P&amp;L: $11-13.5M rev</div>
+          <div>Y5 EBITDA: $6-8M</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 18px;">
+      <div class="k">Separation principle</div>
+      <p style="margin: 0;">
+        Ramsports' regulatory authority does not flow through the Investor entity and cannot be overridden by
+        Constructors. The Investor's commercial-rights mandate does not flow through Ramsports. Constructors
+        cannot regulate their own competition. Three charters. One Concorde covenant. Institutional credibility.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — RAMSPORTS DEEP-DIVE -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">03 · Ramsports Deep-Dive</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">WHY SEPARATED REGULATION MATTERS</div>
+    <h2 class="deck-title">The incumbent is broken on four axes. Ramsports fixes each.</h2>
+
+    <table class="failure-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">Axis</th>
+          <th style="width: 38%;">PPA / UPA Incumbent Failure</th>
+          <th style="width: 40%;">Ramsports Response</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:700; color: var(--ink);">Governance Conflict</td>
+          <td class="fail">UPA replaced USA Pickleball as "independent" regulator while owned by PPA / MLP. Regulator and operator share a cap table.</td>
+          <td class="fix">Ramsports chartered as legally independent entity. Separate compensation stack (2 / 5 / 10). Separate board. Cannot be overruled on technical calls.</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700; color: var(--ink);">Player Resentment</td>
+          <td class="fail">Delayed payments, one-sided contracts, minor-breach suspensions, culture of fear. Athletes have no recourse against a captured regulator.</td>
+          <td class="fix">Transparent governance. Standing player-appeal path independent of Constructor contracts. Published stewardship protocols. Real leverage for athletes.</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700; color: var(--ink);">Closed Media</td>
+          <td class="fail">Fans banned from filming, creators capped at 2 min/day. Repeating F1's pre-2017 error. Category starves its own discovery engine.</td>
+          <td class="fix">Ramsports does not regulate fan media. Open model written into charter. Cameras and creators expand the sport — docuseries pipeline downstream.</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700; color: var(--ink);">U.S.-Only Frame</td>
+          <td class="fail">No professional international pathways, no global governance, no media frameworks outside U.S. Can't ever be an institutional-scale global category.</td>
+          <td class="fix">Ramsports leadership is global-first: government-level relationships in China + broader Asia, Olympic pathway via Rifkind / WPF, MENA via Mok / Chu network.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold" style="margin-top: 18px;">
+      <div class="k">The structural lesson</div>
+      <p style="margin: 0;">
+        Liberty Media unlocked $20B+ of value in F1 by porting exactly this separation. Ramsports is that FIA.
+        Institutional capital prices governance credibility directly into media-rights and sponsorship multiples —
+        credibility is a competitive advantage, not a cost center.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — RAMSPORTS LEADERSHIP BENCH -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">04 · Ramsports Leadership Bench</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">THE EXECUTION ENGINE ALREADY RUNNING</div>
+    <h2 class="deck-title">Not a vision. An operating business.</h2>
+    <p class="deck-subtitle">
+      Government-level relationships in China + Asia. Tournament infrastructure in place. Execution track record
+      that survives any single investor's involvement.
+    </p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="role">CEO</div>
+        <div class="name">Richard Gossett</div>
+        <div class="bio">Founder of 2 international companies with combined $300M revenue. Deep Asia sports-development track record. Sets Ramsports operating cadence and technical mandate.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">PRESIDENT</div>
+        <div class="name">Alex Yuen</div>
+        <div class="bio">25 years in China. VP NBA BIG3 China 2022-24. 20 years sports promotion. Owns Asia-region deployment, broadcaster relationships, government liaisons.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">BOARD / ADVISOR</div>
+        <div class="name">Seymour Rifkind</div>
+        <div class="bio">Founder World Pickleball Federation + IPTPA. Driving force behind Olympic inclusion. Owns global-federation interface and Olympic-pathway strategy.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">BOARD / ADVISOR</div>
+        <div class="name">Steve Kuhn</div>
+        <div class="bio">Founder MLP (valued $300M). Founder DUPR global rating system. Key architect of the sport. Owns rating-system integration and player-identity doctrine.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">BOARD / ADVISOR</div>
+        <div class="name">Tenniel Chu</div>
+        <div class="bio">Vice Chairman Mission Hills Group — world's largest golf resort developer in China. Owns Asia venue network and festival-weekend hospitality doctrine.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">BOARD / ADVISOR</div>
+        <div class="name">Philip Mok</div>
+        <div class="bio">President HKTA 2015-23. Elected to ITF. Driving force behind Hong Kong Olympic Committee. Owns racquet-sport federation liaison and MENA relationships.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 16px;">
+      <div class="k">Y1 Opex + Comp Model</div>
+      <p style="margin: 0;">
+        Ramsports Y1 operating cost: ~$3M (3 stewards + 3 traveling refs + integrity office + drug-testing
+        program). Compensation: 2% of gross league revenue + 20% equity at close (flat, not tiered). Hedge-fund
+        "2-and-20" analog — minor line item relative to the $96M Y1 league revenue, massive governance
+        credibility.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — THE CONCORDE AGREEMENT -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">05 · The Concorde Agreement</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THREE STEPS FROM COMMITMENT TO LAUNCH</div>
+    <h2 class="deck-title">Capital protected until milestone. Deployed only on proof.</h2>
+
+    <div class="concorde-flow">
+      <div class="step">
+        <div class="label">STEP 01 · FORMATION</div>
+        <h4>Governance before capital</h4>
+        <div class="date">On / before April 1, 2026</div>
+        <ul>
+          <li>Investor commits $50M to escrow (SPAC-like)</li>
+          <li>P1 entity + Ramsports covenant formalized</li>
+          <li>Board observer seat for anchor at close</li>
+          <li>Ramsports technical mandate chartered</li>
+          <li>Zero capital deployed — held until milestone</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="label">STEP 02 · BRAND SIGN-UP</div>
+        <h4>8 × $10M Constructor recruitment</h4>
+        <div class="date">April 1 → July 1, 2026</div>
+        <ul>
+          <li>8 global Constructor brands recruited</li>
+          <li>$10M license fee per brand</li>
+          <li>All 8 must commit by July 1 deadline</li>
+          <li>$80M total Constructor capital raised</li>
+          <li>Anchor $50M remains in escrow</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="label">STEP 03 · FUNDING CLOSE</div>
+        <h4>Milestone hit → launch</h4>
+        <div class="date">July 1, 2026 — milestone</div>
+        <ul>
+          <li>$130M total capital deployed</li>
+          <li>$250M+ implied valuation at launch</li>
+          <li>Tracking-stock vehicle activated</li>
+          <li>First event: February 2027</li>
+          <li>On miss: full $50M returned, zero loss</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 18px;">
+      <div class="k">The investor-protection spine</div>
+      <p style="margin: 0;">
+        The $50M is never at market risk. It only converts to equity when the Constructor side of the cap table
+        is independently verified. No milestone = no deployment. If 8 brands are not secured by July 1 2026, the
+        entire $50M is returned. Zero loss, zero penalty. This is the SPAC-like spine that makes the investment
+        legible to institutional LPs.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — ESCROW MECHANICS + TRIPLE-LAYER PROTECTION -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">06 · Escrow Mechanics</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">CAPITAL PROTECTION — TRIPLE LAYER</div>
+    <h2 class="deck-title">Three independent mechanisms. $50M safe at each stage.</h2>
+
+    <div class="protection-grid">
+      <div class="card accent-gold">
+        <div class="num">1</div>
+        <h4 style="margin: 0 0 8px;">Escrow Until Milestone</h4>
+        <p class="muted" style="margin: 0; font-size: 0.86rem;">
+          All $50M held in independent third-party escrow. Not a single dollar is deployed until the 8-brand
+          milestone is independently verified.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="num">2</div>
+        <h4 style="margin: 0 0 8px;">Milestone-Triggered Release</h4>
+        <p class="muted" style="margin: 0; font-size: 0.86rem;">
+          Capital moves only when 8 Constructors are signed AND verified AND their $80M is in. No partial
+          releases. No conditional draws. Binary trigger.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="num">3</div>
+        <h4 style="margin: 0 0 8px;">Full Return if Missed</h4>
+        <p class="muted" style="margin: 0; font-size: 0.86rem;">
+          Miss July 1 2026: full $50M returned in its entirety. Zero loss. Zero penalty. No claw-back. No
+          residual obligation.
+        </p>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 12px; font-family: 'Outfit', sans-serif; font-size: 0.88rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Capital Deployment Flow</h4>
+    <table class="data">
+      <thead>
+        <tr><th>Phase</th><th>Trigger</th><th>Capital Status</th><th>Anchor Position</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Apr 1, 2026</td>
+          <td>$50M to escrow · Concorde signed</td>
+          <td>Secured in escrow</td>
+          <td>Board observer seat</td>
+        </tr>
+        <tr>
+          <td>Apr - Jul 2026</td>
+          <td>Recruitment phase</td>
+          <td>Held — all $50M</td>
+          <td>Observer + governance participation</td>
+        </tr>
+        <tr>
+          <td>Jul 1, 2026 ✓</td>
+          <td>8 × $10M secured + verified</td>
+          <td class="accent">$130M deployed</td>
+          <td>Commercial rights holder</td>
+        </tr>
+        <tr>
+          <td>Jul 1, 2026 ✗</td>
+          <td>Milestone missed</td>
+          <td>Full $50M returned</td>
+          <td>No residual obligation</td>
+        </tr>
+        <tr>
+          <td>2029-30</td>
+          <td>Tracking-stock activation</td>
+          <td>Public float</td>
+          <td>Voting seat · liquidity path</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — DECISION-RIGHTS MATRIX -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">07 · Decision-Rights Matrix</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">WHO DECIDES WHAT — TEN DECISION CATEGORIES</div>
+    <h2 class="deck-title">Charter-level clarity. No category overlaps.</h2>
+
+    <table class="rights">
+      <thead>
+        <tr>
+          <th style="width: 30%; text-align: left;">Decision Category</th>
+          <th style="width: 22%;">Investor</th>
+          <th style="width: 26%;">Ramsports</th>
+          <th style="width: 22%;">Constructors</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cat">Player registration</td>
+          <td>—</td>
+          <td class="lead">LEAD · sole authority</td>
+          <td>Notified</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sanctioning</td>
+          <td>Consult</td>
+          <td class="lead">LEAD · sole authority</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="cat">Global media rights</td>
+          <td class="lead">LEAD · commercial mandate</td>
+          <td>Technical veto</td>
+          <td>Consult</td>
+        </tr>
+        <tr>
+          <td class="cat">Sponsorship categories</td>
+          <td class="lead">LEAD · sole authority</td>
+          <td>Integrity veto (betting / tobacco)</td>
+          <td>Kit-slot authority</td>
+        </tr>
+        <tr>
+          <td class="cat">Player transfers</td>
+          <td>—</td>
+          <td>Sanction &amp; ratify</td>
+          <td class="con">Originate &amp; sign</td>
+        </tr>
+        <tr>
+          <td class="cat">Integrity sanctions</td>
+          <td>—</td>
+          <td class="lead">LEAD · sole authority</td>
+          <td>Appeal path</td>
+        </tr>
+        <tr>
+          <td class="cat">Season calendar</td>
+          <td>Approve</td>
+          <td class="lead">LEAD · sanctioning body</td>
+          <td>Consult (home-stop)</td>
+        </tr>
+        <tr>
+          <td class="cat">Prize pool sizing</td>
+          <td class="lead">LEAD · commercial mandate</td>
+          <td>Consult (player welfare)</td>
+          <td>Consult</td>
+        </tr>
+        <tr>
+          <td class="cat">Constructor admission</td>
+          <td class="vote">Anchor vote</td>
+          <td>Integrity check</td>
+          <td>Advisory only</td>
+        </tr>
+        <tr>
+          <td class="cat">Governance amendments</td>
+          <td class="vote">Anchor vote</td>
+          <td class="vote">Charter vote</td>
+          <td class="vote">Super-majority (6/8)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout violet" style="margin-top: 16px;">
+      <div class="k">Reading the matrix</div>
+      <p style="margin: 0;">
+        <span style="color: var(--cyan); font-weight: 700;">LEAD</span> = primary authority. <span style="color: var(--gold); font-weight: 700;">Vote</span> = requires super-majority across body.
+        <span style="color: var(--violet); font-weight: 700;">Originate</span> = Constructor-initiated, Ramsports-ratified. Ramsports veto on Investor commercial
+        deals is narrow — integrity and competition matters only (no blanket commercial override).
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — DISPUTE RESOLUTION + INTEGRITY PROTOCOL -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">08 · Dispute Resolution</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">STEWARDSHIP · APPEAL · INDEPENDENCE GUARDRAILS</div>
+    <h2 class="deck-title">Four stages. Independent at each.</h2>
+
+    <div class="dispute-flow">
+      <div class="stage">
+        <div class="n">STAGE 1</div>
+        <h4>On-Site Stewardship</h4>
+        <p>Ramsports stewards at every event. Three stewards + three traveling refs. Real-time rulings on play, conduct, integrity flags. Published same-day.</p>
+      </div>
+      <div class="stage">
+        <div class="n">STAGE 2</div>
+        <h4>Integrity Office Review</h4>
+        <p>Independent Ramsports integrity office reviews steward rulings on appeal. Drug-testing + betting-integrity pipeline feeds into review. Written findings.</p>
+      </div>
+      <div class="stage">
+        <div class="n">STAGE 3</div>
+        <h4>Ramsports Board Arbitration</h4>
+        <p>Board-level appeal for sanctions above defined threshold (multi-event suspension, termination, monetary over $250k). Majority vote. Reasoned decision.</p>
+      </div>
+      <div class="stage">
+        <div class="n">STAGE 4</div>
+        <h4>External Arbitration</h4>
+        <p>Final appeal to Court of Arbitration for Sport or equivalent neutral body on matters of process. Not available to overturn factual integrity findings.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card accent-cyan">
+        <div class="eyebrow">Independence guardrails</div>
+        <h4 style="margin: 8px 0 10px;">What the Investor cannot do</h4>
+        <ul style="margin: 0; padding-left: 18px; font-size: 0.88rem; color: var(--ink); line-height: 1.6;">
+          <li>Overrule a Ramsports integrity finding</li>
+          <li>Block a sanction for commercial reasons</li>
+          <li>Appoint or remove stewards / refs</li>
+          <li>Direct drug-testing scope or frequency</li>
+          <li>Review player appeals directly</li>
+        </ul>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">Independence guardrails</div>
+        <h4 style="margin: 8px 0 10px;">What Constructors cannot do</h4>
+        <ul style="margin: 0; padding-left: 18px; font-size: 0.88rem; color: var(--ink); line-height: 1.6;">
+          <li>Regulate own competition</li>
+          <li>Block sanctions against own players</li>
+          <li>Vote on integrity-office appointments</li>
+          <li>Direct drug-testing at home-stop events</li>
+          <li>Access confidential steward deliberations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 14px;">
+      <div class="k">The credibility dividend</div>
+      <p style="margin: 0;">
+        Independent dispute resolution is priced directly into media-rights and sponsorship multiples. The F1 /
+        FIA analog: disputes are resolved on the record, inside the sport, with external appeal only on process.
+        Credibility compounds.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — WHY THIS ARCHITECTURE UNLOCKS SCALE -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">09 · Why This Unlocks Scale</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">COMPARABLE TO F1 POST-LIBERTY</div>
+    <h2 class="deck-title grad">Governance credibility is a multiple, not a line item.</h2>
+
+    <div class="vs">
+      <div class="side bad">
+        <h4>Before Liberty / Before P1</h4>
+        <ul>
+          <li>Regulator captured by operator</li>
+          <li>Player resentment, opaque contracts</li>
+          <li>Closed media, creator hostility</li>
+          <li>Regional franchise, not global</li>
+          <li>Media multiples trade at discount</li>
+          <li>Sponsor category growth stalls</li>
+        </ul>
+      </div>
+      <div class="side good">
+        <h4>After Liberty / Day Zero of P1</h4>
+        <ul>
+          <li>Independent regulator, chartered separately</li>
+          <li>Transparent governance, real athlete leverage</li>
+          <li>Open media model, docuseries pipeline</li>
+          <li>Global footprint: 20 stops, 17 countries</li>
+          <li>Institutional media multiples (2.5-3× launch)</li>
+          <li>Sponsor categories compound across regions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 18px;">
+      <div class="card">
+        <div class="eyebrow gold">F1 pre-Liberty</div>
+        <div style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 2rem; margin: 6px 0; color: var(--ink);">~$8B</div>
+        <p class="muted" style="font-size: 0.82rem; margin: 0;">EV at acquisition, 2017</p>
+      </div>
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">F1 post-Liberty</div>
+        <div style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 2rem; margin: 6px 0; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;">$20B+</div>
+        <p class="muted" style="font-size: 0.82rem; margin: 0;">EV under current governance</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">P1 2035 target</div>
+        <div style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 2rem; margin: 6px 0; background: var(--grad-warm); -webkit-background-clip: text; background-clip: text; color: transparent;">$10B</div>
+        <p class="muted" style="font-size: 0.82rem; margin: 0;">Category-leader valuation</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 18px;">
+      <div class="k">The architectural bet</div>
+      <p style="margin: 0;">
+        Liberty paid ~$8B for F1 in 2017 and compounded it to $20B+ by porting the governance pattern P1 starts
+        with. P1 does not need to arrive at this architecture after a decade of incumbent conflict — it begins
+        here. That compression — starting where F1 arrived — is the single largest source of value in this deal.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Governance Overview</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+</body>
+</html>

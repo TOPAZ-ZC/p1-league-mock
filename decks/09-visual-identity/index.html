@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Visual Identity & Design System</title>
+<meta name="description" content="The P1 World Tour brand system — palette, type, data display, motion, and voice. Dark default with light parity. Every token, every primitive, one canonical reference." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/hub.css" />
+<style>
+  /* Deck-09 design-system page layout */
+  .ds-section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .ds-section:last-of-type { border-bottom: none; }
+  .ds-section h2 {
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    margin: 6px 0 14px;
+    max-width: 24ch;
+  }
+  .ds-section .lede {
+    font-size: 1.02rem;
+    color: var(--mute);
+    max-width: 70ch;
+    margin: 0 0 40px;
+  }
+
+  /* Swatch grid */
+  .swatch-col {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 22px 10px;
+  }
+  .swatch-col h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.86rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 18px;
+  }
+  .swatch {
+    display: grid;
+    grid-template-columns: 46px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+  .swatch:first-of-type { border-top: none; }
+  .swatch .chip-color {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    border: 1px solid var(--line-strong);
+  }
+  .swatch .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.94rem;
+  }
+  .swatch .token {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--mute);
+    margin-top: 2px;
+  }
+  .swatch .hex {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--cyan);
+  }
+
+  /* Dark/light sample panel */
+  .mode-sample {
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    padding: 26px 28px;
+  }
+  .mode-sample.dark {
+    background: #05060c;
+    color: #f4f4ff;
+  }
+  .mode-sample.light {
+    background: #f7f6f1;
+    color: #0a0c18;
+  }
+  .mode-sample .lbl {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #6be3ff;
+    margin-bottom: 14px;
+  }
+  .mode-sample.light .lbl { color: #0f7fb0; }
+  .mode-sample .title-hero {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0 0 10px;
+  }
+  .mode-sample p {
+    font-family: "Inter", sans-serif;
+    font-size: 0.98rem;
+    margin: 0 0 14px;
+    opacity: 0.8;
+  }
+  .mode-sample .mark-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+  }
+
+  /* Typography demo */
+  .type-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .type-row:first-of-type { border-top: none; }
+  .type-row .meta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+  .type-row .sample-h1 { font-family: "Outfit", sans-serif; font-weight: 900; font-size: 3.4rem; line-height: 1.02; letter-spacing: -0.02em; margin: 0; }
+  .type-row .sample-h2 { font-family: "Outfit", sans-serif; font-weight: 800; font-size: 2.4rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0; }
+  .type-row .sample-h3 { font-family: "Outfit", sans-serif; font-weight: 800; font-size: 1.6rem; line-height: 1.1; margin: 0; }
+  .type-row .sample-h4 { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; margin: 0; }
+  .type-row .sample-body { font-family: "Inter", sans-serif; font-size: 1rem; line-height: 1.55; margin: 0; color: var(--ink); }
+  .type-row .sample-muted { font-family: "Inter", sans-serif; font-size: 0.95rem; line-height: 1.55; margin: 0; color: var(--mute); }
+  .type-row .sample-eyebrow { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cyan); }
+  .type-row .sample-mono { font-family: var(--mono); font-size: 0.92rem; color: var(--ink); }
+
+  /* Logo lockup demo */
+  .lockup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .lockup-tile {
+    padding: 36px 28px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 170px;
+  }
+  .lockup-tile .cap {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--mute);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .mark-lg { width: 64px; height: 64px; }
+  .mark-lg::after { inset: 12px; }
+  .mark-lg::before { inset: 20px; }
+  .mark-xl { width: 96px; height: 96px; box-shadow: 0 0 40px color-mix(in srgb, var(--cyan) 55%, transparent); }
+  .mark-xl::after { inset: 18px; }
+  .mark-xl::before { inset: 30px; }
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+  }
+  .lockup-tile.on-light {
+    background: #f7f6f1;
+    color: #0a0c18;
+  }
+  .lockup-tile.on-light .mark::after { background: #f7f6f1; }
+
+  /* Motion card */
+  .motion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .motion-card {
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+  .motion-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 10px;
+  }
+  .motion-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin: 0 0 8px;
+  }
+  .motion-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--mute);
+  }
+  .motion-demo {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--grad);
+    color: #0a0a1a;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .motion-demo:hover { transform: translateY(-2px); }
+  .focus-demo {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+  }
+
+  /* Voice table */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .voice-card {
+    padding: 22px 26px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+  }
+  .voice-card.good {
+    border-color: color-mix(in srgb, var(--green) 35%, transparent);
+    background: color-mix(in srgb, var(--green) 4%, transparent);
+  }
+  .voice-card.bad {
+    border-color: color-mix(in srgb, var(--red) 35%, transparent);
+    background: color-mix(in srgb, var(--red) 4%, transparent);
+  }
+  .voice-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--mute);
+  }
+  .voice-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .voice-card ul li {
+    padding-left: 22px;
+    position: relative;
+    font-size: 0.95rem;
+  }
+  .voice-card.good li::before { content: "\2713"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+  .voice-card.bad li::before { content: "\2717"; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+
+  /* Mobile-parity panel */
+  .mobile-anchors {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .mobile-anchors .anchor {
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+  .mobile-anchors .anchor .n {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 6px;
+  }
+  .mobile-anchors .anchor .l {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .mobile-anchors .anchor p {
+    margin: 10px 0 0;
+    font-size: 0.86rem;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+
+  /* Button row */
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  /* Grid helpers */
+  .ds-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .ds-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .ds-grid-2,
+    .ds-grid-3,
+    .lockup-grid,
+    .motion-grid,
+    .voice-grid,
+    .mobile-anchors {
+      grid-template-columns: 1fr;
+    }
+    .type-row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .type-row .sample-h1 { font-size: clamp(2rem, 8vw, 2.6rem); }
+    .type-row .sample-h2 { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+  }
+</style>
+</head>
+<body>
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- Top nav -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div class="top-nav-right">
+      <span class="eyebrow" style="margin-right: 12px;">09 · VISUAL IDENTITY</span>
+      <button class="theme-toggle" data-theme-toggle>
+        <span data-theme-label>LIGHT</span>
+      </button>
+      <a class="cta ghost" href="../../index.html">BACK TO HUB</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hub-hero">
+  <div class="container inner">
+    <div class="eyebrow cyan">DELIVERABLE 09 · DESIGN SYSTEM</div>
+    <h1>P1 World Tour Visual Identity</h1>
+    <p class="lede">
+      The canonical brand system behind every deck, page, and investor artifact in this hand-back.
+      Dark default with full light parity. Outfit for display, Inter for body, JetBrains Mono for data.
+      Institutional confidence without consultant starchiness.
+      <span class="grad-text" style="font-weight:600;">One system. Fourteen artifacts. Zero drift.</span>
+    </p>
+    <div class="meta-row">
+      <div class="item"><div class="k">PALETTE</div><div class="v">Dark-first · 4 accents</div></div>
+      <div class="item"><div class="k">TYPE STACK</div><div class="v">Outfit · Inter · JetBrains Mono</div></div>
+      <div class="item"><div class="k">MODES</div><div class="v">Dark (default) · Light parity</div></div>
+      <div class="item"><div class="k">BASELINE</div><div class="v">Apple HIG · 44pt · 17pt</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 · Color palette -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow cyan">01 · COLOR PALETTE</div>
+    <h2>Dark-first. Light parity. Every token is a variable.</h2>
+    <p class="lede">
+      Brand is tokenized in <span class="mono">_shared/tokens.css</span>. Every surface, accent, and
+      divider resolves through CSS custom properties. The theme toggle flips
+      <span class="mono">[data-theme]</span> on the root — everything reflows.
+    </p>
+
+    <div class="ds-grid-2">
+      <div class="swatch-col">
+        <h4>Dark mode (default)</h4>
+        <div class="swatch">
+          <div class="chip-color" style="background:#05060c;"></div>
+          <div><div class="name">Background</div><div class="token">--bg</div></div>
+          <div class="hex">#05060C</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#0c0e1a;"></div>
+          <div><div class="name">Card surface</div><div class="token">--card</div></div>
+          <div class="hex">#0C0E1A</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#f4f4ff;"></div>
+          <div><div class="name">Ink (text)</div><div class="token">--ink</div></div>
+          <div class="hex">#F4F4FF</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#9aa1c0;"></div>
+          <div><div class="name">Muted text</div><div class="token">--mute</div></div>
+          <div class="hex">#9AA1C0</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#6be3ff;"></div>
+          <div><div class="name">Cyan — primary accent</div><div class="token">--cyan</div></div>
+          <div class="hex">#6BE3FF</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#7c5cff;"></div>
+          <div><div class="name">Violet — brand hero</div><div class="token">--violet</div></div>
+          <div class="hex">#7C5CFF</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#f4c65b;"></div>
+          <div><div class="name">Gold — premium / capital</div><div class="token">--gold</div></div>
+          <div class="hex">#F4C65B</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:linear-gradient(90deg,#d8b8ff 0%,#8fc6ff 50%,#6be3ff 100%);"></div>
+          <div><div class="name">Primary gradient</div><div class="token">--grad</div></div>
+          <div class="hex">lav → cyan</div>
+        </div>
+      </div>
+
+      <div class="swatch-col">
+        <h4>Light mode (paper parity)</h4>
+        <div class="swatch">
+          <div class="chip-color" style="background:#f7f6f1;"></div>
+          <div><div class="name">Background</div><div class="token">--bg</div></div>
+          <div class="hex">#F7F6F1</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#ffffff;border-color:#ddd;"></div>
+          <div><div class="name">Card surface</div><div class="token">--card</div></div>
+          <div class="hex">#FFFFFF</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#0a0c18;"></div>
+          <div><div class="name">Ink (text)</div><div class="token">--ink</div></div>
+          <div class="hex">#0A0C18</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#5a6178;"></div>
+          <div><div class="name">Muted text</div><div class="token">--mute</div></div>
+          <div class="hex">#5A6178</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#0f7fb0;"></div>
+          <div><div class="name">Cyan — primary accent</div><div class="token">--cyan</div></div>
+          <div class="hex">#0F7FB0</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#5a3bdb;"></div>
+          <div><div class="name">Violet — brand hero</div><div class="token">--violet</div></div>
+          <div class="hex">#5A3BDB</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:#a3710f;"></div>
+          <div><div class="name">Gold — premium / capital</div><div class="token">--gold</div></div>
+          <div class="hex">#A3710F</div>
+        </div>
+        <div class="swatch">
+          <div class="chip-color" style="background:linear-gradient(90deg,#5a3bdb 0%,#0f7fb0 100%);"></div>
+          <div><div class="name">Primary gradient</div><div class="token">--grad</div></div>
+          <div class="hex">violet → cyan</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-grid-2" style="margin-top: 28px;">
+      <div class="mode-sample dark">
+        <div class="lbl">DARK — DEFAULT</div>
+        <div class="title-hero">20 stops. 17 countries.</div>
+        <p>The F1 architecture, globally engineered for pickleball. $50M anchor into $250M+ implied valuation.</p>
+        <div class="mark-inline"><span class="mark"></span><span>P1 World Tour</span></div>
+      </div>
+      <div class="mode-sample light">
+        <div class="lbl">LIGHT — PAPER</div>
+        <div class="title-hero">20 stops. 17 countries.</div>
+        <p>The F1 architecture, globally engineered for pickleball. $50M anchor into $250M+ implied valuation.</p>
+        <div class="mark-inline"><span class="mark"></span><span>P1 World Tour</span></div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 28px;">
+      <div class="k">Accent discipline</div>
+      <p style="margin: 0;">
+        Cyan = information, wayfinding, data. Violet = brand hero moments, structural claims.
+        Gold = capital, scarcity, premium. Never mix three accents in a single composition — pick one
+        dominant, one support, zero decoration.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · Typography -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow violet">02 · TYPOGRAPHY</div>
+    <h2>Outfit for display. Inter for body. JetBrains Mono for data.</h2>
+    <p class="lede">
+      Three families, each with a job. Outfit carries all display and UI labels — 600 through 900.
+      Inter carries body and long-form copy. JetBrains Mono carries numbers, code, and any field
+      that must read as data, not language.
+    </p>
+
+    <div class="card" style="padding: 36px 40px;">
+      <div class="type-row">
+        <div class="meta">Outfit 900<br/>3.4rem / 54px<br/>-0.02em tracking</div>
+        <h1 class="sample-h1">Own the moment.</h1>
+      </div>
+      <div class="type-row">
+        <div class="meta">Outfit 800<br/>2.4rem / 38px<br/>-0.02em tracking</div>
+        <h2 class="sample-h2">The season that becomes the sport.</h2>
+      </div>
+      <div class="type-row">
+        <div class="meta">Outfit 800<br/>1.6rem / 26px<br/>Section head</div>
+        <h3 class="sample-h3">Capital protected until milestone.</h3>
+      </div>
+      <div class="type-row">
+        <div class="meta">Outfit 700<br/>1.1rem / 18px<br/>Card head</div>
+        <h4 class="sample-h4">Concorde Agreement · July 1 milestone</h4>
+      </div>
+      <div class="type-row">
+        <div class="meta">Outfit 700<br/>0.72rem / 12px<br/>0.22em tracking · UPPERCASE<br/>Eyebrow / label</div>
+        <div class="sample-eyebrow">THE BARTLETT PRINCIPLE</div>
+      </div>
+      <div class="type-row">
+        <div class="meta">Inter 400<br/>1rem / 16px<br/>1.55 line-height<br/>Body default</div>
+        <p class="sample-body">Pickleball is the fastest-growing racquet sport on Earth. Seventy-five million players today, a projected three hundred million by 2032. Three of every four 2032 players have not yet picked up a paddle. P1 is the first institutional entity built to capture that growth globally.</p>
+      </div>
+      <div class="type-row">
+        <div class="meta">Inter 400<br/>0.95rem / 15px<br/>var(--mute)<br/>Supporting copy</div>
+        <p class="sample-muted">Secondary text, captions, card descriptions. Reads as supportive detail rather than primary claim. Keep line length under 70 characters for comfortable scan.</p>
+      </div>
+      <div class="type-row">
+        <div class="meta">JetBrains Mono 600<br/>0.92rem / 15px<br/>Data / numbers / tokens</div>
+        <div class="sample-mono">$50M &rarr; $250M implied · 2026-04-01 · --cyan #6BE3FF</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · Logo lockups -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow gold">03 · LOGO LOCKUPS</div>
+    <h2>The mark. Three scales. Two surfaces.</h2>
+    <p class="lede">
+      The circular mark is a three-layer gradient (outer halo, inner punch, inner core). It carries
+      on its own, paired with the wordmark, or lifted onto paper. The light-mode mark swaps the
+      punch layer to match the paper surface.
+    </p>
+
+    <div class="lockup-grid">
+      <div class="lockup-tile">
+        <span class="mark"></span>
+        <div class="cap">30px · NAV / INLINE</div>
+      </div>
+      <div class="lockup-tile">
+        <span class="mark mark-lg"></span>
+        <div class="cap">64px · CARD / EYEBROW</div>
+      </div>
+      <div class="lockup-tile">
+        <span class="mark mark-xl"></span>
+        <div class="cap">96px · HERO / COVER</div>
+      </div>
+    </div>
+
+    <div class="ds-grid-2" style="margin-top: 20px;">
+      <div class="lockup-tile">
+        <div class="wordmark">
+          <span class="mark mark-lg"></span>
+          <span>P1 World Tour</span>
+        </div>
+        <div class="cap">WORDMARK ON DARK</div>
+      </div>
+      <div class="lockup-tile on-light">
+        <div class="wordmark">
+          <span class="mark mark-lg"></span>
+          <span>P1 World Tour</span>
+        </div>
+        <div class="cap">WORDMARK ON PAPER</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">Clear-space rule</div>
+      <p style="margin: 0;">
+        Minimum clear space around the mark or wordmark is equal to the height of the mark itself.
+        Never stretch, rotate, or place the mark on a photographic background without a color-tinted
+        overlay at <span class="mono">rgba(5,6,12,0.7)</span> or stronger.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · Data display -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow cyan">04 · DATA DISPLAY</div>
+    <h2>Stats, tables, and callouts — institutional by default.</h2>
+    <p class="lede">
+      Every numeric primitive is tokenized. Stat bars for snapshot claims, tables for structured
+      data, callouts for quoted principles. Every dollar figure pulls from the canonical financial
+      model — no figure is ever invented.
+    </p>
+
+    <h4 style="margin: 0 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Stat bar (4-column)</h4>
+    <div class="stat-bar cols-4" style="border: 1px solid var(--line); border-radius: 14px; overflow: hidden;">
+      <div class="cell"><div class="num">$130M</div><div class="lbl">Total capital at close</div></div>
+      <div class="cell"><div class="num">20</div><div class="lbl">Global events</div></div>
+      <div class="cell"><div class="num">17</div><div class="lbl">Countries</div></div>
+      <div class="cell"><div class="num">$24M</div><div class="lbl">Annual prize pool</div></div>
+    </div>
+
+    <h4 style="margin: 32px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Callouts — three accents</h4>
+    <div class="ds-grid-3">
+      <div class="callout">
+        <div class="k">Information</div>
+        <p style="margin: 0; font-size: 0.94rem;">Neutral information or contextual framing. Cyan left-rail is the default emphasis.</p>
+      </div>
+      <div class="callout violet">
+        <div class="k">Brand principle</div>
+        <p style="margin: 0; font-size: 0.94rem;">Structural or philosophical claim — the Bartlett principle, the vacuum thesis, governance separation.</p>
+      </div>
+      <div class="callout gold">
+        <div class="k">Capital / scarcity</div>
+        <p style="margin: 0; font-size: 0.94rem;">Money, risk, downside protection, seat scarcity. Gold signals the capital rail.</p>
+      </div>
+    </div>
+
+    <h4 style="margin: 32px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Card — three tops</h4>
+    <div class="ds-grid-3">
+      <div class="card accent-cyan">
+        <div class="eyebrow">MEDIA RIGHTS</div>
+        <h3 style="margin: 10px 0;">$32M &rarr; $82M</h3>
+        <p class="muted" style="margin: 0;">Y1 → Y5 ramp. Launch-partner global highlight package, unbundled regional live from Y3.</p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">GOVERNANCE</div>
+        <h3 style="margin: 10px 0;">Three bodies</h3>
+        <p class="muted" style="margin: 0;">Investor. Ramsports. 8 Constructors. Separation of regulation from commercial rights.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">DOWNSIDE</div>
+        <h3 style="margin: 10px 0;">Escrow → refund</h3>
+        <p class="muted" style="margin: 0;">Full $50M returned if 8 Constructors not secured by July 1, 2026.</p>
+      </div>
+    </div>
+
+    <h4 style="margin: 32px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Data table — League revenue Y1 &rarr; Y5</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Line item</th>
+          <th class="num">Y1</th>
+          <th class="num">Y3</th>
+          <th class="num">Y5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Media rights</td><td class="num accent">$32M</td><td class="num accent">$60M</td><td class="num accent">$82M</td></tr>
+        <tr><td>Global sponsorship</td><td class="num">$24M</td><td class="num">$36M</td><td class="num">$46M</td></tr>
+        <tr><td>Event revenue (gate, hospitality)</td><td class="num">$18M</td><td class="num">$25M</td><td class="num">$32M</td></tr>
+        <tr><td>Team feed (Constructors)</td><td class="num">$10M</td><td class="num">$10M</td><td class="num">$12M</td></tr>
+        <tr><td>Licensing / merchandise</td><td class="num">$7M</td><td class="num">$12M</td><td class="num">$18M</td></tr>
+        <tr><td>Content / docuseries royalties</td><td class="num">$5M</td><td class="num">$12M</td><td class="num">$20M</td></tr>
+        <tr><td><strong>Total</strong></td><td class="num accent"><strong>$96M</strong></td><td class="num accent"><strong>$155M</strong></td><td class="num accent"><strong>$210M</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 05 · Motion -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow violet">05 · MOTION & INTERACTION</div>
+    <h2>Quick. Deliberate. Functional — never theatrical.</h2>
+    <p class="lede">
+      Motion confirms causality. Hover lifts, focus rings, and state transitions resolve in 150ms
+      with ease-out. Nothing animates in decoration — every transition is a signal.
+    </p>
+
+    <div class="motion-grid">
+      <div class="motion-card">
+        <div class="k">HOVER LIFT</div>
+        <h4>translateY(-1px) · 150ms</h4>
+        <p>Buttons and CTAs lift one pixel on hover. Deliverable cards lift two pixels. Never more — never slower.</p>
+        <a class="motion-demo">HOVER ME</a>
+      </div>
+      <div class="motion-card">
+        <div class="k">FOCUS RING</div>
+        <h4>2px cyan · 3px offset</h4>
+        <p>Keyboard focus uses a 2px solid cyan outline with 3px offset and 6px radius. Visible in every theme. Never removed.</p>
+        <a class="focus-demo" tabindex="0">FOCUSED STATE</a>
+      </div>
+      <div class="motion-card">
+        <div class="k">THEME FLIP</div>
+        <h4>Instant · no transition</h4>
+        <p>Theme swap is immediate — no fade, no crossfade. The toggle is a state change, not a performance. Tokens resolve in a single paint.</p>
+        <button class="theme-toggle" data-theme-toggle style="margin-top: 14px;">
+          <span data-theme-label>LIGHT</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 28px;">
+      <div class="k">Motion rule</div>
+      <p style="margin: 0;">
+        If the motion does not confirm a state change or guide the eye to the next action, cut it.
+        Decks must read as static in print and feel responsive on screen — nothing in between.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · Buttons -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow gold">06 · BUTTONS & CTAs</div>
+    <h2>Three variants. One purpose each.</h2>
+    <p class="lede">
+      Primary carries the gradient and the decision — "open the brief," "commit capital," "start
+      review." Ghost is reversible — "back," "secondary read." Gold is capital — "commit," "deploy,"
+      "close."
+    </p>
+
+    <div class="card">
+      <h4 style="margin: 0 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Primary · gradient</h4>
+      <div class="button-row">
+        <a class="cta" href="#">Open the brief</a>
+        <a class="cta" href="#">Commit $50M anchor</a>
+        <a class="cta" href="#">Start review &rarr;</a>
+      </div>
+
+      <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Ghost · reversible</h4>
+      <div class="button-row">
+        <a class="cta ghost" href="#">Back to hub</a>
+        <a class="cta ghost" href="#">Read the Master Pitch</a>
+        <a class="cta ghost" href="#">Download financial model</a>
+      </div>
+
+      <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Gold · capital rail</h4>
+      <div class="button-row">
+        <a class="cta gold" href="#">Sign Concorde Agreement</a>
+        <a class="cta gold" href="#">Deploy capital &rarr;</a>
+      </div>
+
+      <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Chips · metadata</h4>
+      <div class="button-row">
+        <span class="chip cyan"><span class="mono">20 STOPS</span></span>
+        <span class="chip violet"><span class="mono">17 COUNTRIES</span></span>
+        <span class="chip gold"><span class="mono">$50M ANCHOR</span></span>
+        <span class="chip"><span class="mono">$130M AT CLOSE</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · Comparisons -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow cyan">07 · COMPARISONS (.vs)</div>
+    <h2>Good / bad. Old / new. Incumbent / P1.</h2>
+    <p class="lede">
+      The <span class="mono">.vs</span> primitive is the house pattern for any structural
+      comparison. Red rail marks the broken model, green rail marks the P1 answer. Use it when the
+      decision is binary.
+    </p>
+
+    <div class="vs">
+      <div class="side bad">
+        <h4>Old way — PPA / UPA</h4>
+        <ul>
+          <li>Regulator owned by the operator. Credibility collapsed.</li>
+          <li>Fans banned from filming. Creators capped at 2 min/day.</li>
+          <li>U.S.-only footprint. No global pathway.</li>
+          <li>Player contracts one-sided. Delayed pay. Culture of fear.</li>
+        </ul>
+      </div>
+      <div class="side good">
+        <h4>P1 way</h4>
+        <ul>
+          <li>Ramsports independent. Separation of regulation and commercial rights.</li>
+          <li>Open-media model. Fans film. Creators amplify. Docuseries pipeline.</li>
+          <li>20 events, 17 countries, 4 regional swings from Year 1.</li>
+          <li>Transparent governance. Players with real leverage. Credibility compounds.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · Mobile parity -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow violet">08 · MOBILE PARITY</div>
+    <h2>Apple HIG baseline. Webflow breakpoints. Print-safe in both directions.</h2>
+    <p class="lede">
+      Every page in this system passes a mobile-screenshot gate before it ships. 44pt minimum touch
+      target, 17pt body at mobile, clamp() on every hero, stacked grids under 900px.
+      Theme toggle visible on every screen — dark default, light parity.
+    </p>
+
+    <div class="mobile-anchors">
+      <div class="anchor">
+        <div class="n">44pt</div>
+        <div class="l">Min touch target</div>
+        <p>Every button, toggle, chip, and card CTA clears 44pt (roughly 44px CSS) on mobile. Non-negotiable.</p>
+      </div>
+      <div class="anchor">
+        <div class="n">17pt</div>
+        <div class="l">Body at mobile</div>
+        <p>Body scales to 17px at <span class="mono">max-width: 768px</span>. Legibility before density.</p>
+      </div>
+      <div class="anchor">
+        <div class="n">900px</div>
+        <div class="l">Stack breakpoint</div>
+        <p>All multi-column grids collapse to single column at 900px. Stat bars and vs-comparison too.</p>
+      </div>
+      <div class="anchor">
+        <div class="n">clamp()</div>
+        <div class="l">Fluid display type</div>
+        <p>H1 uses <span class="mono">clamp(2.2rem, 4.2vw, 3.4rem)</span>. Scales smooth, never brittle.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">Webflow breakpoint ladder</div>
+      <p style="margin: 0;">
+        <span class="mono">320 / 480 / 640 / 768 / 1024 / 1280 / 1600</span>. Hamburger nav appears under 640px.
+        Container padding drops from 28px to 20px under 768px. No content reflow creates horizontal scroll.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · Voice do/don't -->
+<section class="ds-section">
+  <div class="container">
+    <div class="eyebrow gold">09 · VOICE</div>
+    <h2>Institutional. Confident. First-principles.</h2>
+    <p class="lede">
+      Write the way a senior capital allocator would want to be spoken to. Lead with claim; follow
+      with evidence. No filler. No consultant structure. Answer first, reasoning only if load-bearing.
+    </p>
+
+    <div class="voice-grid">
+      <div class="voice-card good">
+        <div class="k">Do</div>
+        <ul>
+          <li>"20 stops. 17 countries. $50M player pool."</li>
+          <li>"Escrow-protected until 8 Constructors sign."</li>
+          <li>"Ramsports is not a vision document. It is an operating business."</li>
+          <li>"Commit capital. Not attention. This is a binary."</li>
+          <li>Numbers spelled exactly as they appear in the financial model.</li>
+        </ul>
+      </div>
+      <div class="voice-card bad">
+        <div class="k">Don't</div>
+        <ul>
+          <li>"We're excited to explore how P1 might potentially..."</li>
+          <li>"Best-in-class, category-defining, world-class..."</li>
+          <li>"Our team believes this represents a unique opportunity to..."</li>
+          <li>"Leverage synergies across the pickleball ecosystem..."</li>
+          <li>Round numbers that drift from the canonical financial model.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="hub-footer">
+  <div class="container">
+    <div class="row-split">
+      <div class="credit">
+        <div class="brand" style="margin-bottom: 12px;">
+          <span class="mark"></span>
+          <span>P1 World Tour · Visual Identity</span>
+        </div>
+        <div>Design system · v1.0 · April 2026 · Canonical brand reference for the strategic hand-back.</div>
+      </div>
+      <div class="meta">
+        <div>DELIVERABLE 09 / 14</div>
+        <div>TOKENS: _shared/tokens.css</div>
+        <div>THEME: dark default · light parity</div>
+        <div>CONFIDENTIAL</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

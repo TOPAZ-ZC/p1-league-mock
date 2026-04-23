@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Sponsorship, Partnership & Advisory Deck</title>
+<meta name="description" content="Sponsorship tier structure, Constructor scarcity, brand-target mapping, hospitality architecture, and an ongoing strategic advisory engagement. A package, not a pitch." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Sponsorship-specific primitives */
+  .tier-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 180px 140px;
+    gap: 18px;
+    align-items: center;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+  }
+  .tier-row:first-of-type { border-top: none; }
+  .tier-row .n {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+  .tier-row .d { font-size: 0.88rem; color: var(--mute); }
+  .tier-row .slots {
+    font-family: var(--mono);
+    font-size: 0.86rem;
+    color: var(--violet);
+    font-weight: 600;
+  }
+  .tier-row .price {
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    color: var(--gold);
+    text-align: right;
+    font-weight: 700;
+  }
+
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .brand-card {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .brand-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 10px;
+  }
+  .brand-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 8px;
+  }
+  .brand-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 0.84rem;
+  }
+  .brand-card ul li {
+    padding-left: 16px;
+    position: relative;
+    color: var(--ink);
+  }
+  .brand-card ul li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+  }
+
+  .constructor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .constructor-tile {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    text-align: center;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .constructor-tile .slot {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 1;
+    background: var(--grad-cool);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .constructor-tile .lbl {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .constructor-tile .status {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .constructor-tile.live .status { color: var(--green); }
+  .constructor-tile.open .status { color: var(--cyan); }
+
+  .activation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .activation-card {
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+  .activation-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 10px;
+  }
+  .activation-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 10px;
+  }
+  .activation-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--mute);
+  }
+
+  .hospitality-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 140px 160px;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .hospitality-row:first-of-type { border-top: none; }
+  .hospitality-row .n {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+  .hospitality-row .d { font-size: 0.88rem; color: var(--mute); }
+  .hospitality-row .capacity {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--cyan);
+  }
+  .hospitality-row .price {
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    color: var(--gold);
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .ramp-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .ramp-grid .col {
+    padding: 22px 18px;
+    border-right: 1px solid var(--line);
+  }
+  .ramp-grid .col:last-child { border-right: none; }
+  .ramp-grid .y {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--mute);
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+  .ramp-grid .amt {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    line-height: 1;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .ramp-grid .lbl {
+    font-size: 0.76rem;
+    color: var(--mute);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .section-divider {
+    padding: 90px 72px;
+    background:
+      radial-gradient(50% 50% at 30% 40%, rgba(124, 92, 255, 0.22), transparent 70%),
+      radial-gradient(40% 40% at 75% 60%, rgba(244, 198, 91, 0.18), transparent 70%),
+      var(--bg);
+  }
+  .section-divider .eyebrow {
+    font-size: 0.86rem;
+  }
+  .section-divider h1 {
+    font-size: clamp(3rem, 6.4vw, 5rem);
+    margin: 18px 0 22px;
+    max-width: 18ch;
+    line-height: 0.98;
+  }
+
+  .governance-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .governance-row:first-of-type { border-top: none; }
+  .governance-row .n {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 0.96rem;
+    color: var(--violet);
+  }
+  .governance-row .d { font-size: 0.9rem; color: var(--mute); }
+
+  .pricing-card {
+    padding: 26px 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+  }
+  .pricing-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .pricing-card .big {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    background: var(--grad-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+    margin: 4px 0 8px;
+  }
+  .pricing-card p { margin: 0; font-size: 0.92rem; color: var(--mute); }
+
+  @media (max-width: 900px) {
+    .brand-grid, .constructor-grid, .activation-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .tier-row, .hospitality-row, .governance-row {
+      grid-template-columns: 1fr; gap: 6px;
+    }
+    .tier-row .price, .hospitality-row .price { text-align: left; }
+    .ramp-grid { grid-template-columns: 1fr 1fr; }
+    .ramp-grid .col { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow gold">DELIVERABLE 14 &middot; SPONSORSHIP, PARTNERSHIP &amp; ADVISORY</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">A package, not a pitch.</h1>
+    <p class="lede">
+      Sponsorship &amp; partnership architecture plus an ongoing strategic advisory engagement.
+      $24M Y1 &rarr; $46M Y5 in global sponsorship. 8 Constructor seats at $10M each. One
+      retained advisory partner through IPO.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip gold"><span class="mono">$46M Y5 SPONSORSHIP</span></div>
+      <div class="chip violet"><span class="mono">8 CONSTRUCTOR SEATS</span></div>
+      <div class="chip cyan"><span class="mono">ADVISORY THROUGH IPO</span></div>
+      <div class="chip"><span class="mono">48-HR RESPONSE SLA</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Sponsor + Advisory Partners &middot; Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — SECTION A OPENER -->
+<section class="deck-page section-divider">
+  <div>
+    <div class="eyebrow cyan">SECTION A</div>
+    <h1 class="grad-text">Sponsorship &amp; Partnership</h1>
+    <p class="lede" style="max-width: 58ch; font-size: 1.1rem; color: var(--mute);">
+      How P1 sells the commercial inventory. Tier structure, Constructor scarcity,
+      brand-target mapping, activation rubric, hospitality architecture.
+    </p>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>PAGE 02 &middot; SECTION A &middot; Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — TIER STRUCTURE -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">A1 &middot; Sponsorship Tier Structure</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">FOUR TIERS &middot; SCARCITY BY DESIGN</div>
+    <h2 class="deck-title">Title. Kit. Category. Regional.</h2>
+    <p class="deck-subtitle">
+      Every slot is sold at a price that creates scarcity. No more than one brand per tier-category pairing;
+      no more than four global category slots; sixteen regional slots cap out by Y2. Global sponsorship
+      line runs $24M Y1 to $46M Y5.
+    </p>
+
+    <div class="card">
+      <div class="tier-row">
+        <div class="n">TITLE / PRESENTING</div>
+        <div class="d">One global slot. Name on the tour itself. Closer: airline, automotive, or finance. Exclusive activation at every Grand Slam.</div>
+        <div class="slots">1 SLOT</div>
+        <div class="price">$18-24M / yr</div>
+      </div>
+      <div class="tier-row">
+        <div class="n">KIT</div>
+        <div class="d">One per Constructor team. On-court uniform rights + broadcast lower-third + team hospitality. Scarcity at 8 slots.</div>
+        <div class="slots">8 &times; $3M</div>
+        <div class="price">$24M / yr</div>
+      </div>
+      <div class="tier-row">
+        <div class="n">CATEGORY</div>
+        <div class="d">Four global category slots: Beverage, Apparel, Tech, Financial Services / Mobility. Single exclusive per category.</div>
+        <div class="slots">4 &times; $6-8M</div>
+        <div class="price">$24-32M / yr</div>
+      </div>
+      <div class="tier-row">
+        <div class="n">REGIONAL ACTIVATION</div>
+        <div class="d">Sixteen regional slots. Local brands buy into specific swings or stops. Caps at 4 per regional swing.</div>
+        <div class="slots">16 &times; $1-2M</div>
+        <div class="price">$16-32M / yr</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 24px;">
+      <div class="k">Why scarcity matters</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Sub-$10M sponsorship seats read as sponsorship. $10M+ Constructor seats read as franchise
+        ownership. Every tier boundary is calibrated to a purchase archetype: title reads as corporate
+        identity, kit reads as team affinity, category reads as exclusive vertical ownership, regional
+        reads as local activation. No brand is priced out; every brand knows what slot it fits.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — CONSTRUCTOR SEATS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">A2 &middot; Constructor Seats</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE FRANCHISE TIER &middot; $10M &times; 8</div>
+    <h2 class="deck-title">Constructors are not sponsorship. They are franchise ownership.</h2>
+    <p class="deck-subtitle">
+      A Constructor seat is a 5-year renewable license to operate a P1 franchise team. $10M license
+      fee at close. 8 global brands, scarce by design. 4 conversations live as of April 2026.
+    </p>
+
+    <div class="constructor-grid">
+      <div class="constructor-tile live">
+        <div class="slot">1</div>
+        <div class="lbl">Seat &middot; $10M</div>
+        <div class="status">TERM SHEET</div>
+      </div>
+      <div class="constructor-tile live">
+        <div class="slot">2</div>
+        <div class="lbl">Seat &middot; $10M</div>
+        <div class="status">TERM SHEET</div>
+      </div>
+      <div class="constructor-tile live">
+        <div class="slot">3</div>
+        <div class="lbl">Seat &middot; $10M</div>
+        <div class="status">TERM SHEET</div>
+      </div>
+      <div class="constructor-tile live">
+        <div class="slot">4</div>
+        <div class="lbl">Seat &middot; $10M</div>
+        <div class="status">TERM SHEET</div>
+      </div>
+      <div class="constructor-tile open">
+        <div class="slot">5</div>
+        <div class="lbl">Seat &middot; $10M</div>
+        <div class="status">OPEN</div>
+      </div>
+      <div class="constructor-tile open">
+        <div class="slot">6</div>
+        <div class="lbl">Seat &middot; $10M</div>
+        <div class="status">OPEN</div>
+      </div>
+      <div class="constructor-tile open">
+        <div class="slot">7</div>
+        <div class="lbl">Seat &middot; $10M</div>
+        <div class="status">OPEN</div>
+      </div>
+      <div class="constructor-tile open">
+        <div class="slot">8</div>
+        <div class="lbl">Seat &middot; $10M</div>
+        <div class="status">OPEN</div>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Target brand archetypes</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Archetype</th>
+          <th>Fit</th>
+          <th>Reference names</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Global beverage / energy</td><td>Participation-consumer DNA, sports-heritage marketing</td><td>Red Bull, Monster, Coca-Cola, Pepsi</td></tr>
+        <tr><td>Premium airline</td><td>Tour-global footprint, hospitality-adjacent</td><td>Emirates, Qatar, Singapore Airlines</td></tr>
+        <tr><td>Sport apparel / footwear</td><td>Direct athlete sponsorship + on-court kit</td><td>adidas, Skechers, New Balance</td></tr>
+        <tr><td>Consumer tech / streamer</td><td>Media-rights-adjacent + broadcast integration</td><td>Apple TV+, Amazon, Sony, Samsung</td></tr>
+        <tr><td>Sovereign / MENA-anchored</td><td>Tour Championship host market fit</td><td>Mubadala / ADQ, QSI, PIF-aligned</td></tr>
+        <tr><td>Private wealth / finance</td><td>Grand Slam hospitality fit, premium audience</td><td>JPMorgan Private Bank, Morgan Stanley Wealth</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout violet" style="margin-top: 20px;">
+      <div class="k">How Constructor differs from sponsorship</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        A sponsor buys visibility. A Constructor buys a team. 8 contracted pros, 1 coach, a 5-year
+        operating mandate, local-market revenue rights, and a seat at the table for league-level
+        decisions. Sponsorship is advertising. Constructor is franchise IP &mdash; with a ~5-10&times;
+        MOIC runway on the $10M fee.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — BRAND TARGET MAPPING -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">A3 &middot; Brand-Target Mapping</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">CATEGORY BY CATEGORY</div>
+    <h2 class="deck-title">Who we're targeting, by vertical.</h2>
+    <p class="deck-subtitle">
+      Brand-target list sourced from the canonical financial model. Each category maps to a P1
+      sponsorship tier or Constructor archetype. Names ordered by alignment strength &mdash;
+      participation-consumer DNA first, category depth second.
+    </p>
+
+    <div class="brand-grid">
+      <div class="brand-card">
+        <div class="k">BEVERAGE</div>
+        <h4>Category slot + Constructor fit</h4>
+        <ul>
+          <li>Red Bull</li>
+          <li>Monster</li>
+          <li>Coca-Cola</li>
+          <li>Pepsi</li>
+          <li>Athletic Brewing</li>
+          <li>OLIPOP</li>
+        </ul>
+      </div>
+      <div class="brand-card">
+        <div class="k">AIRLINE / TRAVEL</div>
+        <h4>Title / Constructor fit</h4>
+        <ul>
+          <li>Emirates</li>
+          <li>Qatar Airways</li>
+          <li>Singapore Airlines</li>
+          <li>British Airways</li>
+          <li>Qantas</li>
+          <li>Iberia</li>
+        </ul>
+      </div>
+      <div class="brand-card">
+        <div class="k">APPAREL / FOOTWEAR</div>
+        <h4>Kit / Category fit</h4>
+        <ul>
+          <li>adidas</li>
+          <li>Skechers</li>
+          <li>New Balance</li>
+          <li>Lululemon</li>
+          <li>ASICS</li>
+          <li>Mizuno</li>
+        </ul>
+      </div>
+      <div class="brand-card">
+        <div class="k">TECH</div>
+        <h4>Category + media-adjacent fit</h4>
+        <ul>
+          <li>Apple TV+</li>
+          <li>Amazon</li>
+          <li>YouTube</li>
+          <li>Sony</li>
+        </ul>
+      </div>
+      <div class="brand-card">
+        <div class="k">FINANCE</div>
+        <h4>Hospitality / Grand Slam fit</h4>
+        <ul>
+          <li>JPMorgan Private Bank</li>
+          <li>Morgan Stanley Wealth</li>
+          <li>DBS</li>
+          <li>UBS</li>
+        </ul>
+      </div>
+      <div class="brand-card">
+        <div class="k">MOBILITY / AUTO</div>
+        <h4>Title / Category fit</h4>
+        <ul>
+          <li>(Category open)</li>
+          <li>Premium auto &mdash; global</li>
+          <li>Rideshare &mdash; urban activation</li>
+          <li>EV &mdash; tour carbon story</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 24px;">
+      <div class="k">Anchor-portfolio synergy</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Sideline-portfolio brands (Athletic Brewing, OLIPOP) appear in the beverage brand-target list
+        as preferred-partner candidates for category or regional slots. Anchor investor receives right
+        of first refusal on any sponsorship slot that aligns with its portfolio thesis at preferred
+        pricing.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — ACTIVATION RUBRIC -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">A4 &middot; Sponsorship Activation Rubric</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">HOW SPONSORS SHOW UP AT EVERY STOP</div>
+    <h2 class="deck-title">Festival-weekend activation, not static signage.</h2>
+    <p class="deck-subtitle">
+      Every P1 stop is a 4-5 day festival weekend. Sponsor activation is architected in layers &mdash;
+      arena branding, festival zones, broadcast integration, and Constructor joint campaigns.
+      Static signage is the floor, not the ceiling.
+    </p>
+
+    <div class="activation-grid">
+      <div class="activation-card">
+        <div class="k">FESTIVAL ZONES</div>
+        <h4>Branded activation footprint</h4>
+        <p>Each stop includes dedicated festival-weekend zones for title + category sponsors. Tasting,
+          sampling, product demo, play-zones. Attendance 4-5k per weekend, with brand dwell time 45-90 min
+          per attendee.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">VENUE BRANDING</div>
+        <h4>Arena + on-court inventory</h4>
+        <p>4-5k seat arenas. On-court logo placements, broadcast visible. Concourse activation.
+          Digital signage. Naming rights on individual courts within a stop (e.g. "adidas Center Court").</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">BROADCAST INTEGRATION</div>
+        <h4>Content inventory within feeds</h4>
+        <p>Title sponsor lower-thirds, category sponsor commercial breaks, kit sponsor on-player visibility,
+          named segments within docuseries + highlight shows. Every broadcast hour has structured inventory.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">CONSTRUCTOR JOINT CAMPAIGNS</div>
+        <h4>Team-level activations</h4>
+        <p>Sponsors at category tier can run joint campaigns with a specific Constructor team.
+          Audience crossover between global brand marketing and team-specific fan base. Athlete-led creative opportunity.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">DIGITAL + CREATOR</div>
+        <h4>Always-on amplification</h4>
+        <p>Sponsor-licensed clip inventory for social + creator content. Named social series
+          ("Monster Moments of the Week"). Paid commercial rights on P1 content catalog to sponsors.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">GRAND SLAM PREMIUM</div>
+        <h4>Tentpole moments</h4>
+        <p>4 Grand Slams per year are premium activation windows. Extended broadcast, higher foot traffic,
+          VIP guest circuits, trophy presentation placements. Premium pricing layer on category + title tiers.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — HOSPITALITY -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">A5 &middot; Hospitality Tiers</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE PREMIUM-AUDIENCE REVENUE LINE</div>
+    <h2 class="deck-title">VIP boxes per stop. Grand Slam premiums layered on top.</h2>
+    <p class="deck-subtitle">
+      Hospitality is a distinct revenue line under event revenue ($18M Y1 &rarr; $32M Y5). Corporate
+      hospitality per stop anchors the premium audience; Grand Slam windows unlock tentpole pricing.
+    </p>
+
+    <div class="card">
+      <div class="hospitality-row">
+        <div class="n">VIP STANDARD</div>
+        <div class="d">Per-stop corporate boxes at all 16 standard stops. Full-season or single-event access. 8-12 guests per box. Catering + concierge included.</div>
+        <div class="capacity">~30 per stop</div>
+        <div class="price">$50-150k / box / yr</div>
+      </div>
+      <div class="hospitality-row">
+        <div class="n">VIP ELEVATED</div>
+        <div class="d">Courtside + chef's table + player meet-and-greet. Premium location, limited capacity. 6-8 guests per table.</div>
+        <div class="capacity">~12 per stop</div>
+        <div class="price">$150-250k / table / yr</div>
+      </div>
+      <div class="hospitality-row">
+        <div class="n">GRAND SLAM &middot; STANDARD</div>
+        <div class="d">Tentpole 5-day packages at Miami, London, Singapore, Dubai. Corporate boxes with Tour Championship access. Extended weekend format.</div>
+        <div class="capacity">~40 per Slam</div>
+        <div class="price">$200-500k / box / Slam</div>
+      </div>
+      <div class="hospitality-row">
+        <div class="n">GRAND SLAM &middot; PREMIUM</div>
+        <div class="d">Chairman's Circle tier. Trophy presentation access, private player receptions, Constructor garages tour, VIP lounges. White-glove concierge.</div>
+        <div class="capacity">~10 per Slam</div>
+        <div class="price">$500k - $1.5M / Slam</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 24px;">
+      <div class="k">Why hospitality compounds</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Corporate hospitality is repeat-purchase revenue. ~80% of year-one corporate box buyers renew
+        into year two at every comparable sports tour (F1, ATP, PGA). Hospitality plus gate is the
+        line that grows with fan-base maturity &mdash; $18M Y1 to $32M Y5 reflects a conservative 78%
+        ramp on repeat-purchase base.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — Y1-Y5 RAMP -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">A6 &middot; Y1 &rarr; Y5 Sponsorship Revenue Build</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE CANONICAL RAMP</div>
+    <h2 class="deck-title">$24M &rarr; $30M &rarr; $36M &rarr; $41M &rarr; $46M.</h2>
+
+    <div class="ramp-grid">
+      <div class="col">
+        <div class="y">Y1 2027</div>
+        <div class="amt">$24M</div>
+        <div class="lbl">Title + 8 kit + 3 category + launch-window regional</div>
+      </div>
+      <div class="col">
+        <div class="y">Y2 2028</div>
+        <div class="amt">$30M</div>
+        <div class="lbl">4th category unlocked &middot; regional inventory fills</div>
+      </div>
+      <div class="col">
+        <div class="y">Y3 2029</div>
+        <div class="amt">$36M</div>
+        <div class="lbl">Category renewals at +15% &middot; 16 regional slots active</div>
+      </div>
+      <div class="col">
+        <div class="y">Y4 2030</div>
+        <div class="amt">$41M</div>
+        <div class="lbl">Title renewal at premium &middot; Constructor joint campaigns mature</div>
+      </div>
+      <div class="col">
+        <div class="y">Y5 2031</div>
+        <div class="amt">$46M</div>
+        <div class="lbl">Category-defining property &middot; 2.5-3&times; launch multiples</div>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Sponsorship line composition</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th class="num">Y1</th>
+          <th class="num">Y3</th>
+          <th class="num">Y5</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Title / presenting</td><td class="num">$18M</td><td class="num">$21M</td><td class="num accent">$24M</td><td>Single global slot; renewal window Y3</td></tr>
+        <tr><td>Kit (8 Constructor-linked)</td><td class="num">$0*</td><td class="num">$0*</td><td class="num">$0*</td><td>*Kit fees flow through Constructor revenue, not league sponsorship line</td></tr>
+        <tr><td>Category (4 slots)</td><td class="num">$18M</td><td class="num">$25M</td><td class="num accent">$32M</td><td>Beverage, Apparel, Tech, Finance/Mobility</td></tr>
+        <tr><td>Regional (16 slots)</td><td class="num">$16M</td><td class="num">$22M</td><td class="num accent">$28M</td><td>Secondary regional fills: Austin, Madrid, Tokyo, Sydney, etc.</td></tr>
+        <tr><td>&mdash; League sponsorship net</td><td class="num accent"><strong>$24M</strong></td><td class="num accent"><strong>$36M</strong></td><td class="num accent"><strong>$46M</strong></td><td>(Offset for blended slot discounts Y1-Y2)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — SECTION B OPENER -->
+<section class="deck-page section-divider">
+  <div>
+    <div class="eyebrow violet">SECTION B</div>
+    <h1 class="grad-text">Ongoing Strategic Advisory</h1>
+    <p class="lede" style="max-width: 58ch; font-size: 1.1rem; color: var(--mute);">
+      How Assay retains engagement with P1 through IPO. Quarterly cadence, live-escalation SLA,
+      governance touchpoints, pricing structure.
+    </p>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>PAGE 09 &middot; SECTION B &middot; Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — ADVISORY SCOPE -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">B1 &middot; Advisory Retainer Scope</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">WHAT ASSAY RETAINS</div>
+    <h2 class="deck-title">Quarterly cadence. Annual offsite. Board-observer access.</h2>
+    <p class="deck-subtitle">
+      Advisory retainer scope is deliberately narrow: strategic, not operational. Cadence-driven, not
+      retainer-billed-by-hour. Single point of accountability to the P1 President plus Concorde-aligned
+      investor relationships.
+    </p>
+
+    <div class="activation-grid">
+      <div class="activation-card">
+        <div class="k">QUARTERLY REVIEW</div>
+        <h4>90-minute strategic session</h4>
+        <p>Every quarter. Topline metrics review, Constructor recruitment + retention, media-rights status,
+          sponsorship pipeline, governance health. Pre-read distributed 7 days prior.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">60-DAY STRATEGIC PLAN</div>
+        <h4>Written deliverable each quarter</h4>
+        <p>Forward-looking 60-day plan authored by Assay. Shipping priorities, risk flags, market-condition
+          update, recommended decisions for the President. Standing format, standing cadence.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">ANNUAL OFFSITE</div>
+        <h4>2-day strategic retreat</h4>
+        <p>Board + senior leadership + Assay. Year-ahead planning. Scenario stress-test. Constructor
+          roadmap, IPO timeline, governance-evolution milestones. Shared strategic memory.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">BOARD OBSERVER</div>
+        <h4>Non-voting board access</h4>
+        <p>If mutually agreed: Assay sits as board observer through tracking-stock IPO. Attends every
+          board meeting. Access to all materials. No vote, no fiduciary &mdash; informational + advisory only.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">INVESTOR LIAISON</div>
+        <h4>Anchor + co-investor interface</h4>
+        <p>Assay retains relationship with anchor investor post-close. Maintains thesis alignment, flags
+          portfolio-synergy opportunities, keeps anchor expectation management current.</p>
+      </div>
+      <div class="activation-card">
+        <div class="k">LIGHTWEIGHT ADVICE</div>
+        <h4>Unscheduled check-ins</h4>
+        <p>Informal 15-30 minute calls on demand for strategic questions between quarterly sessions.
+          No hourly billing; folded into annual retainer.</p>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 24px;">
+      <div class="k">What's out of scope</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Not included in the retainer: operational management, day-to-day Constructor relationship
+        management, media-rights selling, sponsorship selling, legal / HR / finance functions.
+        Assay is strategic partner, not fractional operator. Operational work is handled by P1's
+        in-house team + Ramsports.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 11 — LIVE ESCALATION -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">B2 &middot; Live-Escalation Retainer</div>
+    <div class="page-num">PAGE 11</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">ON-CALL WHEN IT MATTERS</div>
+    <h2 class="deck-title">48-hour SLA on crises that affect the category.</h2>
+    <p class="deck-subtitle">
+      The quarterly cadence carries the business in normal state. The live-escalation layer covers
+      the moments that determine how P1 gets talked about: Constructor disputes, integrity events,
+      media crises, anchor-facing emergencies. 48-hour response SLA, prioritized over non-P1
+      engagements.
+    </p>
+
+    <div class="grid-2">
+      <div class="card accent-cyan">
+        <div class="eyebrow">TRIGGER EVENTS</div>
+        <h3 style="margin: 10px 0;">When Assay is on-call</h3>
+        <ul style="padding-left: 20px; margin: 10px 0; font-size: 0.92rem;">
+          <li>Constructor dispute escalating to legal / PR threshold</li>
+          <li>Integrity event (player suspension, betting probe, doping inquiry)</li>
+          <li>Media crisis &mdash; negative broadcast-partner or press narrative at Grand-Slam scale</li>
+          <li>Anchor-facing concern (covenant risk, governance dispute, Concorde amendment)</li>
+          <li>Regulatory intervention (Olympic committee, sports-law, cross-border work-permit)</li>
+        </ul>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">RESPONSE PROTOCOL</div>
+        <h3 style="margin: 10px 0;">48-hour SLA</h3>
+        <ul style="padding-left: 20px; margin: 10px 0; font-size: 0.92rem;">
+          <li>Initial acknowledgment within 2 hours, any timezone</li>
+          <li>Initial strategic memo within 48 hours, written deliverable</li>
+          <li>Working daily until the event closes; cadence defined by severity</li>
+          <li>Post-event debrief within 14 days &mdash; lessons captured into skill / playbook update</li>
+          <li>Playbook update captured into P1 governance library for future reuse</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Escalation matrix</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Severity</th>
+          <th>Trigger</th>
+          <th>Response</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Red</td><td>League-threatening event &mdash; Constructor default, integrity crisis, media catastrophe</td><td>Full mobilization. 2-hour acknowledgment. Daily working cadence until closed.</td></tr>
+        <tr><td>Amber</td><td>Significant but contained &mdash; single-event dispute, single-market media issue</td><td>48-hour written memo. Weekly review until closed.</td></tr>
+        <tr><td>Green</td><td>Strategic question outside quarterly cadence</td><td>Rolls into next quarterly review or lightweight 15-30 min call within 1 week.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 12 — GOVERNANCE TOUCHPOINTS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">B3 &middot; Governance Touchpoints</div>
+    <div class="page-num">PAGE 12</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">WHERE ADVISORY MEETS GOVERNANCE</div>
+    <h2 class="deck-title">Where Assay participates in league-level decisions.</h2>
+    <p class="deck-subtitle">
+      Advisory is non-voting. But there are specific governance touchpoints where Assay's strategic role
+      is formally referenced &mdash; Concorde amendments, Ramsports board nominations, anchor-investor
+      liaison, and pre-IPO preparation.
+    </p>
+
+    <div class="card">
+      <div class="governance-row">
+        <div class="n">CONCORDE AMENDMENTS</div>
+        <div class="d">Any amendment to the Concorde Agreement (governance terms, anchor rights, Constructor obligations) is reviewed by Assay prior to board vote. Advisory memo attached to every amendment ballot.</div>
+      </div>
+      <div class="governance-row">
+        <div class="n">RAMSPORTS BOARD NOMINATIONS</div>
+        <div class="d">Assay consulted on any replacement or addition to the Ramsports board / advisory bench. Consulted on governance-credibility dimension &mdash; not veto, but formal input.</div>
+      </div>
+      <div class="governance-row">
+        <div class="n">ANCHOR-INVESTOR LIAISON</div>
+        <div class="d">Assay maintains relationship with anchor investor from Concorde signing through tracking-stock IPO. Formal liaison role for portfolio-synergy activation and thesis-alignment maintenance.</div>
+      </div>
+      <div class="governance-row">
+        <div class="n">PRE-IPO PREPARATION</div>
+        <div class="d">Assay leads pre-IPO strategic narrative development. Works with P1 legal + bankers on S-1 strategic sections, investor-day messaging, analyst-day preparation. Hand-off to ECM team at roadshow.</div>
+      </div>
+      <div class="governance-row">
+        <div class="n">CONSTRUCTOR SEAT RESALE</div>
+        <div class="d">If a Constructor seat returns to Ramsports for resale, Assay consulted on replacement brand screening. Preserves governance-credibility and anchor portfolio alignment.</div>
+      </div>
+      <div class="governance-row">
+        <div class="n">SERIES B + PRE-IPO ROUNDS</div>
+        <div class="d">Advisory memo on each subsequent capital round. Dilution analysis, strategic-fit review of new LPs, preferred-partner identification.</div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 20px;">
+      <div class="k">Advisory is not governance</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Assay does not hold voting rights, has no fiduciary obligation, and does not participate in
+        executive decision-making. The role is explicitly advisory &mdash; strategic input, not
+        operational control. Voting authority rests with the anchor, the Constructor bench, Ramsports,
+        and the P1 board.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 13 — PRICING -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">B4 &middot; Advisory Pricing Structure</div>
+    <div class="page-num">PAGE 13</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">FIXED RETAINER + PERFORMANCE COMPONENT</div>
+    <h2 class="deck-title">$500k-$1M annual retainer. 1% of advisory-driven revenue.</h2>
+    <p class="deck-subtitle">
+      Pricing aligned to outcomes. Fixed retainer covers quarterly cadence + escalation SLA. Performance
+      component captures upside when Assay-driven relationships or deals close. No hourly billing,
+      no fee creep.
+    </p>
+
+    <div class="grid-2">
+      <div class="pricing-card">
+        <div class="k">BASE RETAINER</div>
+        <div class="big">$500k - $1M / yr</div>
+        <h4 style="margin: 0 0 8px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem;">Fixed fee, quarterly billed</h4>
+        <p>Covers quarterly cadence, 60-day plans, annual offsite, board-observer access, 48-hour
+          escalation SLA. Range reflects scope tier &mdash; $500k at minimum engagement, $1M with full
+          board-observer + pre-IPO scope.</p>
+      </div>
+      <div class="pricing-card">
+        <div class="k">PERFORMANCE LAYER</div>
+        <div class="big">1% of incremental</div>
+        <h4 style="margin: 0 0 8px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem;">Of Assay-driven revenue deals</h4>
+        <p>1% of incremental revenue from deals directly attributable to Assay-driven introductions or
+          advisory (new Constructor seat sold via Assay intro, media partner sourced by Assay, etc.).
+          Applied only to net-new deals above baseline, verified quarterly.</p>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">What's excluded</h4>
+    <div class="card">
+      <ul style="padding-left: 20px; margin: 0; font-size: 0.94rem;">
+        <li><strong>No hourly billing.</strong> Quarterly cadence is fixed; escalations folded into retainer.</li>
+        <li><strong>No success-fee on anchor close.</strong> Anchor investor relationship predates Concorde; not Assay-driven for pricing purposes.</li>
+        <li><strong>No performance on media-rights deals in renewal cycles.</strong> Only on net-new media deals sourced by Assay introduction.</li>
+        <li><strong>No double-dipping with legal / banker fees.</strong> If a transaction has fee coverage elsewhere, advisory performance does not stack.</li>
+      </ul>
+    </div>
+
+    <div class="callout gold" style="margin-top: 24px;">
+      <div class="k">Term + termination</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Initial term: 3 years from Concorde close (2026-2029), covering pre-IPO window. Renewal at
+        market. Termination for convenience with 90-day notice. Termination for cause (material breach)
+        immediate. Hand-off obligations included: materials, relationships, and strategic memory
+        transfer to internal / successor team.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Sponsorship &amp; Advisory</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 14 — CLOSING -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+  </div>
+
+  <div>
+    <div class="eyebrow gold" style="margin-bottom: 20px;">CLOSING</div>
+    <h2 class="deck-title grad" style="max-width: 18ch; font-size: clamp(2.6rem, 5.2vw, 4.2rem);">
+      A package, not a pitch.
+    </h2>
+
+    <p class="lede" style="max-width: 64ch; font-size: 1.15rem; color: var(--mute); margin-top: 14px;">
+      Sponsorship inventory fully architected. Constructor recruitment framework live. Brand-target list
+      mapped. Hospitality tiers priced. Advisory retainer scoped through IPO. One package. One partner.
+      Through 2029-30.
+    </p>
+
+    <div style="margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+      <div class="pricing-card">
+        <div class="k">SECTION A</div>
+        <div class="big">$46M Y5</div>
+        <h4 style="margin: 0 0 8px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem;">Global sponsorship line</h4>
+        <p>4 tiers. $24M Y1 &rarr; $46M Y5. Title, kit, category, regional.
+          Constructor seats separate ($10M &times; 8).</p>
+      </div>
+      <div class="pricing-card">
+        <div class="k">SECTION B</div>
+        <div class="big">$500k-$1M / yr</div>
+        <h4 style="margin: 0 0 8px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem;">Advisory through IPO</h4>
+        <p>Quarterly cadence. 48-hour escalation SLA. Board observer. Pre-IPO support. 3-year term.
+          Performance layer at 1% of incremental.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">CONTACT</div>
+      <div class="v">Assay &middot; P1 World Tour</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL &mdash; Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DOCUMENT</div>
+      <div class="v">Sponsorship &amp; Advisory Deck &middot; 14 / 14</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

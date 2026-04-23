@@ -1,0 +1,68 @@
+/* P1 League — print-safe multi-page spreads
+   Applied to every deck. Letter-size, forced page breaks per section,
+   background-color preserved via print-color-adjust:exact. */
+
+@page {
+  size: letter;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: #05060c !important;
+    color: #f4f4ff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Each .deck-page = one printed page */
+  .deck-page {
+    page-break-after: always;
+    break-after: page;
+  }
+  .deck-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  /* Prevent cards/charts from splitting across page breaks */
+  .card,
+  .stat,
+  table.data,
+  .keep-together {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Hide interactive UI on print */
+  .no-print,
+  .theme-toggle,
+  .nav,
+  button.cta,
+  .top-nav {
+    display: none !important;
+  }
+
+  /* Links stay readable */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* Screen preview: render deck pages as stacked letter-size sheets */
+@media screen {
+  body.deck-preview {
+    background: #1a1d28;
+    padding: 40px 0;
+  }
+  body.deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+  }
+}

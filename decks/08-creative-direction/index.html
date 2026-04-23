@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Creative Direction Guide</title>
+<meta name="description" content="Brand thesis. Voice + tone doctrine. Four narrative arcs. Docuseries storytelling. Highlight + daily-content format. Cultural positioning. Do / don't voice table. Sample headlines. Crisis-comms posture." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  .attribute-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .attr {
+    padding: 14px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+  }
+  .attr .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+  .attr h5 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .attr p {
+    font-size: 0.78rem;
+    color: var(--mute);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .attr.anti { border-color: color-mix(in srgb, var(--red) 35%, transparent); background: color-mix(in srgb, var(--red) 4%, transparent); }
+  .attr.anti .k { color: var(--red); }
+
+  .arc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .arc-card {
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    position: relative;
+  }
+  .arc-card .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--violet);
+    letter-spacing: 0.14em;
+    margin-bottom: 4px;
+  }
+  .arc-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .arc-card .thesis {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .arc-card ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.8rem;
+    color: var(--mute);
+    line-height: 1.6;
+  }
+
+  .format-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .format-card {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .format-card .dur {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .format-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 8px;
+  }
+  .format-card p {
+    font-size: 0.82rem;
+    color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.5;
+  }
+  .format-card .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--cyan) 15%, transparent);
+    color: var(--cyan);
+    margin-top: 6px;
+    margin-right: 4px;
+  }
+
+  /* Do / don't voice table */
+  table.voice {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Inter", sans-serif;
+    font-size: 0.82rem;
+  }
+  table.voice th, table.voice td {
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    vertical-align: top;
+    text-align: left;
+  }
+  table.voice th {
+    background: var(--card-2);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  table.voice td.no { color: var(--red); font-style: italic; }
+  table.voice td.yes { color: var(--green); font-weight: 600; }
+
+  /* Sample headlines */
+  .headline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  .headline-card {
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .headline-card .ctx {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .headline-card ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.86rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .headline-card ol li { margin-bottom: 6px; }
+  .headline-card ol li em {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--mute);
+    margin-top: 2px;
+    font-style: normal;
+    font-family: var(--mono);
+  }
+
+  /* Crisis-comms */
+  .crisis-stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .crisis-row {
+    padding: 14px 18px;
+    border-left: 3px solid var(--gold);
+    background: color-mix(in srgb, var(--gold) 5%, transparent);
+    border-radius: 0 10px 10px 0;
+  }
+  .crisis-row .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .crisis-row .v {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* Cultural positioning */
+  .pos-diagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .pos-card {
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .pos-card .eyebrow { margin-bottom: 8px; }
+  .pos-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 10px;
+  }
+  .pos-card ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.86rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .attribute-grid, .arc-grid, .format-grid, .headline-grid, .pos-diagram {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow gold">DECK 08 · CREATIVE DIRECTION</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">Creative Direction Guide</h1>
+    <p class="lede">
+      Brand thesis. Voice doctrine. Four narrative arcs. Docuseries storytelling. Daily content formats.
+      Cultural positioning. Do / don't table. Sample headlines. Crisis-comms posture.
+      The institutional creative spine for every P1 asset.
+    </p>
+    <div class="row" style="gap: 16px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">INSTITUTIONAL</span></div>
+      <div class="chip violet"><span class="mono">CINEMATIC</span></div>
+      <div class="chip gold"><span class="mono">RECEIPT-BACKED</span></div>
+      <div class="chip"><span class="mono">GLOBAL-CITIZEN</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Office of the President, P1 League Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — BRAND THESIS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">01 · Brand Thesis</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE POSITIONING ANCHOR</div>
+    <h2 class="deck-title grad">Institutional. Confident. First-principles.</h2>
+
+    <p style="font-size: 1.05rem; color: var(--ink); max-width: 66ch; line-height: 1.6;">
+      P1 is not a pickleball-league brand — it is the institutional commercial-rights holder of the category.
+      The creative posture must match that reality. Every asset, every caption, every trailer must read as though
+      it came from the organization that writes the sport's rules, signs its media deals, and builds its
+      docuseries. Not from a tournament promoter.
+    </p>
+
+    <div class="pos-diagram">
+      <div class="pos-card accent-violet">
+        <div class="eyebrow violet">THE MODEL</div>
+        <h4>F1 + LIV + Drive-to-Survive cinema-ready</h4>
+        <ul>
+          <li>F1 — institutional scale, category authority, broadcast cadence</li>
+          <li>LIV — category-vacuum confidence, willingness to name incumbent failure</li>
+          <li>Drive-to-Survive — character-first, rivalry-led, cinema-grade docuseries</li>
+          <li>Not MLS circa 2005. Not the PPA. Not SaaS-adjacent.</li>
+        </ul>
+      </div>
+      <div class="pos-card">
+        <div class="eyebrow">NOT THIS</div>
+        <h4>Three traps to actively avoid</h4>
+        <ul>
+          <li><strong>SaaS aesthetic</strong> — gradient-blob startup energy. P1 is not a product launch.</li>
+          <li><strong>Frat-bro sport</strong> — hype language, shouty copy, locker-room hedonism.</li>
+          <li><strong>Retail-sport shoutiness</strong> — exclamation-point PR voice, "most exciting!" superlatives without receipts.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 14px;">
+      <div class="k">The one-sentence test</div>
+      <p style="margin: 0; font-size: 0.95rem;">
+        Would this caption, image, or trailer look at home on the F1 feed, the LIV Golf feed, and Formula 1:
+        Drive to Survive in the same scroll? If yes, it's on-brand. If it reads as louder, cheaper, or more
+        casual than those references, it's off.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — VOICE + TONE DOCTRINE -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">02 · Voice + Tone Doctrine</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">EIGHT ATTRIBUTES · FOUR ANTI-ATTRIBUTES</div>
+    <h2 class="deck-title">How P1 sounds in every caption, headline, and trailer.</h2>
+
+    <h4 style="margin: 0 0 10px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan);">Voice Attributes</h4>
+    <div class="attribute-grid">
+      <div class="attr">
+        <div class="k">Institutional</div>
+        <h5>Builder of the category</h5>
+        <p>Speaks as the body that organizes the sport — not as a fan or a sponsor.</p>
+      </div>
+      <div class="attr">
+        <div class="k">Declarative</div>
+        <h5>States, doesn't hedge</h5>
+        <p>"Season 1 launches February 2027." Not "We're hoping to launch Season 1."</p>
+      </div>
+      <div class="attr">
+        <div class="k">Numerate</div>
+        <h5>Numbers as nouns</h5>
+        <p>20 stops. 17 countries. $50M player pool. Numbers lead, adjectives trail.</p>
+      </div>
+      <div class="attr">
+        <div class="k">Cinematic</div>
+        <h5>Shot, not staged</h5>
+        <p>Every visual reads as though it came from a season-arc docuseries, not a brand campaign.</p>
+      </div>
+      <div class="attr">
+        <div class="k">Scarce</div>
+        <h5>Eight seats. Four slams.</h5>
+        <p>Constraint language. Scarcity is the product. The voice reflects it.</p>
+      </div>
+      <div class="attr">
+        <div class="k">Grounded</div>
+        <h5>Real names. Real places.</h5>
+        <p>Proper nouns over generics. "Miami Grand Slam" not "the US opener."</p>
+      </div>
+      <div class="attr">
+        <div class="k">Global</div>
+        <h5>Not US-shaped</h5>
+        <p>Dubai, Singapore, Madrid, Sydney are all default locations — not outposts.</p>
+      </div>
+      <div class="attr">
+        <div class="k">Receipt-backed</div>
+        <h5>Every claim cites a source</h5>
+        <p>No vibes-based assertions. Every number traces to the canonical financial model.</p>
+      </div>
+    </div>
+
+    <h4 style="margin: 24px 0 10px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red);">Anti-Attributes · Actively avoid</h4>
+    <div class="attribute-grid">
+      <div class="attr anti">
+        <div class="k">Hype-heavy</div>
+        <h5>"Insane" · "Crazy" · "Electric"</h5>
+        <p>Adjective inflation signals amateur. P1 lets the numbers and footage do that work.</p>
+      </div>
+      <div class="attr anti">
+        <div class="k">Apologetic</div>
+        <h5>"We're just excited to..."</h5>
+        <p>Softening openers, hedged posture. P1 is the institutional body, not a supplicant.</p>
+      </div>
+      <div class="attr anti">
+        <div class="k">Retail-casual</div>
+        <h5>Emoji-forward · trend-voiced</h5>
+        <p>Marketing-team-on-TikTok energy. Breaks the institutional frame instantly.</p>
+      </div>
+      <div class="attr anti">
+        <div class="k">Techno-jargon</div>
+        <h5>"Platform" · "Ecosystem" · "Synergies"</h5>
+        <p>SaaS vocabulary. Always replace with concrete nouns: league, event, broadcast, Constructor.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — NARRATIVE ARCS -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">03 · Narrative Arcs</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">FOUR SPINE STORIES · TOLD REPEATEDLY</div>
+    <h2 class="deck-title grad">The brand tells these four stories — and no others.</h2>
+    <p class="deck-subtitle">
+      Every piece of long-form content (docuseries, investor memo, press release, keynote) pulls from one of
+      four narrative spines. Repetition is the point. Audiences encode a brand by hearing the same four stories
+      in different contexts.
+    </p>
+
+    <div class="arc-grid">
+      <div class="arc-card">
+        <div class="tag">ARC 01</div>
+        <h4>The Bartlett Principle</h4>
+        <p class="thesis">
+          Pickleball is exponential, not incremental. 75M players today → 300M by 2032. Three of every four 2032
+          players have not yet picked up a paddle. The institutional category is pre-competitive.
+        </p>
+        <ul>
+          <li>Anchored in Albert Bartlett's exponential-function quote</li>
+          <li>Frames "why now" in every investor-facing asset</li>
+          <li>Repeats across cover slide, macro-context slide, video opener</li>
+          <li>Numbers read as receipts, not forecasts</li>
+        </ul>
+      </div>
+      <div class="arc-card">
+        <div class="tag">ARC 02</div>
+        <h4>The Vacuum Thesis</h4>
+        <p class="thesis">
+          The incumbent (PPA / UPA / MLP) is broken on four axes: governance conflict, player resentment, closed
+          media, U.S.-only frame. P1 is built from the opposite philosophy on each. Not a reform — a replacement.
+        </p>
+        <ul>
+          <li>Names the incumbent failure without apology</li>
+          <li>Maps each failure to a P1 structural answer</li>
+          <li>Anchors the "why P1, why not them" part of every call</li>
+          <li>Repeats across governance deck, master pitch, press posture</li>
+        </ul>
+      </div>
+      <div class="arc-card">
+        <div class="tag">ARC 03</div>
+        <h4>The Participation Flywheel</h4>
+        <p class="thesis">
+          Spectators become players. Players become consumers. Consumers fund the next event. Festival-weekend
+          design is the accelerant — 4-5 day stops where hospitality, concerts, celebrity play, and pro matches
+          compress the conversion funnel into a single visit.
+        </p>
+        <ul>
+          <li>Links Sideline's participation-sports thesis to P1 mechanics</li>
+          <li>Anchors Constructor pitch ("your consumers become our audience")</li>
+          <li>Docuseries thread — fan who becomes a competitor</li>
+          <li>Connects brand ROI to category compounding</li>
+        </ul>
+      </div>
+      <div class="arc-card">
+        <div class="tag">ARC 04</div>
+        <h4>The Concorde Architecture</h4>
+        <p class="thesis">
+          Governance before capital. Three bodies. Escrow until milestone. Full refund if 8 Constructors not
+          secured by July 1, 2026. The F1 lesson, ported on day zero. This is the credibility moat.
+        </p>
+        <ul>
+          <li>Frames every institutional-capital conversation</li>
+          <li>Answers the "what if this fails" question upfront</li>
+          <li>Docuseries thread — the signing of the Concorde</li>
+          <li>Repeats across governance deck, investor strategy, master pitch</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — DOCUSERIES STORYTELLING FRAMEWORK -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">04 · Docuseries Framework</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">F1 DRIVE-TO-SURVIVE ANALOG · CHARACTER-FIRST · SEASON-ARC</div>
+    <h2 class="deck-title">The creative bible for P1's flagship content.</h2>
+
+    <div class="grid-2">
+      <div class="card accent-violet">
+        <div class="eyebrow violet">Pillar 1 — Character-First</div>
+        <h4 style="margin: 8px 0 10px;">Storylines over scores</h4>
+        <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; margin: 0 0 8px;">
+          Drive-to-Survive works because audiences follow drivers, not teams. P1's primary unit is the player.
+          Episodes are built around 2-3 players per swing, not around event recaps. Scores are evidence, not plot.
+        </p>
+        <ul style="margin: 0; padding-left: 18px; font-size: 0.82rem; color: var(--mute); line-height: 1.6;">
+          <li>Player backstory before match footage</li>
+          <li>Off-court intimacy (family, training, rivals)</li>
+          <li>Loss-narrative as honest as win-narrative</li>
+        </ul>
+      </div>
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">Pillar 2 — Season Arcs</div>
+        <h4 style="margin: 8px 0 10px;">10 episodes. 1 championship.</h4>
+        <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; margin: 0 0 8px;">
+          10-episode season follows the 4-swing calendar toward Dubai Tour Championship. Mid-season pivot
+          (Episode 5-6) centers on a rivalry or Constructor crisis. Finale resolves season-long arc.
+        </p>
+        <ul style="margin: 0; padding-left: 18px; font-size: 0.82rem; color: var(--mute); line-height: 1.6;">
+          <li>Episode 1: the Miami Grand Slam opener — stakes established</li>
+          <li>Episodes 2-4: swing-by-swing, player arcs layered</li>
+          <li>Episode 5-6: turn — rivalry / Constructor war-room</li>
+          <li>Finale: Dubai Tour Championship · season resolution</li>
+        </ul>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Pillar 3 — Rivalries</div>
+        <h4 style="margin: 8px 0 10px;">Tension is structure</h4>
+        <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; margin: 0 0 8px;">
+          Every season needs 2-3 defined rivalries. Player vs player. Constructor vs Constructor. Coach vs
+          coach. Rivalries give audiences a reason to return — they are the most cited driver of DTS audience
+          retention.
+        </p>
+        <ul style="margin: 0; padding-left: 18px; font-size: 0.82rem; color: var(--mute); line-height: 1.6;">
+          <li>Verbal tension captured on-camera is gold</li>
+          <li>Off-court friendship + on-court rivalry = prestige layer</li>
+          <li>Rivalries must be authentic — not manufactured</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Pillar 4 — Constructor War-Rooms</div>
+        <h4 style="margin: 8px 0 10px;">The boardroom is content</h4>
+        <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; margin: 0 0 8px;">
+          Drive-to-Survive's team-principal interviews are the prestige mechanic. P1 has the same: Constructor
+          President strategy sessions, Ramsports integrity calls, commercial-rights negotiations — all
+          fair game when captured with access.
+        </p>
+        <ul style="margin: 0; padding-left: 18px; font-size: 0.82rem; color: var(--mute); line-height: 1.6;">
+          <li>Ramsports stewardship meetings (redacted where integrity-sensitive)</li>
+          <li>Constructor war-rooms pre-event</li>
+          <li>Commercial-rights conversations (under NDA bracket)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 14px;">
+      <div class="k">Distribution posture</div>
+      <p style="margin: 0; font-size: 0.9rem;">
+        Year-2 onward. Target: one-season exclusive to a single streaming platform (Netflix, Apple TV+, Amazon
+        Prime Video). Rights sell per-season, not per-league. Run-rate projection $15-30M/yr by Y3.
+        DTS comp: estimated $50M/season windfall for F1 post-Liberty.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — HIGHLIGHT + DAILY CONTENT FORMAT -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">05 · Content Formats</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">DAILY CONTENT · HIGHLIGHT REEL · POST-MATCH</div>
+    <h2 class="deck-title">Four time-formats. Every stop delivers all four.</h2>
+
+    <div class="format-grid">
+      <div class="format-card">
+        <div class="dur">00:60</div>
+        <h4>Rally of the Day</h4>
+        <p>60-second rally highlight, cinema-cut, institutional-grade. Features one dramatic rally per day of each stop. Drops daily during event windows.</p>
+        <span class="tag">Daily drop</span>
+        <span class="tag">All platforms</span>
+      </div>
+      <div class="format-card">
+        <div class="dur">01:30</div>
+        <h4>Rivalry Recap</h4>
+        <p>90-second rivalry-framed recap: the two-player or two-Constructor tension thread across a single day of play. Scored scoreboard, quote inserts, over-the-shoulder production.</p>
+        <span class="tag">Daily</span>
+        <span class="tag">Rivalry-first</span>
+      </div>
+      <div class="format-card">
+        <div class="dur">03:00</div>
+        <h4>Behind-the-Scenes Daily Drop</h4>
+        <p>3-minute behind-the-scenes: player warm-up, coach sidebar, warm-up room banter, Constructor activation moments. The texture content that feeds docuseries source material.</p>
+        <span class="tag">Daily</span>
+        <span class="tag">Texture layer</span>
+      </div>
+      <div class="format-card">
+        <div class="dur">15:00</div>
+        <h4>Post-Match Breakdown</h4>
+        <p>15-minute finals-day post-match: steward's view, technical commentary, Constructor-side reaction, player press-conference highlight. Drops Sunday night local, Monday morning global.</p>
+        <span class="tag">Finals day only</span>
+        <span class="tag">Weekly peak</span>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 16px;">
+      <div class="k">Production doctrine</div>
+      <p style="margin: 0; font-size: 0.88rem;">
+        All four formats share the same visual grammar: institutional color palette, Outfit display, grounded
+        camera work. No floating graphics, no hype-cut editing. Sound design draws from F1 / Break Point — not
+        from streaming-highlight TikTok culture. Creators and fans filming on phones are part of the pipeline;
+        their footage is invited into the official channel under a credit structure.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — CULTURAL POSITIONING -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">06 · Cultural Positioning</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">FESTIVAL-WEEKEND · GLOBAL-CITIZEN · PARTICIPATION-LUXURY</div>
+    <h2 class="deck-title">Where P1 sits in the cultural landscape.</h2>
+
+    <div class="pos-diagram">
+      <div class="pos-card accent-cyan">
+        <div class="eyebrow cyan">Festival-Weekend Aesthetic</div>
+        <h4>Not "event" — gathering</h4>
+        <ul>
+          <li>Four to five days, not two afternoons</li>
+          <li>Pro play + celebrity Fridays + concerts + food markets</li>
+          <li>Families through day, adults through night</li>
+          <li>Visual language: Coachella-meets-Wimbledon, not PPA stands</li>
+        </ul>
+      </div>
+      <div class="pos-card accent-violet">
+        <div class="eyebrow violet">Global-Citizen Frame</div>
+        <h4>17 countries as default</h4>
+        <ul>
+          <li>Copy mentions Dubai, Singapore, Madrid without "international" framing</li>
+          <li>No US-exceptionalism, no translator energy</li>
+          <li>Host cities are equal footing with the league</li>
+          <li>Docuseries captures global arrivals as baseline, not novelty</li>
+        </ul>
+      </div>
+      <div class="pos-card accent-gold">
+        <div class="eyebrow gold">Cross-Cultural Posture</div>
+        <h4>Asia-first sensibility</h4>
+        <ul>
+          <li>Ramsports leadership anchored in China / HK — shapes visual + operating language</li>
+          <li>Grand Slams rotate hemispheres — no US primacy</li>
+          <li>Language parity: English lead, with subtitle / companion copy in host language</li>
+          <li>Hospitality doctrine = Asia-resort, not US-stadium</li>
+        </ul>
+      </div>
+      <div class="pos-card">
+        <div class="eyebrow">Participation-Sport Luxury</div>
+        <h4>Access + aspiration</h4>
+        <ul>
+          <li>Adjacent to Athletic Brewing / Bandit / UGP / OLIPOP positioning</li>
+          <li>Active-leisure audience — not couch-sport audience</li>
+          <li>Viewers become players; players become viewers</li>
+          <li>Luxury cue: the event itself, not the signage</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 14px;">
+      <div class="k">The cultural claim</div>
+      <p style="margin: 0; font-size: 0.92rem;">
+        P1 sits at the intersection of institutional sport (F1), festival gathering (Coachella / ACL), and
+        participation-consumer luxury (Bandit / UGP / Athletic Brewing). No competing league occupies this
+        three-way intersection. The aesthetic choices across every asset must reinforce the intersection, not
+        collapse into any single corner of it.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — VOICE DO / DON'T TABLE -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">07 · Voice Do / Don't</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">TEN SAY-THIS-NOT-THAT EXAMPLES</div>
+    <h2 class="deck-title">The brand's voice, contrasted precisely.</h2>
+
+    <table class="voice">
+      <thead>
+        <tr>
+          <th style="width: 50%;">Don't say</th>
+          <th style="width: 50%;">Say</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="no">"The most exciting new league in sports."</td>
+          <td class="yes">"P1 launches February 2027. 20 stops. 17 countries. $50M player pool."</td>
+        </tr>
+        <tr>
+          <td class="no">"Team sponsorship opportunity"</td>
+          <td class="yes">"Constructor seat — 8 global brands, $10M license, 5-year renewable."</td>
+        </tr>
+        <tr>
+          <td class="no">"Prize money"</td>
+          <td class="yes">"Player pool" (includes salary feed + event prize + bonuses — $50M+ combined).</td>
+        </tr>
+        <tr>
+          <td class="no">"Our exciting media rights"</td>
+          <td class="yes">"Global commercial rights — media, sponsorship, broadcast, licensing."</td>
+        </tr>
+        <tr>
+          <td class="no">"Tournament"</td>
+          <td class="yes">"Stop" (standard) or "Grand Slam" (quarterly anchor) or "Tour Championship" (finale).</td>
+        </tr>
+        <tr>
+          <td class="no">"Investment opportunity"</td>
+          <td class="yes">"Anchor stake in the global commercial-rights holder. $50M at $250M+ implied."</td>
+        </tr>
+        <tr>
+          <td class="no">"League officials"</td>
+          <td class="yes">"Ramsports stewards" (on-site) or "Ramsports integrity office" (post-event).</td>
+        </tr>
+        <tr>
+          <td class="no">"Pickleball is growing fast!"</td>
+          <td class="yes">"75M players today. 300M by 2032. 50%+ annual growth rate."</td>
+        </tr>
+        <tr>
+          <td class="no">"Our ecosystem of teams"</td>
+          <td class="yes">"Eight licensed Constructors — scarce by design."</td>
+        </tr>
+        <tr>
+          <td class="no">"We're excited to announce..."</td>
+          <td class="yes">"Announcing —" (drop the softener; state the fact).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout violet" style="margin-top: 14px;">
+      <div class="k">The pattern</div>
+      <p style="margin: 0; font-size: 0.9rem;">
+        The "say" column always replaces adjectives with numbers, hype with structure, and common sport nouns
+        with the P1-specific terminology. Every term on the right carries institutional weight — it identifies
+        the speaker as P1, not as a third-party observer.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — SAMPLE HEADLINES + LOGLINES -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">08 · Sample Headlines</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">FIVE VERSIONS PER CHANNEL · USE AS REFERENCE LIBRARY</div>
+    <h2 class="deck-title">Press · investor email · social — on-voice examples.</h2>
+
+    <div class="headline-grid">
+      <div class="headline-card">
+        <div class="ctx">01 · Press release</div>
+        <ol>
+          <li>P1 World Tour announces 2027 launch: 20 stops, 17 countries, $50M player pool.<em>Straight announce · datelineable</em></li>
+          <li>Ramsports chartered as independent governing body for P1 World Tour.<em>Governance-focused lead</em></li>
+          <li>P1 World Tour secures $130M launch capital across anchor and eight Constructors.<em>Capital milestone</em></li>
+          <li>Concorde Agreement formalizes three-body architecture of P1 World Tour.<em>Architecture-focused lead</em></li>
+          <li>Miami Grand Slam opens P1 World Tour Season 1 on February 12, 2027.<em>Event-first lead</em></li>
+        </ol>
+      </div>
+      <div class="headline-card">
+        <div class="ctx">02 · Investor email subject line</div>
+        <ol>
+          <li>P1 World Tour — $50M anchor at $250M+ implied valuation<em>Ask-forward · valuation-explicit</em></li>
+          <li>The F1 architecture for pickleball — briefing request<em>Architectural framing · soft ask</em></li>
+          <li>Category-defining commercial rights — P1 World Tour<em>Category-ownership frame</em></li>
+          <li>Concorde signing window closes April 1, 2026<em>Urgency framing</em></li>
+          <li>75M → 300M players. One institutional category holder.<em>Macro-anchor framing</em></li>
+        </ol>
+      </div>
+      <div class="headline-card">
+        <div class="ctx">03 · Social (IG / X / LinkedIn)</div>
+        <ol>
+          <li>20 stops. 17 countries. One season.<em>Numerical tricolon</em></li>
+          <li>Not the most exciting. The most institutional.<em>Anti-hype positioning</em></li>
+          <li>Eight Constructor seats. Four Grand Slams. One Tour Championship.<em>Scarcity compression</em></li>
+          <li>Own the moment before pickleball finds its price.<em>Investor-adjacent · video CTA</em></li>
+          <li>The season that becomes the sport.<em>Manifesto lead · from video script</em></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 16px;">
+      <div class="k">Usage rules</div>
+      <p style="margin: 0; font-size: 0.88rem;">
+        Press headlines always lead with a verifiable fact — date, number, name. Investor email subjects are
+        6-9 words maximum, never use the word "opportunity." Social headlines never use emoji or exclamation
+        points. Numerical tricolons (20 · 17 · 1) are the default rhythm; they read as institutional.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — CRISIS-COMMS POSTURE -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">09 · Crisis-Comms Posture</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">SCANDAL · SUSPENSION · INTEGRITY VIOLATION</div>
+    <h2 class="deck-title">The brand posture when things go wrong.</h2>
+
+    <p style="font-size: 0.95rem; color: var(--ink); max-width: 64ch; line-height: 1.6;">
+      Every institutional sport will eventually face one of three categories of crisis: a player scandal, a
+      player suspension, or an integrity violation. The creative doctrine for each is the same — <strong>transparency,
+      Ramsports independence, player-first remedy.</strong> The worst posture is the one the incumbent uses (deny,
+      delay, deflect). P1's posture is the opposite.
+    </p>
+
+    <div class="crisis-stack">
+      <div class="crisis-row">
+        <div class="k">Posture 1 — Transparency</div>
+        <div class="v">
+          Ramsports publishes findings same-day. Written steward ruling, reasoned decision, appeal path clearly
+          stated. No "no comment" period. No embargo on facts established. The audience learns what happened
+          from P1, not from a leak.
+        </div>
+      </div>
+      <div class="crisis-row">
+        <div class="k">Posture 2 — Ramsports Independence</div>
+        <div class="v">
+          All public integrity statements come from Ramsports — not from the Investor entity, not from the
+          Constructor, not from League Operations. The independence of the regulator is reinforced in the
+          reporting line and the voice of the statement. "Ramsports has ruled..." not "the league has decided..."
+        </div>
+      </div>
+      <div class="crisis-row">
+        <div class="k">Posture 3 — Player-First Remedy</div>
+        <div class="v">
+          Where a sanction is warranted, the written ruling includes the remedy path: appeal window, reinstatement
+          conditions, support resources (medical / psychological where applicable). Players are treated as
+          members of the system, not adversaries of it. This is the explicit inverse of PPA's "culture of fear."
+        </div>
+      </div>
+      <div class="crisis-row">
+        <div class="k">Posture 4 — Constructor Reputational Separation</div>
+        <div class="v">
+          Constructor takes the reputational hit on its own player's conduct, but is not joined to the Ramsports
+          process. Official statements distinguish cleanly between team-side accountability and league-side
+          sanction. The Constructor may speak; Ramsports rules.
+        </div>
+      </div>
+      <div class="crisis-row">
+        <div class="k">Posture 5 — Integrity Credibility Compounds</div>
+        <div class="v">
+          Every well-handled crisis strengthens the media-rights and sponsorship premium. This is the F1 / FIA
+          lesson: disputes resolved on the record, inside the sport, with external appeal only on process.
+          Crisis is not a brand failure — mishandled crisis is. Handle every one as though the next media-rights
+          renewal depends on it, because it does.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 14px;">
+      <div class="k">One-line default</div>
+      <p style="margin: 0; font-size: 0.95rem; font-style: italic;">
+        "Ramsports has ruled on [matter]. Full finding and appeal path published. Player-welfare resources
+        available via integrity office. Season competition continues on schedule."
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Creative Direction</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+</body>
+</html>

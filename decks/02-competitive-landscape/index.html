@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Competitive Landscape Analysis</title>
+<meta name="description" content="Competitive-landscape analysis for the P1 World Tour. Incumbent breakdown (PPA / UPA / MLP), LIV / TGL / F1 / MLP case studies, positioning matrix, and unfair-advantage checklist." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Deck-02 specific */
+  .inc-card {
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+    display: grid;
+    grid-template-columns: 0.9fr 2.1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .inc-card .l .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+  }
+  .inc-card .l .sub {
+    font-size: 0.84rem;
+    color: var(--mute);
+    font-family: var(--mono);
+  }
+  .inc-card .l .scale {
+    margin-top: 12px;
+    font-family: "Outfit", sans-serif;
+    font-size: 0.88rem;
+    color: var(--cyan);
+  }
+  .inc-card .r {
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.58;
+  }
+  .inc-card .r .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    padding: 2px 10px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--red) 40%, transparent);
+    color: var(--red);
+    margin-right: 8px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .case-hero {
+    padding: 28px 32px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    margin-bottom: 16px;
+    border-top: 3px solid var(--cyan);
+  }
+  .case-hero.violet { border-top-color: var(--violet); }
+  .case-hero.gold { border-top-color: var(--gold); }
+  .case-hero h3 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin: 0 0 6px;
+  }
+  .case-hero .meta {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--mute);
+    margin-bottom: 16px;
+  }
+  .case-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .case-dual .col h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    color: var(--mute);
+  }
+  .case-dual .col .worked h4 { color: var(--green); }
+  .case-dual .col .transfer h4 { color: var(--cyan); }
+  .case-dual ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .case-dual ul li {
+    padding-left: 18px;
+    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .case-dual ul li::before {
+    content: "\203A";
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-weight: 700;
+  }
+
+  .pos-matrix {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .pos-matrix .h {
+    padding: 16px;
+    background: var(--card-2);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .pos-matrix .h:last-child { border-right: none; }
+  .pos-matrix .r-l {
+    padding: 16px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    background: var(--card-2);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .pos-matrix .c {
+    padding: 16px;
+    font-size: 0.86rem;
+    color: var(--ink);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--card);
+  }
+  .pos-matrix .c:last-child { border-right: none; }
+  .pos-matrix > div:nth-last-child(-n+3) { border-bottom: none; }
+  .pos-matrix .c.p1 {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--cyan) 12%, transparent), color-mix(in srgb, var(--violet) 12%, transparent));
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .pos-matrix .c.neg { color: var(--mute); }
+
+  .axis-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  .axis-row.head {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .axis-row .axis-name { font-family: "Outfit", sans-serif; font-weight: 800; }
+
+  .ua-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .ua {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .ua .check {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--green) 14%, transparent);
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    border: 1px solid color-mix(in srgb, var(--green) 40%, transparent);
+  }
+  .ua .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .ua .n {
+    font-size: 0.86rem;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .inc-card, .case-dual, .pos-matrix, .ua-grid, .axis-row {
+      grid-template-columns: 1fr !important;
+    }
+    .pos-matrix .h, .pos-matrix .r-l, .pos-matrix .c { border-right: none; }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow violet">DELIVERABLE 02 · IPG SCOPE-OF-WORK</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">Competitive Landscape Analysis</h1>
+    <p class="lede">
+      The incumbent breakdown. The category vacuum. What F1, LIV, TGL, and MLP teach us — and what they don't. A structured positioning matrix and an unfair-advantage checklist for P1.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">F1 / LIV / TGL / MLP</span></div>
+      <div class="chip violet"><span class="mono">4-AXIS VACUUM</span></div>
+      <div class="chip gold"><span class="mono">UNFAIR-ADVANTAGE CHECKLIST</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">President, P1 League, Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — THE INCUMBENT -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">01 · The Incumbent</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">WHO CONTROLS PROFESSIONAL PICKLEBALL TODAY</div>
+    <h2 class="deck-title">The PPA / UPA / MLP stack — and why institutional capital will not back it.</h2>
+    <p class="deck-subtitle">
+      The domestic incumbent operates as a single economic entity across three legal shells: PPA (tour), UPA (regulator), MLP (team league). Each has made the incumbent less investable over time.
+    </p>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="inc-card">
+        <div class="l">
+          <div class="name">PPA Tour</div>
+          <div class="sub">Professional Pickleball Association</div>
+          <div class="scale">US-only · primary tour</div>
+        </div>
+        <div class="r">
+          Founded as the private-equity-backed domestic tour. Owns the player contracts, controls the event calendar, dictates media-rights terms. Fan-filming bans and 2-minute creator caps repeat F1's pre-2017 closed-media posture.
+          <div style="margin-top: 10px;">
+            <span class="tag">CLOSED MEDIA</span>
+            <span class="tag">US-ONLY</span>
+            <span class="tag">PLAYER RESENTMENT</span>
+          </div>
+        </div>
+      </div>
+      <div class="inc-card">
+        <div class="l">
+          <div class="name">UPA</div>
+          <div class="sub">United Pickleball Association</div>
+          <div class="scale">"Regulator" · owned by the operators</div>
+        </div>
+        <div class="r">
+          The regulator created in 2023 to replace USA Pickleball. Marketed as independent — but owned by PPA / MLP stakeholders. This is the governance-conflict failure mode: a regulator cannot be owned by the operator it regulates. Institutional capital reads this instantly.
+          <div style="margin-top: 10px;">
+            <span class="tag">GOVERNANCE CONFLICT</span>
+            <span class="tag">CONFLICT OF INTEREST</span>
+          </div>
+        </div>
+      </div>
+      <div class="inc-card">
+        <div class="l">
+          <div class="name">MLP</div>
+          <div class="sub">Major League Pickleball</div>
+          <div class="scale">~$300M valuation · team league</div>
+        </div>
+        <div class="r">
+          Steve Kuhn's franchise-team league. Validated the constructor-style ownership model at US scale. Merged operationally with PPA. The team-league structure transfers to P1 — but Kuhn now sits on the Ramsports board, so the institutional knowledge flows to P1's governance, not the incumbent.
+          <div style="margin-top: 10px;">
+            <span class="tag">US-ONLY SCOPE</span>
+            <span class="tag">MERGED WITH PPA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — THE 4-AXIS VACUUM -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">02 · The 4-Axis Vacuum</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE INCUMBENT IS BROKEN ON FOUR AXES</div>
+    <h2 class="deck-title grad">P1 is built from the opposite philosophy on every axis.</h2>
+
+    <div class="vs">
+      <div class="side bad">
+        <h4>Incumbent — PPA / UPA / MLP</h4>
+        <ul>
+          <li><strong>Governance Conflict.</strong> UPA replaced USA Pickleball as "independent" regulator while owned by PPA / MLP. Capital will not underwrite this structure.</li>
+          <li><strong>Player Resentment.</strong> Delayed payments. One-sided contracts. Minor-breach suspensions. Culture of fear. Leaks to the trade press.</li>
+          <li><strong>Closed Media.</strong> Fans banned from filming. Creators capped at 2 minutes per day. Repeating F1's pre-2017 mistake — a solved problem.</li>
+          <li><strong>U.S. Only.</strong> No international pro pathway. No global governance. No media framework outside North America.</li>
+        </ul>
+      </div>
+      <div class="side good">
+        <h4>P1 — Opposite Philosophy on Every Axis</h4>
+        <ul>
+          <li><strong>Independent Regulator.</strong> Ramsports is a true governing body, structurally separated from the commercial rights holder. F1 / FIA pattern.</li>
+          <li><strong>Player-Aligned.</strong> Transparent governance. Athletes with real leverage. Credibility becomes competitive advantage — both on recruitment and on media rights.</li>
+          <li><strong>Open Media.</strong> Fans encouraged to film + share. Docuseries pipeline from Y1. Daily content quotas. Highlights syndicated globally.</li>
+          <li><strong>Global on Day Zero.</strong> 20 events. 17 countries. Asia, Europe, Americas, MENA. Four swings culminating in Grand Slams; season finale is the Tour Championship.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 8px;">
+      <div class="k">The vacuum in one sentence</div>
+      <p style="margin: 0;">
+        Professional pickleball has no institutional home — no F1, no ATP, no PGA. The biggest sport of the next decade is operating with a domestic promoter stack that no fund manager, sovereign, or media platform would underwrite at the valuation the sport itself warrants.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — LIV GOLF CASE -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">03 · LIV Golf Case Study</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">CATEGORY-VACUUM THESIS — CAPITALIZED AT SOVEREIGN SCALE</div>
+    <h2 class="deck-title">LIV proved the vacuum thesis attracts institutional capital.</h2>
+
+    <div class="case-hero">
+      <h3>LIV Golf</h3>
+      <div class="meta">Anchor: PIF (Saudi Public Investment Fund) · ~$3B+ raised · Format: 54-hole team-based · Comp: P1 structure, 1/20 the capital</div>
+    </div>
+
+    <div class="case-dual">
+      <div class="col worked">
+        <h4>What worked</h4>
+        <ul>
+          <li><strong>Format innovation</strong> — 54 holes, shotgun start, team scoring created a differentiated TV product that the PGA had no answer for.</li>
+          <li><strong>Franchise-team ownership</strong> — 13 teams, equity-style participation for top players attracted defectors at nine-figure guarantees.</li>
+          <li><strong>Sovereign anchor</strong> — PIF capital underwrote the full launch without requiring profitability for 3+ years; institutional patience.</li>
+          <li><strong>Category-vacuum exploit</strong> — PGA had a player-pay + format-innovation gap; LIV filled it and forced the PGA into structural reform.</li>
+        </ul>
+      </div>
+      <div class="col transfer">
+        <h4>What transfers to P1</h4>
+        <ul>
+          <li><strong>Vacuum thesis is fundable</strong> — institutional capital backs category-vacuum plays when the governance structure is sound.</li>
+          <li><strong>Format IP is defensible</strong> — a differentiated competitive format + team ownership is a durable moat; P1's festival-weekend + 8-Constructor stack echoes this.</li>
+          <li><strong>Capital required is 1/20 of LIV</strong> — P1 launches on $130M, not $3B, because Y1 infrastructure and player economics are an order of magnitude lower in pickleball than golf.</li>
+          <li><strong>Broader TAM runway</strong> — P1 has 10× the addressable-market curve LIV had; LIV's capital scale is not required to capture P1's opportunity.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 4px;">
+      <div class="k">The inversion</div>
+      <p style="margin: 0;">
+        LIV paid sovereign-scale capital for a mature-sport vacuum. P1 pays Y1 pricing for a pre-institutional-sport vacuum. Same thesis, 1/20 the cost, 10× the runway.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — TGL CASE -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">04 · TGL Case Study</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">TECH-DRIVEN FORMAT + CONSTRUCTOR OWNERSHIP — VALIDATED</div>
+    <h2 class="deck-title">TGL proved the team-ownership + prime-time-media combo in participation sports.</h2>
+
+    <div class="case-hero violet">
+      <h3>TGL — Tiger &amp; McIlroy's Tech-Driven Golf League</h3>
+      <div class="meta">Anchor: TMRW Sports + Sofi Stadium infrastructure · Network: ESPN primetime · Format: 6-team, indoor-sim + shortgame</div>
+    </div>
+
+    <div class="case-dual">
+      <div class="col worked">
+        <h4>What worked</h4>
+        <ul>
+          <li><strong>Constructor-team ownership structure</strong> — 6 franchised teams with equity participation for top players; compressed-season format.</li>
+          <li><strong>Prime-time TV window</strong> — Tuesday-night ESPN slot, uncontested sports inventory; 3M average viewers per night in Year 1.</li>
+          <li><strong>Compressed stadium format</strong> — 90-minute matches, purpose-built indoor venue, format-first not tradition-first.</li>
+          <li><strong>Athlete-owner alignment</strong> — players with real equity, real media rights, real leverage — the anti-incumbent posture.</li>
+        </ul>
+      </div>
+      <div class="col transfer">
+        <h4>What transfers to P1</h4>
+        <ul>
+          <li><strong>Team-ownership validates</strong> the $10M Constructor license; TGL franchises price at $50-60M at Y2; P1 Y1 pricing is 5-10× undervalued relative to same-structure comp.</li>
+          <li><strong>Format innovation is the moat</strong> — P1's festival-weekend + Grand Slam structure is the P1 equivalent of TGL's 90-minute sim-stadium format.</li>
+          <li><strong>Prime-time networks want category-defining products</strong> — TGL proved ESPN will pay for a new league with the right shape. P1 runs the same media arc with docuseries leverage.</li>
+          <li><strong>Athlete-first governance compounds</strong> — player alignment is a durable cost-of-capital advantage.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="k">P1 = TGL's format IP + F1's governance stack + LIV's capital story</div>
+      <p style="margin: 0;">
+        Each comparable validates one piece of the P1 stack. TGL demonstrates the format + team + primetime triangle. F1 demonstrates the governance separation. LIV demonstrates the capital thesis. P1 is the first entity that integrates all three inside a pre-institutional-sport vacuum.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — F1 / LIBERTY TRANSFORMATION -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">05 · F1 / Liberty Transformation</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE STRUCTURAL TEMPLATE P1 PORTS</div>
+    <h2 class="deck-title grad">Liberty Media bought F1 at ~$8B. It is now a $20B+ category.</h2>
+
+    <div class="case-hero gold">
+      <h3>Formula 1 under Liberty Media (2017 &rarr; today)</h3>
+      <div class="meta">Anchor: Liberty Media Group · Entity shape: FIA (regulator) + FOM (commercial) + 10 Constructors · Structural unlock: open-media + geographic expansion</div>
+    </div>
+
+    <div class="case-dual">
+      <div class="col worked">
+        <h4>What worked</h4>
+        <ul>
+          <li><strong>Separation of regulation from commercial rights</strong> — FIA governs, FOM commercializes. Institutional capital could underwrite one side without governance conflict in the other.</li>
+          <li><strong>Open-media pivot</strong> — fans + creators filming + sharing from the paddock; Drive to Survive docuseries; short-form social media engagement replaced the closed-paddock TV model.</li>
+          <li><strong>US &amp; new-market expansion</strong> — Miami GP, Las Vegas GP, Austin GP, Madrid GP; deliberate invasion of the highest-value media markets.</li>
+          <li><strong>Constructor-economics compounding</strong> — team valuations 10×-ed from 2017 to 2024; Williams, McLaren, Haas all trade at 9-figure EVs.</li>
+        </ul>
+      </div>
+      <div class="col transfer">
+        <h4>What P1 ports on day zero</h4>
+        <ul>
+          <li><strong>Ramsports = FIA.</strong> Independent, mandated, structurally protected from commercial-rights holder.</li>
+          <li><strong>Investor = Liberty.</strong> Global commercial rights holder, anchor stake, tracking-stock exit path.</li>
+          <li><strong>8 Constructors = F1 Constructors.</strong> Scarce franchise slots, global-brand franchisees, local-market revenue.</li>
+          <li><strong>Open media from Y1</strong> — P1 starts where F1 arrived after 2017; doesn't have to reverse a decade of closed-paddock culture.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="k">The timing arbitrage</div>
+      <p style="margin: 0;">
+        Liberty bought F1 in 2017 — a mature 70-year-old sport at scale. P1 launches on the same structure at Y1, inside a sport that is 4× its current size by 2032. The compounding window is longer and the entry pricing is an order of magnitude lower.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — MLP COMPARISON -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">06 · MLP Comparison</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">STEVE KUHN'S PLAYBOOK — SCALED TO GLOBAL</div>
+    <h2 class="deck-title">MLP validated the franchise-team model at US scale. P1 takes it global.</h2>
+
+    <div class="case-hero violet">
+      <h3>Major League Pickleball (MLP)</h3>
+      <div class="meta">Founder: Steve Kuhn · Valuation: ~$300M · Scope: US-only · Format: 12 franchised teams, gender-balanced roster, compressed event calendar</div>
+    </div>
+
+    <div class="case-dual">
+      <div class="col worked">
+        <h4>Format + governance learnings</h4>
+        <ul>
+          <li><strong>Franchised-team model</strong> at $10M+ seat pricing proved out at domestic scale.</li>
+          <li><strong>DUPR global rating system</strong> — Kuhn's parallel infrastructure, now the de facto global pickleball rating standard.</li>
+          <li><strong>Gender-balanced roster format</strong> created media-friendly storytelling the PPA singles-first structure could not match.</li>
+          <li><strong>Compressed calendar</strong> delivered better per-event attention than the PPA year-round grind.</li>
+        </ul>
+      </div>
+      <div class="col transfer">
+        <h4>What P1 inherits and extends</h4>
+        <ul>
+          <li><strong>Kuhn sits on the Ramsports board.</strong> Full playbook + DUPR pipeline + team-draft mechanics flow to P1 governance on day one.</li>
+          <li><strong>Franchise pricing benchmark</strong> — MLP's $10-15M team valuations anchor the $10M Constructor license at a defensible floor.</li>
+          <li><strong>International pathway</strong> — MLP is US-only; P1 globalizes the format across 17 countries. The one axis MLP cannot cross alone.</li>
+          <li><strong>Independent-regulator upgrade</strong> — MLP operates inside the PPA-owned UPA regulatory layer; P1 replaces that with Ramsports independence.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="k">P1 &ne; MLP competitor. P1 = MLP + globalization + independent governance.</div>
+      <p style="margin: 0;">
+        MLP proved what works at US scale. P1 runs the same thesis on a global footprint, with a structurally separate regulator, and with open-media + docuseries economics that MLP cannot access while embedded inside the PPA stack.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — TENNIS COMPARATORS -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">07 · Tennis Comparators</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">HOW TENNIS ORGANIZED ITSELF GLOBALLY</div>
+    <h2 class="deck-title">ATP / WTA / Grand Slam — the racquet-sport structural reference.</h2>
+    <p class="deck-subtitle">
+      Tennis is the most institutionally-understood racquet sport. Its four Grand Slam structure is priced precisely by media markets, sponsors, and sovereign hosts. P1 mirrors the Slam arc — four Grand Slams per season, regional swings, one Tour Championship.
+    </p>
+
+    <div class="grid-2">
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">ATP Tour</div>
+        <h4 style="margin: 8px 0;">Men's global circuit</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          60+ events across Masters 1000, 500, 250 tiers. $220M+ annual prize pool across tiers (excl. Slams). Multi-region calendar; global broadcast. P1's 20-stop calendar is the Masters-1000 tier equivalent — higher density, higher per-event prize pool.
+        </p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">WTA Tour</div>
+        <h4 style="margin: 8px 0;">Women's global circuit</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          Parallel tier structure, prize-money parity at Slams. Shared-event WTA/ATP stops (Miami, Madrid, Indian Wells) run the exact festival-weekend model P1 ports. Gender-mixed format is an option, not a retrofit.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Grand Slams · AO / RG / Wimbledon / US Open</div>
+        <h4 style="margin: 8px 0;">Four seasonal marquees</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          $50-70M prize pool per Slam. Sovereign-host relationship (Melbourne, Paris, London, New York). P1 Grand Slams — Miami, London, Singapore, Dubai — mirror the Slam arc with $2M prize pool each at Y1 (scaling to $5M+ by Y5).
+        </p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">ITF &amp; governance</div>
+        <h4 style="margin: 8px 0;">Independent federation layer</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          ITF governs Davis Cup, Billie Jean King Cup, ranking integrity. A true independent layer above the commercial tours. Ramsports occupies the ITF-equivalent slot in the P1 stack — governance insulated from commercial operators.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="k">The institutional pattern</div>
+      <p style="margin: 0;">
+        Tennis's four-Slam + independent-federation architecture is the most durable racquet-sport structure ever built. P1 ports it, compresses the calendar to 20 stops, and operates under a single global commercial rights holder rather than a fragmented tour system. Same institutional logic, cleaner economics.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — PADEL ANALOG -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">08 · Padel Analog</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">ADJACENT SPORT · STRUCTURALLY DIFFERENT CURVE</div>
+    <h2 class="deck-title">Padel is the obvious adjacent. Pickleball's curve is steeper on every axis.</h2>
+
+    <div>
+      <div class="axis-row head">
+        <div>AXIS</div>
+        <div>PADEL</div>
+        <div>PICKLEBALL</div>
+        <div>WHAT IT MEANS FOR P1</div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-name">Annual growth rate</div>
+        <div><span class="mono" style="color: var(--mute);">8-12% / yr</span></div>
+        <div><span class="mono" style="color: var(--cyan);">50%+ / yr</span></div>
+        <div>4-5× faster compound rate. P1 demand curve compounds inside the investment window.</div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-name">Learnability</div>
+        <div><span class="mono" style="color: var(--mute);">~20 minutes</span></div>
+        <div><span class="mono" style="color: var(--cyan);">~2 minutes</span></div>
+        <div>Spectator-to-player conversion is instantaneous in pickleball — 10× the flywheel speed at festival weekends.</div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-name">Court-build cost</div>
+        <div><span class="mono" style="color: var(--mute);">~$50k+</span></div>
+        <div><span class="mono" style="color: var(--cyan);">~$8k</span></div>
+        <div>Infrastructure scales 6× faster. Public-court conversion rate multiples. Participation base grows as a function of how cheaply courts can be added.</div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-name">US market position</div>
+        <div><span class="mono" style="color: var(--mute);">Nascent</span></div>
+        <div><span class="mono" style="color: var(--cyan);">75M of global 100M+ players</span></div>
+        <div>US leadership = broadcast inventory, sponsor inventory, and capital markets all located in the largest active-player market.</div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-name">Institutional league</div>
+        <div><span class="mono" style="color: var(--mute);">World Padel Tour (fragmented, Premier Padel emerging)</span></div>
+        <div><span class="mono" style="color: var(--cyan);">NONE</span></div>
+        <div>Pickleball has NO global institutional league. That is the vacuum P1 fills — and it is structurally wider than padel's.</div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 8px;">
+      <div class="k">Why not padel</div>
+      <p style="margin: 0;">
+        Padel is a regional sport with infrastructure constraints. Pickleball is a global sport with 10× the addressable market, 5× the growth rate, 10× faster learnability, and 6× lower court-build cost. Every vector favors pickleball as the category where an institutional league compounds fastest.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — POSITIONING MATRIX + UNFAIR-ADVANTAGE -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">09 · Positioning &amp; Unfair Advantage</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">WHERE P1 SITS · WHY IT WINS</div>
+    <h2 class="deck-title">The positioning matrix + the unfair-advantage checklist.</h2>
+
+    <div class="pos-matrix">
+      <div class="h">AXIS</div>
+      <div class="h">INCUMBENT · PPA/UPA/MLP</div>
+      <div class="h">P1 WORLD TOUR</div>
+
+      <div class="r-l">Capital posture</div>
+      <div class="c neg">Retail / regional PE</div>
+      <div class="c p1">Institutional / sovereign-anchor ready</div>
+
+      <div class="r-l">Geography</div>
+      <div class="c neg">U.S. only</div>
+      <div class="c p1">17 countries · 4 regional swings</div>
+
+      <div class="r-l">Media posture</div>
+      <div class="c neg">Closed · creator caps · ban-culture</div>
+      <div class="c p1">Open · creator pipeline · docuseries first</div>
+
+      <div class="r-l">Player alignment</div>
+      <div class="c neg">Owner-aligned · contract asymmetry</div>
+      <div class="c p1">Player-aligned · transparent governance</div>
+
+      <div class="r-l">Governance model</div>
+      <div class="c neg">Regulator owned by operator</div>
+      <div class="c p1">Ramsports — true independent FIA equivalent</div>
+    </div>
+
+    <h4 style="margin: 24px 0 10px; font-family: 'Outfit', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); font-size: 0.8rem;">Unfair-advantage checklist</h4>
+
+    <div class="ua-grid">
+      <div class="ua">
+        <div class="check">&#10003;</div>
+        <div>
+          <div class="name">Ramsports bench</div>
+          <div class="n">Gossett, Yuen, Kuhn, Rifkind, Chu, Mok — Asia-level government relationships and sport-founder DNA already under one roof.</div>
+        </div>
+      </div>
+      <div class="ua">
+        <div class="check">&#10003;</div>
+        <div>
+          <div class="name">DUPR pipeline</div>
+          <div class="n">Steve Kuhn's global rating system flows directly into P1 player ranking and qualification — de facto standard already adopted.</div>
+        </div>
+      </div>
+      <div class="ua">
+        <div class="check">&#10003;</div>
+        <div>
+          <div class="name">Concorde-escrow structure</div>
+          <div class="n">SPAC-like anchor protection means investor downside is capped at zero. No competitor can offer equivalent capital-protection framework.</div>
+        </div>
+      </div>
+      <div class="ua">
+        <div class="check">&#10003;</div>
+        <div>
+          <div class="name">Y1 global footprint</div>
+          <div class="n">20 stops, 17 countries from day zero. No US-only incumbent can match the global inventory or the resulting media-rights optionality.</div>
+        </div>
+      </div>
+      <div class="ua">
+        <div class="check">&#10003;</div>
+        <div>
+          <div class="name">Open-media from Y1</div>
+          <div class="n">Docuseries pipeline already modeled. Daily content quotas. Highlight syndication. The F1-post-2017 model applied on day zero.</div>
+        </div>
+      </div>
+      <div class="ua">
+        <div class="check">&#10003;</div>
+        <div>
+          <div class="name">Olympic pathway aligned</div>
+          <div class="n">Rifkind (WPF founder) chairs the Olympic track. LA 2028 inclusion would accelerate P1 TAM, not compete with it — no naming or governance overlap.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Competitive Landscape Analysis</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Investor Strategy Brief</title>
+<meta name="description" content="Ideal-investor profile. Primary + secondary targets. Sideline case study. Mazlin memo lessons. 5-part conversation framework. Cold-outbound sequence. Deal-room checklist. Timing + urgency." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  table.inv {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Inter", sans-serif;
+    font-size: 0.82rem;
+  }
+  table.inv th, table.inv td {
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    vertical-align: top;
+    text-align: left;
+  }
+  table.inv th {
+    background: var(--card-2);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  table.inv td.name {
+    color: var(--ink);
+    font-weight: 700;
+    font-family: "Outfit", sans-serif;
+    font-size: 0.9rem;
+  }
+  table.inv .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--cyan) 15%, transparent);
+    color: var(--cyan);
+    margin-top: 4px;
+  }
+  table.inv .tag.gold { background: color-mix(in srgb, var(--gold) 15%, transparent); color: var(--gold); }
+  table.inv .tag.violet { background: color-mix(in srgb, var(--violet) 15%, transparent); color: var(--violet); }
+
+  .pillar-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .pillar-row .left, .pillar-row .right { padding: 10px 12px; }
+  .pillar-row .left {
+    background: color-mix(in srgb, var(--cyan) 6%, transparent);
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 8px 8px 0;
+  }
+  .pillar-row .right {
+    background: color-mix(in srgb, var(--violet) 6%, transparent);
+    border-left: 3px solid var(--violet);
+    border-radius: 0 8px 8px 0;
+  }
+  .pillar-row .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .pillar-row .left .k { color: var(--cyan); }
+  .pillar-row .right .k { color: var(--violet); }
+  .pillar-row .v {
+    font-size: 0.86rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .mazlin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .mazlin-card {
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+  }
+  .mazlin-card .gap {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+  .mazlin-card .fix {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 8px 0 4px;
+  }
+  .mazlin-card h5 {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.86rem;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .mazlin-card p {
+    font-size: 0.78rem;
+    color: var(--mute);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .framework-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .fw-card {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .fw-card .part {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--cyan);
+    letter-spacing: 0.14em;
+    margin-bottom: 4px;
+  }
+  .fw-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 8px;
+  }
+  .fw-card .talking {
+    font-size: 0.82rem;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .fw-card ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+    font-size: 0.8rem;
+    color: var(--mute);
+    line-height: 1.6;
+  }
+
+  .outbound-flow {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+  .outbound-step {
+    padding: 14px 10px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    position: relative;
+  }
+  .outbound-step .n {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+  }
+  .outbound-step h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.8rem;
+    margin: 4px 0 4px;
+    line-height: 1.2;
+  }
+  .outbound-step .date {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+  .outbound-step p {
+    font-size: 0.72rem;
+    color: var(--mute);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .check-item {
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .check-item .box {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--green);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    background: color-mix(in srgb, var(--green) 10%, transparent);
+    color: var(--green);
+    font-weight: 900;
+    font-size: 0.8rem;
+  }
+  .check-item .check-body { flex: 1; }
+  .check-item h5 {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.86rem;
+    margin: 0 0 2px;
+    color: var(--ink);
+  }
+  .check-item p {
+    font-size: 0.76rem;
+    color: var(--mute);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .timing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .pillar-map, .mazlin-grid, .framework-grid, .checklist, .timing-grid { grid-template-columns: 1fr !important; }
+    .outbound-flow { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow cyan">DECK 07 · INVESTOR STRATEGY</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">Investor Strategy Brief</h1>
+    <p class="lede">
+      Who to approach. How to pitch them. What the Mazlin memo taught us. The 5-part conversation framework.
+      The 6-step outbound sequence. The deal-room checklist. Why the April 1 / July 1 window matters.
+    </p>
+    <div class="row" style="gap: 16px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">$50M @ $250M+ IMPLIED</span></div>
+      <div class="chip violet"><span class="mono">6 PRIMARY TARGETS</span></div>
+      <div class="chip gold"><span class="mono">4 SOVEREIGN SECONDARY</span></div>
+      <div class="chip"><span class="mono">APR 1 / JUL 1 WINDOW</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Office of the President, P1 League Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — IDEAL-INVESTOR PROFILE -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">01 · Ideal-Investor Profile</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE PRIMARY ARCHETYPE</div>
+    <h2 class="deck-title grad">Sports infrastructure + participation + community thesis.</h2>
+
+    <p style="font-size: 1rem; color: var(--ink); max-width: 66ch;">
+      P1 is not pitched indiscriminately. The ideal anchor sits at the intersection of four theses:
+      (a) sports-infrastructure investment at institutional scale, (b) participation-consumer category conviction,
+      (c) community-experience / offline-time tailwind belief, and (d) media-rights compounding understanding.
+      Investors holding all four already know how to read this deal; investors holding fewer will need education
+      on the missing pillars.
+    </p>
+
+    <div class="grid-2">
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">Must-haves</div>
+        <h4 style="margin: 8px 0 10px;">Non-negotiable thesis alignment</h4>
+        <ul style="margin: 0; padding-left: 18px; font-size: 0.88rem; color: var(--ink); line-height: 1.7;">
+          <li>Sports-infrastructure checkbook at $50M-$500M scale</li>
+          <li>Media-rights compounding track record</li>
+          <li>Multi-region (not US-only) operating posture</li>
+          <li>Multi-year horizon — tracking stock 2029-30, IPO 2030+</li>
+          <li>Governance-credibility premium understood as multiple driver</li>
+        </ul>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">Nice-to-haves</div>
+        <h4 style="margin: 8px 0 10px;">Force-multipliers on the thesis</h4>
+        <ul style="margin: 0; padding-left: 18px; font-size: 0.88rem; color: var(--ink); line-height: 1.7;">
+          <li>Existing participation-consumer portfolio (Athletic Brewing, Bandit, UGP, OLIPOP analogs)</li>
+          <li>Prior F1 / LIV / TKO / UFC exposure — pattern recognition</li>
+          <li>Festival / events operating experience</li>
+          <li>APAC or MENA balance-sheet breadth for Swing 3 / 4 activation</li>
+          <li>Co-investor syndicate capacity (up to 3 anchors at same terms)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout cyan" style="margin-top: 14px;">
+      <div class="k">The test</div>
+      <p style="margin: 0; font-size: 0.92rem;">
+        If the investor's portfolio already maps Angel City FC + Miami HEAT + Bandit Running + Athletic Brewing
+        onto a single thesis, P1 is the next logical line in that portfolio. If not, the pitch needs to build
+        the thesis before it asks for the check.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — PRIMARY TARGET TABLE -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">02 · Primary Targets</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">SIX INVESTORS · THESIS-MATCHED · IN PRIORITY ORDER</div>
+    <h2 class="deck-title">Who to approach first.</h2>
+
+    <table class="inv">
+      <thead>
+        <tr>
+          <th style="width: 22%;">Investor</th>
+          <th style="width: 42%;">Why they fit</th>
+          <th style="width: 36%;">Portfolio proof</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">Sideline Group<br><span class="tag">Gregory Mazlin</span></td>
+          <td>Thesis alignment at the pillar level: offline-time tailwind, community experiences, participation sports, sports infrastructure. Direct philosophical fit.</td>
+          <td>Bandit Running · Urban Golf Performance · Angel City FC · Miami HEAT · Athletic Brewing · OLIPOP</td>
+        </tr>
+        <tr>
+          <td class="name">RedBird Capital<br><span class="tag violet">Sports platform</span></td>
+          <td>Sports-rights platform investor at institutional scale. Understands media-rights compounding. Built to do this deal.</td>
+          <td>AC Milan · YES Network · Fenway / Liverpool · Toulouse · Skydance · On Location</td>
+        </tr>
+        <tr>
+          <td class="name">Liberty Media<br><span class="tag gold">Reference comp</span></td>
+          <td>Defined the F1 playbook. Not a primary ask (structural conflict), but the architectural analog P1 mirrors. Reference-only framing.</td>
+          <td>F1 · MotoGP · Atlanta Braves · SiriusXM</td>
+        </tr>
+        <tr>
+          <td class="name">CVC Capital<br><span class="tag violet">Sports PE</span></td>
+          <td>Sports-rights private equity specialist. Six Nations, WTA, LaLiga. Global multi-market operator. Understands governance-credibility premium.</td>
+          <td>Six Nations Rugby · LaLiga · WTA · Volleyball World · MotoGP (prior)</td>
+        </tr>
+        <tr>
+          <td class="name">Silver Lake<br><span class="tag">Tech × sport</span></td>
+          <td>Tech-crossover sports investor. City Football Group, Endeavor, UFC-via-TKO. Media-rights + IP-compounding thesis, institutional scale.</td>
+          <td>City Football Group · Endeavor · TKO / UFC · WME</td>
+        </tr>
+        <tr>
+          <td class="name">Arctos Partners<br><span class="tag">Long-duration</span></td>
+          <td>Sports-minority-stake specialist with long-duration capital. Understands sports-valuation multiples. Natural co-anchor candidate.</td>
+          <td>NBA · NFL · NHL · MLB minority stakes (cross-league portfolio)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top: 16px;">
+      <div class="k">The priority logic</div>
+      <p style="margin: 0; font-size: 0.88rem;">
+        Sideline goes first because Mazlin's thesis pillars pre-match P1 exactly — lowest friction, fastest
+        decision. RedBird and CVC are parallel-path: both can absorb $50M, both have done the exact deal at
+        larger scale. Silver Lake + Arctos are structural fits but slower cycle. Liberty stays reference-only.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — SECONDARY TIER (SOVEREIGN) -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">03 · Secondary Tier</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">SOVEREIGN + STRATEGIC · MENA / APAC BALANCE-SHEET SCALE</div>
+    <h2 class="deck-title">Four sovereign-backed backups — each tied to a Grand Slam host.</h2>
+    <p class="deck-subtitle">
+      If a primary-tier conversation stalls, these are the secondary anchors. Each aligns with a Swing geography
+      and brings host-market scale. Watch deal-cycle speed — sovereign processes run quarters, not weeks.
+    </p>
+
+    <table class="inv">
+      <thead>
+        <tr>
+          <th style="width: 26%;">Sovereign / Strategic</th>
+          <th style="width: 40%;">Why they fit</th>
+          <th style="width: 34%;">Geographic alignment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">PIF — Public Investment Fund<br><span class="tag gold">Saudi Arabia</span></td>
+          <td>Built the LIV Golf playbook for a category-vacuum thesis. Owns Newcastle FC. Willing to underwrite sport category creation. Largest single-check capacity on this list.</td>
+          <td>Riyadh (Swing 4) · MENA swing sovereign anchor</td>
+        </tr>
+        <tr>
+          <td class="name">Mubadala / ADQ<br><span class="tag gold">Abu Dhabi</span></td>
+          <td>Abu Dhabi Sports Council ecosystem. Consumer + tech + sport cross-book. Long-duration sovereign capital. Natural Swing 4 host-sovereign partner.</td>
+          <td>Abu Dhabi (Y2 expansion) · UAE partner</td>
+        </tr>
+        <tr>
+          <td class="name">Qatar Sports Investments<br><span class="tag gold">Qatar</span></td>
+          <td>Already owns PSG, Miami Open. Racquet-sport-adjacent conviction (Miami Open is the signal). Natural Doha Grand Slam anchor.</td>
+          <td>Doha (Swing 4 stop 19) · Miami cross-book</td>
+        </tr>
+        <tr>
+          <td class="name">Dubai Holding / Emirates Sports Investment<br><span class="tag gold">Dubai</span></td>
+          <td>Aligned with the Tour Championship host. Emirates is a top-tier title-sponsor candidate. Dual commercial + anchor opportunity.</td>
+          <td>Dubai (Swing 4 Grand Slam + Tour Championship)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2" style="margin-top: 16px;">
+      <div class="card accent-gold">
+        <div class="eyebrow gold">The upside</div>
+        <div style="font-size: 0.88rem; color: var(--ink); line-height: 1.7; margin-top: 6px;">
+          Sovereign capital clears checks at $100M+ scale and brings host-market infrastructure as a bundle
+          (venue, hospitality, title-sponsor candidate, visa/regulatory support). PIF's LIV deal is the structural
+          comp: ~$3B category creation.
+        </div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">The watch-out</div>
+        <div style="font-size: 0.88rem; color: var(--ink); line-height: 1.7; margin-top: 6px;">
+          Sovereign processes run quarters. If the April 1 / July 1 Concorde window closes before a sovereign
+          term sheet lands, the deal cannot wait. Treat sovereign-tier as parallel-path, not primary-replacement.
+          Engage early to avoid being the late option.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — SIDELINE CASE STUDY -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">04 · Sideline Case Study</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">MAZLIN IS THE PATTERN</div>
+    <h2 class="deck-title">Sideline's four thesis pillars → P1's four answers.</h2>
+    <p class="deck-subtitle">
+      The Mazlin case study is the clearest map between an investor's stated thesis and P1's offering. Every
+      pillar in Sideline's portfolio thesis has a direct structural answer in the P1 deal.
+    </p>
+
+    <div class="pillar-map">
+      <div class="pillar-row" style="grid-column: span 2;">
+        <div class="left">
+          <div class="k">Sideline Pillar 1</div>
+          <div class="v"><strong>Offline Time Tailwind</strong> — hybrid work + AI flexibility freeing afternoons. Structural (not cyclical) shift toward active leisure.</div>
+        </div>
+        <div class="right">
+          <div class="k">P1 Answer</div>
+          <div class="v">75M players, growing 50%+/yr. Every paddle picked up in a reclaimed afternoon. P1 monetizes the exponential that Sideline's thesis predicts.</div>
+        </div>
+      </div>
+      <div class="pillar-row" style="grid-column: span 2;">
+        <div class="left">
+          <div class="k">Sideline Pillar 2</div>
+          <div class="v"><strong>Community Experiences</strong> — brands + experiences gathering people in real-world, participatory settings.</div>
+        </div>
+        <div class="right">
+          <div class="k">P1 Answer</div>
+          <div class="v">Festival-weekend events. 4-5 day stops combining pro matches, celebrity play, concerts, food. Mini-Super-Bowls every month in 17 countries.</div>
+        </div>
+      </div>
+      <div class="pillar-row" style="grid-column: span 2;">
+        <div class="left">
+          <div class="k">Sideline Pillar 3</div>
+          <div class="v"><strong>Participation Sports</strong> — Athletic Brewing, Bandit Running, Urban Golf Performance thesis. Consumers move from watching to playing.</div>
+        </div>
+        <div class="right">
+          <div class="k">P1 Answer</div>
+          <div class="v">The participation flywheel: spectators become players, players become consumers, consumers fund the next event. 2-minute learnability is the accelerant.</div>
+        </div>
+      </div>
+      <div class="pillar-row" style="grid-column: span 2;">
+        <div class="left">
+          <div class="k">Sideline Pillar 4</div>
+          <div class="v"><strong>Sports Infrastructure</strong> — Angel City FC, Miami HEAT. Institutional-scale sport as asset class.</div>
+        </div>
+        <div class="right">
+          <div class="k">P1 Answer</div>
+          <div class="v">$50M anchor = global rights holder of pickleball's institutional layer. Media, sponsorship, broadcast, licensing — F1/Liberty architecture ported.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 14px;">
+      <div class="k">The conclusion Mazlin should reach</div>
+      <p style="margin: 0; font-size: 0.92rem;">
+        Every line of the Sideline thesis is already in the P1 deck. The cover slide, the market slide, the
+        model slide, and the ask slide each line up with one of the four pillars. Mazlin does not have to
+        reinterpret his thesis — he sees it read back to him in P1's structure.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — MAZLIN MEMO LESSONS -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">05 · Mazlin Memo Lessons</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">SIX GAPS IN THE V5 DECK · FIXED IN REVISED</div>
+    <h2 class="deck-title">What the Mazlin strategy memo called out.</h2>
+    <p class="deck-subtitle">
+      The Mazlin memo audited the v5 pitch and identified six specific friction points. Every one is closed in
+      the REVISED deck. This is the doctrinal checklist for any future investor-tailored variant.
+    </p>
+
+    <div class="mazlin-grid">
+      <div class="mazlin-card">
+        <div class="gap">Gap 1</div>
+        <h5>"Why Sideline" framing missing</h5>
+        <p>v5 opened with market numbers, not thesis-mapping.</p>
+        <div class="fix">Fix</div>
+        <h5>Opens with thesis-map slide</h5>
+        <p>REVISED deck leads with Sideline thesis pillars mapped to P1 answers. Mirror, then pitch.</p>
+      </div>
+      <div class="mazlin-card">
+        <div class="gap">Gap 2</div>
+        <h5>Unclear ask from investor POV</h5>
+        <p>$50M ask was buried three sections deep.</p>
+        <div class="fix">Fix</div>
+        <h5>$50M into $250M+ implied — cover-slide</h5>
+        <p>REVISED cover states the ask and valuation before the deck is three pages in.</p>
+      </div>
+      <div class="mazlin-card">
+        <div class="gap">Gap 3</div>
+        <h5>Ramsports story buried</h5>
+        <p>Execution-credibility was a line item, not a chapter.</p>
+        <div class="fix">Fix</div>
+        <h5>Dedicated Execution Credibility slide</h5>
+        <p>REVISED deck has Ramsports leadership bench as its own slide with full 6 profiles.</p>
+      </div>
+      <div class="mazlin-card">
+        <div class="gap">Gap 4</div>
+        <h5>No portfolio-synergy map</h5>
+        <p>v5 did not connect P1 to Bandit / UGP / Athletic Brewing.</p>
+        <div class="fix">Fix</div>
+        <h5>"P1 Accelerates Sideline Portfolio" slide</h5>
+        <p>REVISED explicitly links to Bandit, UGP, Athletic Brewing, OLIPOP. Portfolio co-investor pathway.</p>
+      </div>
+      <div class="mazlin-card">
+        <div class="gap">Gap 5</div>
+        <h5>42-slide v5 too long</h5>
+        <p>Burned attention before the ask landed.</p>
+        <div class="fix">Fix</div>
+        <h5>15-page REVISED, sub-25-minute read</h5>
+        <p>REVISED trims to 15 pages with every page earning its place. Institutional-read pace.</p>
+      </div>
+      <div class="mazlin-card">
+        <div class="gap">Gap 6</div>
+        <h5>Hybrid-work / AI tailwind underplayed</h5>
+        <p>v5 mentioned it, did not operationalize it.</p>
+        <div class="fix">Fix</div>
+        <h5>Macro Context slide</h5>
+        <p>REVISED makes Bartlett exponential + hybrid-work tailwind the opening "why now" anchor.</p>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 14px;">
+      <div class="k">Generalize the lesson</div>
+      <p style="margin: 0; font-size: 0.88rem;">
+        For every investor-tailored variant: (1) open with thesis-map, (2) state ask + valuation in first three
+        pages, (3) give Ramsports its own chapter, (4) map P1 to their existing portfolio, (5) stay sub-15 pages,
+        (6) make "why now" load-bearing. The Mazlin tailoring is the template.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — 5-PART CONVERSATION FRAMEWORK -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">06 · 5-Part Conversation Framework</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">EVERY INVESTOR CALL RUNS THIS ARC</div>
+    <h2 class="deck-title grad">Why YOU · Why P1 · Why now · Why this shape · Why $50M.</h2>
+
+    <div class="framework-grid">
+      <div class="fw-card">
+        <div class="part">PART 01</div>
+        <h4>Why YOU</h4>
+        <p class="talking">Open with thesis-mapping. Don't pitch — mirror their portfolio language. Let them hear their own framework read back.</p>
+        <ul>
+          <li>Reference 2-3 portfolio names by thesis fit</li>
+          <li>Name the pillar that P1 slots into</li>
+          <li>Invite the investor to connect the dots aloud</li>
+          <li>Goal: investor says "that's exactly what we're looking for"</li>
+        </ul>
+      </div>
+      <div class="fw-card">
+        <div class="part">PART 02</div>
+        <h4>Why P1</h4>
+        <p class="talking">The vacuum thesis. PPA / UPA is broken on four axes. P1 is built from the opposite philosophy on each.</p>
+        <ul>
+          <li>Governance conflict → Ramsports independence</li>
+          <li>Player resentment → transparent governance</li>
+          <li>Closed media → open-media pipeline</li>
+          <li>U.S.-only → 20 stops / 17 countries from Year 1</li>
+        </ul>
+      </div>
+      <div class="fw-card">
+        <div class="part">PART 03</div>
+        <h4>Why now</h4>
+        <p class="talking">The Bartlett exponential. 75M → 300M players by 2032. Hybrid-work tailwind. Pre-institutional valuations.</p>
+        <ul>
+          <li>Bartlett principle — exponential function</li>
+          <li>Hybrid work + AI giving back the afternoon</li>
+          <li>Category is pre-competitive on institutional side</li>
+          <li>Media-rights baseline will be set off Y1 pricing</li>
+        </ul>
+      </div>
+      <div class="fw-card">
+        <div class="part">PART 04</div>
+        <h4>Why this shape</h4>
+        <p class="talking">F1-style three-body architecture. Concorde + escrow + milestone = SPAC-like protection. $50M never at market risk until 8 Constructors sign.</p>
+        <ul>
+          <li>Three-body separation (Investor / Ramsports / Constructors)</li>
+          <li>Escrow until milestone</li>
+          <li>Milestone-triggered release · full refund on miss</li>
+          <li>Liberty / F1 comp — $20B+ compounding</li>
+        </ul>
+      </div>
+      <div class="fw-card" style="grid-column: span 2;">
+        <div class="part">PART 05</div>
+        <h4>Why $50M · why now</h4>
+        <p class="talking">
+          Binary ask: commit $50M to escrow before April 1, sign Concorde, become the commercial-rights holder of
+          the category. OR wait and compete against RedBird / CVC / Liberty / Arctos doing this exact deal in Y2
+          at 3-4× pricing. Category-defining commercial rights are priced off Year 1 — not Year 3.
+        </p>
+        <ul>
+          <li>$50M → $250M+ implied → tracking stock 2029-30 → IPO $1B+</li>
+          <li>Board observer at close; voting at tracking-stock activation</li>
+          <li>Full refund if 8 Constructors not secured by Jul 1, 2026</li>
+          <li>Practical close date: March 15, 2026 for sign; Apr 1 Concorde formalization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — COLD-OUTBOUND SEQUENCE -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">07 · Cold-Outbound Sequence</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">SIX STEPS · INTRO CALL TO CONCORDE FORMALIZATION</div>
+    <h2 class="deck-title">The disciplined path from first touch to signed agreement.</h2>
+
+    <div class="outbound-flow">
+      <div class="outbound-step">
+        <div class="n">STEP 01</div>
+        <div class="date">Week 1-2</div>
+        <h4>Intro call</h4>
+        <p>30-min thesis-map conversation. No ask. Deck preview sent post-call.</p>
+      </div>
+      <div class="outbound-step">
+        <div class="n">STEP 02</div>
+        <div class="date">Week 2-4</div>
+        <h4>NDA + DD pack</h4>
+        <p>Full financial model + Ramsports DD materials + Constructor LOIs delivered.</p>
+      </div>
+      <div class="outbound-step">
+        <div class="n">STEP 03</div>
+        <div class="date">Week 4-6</div>
+        <h4>Principals session</h4>
+        <p>60-75 min follow-up with CFO / principals + Ramsports CEO live on call.</p>
+      </div>
+      <div class="outbound-step">
+        <div class="n">STEP 04</div>
+        <div class="date">Mar 15, 2026</div>
+        <h4>Term sheet sign</h4>
+        <p>Anchor investor term sheet signed. Escrow instructions issued.</p>
+      </div>
+      <div class="outbound-step">
+        <div class="n">STEP 05</div>
+        <div class="date">Apr 1, 2026</div>
+        <h4>Concorde formed</h4>
+        <p>$50M into escrow. Governance entity chartered. Ramsports covenant live.</p>
+      </div>
+      <div class="outbound-step">
+        <div class="n">STEP 06</div>
+        <div class="date">Jul 1, 2026</div>
+        <h4>Milestone close</h4>
+        <p>8 Constructors signed → $130M deployed OR full $50M refund. Binary.</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 18px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">Pacing notes</div>
+        <ul style="margin: 8px 0 0; padding-left: 18px; font-size: 0.86rem; color: var(--ink); line-height: 1.7;">
+          <li>Intro → sign averages 8-12 weeks for primary-tier</li>
+          <li>Sovereign-tier runs 16-24 weeks; start in parallel</li>
+          <li>Do not send the REVISED deck before the intro call — it lands cold</li>
+          <li>Always close intro with explicit ask for follow-up window</li>
+        </ul>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Red-flag signals</div>
+        <ul style="margin: 8px 0 0; padding-left: 18px; font-size: 0.86rem; color: var(--ink); line-height: 1.7;">
+          <li>Investor asks to see Constructor LOIs before signing — show, but watch for negotiation lever</li>
+          <li>Investor asks for exclusivity on $50M anchor — acceptable up to 30 days</li>
+          <li>Investor proposes revised valuation below $250M+ implied — flag to SLOTH immediately</li>
+          <li>Investor wants board veto on Ramsports — non-starter, exit the conversation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — DEAL-ROOM CHECKLIST -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">08 · Deal-Room Checklist</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">DD MATERIALS · READY-TO-SHIP</div>
+    <h2 class="deck-title">Every document the anchor will ask for.</h2>
+
+    <div class="checklist">
+      <div class="check-item">
+        <div class="box">✓</div>
+        <div class="check-body">
+          <h5>Financial model — 5-year</h5>
+          <p>Line-item Y1-5 league P&amp;L, Constructor economics, sponsorship ramp, media rights ramp. Scenario sensitivity. Source: canonical financial-model.md.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="box">✓</div>
+        <div class="check-body">
+          <h5>Ramsports DD pack</h5>
+          <p>Leadership bios · operating-cost breakdown · comp-model math (2% + 20%) · integrity-office charter · drug-testing protocol.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="box">✓</div>
+        <div class="check-body">
+          <h5>Constructor LOIs</h5>
+          <p>Letters of Intent from target brands in active term-sheet dialogue. 4 live as of April 2026. Confidential per-brand dossiers available under NDA.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="box">✓</div>
+        <div class="check-body">
+          <h5>Venue letters-of-intent</h5>
+          <p>Venue commitments for 8 launch cities: Miami · Austin · London · Madrid · Singapore · Tokyo · Sydney · Dubai. Secondary-city network documented.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="box">✓</div>
+        <div class="check-body">
+          <h5>Legal structure</h5>
+          <p>Entity diagrams (Investor / Ramsports / Constructor shells). Concorde Agreement draft. Escrow structure. Cap-table mechanics at close + tracking-stock activation.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="box">✓</div>
+        <div class="check-body">
+          <h5>Insurance &amp; indemnity stack</h5>
+          <p>Event-level insurance, international rights clearance, player-welfare indemnity, venue-partner liability cross-matrix, Ramsports D&amp;O.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="box">✓</div>
+        <div class="check-body">
+          <h5>Integrity framework</h5>
+          <p>Integrity-office charter · betting-integrity monitoring doctrine · drug-testing program (WADA-aligned) · dispute-resolution 4-stage flow · external-appeal path.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="box">✓</div>
+        <div class="check-body">
+          <h5>Media-rights sell-side deck</h5>
+          <p>Y1-5 media-rights ramp ($32M → $82M). Regional-package structure. Docuseries-pipeline rights diagram. Broadcaster shortlist (Sky / ESPN / DAZN / beIN).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 16px;">
+      <div class="k">Rule of thumb</div>
+      <p style="margin: 0; font-size: 0.88rem;">
+        Every document in the checklist must be deliverable within 48 hours of an anchor-investor request.
+        Anything missing at the DD stage is a credibility hit. IPG-fulfilled DD pack is the baseline.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — TIMING + URGENCY -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">09 · Timing + Urgency</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">WHY THE APRIL 1 / JULY 1 WINDOW MATTERS</div>
+    <h2 class="deck-title">Category-defining commercial rights price off Year 1.</h2>
+
+    <div class="timing-grid">
+      <div class="card accent-gold">
+        <div class="eyebrow gold">APRIL 1, 2026</div>
+        <h4 style="margin: 8px 0;">Concorde Formation</h4>
+        <p class="muted" style="font-size: 0.86rem; margin: 0;">
+          Anchor $50M into escrow. Ramsports covenant live. Governance entity chartered. Starts the 90-day
+          Constructor-recruitment phase. Slipping this deadline pushes Season 1 launch out of Feb 2027 — a full
+          year of compounding foregone.
+        </p>
+      </div>
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">JULY 1, 2026</div>
+        <h4 style="margin: 8px 0;">Milestone Close</h4>
+        <p class="muted" style="font-size: 0.86rem; margin: 0;">
+          8 Constructors signed + $80M in. Total $130M deployed. Tracking-stock vehicle activates. $250M+
+          implied valuation locked. Or: milestone missed, full $50M returned, deal unwinds cleanly, anchor
+          walks away intact.
+        </p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">FEB 2027</div>
+        <h4 style="margin: 8px 0;">Season 1 Launch</h4>
+        <p class="muted" style="font-size: 0.86rem; margin: 0;">
+          Miami Grand Slam kicks off Swing 1. 20-stop calendar runs through Dubai Tour Championship. $24M prize
+          pool, $50M+ total player pool deployed. Media-rights baseline set. Competitive-capital-map closes.
+        </p>
+      </div>
+    </div>
+
+    <h4 style="margin: 26px 0 10px; font-family: 'Outfit', sans-serif; font-size: 0.88rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Competitive-Capital Map · Y2 pricing risk</h4>
+    <table class="data">
+      <thead>
+        <tr><th>Competing investor</th><th>Thesis overlap</th><th>Y2 entry scenario</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RedBird Capital</td>
+          <td>Sports-rights platform</td>
+          <td class="accent">Same deal at 3-4× Year 1 pricing post-Season 1</td>
+        </tr>
+        <tr>
+          <td>CVC Capital</td>
+          <td>Sports-rights PE</td>
+          <td class="accent">Same deal at 3-4× post-media-rights benchmark set</td>
+        </tr>
+        <tr>
+          <td>Liberty Media</td>
+          <td>F1 architectural analog</td>
+          <td class="accent">Strategic entry at 4-5× after category proof</td>
+        </tr>
+        <tr>
+          <td>Arctos Partners</td>
+          <td>Long-duration minority stakes</td>
+          <td class="accent">Secondary market at 3× post-tracking-stock activation</td>
+        </tr>
+        <tr>
+          <td>PIF / Sovereign</td>
+          <td>Category-vacuum play</td>
+          <td class="accent">Recapitalization at IPO-adjacent pricing (2029-30)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold" style="margin-top: 16px;">
+      <div class="k">The urgency in one line</div>
+      <p style="margin: 0; font-size: 0.92rem;">
+        Sign Concorde before April 1 and buy commercial rights at $250M+ implied. Wait a year and buy the same
+        rights at $1B+. The time-value math is unambiguous, and every primary-tier competitor listed above is
+        circling the same structure right now.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Investor Strategy</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+</body>
+</html>

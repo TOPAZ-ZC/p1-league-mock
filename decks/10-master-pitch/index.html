@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Master League Pitch Deck</title>
+<meta name="description" content="The F1 architecture for global pickleball. 20 stops, 17 countries, $50M player pool, $130M launch capital. $50M anchor at $250M+ implied valuation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+  /* Deck-10 specific */
+  .capital-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .stack-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .stack-seg {
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-family: var(--mono);
+    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .stack-seg.anchor { background: color-mix(in srgb, var(--cyan) 14%, transparent); border: 1px solid color-mix(in srgb, var(--cyan) 40%, transparent); }
+  .stack-seg.constructor { background: color-mix(in srgb, var(--violet) 14%, transparent); border: 1px solid color-mix(in srgb, var(--violet) 40%, transparent); }
+  .stack-seg .k { color: var(--ink); font-weight: 600; }
+  .stack-seg .v { color: var(--cyan); font-weight: 700; }
+  .stack-seg.constructor .v { color: var(--violet); }
+
+  .concorde-flow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .step {
+    padding: 22px 24px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    position: relative;
+  }
+  .step .label {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--cyan);
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+  .step h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+  .step .date {
+    font-size: 0.84rem;
+    color: var(--mute);
+    margin-bottom: 12px;
+  }
+  .step ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.88rem;
+    color: var(--ink);
+  }
+  .step ul li { padding-left: 14px; position: relative; }
+  .step ul li::before { content: "\2022"; position: absolute; left: 0; color: var(--cyan); }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .team-card {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .team-card .role {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .team-card .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .team-card .bio {
+    font-size: 0.84rem;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+
+  .arch-diagram {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+    margin: 32px 0;
+  }
+  .arch-body {
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    display: flex;
+    flex-direction: column;
+  }
+  .arch-body.center {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--violet) 10%, var(--card)), var(--card));
+    border-color: color-mix(in srgb, var(--violet) 40%, transparent);
+  }
+  .arch-body .label {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .arch-body.center .label { color: var(--violet); }
+  .arch-body .title-line {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+  .arch-body .analog {
+    font-size: 0.86rem;
+    color: var(--mute);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .arch-body .body-text {
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .return-arch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .return-card {
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+  .return-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 6px;
+  }
+  .return-card .v {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+  .return-card .note {
+    font-size: 0.84rem;
+    color: var(--mute);
+  }
+
+  .protection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .protection-grid .card {
+    padding: 20px;
+  }
+  .protection-grid .num {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .vision-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 24px 0;
+  }
+  .vision-timeline .year {
+    padding: 22px 18px;
+    border-right: 1px solid var(--line);
+  }
+  .vision-timeline .year:last-child { border-right: none; }
+  .vision-timeline .year .y {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+  .vision-timeline .year .v {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vision-timeline .year .d {
+    font-size: 0.76rem;
+    color: var(--mute);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 900px) {
+    .capital-stack, .arch-diagram, .team-grid, .return-arch, .concorde-flow, .protection-grid, .vision-timeline {
+      grid-template-columns: 1fr !important;
+    }
+    .vision-timeline .year { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow cyan">MASTER LEAGUE PITCH DECK</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">Own the most valuable entity in the fastest-growing sport on Earth.</h1>
+    <p class="lede">
+      The F1 architecture — built for pickleball.
+      20 stops. 17 countries. $50M player pool. 8 Constructor brands.
+      One global commercial rights holder.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">20 STOPS</span></div>
+      <div class="chip violet"><span class="mono">17 COUNTRIES</span></div>
+      <div class="chip gold"><span class="mono">$50M PLAYER POOL</span></div>
+      <div class="chip"><span class="mono">$130M TOTAL CAPITAL AT LAUNCH</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Institutional Capital — Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — THE THESIS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">01 · The Thesis</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE BARTLETT PRINCIPLE</div>
+    <h2 class="deck-title grad">Pickleball is exponential. Not incremental.</h2>
+
+    <div class="stat-bar cols-4">
+      <div class="cell">
+        <div class="num">75M→300M</div>
+        <div class="lbl">Players by 2032</div>
+      </div>
+      <div class="cell">
+        <div class="num">8×</div>
+        <div class="lbl">Global search growth</div>
+      </div>
+      <div class="cell">
+        <div class="num">$18-30B</div>
+        <div class="lbl">Annual consumer spend</div>
+      </div>
+      <div class="cell">
+        <div class="num">75%</div>
+        <div class="lbl">Of 2032 players haven't touched a paddle yet</div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 28px;">
+      <div class="k">The Bartlett Principle</div>
+      <p style="margin: 0; font-size: 1.05rem;">
+        <em>"The greatest shortcoming of the human race is our inability to understand the exponential function."</em>
+        — Albert Bartlett, University of Colorado. P1 is the first institutional entity built to capture exponential pickleball growth globally — before valuations reflect it.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card">
+        <div class="eyebrow">Growth rate</div>
+        <h3 style="margin: 10px 0;">50%+ annual</h3>
+        <p class="muted" style="margin: 0;">Faster than every racquet sport in history. Tennis flat. Padel steady. Pickleball compounding.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Market composition</div>
+        <h3 style="margin: 10px 0;">Still untapped</h3>
+        <p class="muted" style="margin: 0;">Three of every four 2032 players have not yet picked up a paddle. The institutional category is pre-competitive.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — MARKET OPPORTUNITY -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">02 · Market Opportunity</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE MACRO CONTEXT</div>
+    <h2 class="deck-title">AI and hybrid work are giving people their afternoons back.</h2>
+    <p class="deck-subtitle">
+      The shift toward offline, community, and real-world experience is structural — not cyclical.
+      Pickleball is the purest beneficiary.
+    </p>
+
+    <div class="grid-3">
+      <div class="card accent-cyan">
+        <h4 style="margin: 0 0 10px;">Hybrid Work</h4>
+        <p style="margin: 0; font-size: 0.94rem;" class="muted">
+          40%+ of knowledge workers now have unstructured midday or afternoon hours —
+          prime court time.
+        </p>
+      </div>
+      <div class="card accent-violet">
+        <h4 style="margin: 0 0 10px;">AI Time Freedom</h4>
+        <p style="margin: 0; font-size: 0.94rem;" class="muted">
+          As AI handles routine tasks, active leisure is increasingly seen as productive use
+          of reclaimed hours.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <h4 style="margin: 0 0 10px;">The Participation Shift</h4>
+        <p style="margin: 0; font-size: 0.94rem;" class="muted">
+          Consumers are moving from watching sport to playing it. Pickleball's 2-minute
+          learnability is unmatched.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 32px;">
+      <div class="k">Why Now</div>
+      <p style="margin: 0;">
+        Hybrid work removed the commute. AI is removing the busywork. The result is discretionary
+        time that did not exist before — and people are using it to move, compete, and gather.
+        Pickleball converts spectators into participants in a single session.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — THE VACUUM -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">03 · The Vacuum</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE INCUMBENT IS BROKEN</div>
+    <h2 class="deck-title">P1 fills the vacuum.</h2>
+
+    <div class="vs">
+      <div class="side bad">
+        <h4>PPA / UPA — Today's Broken Model</h4>
+        <ul>
+          <li><strong>Governance Conflict.</strong> UPA replaced USA Pickleball as "independent" regulator — while owned by PPA/MLP.</li>
+          <li><strong>Player Resentment.</strong> Delayed payments, one-sided contracts, minor-breach suspensions, culture of fear.</li>
+          <li><strong>Closed Media.</strong> Fans banned from filming. Creators capped at 2 min/day — repeating F1's pre-2017 mistake.</li>
+          <li><strong>U.S. Only.</strong> No professional international pathways, global governance, or media frameworks.</li>
+        </ul>
+      </div>
+      <div class="side good">
+        <h4>P1 — Built from the Opposite Philosophy</h4>
+        <ul>
+          <li><strong>Open &amp; Fan-First.</strong> Fans encouraged to film and share. Players become creators and storytellers.</li>
+          <li><strong>Player-Aligned.</strong> Transparent governance. Athletes with real leverage. Credibility as competitive advantage.</li>
+          <li><strong>Media-Native.</strong> Docuseries pipeline, daily content quotas, highlight syndication — cameras create the sport.</li>
+          <li><strong>Truly Global.</strong> 20 events in 17 countries across Asia, Europe, Americas, Middle East from Year 1.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 32px;">
+      <div class="k">The Pattern That Compounds</div>
+      <p style="margin: 0;">
+        F1 was stuck in this exact posture pre-2017. Liberty Media bought it, opened the media model, separated governance from commercial rights, and compounded to a $20B+ category. P1 starts there — not arrives there in ten years.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — THE MODEL -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">04 · The Model</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">FORMULA 1 FOR PICKLEBALL — GLOBALLY ENGINEERED FOR VALUE</div>
+    <h2 class="deck-title grad">The season that becomes the sport.</h2>
+
+    <div class="grid-2">
+      <div class="card accent-cyan">
+        <div class="eyebrow">20 GLOBAL EVENTS</div>
+        <h3 style="margin: 10px 0;">Four quarterly "Swings"</h3>
+        <p class="muted" style="margin: 0;">
+          Asia · Europe · Americas · Middle East. Five stops per swing. Each swing ends in a Grand Slam.
+          Season finale is the Tour Championship — four Grand Slams per year, one Championship.
+        </p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">8 CONSTRUCTOR BRANDS</div>
+        <h3 style="margin: 10px 0;">Permanent team slots</h3>
+        <p class="muted" style="margin: 0;">
+          Like F1 Constructors. $10M per seat. Scarce by design. Global brands develop players, drive local-market revenue, and participate in category-defining commercial upside.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">FESTIVAL WEEKENDS</div>
+        <h3 style="margin: 10px 0;">Mini-Super-Bowls every month</h3>
+        <p class="muted" style="margin: 0;">
+          5-day stops. Pro matches, celebrity Fridays, concerts, fan zones, food markets. Communities form around P1 events — participation flywheel.
+        </p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">OPEN MEDIA MODEL</div>
+        <h3 style="margin: 10px 0;">Storytelling drives adoption</h3>
+        <p class="muted" style="margin: 0;">
+          Unlike old F1. Fans film and share everything. Docuseries pipeline from Year 1. Daily content quotas for every stop. Highlights syndicated globally.
+        </p>
+      </div>
+    </div>
+
+    <div class="stat-bar cols-4" style="margin-top: 32px;">
+      <div class="cell"><div class="num">$50M</div><div class="lbl">Player Pool</div></div>
+      <div class="cell"><div class="num">17</div><div class="lbl">Countries</div></div>
+      <div class="cell"><div class="num">5</div><div class="lbl">Divisions</div></div>
+      <div class="cell"><div class="num">$130M</div><div class="lbl">Total capital at launch</div></div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — GOVERNANCE ARCHITECTURE -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">05 · Governance Architecture</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">THE F1-STYLE ARCHITECTURE THAT UNLOCKS GLOBAL SCALE</div>
+    <h2 class="deck-title">Three bodies. Separated by design.</h2>
+    <p class="deck-subtitle">
+      Separation of regulation (Ramsports) from commercial rights (Investor) is the structural pattern that unlocked F1's $20B+ valuation. P1 ports the pattern — governance locked before a dollar deploys.
+    </p>
+
+    <div class="arch-diagram">
+      <div class="arch-body">
+        <div class="label">LIBERTY MEDIA EQUIVALENT</div>
+        <div class="title-line">Investor — Anchor</div>
+        <div class="analog">Commercial rights holder</div>
+        <div class="body-text">
+          Holds global commercial rights — media deals, sponsorship, broadcast, licensing.
+          Anchor $50M stake at $250M+ implied valuation.
+        </div>
+      </div>
+      <div class="arch-body center">
+        <div class="label">FIA EQUIVALENT · GOVERNING BODY</div>
+        <div class="title-line">Ramsports</div>
+        <div class="analog">Independent technical &amp; integrity body</div>
+        <div class="body-text">
+          Covers 3 stewards, 3 traveling referees, drug testing.
+          Earns 2% gross revenue + 20% equity. Cannot be overruled on technical calls.
+          The operating engine behind P1.
+        </div>
+      </div>
+      <div class="arch-body">
+        <div class="label">FRANCHISE BRANDS</div>
+        <div class="title-line">8 Constructors</div>
+        <div class="analog">Licensed team brands</div>
+        <div class="body-text">
+          8 licensed Constructor brands at $10M each.
+          Operate franchises, develop players, drive local market revenue.
+          $80M total at close.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 12px;">
+      <div class="k">The structural lesson</div>
+      <p style="margin: 0;">
+        UPA/PPA's fatal flaw is a regulator owned by the operator. Institutional capital will not back that structure. P1 fixes it on day zero: Ramsports is independent, with its own compensation, its own governance bench, and a mandate that survives any single investor's involvement.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — THE CONCORDE AGREEMENT -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">06 · The Concorde Agreement</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THREE STEPS FROM COMMITMENT TO LAUNCH</div>
+    <h2 class="deck-title">Capital protected until milestone. Deployed only on proof.</h2>
+
+    <div class="concorde-flow">
+      <div class="step">
+        <div class="label">STEP 01 · FORMATION</div>
+        <h4>Governance before capital</h4>
+        <div class="date">On / before April 1, 2026</div>
+        <ul>
+          <li>Investor commits $50M to escrow</li>
+          <li>SPAC-like structure: governance first</li>
+          <li>Capital held — zero deployment</li>
+          <li>P1 entity formally constituted</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="label">STEP 02 · BRAND SIGN-UP</div>
+        <h4>8 × $10M Constructor recruitment</h4>
+        <div class="date">April 1 — July 1, 2026</div>
+        <ul>
+          <li>8 Constructor brands recruited</li>
+          <li>$10M license fee per brand</li>
+          <li>All 8 must commit by July 1</li>
+          <li>$80M total brand capital raised</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="label">STEP 03 · FUNDING CLOSE</div>
+        <h4>Milestone hit → launch</h4>
+        <div class="date">July 1, 2026 — milestone</div>
+        <ul>
+          <li>$130M total capital deployed</li>
+          <li>$250M+ implied valuation at launch</li>
+          <li>First event: February 2027</li>
+          <li>Tracking stock vehicle activated</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 28px;">
+      <div class="k">Capital Protection</div>
+      <p style="margin: 0;">
+        If 8 brands are not secured by July 1 2026, the full $50M is returned to investor in its entirety. Zero loss. Zero penalty. No milestone = no deployment. Period.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — EXECUTION CREDIBILITY -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">07 · Execution Credibility</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">RAMSPORTS — THE OPERATING ENGINE</div>
+    <h2 class="deck-title">Not a vision document. An operating business.</h2>
+    <p class="deck-subtitle">
+      Most investors don't back new leagues because execution risk is too high. Ramsports eliminates that risk — government-level relationships in China and Asia, tournament infrastructure already in place, execution track record to take P1 global.
+    </p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="role">CEO</div>
+        <div class="name">Richard Gossett</div>
+        <div class="bio">Founder of 2 international companies with combined $300M revenue. Deep Asia sports development.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">PRESIDENT</div>
+        <div class="name">Alex Yuen</div>
+        <div class="bio">25 years in China. VP NBA BIG3 China 2022-24. 20 years sports promotion experience.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">BOARD / ADVISOR</div>
+        <div class="name">Seymour Rifkind</div>
+        <div class="bio">Founder World Pickleball Federation + IPTPA. Driving force for Olympic inclusion.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">BOARD / ADVISOR</div>
+        <div class="name">Steve Kuhn</div>
+        <div class="bio">Founder MLP (valued $300M). Founder DUPR global rating system. Key architect of the sport.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">BOARD / ADVISOR</div>
+        <div class="name">Tenniel Chu</div>
+        <div class="bio">Vice Chairman Mission Hills Group — world's largest golf resort developer in China.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">BOARD / ADVISOR</div>
+        <div class="name">Philip Mok</div>
+        <div class="bio">President HKTA 2015-23. Elected to ITF. Driving force behind Hong Kong Olympic Committee.</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — FINANCIAL SNAPSHOT -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">08 · Financial Snapshot</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">A ONCE-IN-A-GENERATION SPORTS INVESTMENT</div>
+    <h2 class="deck-title">League revenue scale + Constructor team economics.</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="eyebrow">LEAGUE REVENUE</div>
+        <h3 style="margin: 10px 0 18px;">Y1 → Y5 ramp</h3>
+        <table class="data">
+          <tr><th>Year</th><th class="num">Revenue</th></tr>
+          <tr><td>Year 1</td><td class="num accent">$96M</td></tr>
+          <tr><td>Year 2</td><td class="num accent">$123M</td></tr>
+          <tr><td>Year 3</td><td class="num accent">$155M</td></tr>
+          <tr><td>Year 4</td><td class="num accent">$184M</td></tr>
+          <tr><td>Year 5</td><td class="num accent">$210M</td></tr>
+        </table>
+        <p class="muted" style="margin: 14px 0 0; font-size: 0.86rem;">
+          Centralized media rights · Global sponsors · Premium events · Fixed team feed.
+          EBITDA inflection Year 3.
+        </p>
+      </div>
+
+      <div class="card accent-violet">
+        <div class="eyebrow violet">CONSTRUCTOR ECONOMICS</div>
+        <h3 style="margin: 10px 0 18px;">Y5 per-team P&amp;L</h3>
+        <table class="data">
+          <tr><th>Line</th><th class="num">Value</th></tr>
+          <tr><td>License (one-time)</td><td class="num">$10M</td></tr>
+          <tr><td>Year 5 Revenue</td><td class="num accent">$11-13.5M</td></tr>
+          <tr><td>Y5 Operating Cost</td><td class="num">$3.5-4.5M</td></tr>
+          <tr><td>Y5 EBITDA</td><td class="num accent">$6-8M</td></tr>
+          <tr><td>Y5 Valuation (Conservative)</td><td class="num">$40-65M</td></tr>
+          <tr><td>Y5 Valuation (Upside)</td><td class="num accent">$90-100M</td></tr>
+          <tr><td>MOIC (5yr combined)</td><td class="num accent">~5-10×</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — THE ASK -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">09 · The Ask</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE $50M ANCHOR INVESTMENT — WHAT IT BUYS</div>
+    <h2 class="deck-title grad">$50M into $250M+ implied valuation.</h2>
+
+    <div class="capital-stack">
+      <div>
+        <h4 style="margin: 0 0 14px; font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--mute); letter-spacing: 0.12em; text-transform: uppercase;">Capital Stack at Launch</h4>
+        <div class="stack-bar">
+          <div class="stack-seg anchor">
+            <span class="k">Anchor Investor</span>
+            <span class="v">$50M</span>
+          </div>
+          <div class="stack-seg constructor">
+            <span class="k">8 × Constructor License</span>
+            <span class="v">$80M</span>
+          </div>
+          <div class="stack-seg" style="background: var(--card-2); border: 1px solid var(--line-strong); font-weight: 800;">
+            <span class="k">TOTAL AT CLOSE</span>
+            <span class="v" style="color: var(--gold);">$130M</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="margin: 0 0 14px; font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--mute); letter-spacing: 0.12em; text-transform: uppercase;">Return Architecture</h4>
+        <div class="return-arch">
+          <div class="return-card">
+            <div class="k">Entry</div>
+            <div class="v">$250M+</div>
+            <div class="note">Implied valuation at launch</div>
+          </div>
+          <div class="return-card">
+            <div class="k">Y1-3 Revenue</div>
+            <div class="v">$96M → $155M</div>
+            <div class="note">Media · sponsors · events · team feed</div>
+          </div>
+          <div class="return-card">
+            <div class="k">Constructor MOIC</div>
+            <div class="v">~5× on $10M</div>
+            <div class="note">5-year reference, 35-45% IRR</div>
+          </div>
+          <div class="return-card">
+            <div class="k">Tracking Stock</div>
+            <div class="v">2029-2030</div>
+            <div class="note">Public vehicle · only listed pickleball asset</div>
+          </div>
+          <div class="return-card" style="grid-column: span 2; border-color: color-mix(in srgb, var(--gold) 40%, transparent);">
+            <div class="k" style="color: var(--gold);">IPO Target</div>
+            <div class="v">$1B+ by 2029-30 · $10B long-term 2035</div>
+            <div class="note">Category-defining public asset for global pickleball</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 11 — INVESTOR PROTECTION -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">10 · Investor Protection</div>
+    <div class="page-num">PAGE 11</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">YOUR CAPITAL IS PROTECTED AT EVERY STAGE</div>
+    <h2 class="deck-title">Three layers of capital protection.</h2>
+
+    <div class="protection-grid">
+      <div class="card accent-gold">
+        <div class="num">1</div>
+        <h4 style="margin: 0 0 10px;">Escrow Until Milestone</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          All $50M held in independent escrow. Not a single dollar is deployed until all 8 Constructor brands are signed and verified.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="num">2</div>
+        <h4 style="margin: 0 0 10px;">Milestone-Triggered Release</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          Capital only moves when the 8-brand milestone is independently verified. No milestone = no deployment. Period.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="num">3</div>
+        <h4 style="margin: 0 0 10px;">Full Return if Missed</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          If 8 brands are not secured by July 1, 2026, the full $50M is returned to investor in its entirety. Zero loss. Zero risk.
+        </p>
+      </div>
+    </div>
+
+    <h4 style="margin: 36px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Capital Deployment Flow</h4>
+    <table class="data">
+      <thead>
+        <tr><th>Phase</th><th>Trigger</th><th>Capital Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Now</td>
+          <td>$50M committed to escrow</td>
+          <td>Governance entity formed. Capital secured.</td>
+        </tr>
+        <tr>
+          <td>Apr-Jul · Recruitment Phase</td>
+          <td>8 brands × $10M secured</td>
+          <td>All capital remains in escrow during this phase.</td>
+        </tr>
+        <tr>
+          <td>Jul 1 ✓ · Milestone Hit</td>
+          <td>$130M deployed · League launches</td>
+          <td class="accent">Investor becomes global commercial rights holder.</td>
+        </tr>
+        <tr>
+          <td>Jul 1 ✗ · Milestone Missed</td>
+          <td>Full $50M returned to investor</td>
+          <td>No loss. No penalty. Complete capital return.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 12 — LONG-TERM VISION -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">11 · Long-Term Vision</div>
+    <div class="page-num">PAGE 12</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE CATEGORY-DEFINING PUBLIC ASSET FOR GLOBAL PICKLEBALL</div>
+    <h2 class="deck-title">From Concorde to $10B in nine years.</h2>
+
+    <div class="vision-timeline">
+      <div class="year">
+        <div class="y">2026</div>
+        <div class="v">Concorde Agreement</div>
+        <div class="d">Investor + Ramsports + 8 Constructors. Governance locked.</div>
+      </div>
+      <div class="year">
+        <div class="y">2027</div>
+        <div class="v">Season 1 Launches</div>
+        <div class="d">20 global events. $50M player pool. $130M capital deployed.</div>
+      </div>
+      <div class="year">
+        <div class="y">2028-29</div>
+        <div class="v">Media IP Scale</div>
+        <div class="d">Docuseries rights. Streaming distribution. Brand equity compounding.</div>
+      </div>
+      <div class="year">
+        <div class="y">2029-30</div>
+        <div class="v">Tracking Stock</div>
+        <div class="d">Pure-play public vehicle. Only listed pickleball asset. IPO $1B+.</div>
+      </div>
+      <div class="year">
+        <div class="y">2035</div>
+        <div class="v">$10B Valuation</div>
+        <div class="d">Category leader, globally dominant, publicly investable.</div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card">
+        <div class="eyebrow gold">2027 LAUNCH</div>
+        <div class="num" style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 2.4rem; margin: 8px 0;">$250M+</div>
+        <p class="muted" style="margin: 0; font-size: 0.88rem;">Implied valuation at launch</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow gold">2029-30 IPO</div>
+        <div class="num" style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 2.4rem; margin: 8px 0;">$1B+</div>
+        <p class="muted" style="margin: 0; font-size: 0.88rem;">Tracking-stock target</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">2035 TARGET</div>
+        <div class="num" style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 2.4rem; margin: 8px 0; background: var(--grad-warm); -webkit-background-clip: text; background-clip: text; color: transparent;">$10B</div>
+        <p class="muted" style="margin: 0; font-size: 0.88rem;">Category-defining global asset</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Master Pitch</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 13 — NEXT STEPS -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+  </div>
+
+  <div>
+    <div class="eyebrow cyan" style="margin-bottom: 20px;">NEXT STEPS</div>
+    <h2 class="deck-title grad" style="max-width: 18ch; font-size: clamp(2.6rem, 5.2vw, 4.2rem);">
+      This is the moment to own the most valuable entity in the fastest-growing sport on Earth.
+    </h2>
+
+    <div style="margin-top: 48px;">
+      <div class="step" style="margin-bottom: 14px;">
+        <div class="label">STEP 01</div>
+        <h4 style="margin: 0;">Introductory call to discuss fit with current portfolio and fund mandate</h4>
+      </div>
+      <div class="step" style="margin-bottom: 14px;">
+        <div class="label">STEP 02</div>
+        <h4 style="margin: 0;">Execute NDA and provide full financial model, Ramsports due diligence materials</h4>
+      </div>
+      <div class="step">
+        <div class="label">STEP 03</div>
+        <h4 style="margin: 0;">Concorde Agreement formation on or before the funding milestone date</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">CONTACT</div>
+      <div class="v">Assay · P1 World Tour</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL — Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DOCUMENT</div>
+      <div class="v">Master League Pitch Deck</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Investor Equity Deck</title>
+<meta name="description" content="The equity-side hand-back. $50M anchor at $250M+ implied. Capital stack, return architecture, cap table, dilution model, exit scenarios, protection structure." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Deck-11 specific primitives */
+  .capital-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .stack-bar { display: flex; flex-direction: column; gap: 8px; }
+  .stack-seg {
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-family: var(--mono);
+    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .stack-seg.anchor { background: color-mix(in srgb, var(--cyan) 14%, transparent); border: 1px solid color-mix(in srgb, var(--cyan) 40%, transparent); }
+  .stack-seg.constructor { background: color-mix(in srgb, var(--violet) 14%, transparent); border: 1px solid color-mix(in srgb, var(--violet) 40%, transparent); }
+  .stack-seg .k { color: var(--ink); font-weight: 600; }
+  .stack-seg .v { color: var(--cyan); font-weight: 700; }
+  .stack-seg.constructor .v { color: var(--violet); }
+
+  .return-arch { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .return-card {
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+  .return-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 6px;
+  }
+  .return-card .v {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+  .return-card .note { font-size: 0.84rem; color: var(--mute); }
+
+  .captable-bar {
+    display: grid;
+    grid-template-columns: 160px 1fr 120px;
+    gap: 14px;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 0.86rem;
+  }
+  .captable-bar:first-of-type { border-top: none; }
+  .captable-bar .lbl { color: var(--ink); font-weight: 600; }
+  .captable-bar .bar {
+    height: 22px;
+    border-radius: 999px;
+    background: var(--card-2);
+    position: relative;
+    overflow: hidden;
+  }
+  .captable-bar .fill {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    border-radius: 999px;
+  }
+  .captable-bar .pct {
+    text-align: right;
+    color: var(--cyan);
+    font-weight: 700;
+  }
+
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .scenario-card {
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+  .scenario-card.bear { border-color: color-mix(in srgb, var(--red) 35%, transparent); }
+  .scenario-card.base { border-color: color-mix(in srgb, var(--cyan) 35%, transparent); }
+  .scenario-card.bull { border-color: color-mix(in srgb, var(--gold) 35%, transparent); }
+  .scenario-card .tag {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .scenario-card.bear .tag { color: var(--red); }
+  .scenario-card.base .tag { color: var(--cyan); }
+  .scenario-card.bull .tag { color: var(--gold); }
+  .scenario-card .moic {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    margin: 4px 0 10px;
+    letter-spacing: -0.02em;
+  }
+  .scenario-card.bear .moic { color: var(--red); }
+  .scenario-card.base .moic { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .scenario-card.bull .moic { background: var(--grad-warm); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  .pillar-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .pillar-row {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .pillar-row .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 6px;
+  }
+  .pillar-row .v {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.96rem;
+    margin-bottom: 4px;
+  }
+  .pillar-row .d { font-size: 0.84rem; color: var(--mute); }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .timeline-row:first-of-type { border-top: none; }
+  .timeline-row .d {
+    font-family: var(--mono);
+    font-size: 0.86rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .timeline-row .t {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .timeline-row p { margin: 0; font-size: 0.88rem; color: var(--mute); }
+
+  .step {
+    padding: 22px 24px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--card);
+  }
+  .step .label {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--cyan);
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+  .step h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin: 0 0 10px;
+  }
+
+  .protection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .protection-grid .card { padding: 20px; }
+  .protection-grid .num {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  @media (max-width: 900px) {
+    .capital-stack, .return-arch, .scenario-grid, .pillar-map, .protection-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .captable-bar { grid-template-columns: 1fr; gap: 6px; }
+    .captable-bar .pct { text-align: left; }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow cyan">DELIVERABLE 11 · INVESTOR EQUITY DECK</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">$50M into the most valuable entity in the fastest-growing sport on Earth.</h1>
+    <p class="lede">
+      The equity-side hand-back. Anchor stake at $250M+ implied valuation.
+      $130M launch stack. 3.5× base-case MOIC by 2029-30 IPO. Full refund if milestone missed.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">$50M ANCHOR</span></div>
+      <div class="chip violet"><span class="mono">$250M+ IMPLIED</span></div>
+      <div class="chip gold"><span class="mono">3.5× BASE MOIC</span></div>
+      <div class="chip"><span class="mono">IPO 2029-30</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Institutional Equity Anchor &mdash; Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — EXECUTIVE SUMMARY -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">01 &middot; Executive Summary</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE ASK IN ONE PAGE</div>
+    <h2 class="deck-title grad">$50M anchor. $250M+ implied. Escrow-protected.</h2>
+
+    <div class="stat-bar cols-4">
+      <div class="cell"><div class="num">$50M</div><div class="lbl">Anchor check</div></div>
+      <div class="cell"><div class="num">$250M+</div><div class="lbl">Implied valuation at launch</div></div>
+      <div class="cell"><div class="num">$130M</div><div class="lbl">Total capital at close</div></div>
+      <div class="cell"><div class="num">3.5&times;</div><div class="lbl">Base-case 5-yr MOIC</div></div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">The shape</div>
+      <p style="margin: 0; font-size: 1rem;">
+        Anchor commits $50M to escrow on Concorde formation (April 1, 2026). Capital is held, not deployed,
+        until eight Constructor brands sign $10M license fees each by July 1, 2026. Milestone hit &rarr; $130M
+        deploys, league launches Feb 2027, anchor becomes global commercial rights holder. Milestone missed &rarr;
+        full $50M returned. Zero penalty.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow">WHAT THE $50M BUYS</div>
+        <h3 style="margin: 10px 0;">Global commercial rights</h3>
+        <p class="muted" style="margin: 0;">Media, sponsorship, broadcast, licensing &mdash; all rolled into one anchor equity stake. Board observer &rarr; voting at tracking stock activation.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">WHAT PROTECTS IT</div>
+        <h3 style="margin: 10px 0;">Three-layer escrow</h3>
+        <p class="muted" style="margin: 0;">Capital in escrow. Release only on independently verified 8-brand milestone. Full return if missed. SPAC-like governance structure with hard deadlines.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — THESIS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">02 &middot; Thesis</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">BARTLETT EXPONENTIAL &middot; INSTITUTIONAL VACUUM</div>
+    <h2 class="deck-title">The fastest-growing sport on Earth has no institutional home.</h2>
+    <p class="deck-subtitle">
+      Two forces meeting at one moment. Pickleball compounding at 50%+ per year globally. PPA / UPA / MLP
+      broken on governance, media, and global pathway. The institutional category is pre-competitive &mdash;
+      but not for long.
+    </p>
+
+    <div class="stat-bar cols-4" style="margin-top: 4px;">
+      <div class="cell"><div class="num">75M&rarr;300M</div><div class="lbl">Players by 2032</div></div>
+      <div class="cell"><div class="num">50%+</div><div class="lbl">Annual growth</div></div>
+      <div class="cell"><div class="num">75%</div><div class="lbl">Of 2032 players haven't touched a paddle yet</div></div>
+      <div class="cell"><div class="num">$18-30B</div><div class="lbl">Annual consumer spend</div></div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 28px;">
+      <div class="k">The Bartlett Principle</div>
+      <p style="margin: 0; font-size: 1rem;">
+        <em>"The greatest shortcoming of the human race is our inability to understand the exponential
+        function."</em> &mdash; Albert Bartlett. P1 is the first institutional entity built to capture
+        exponential pickleball growth globally &mdash; before valuations reflect it.
+      </p>
+    </div>
+
+    <div class="vs" style="margin-top: 28px;">
+      <div class="side bad">
+        <h4>The incumbent &mdash; PPA / UPA / MLP</h4>
+        <ul>
+          <li>Governance conflict: UPA regulator owned by PPA / MLP operator.</li>
+          <li>Closed media model &mdash; creators capped at 2 min/day.</li>
+          <li>U.S.-only. No professional global pathway.</li>
+          <li>Player resentment: delayed pay, one-sided contracts.</li>
+        </ul>
+      </div>
+      <div class="side good">
+        <h4>P1 &mdash; built from the opposite philosophy</h4>
+        <ul>
+          <li>Ramsports independent. Regulation separated from commercial rights.</li>
+          <li>Open-media model. Docuseries pipeline. Fans amplify.</li>
+          <li>20 events across 17 countries from Year 1.</li>
+          <li>Transparent player economics. Credibility compounds.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — CAPITAL STACK -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">03 &middot; Capital Stack at Launch</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">$130M AT CLOSE</div>
+    <h2 class="deck-title">Two sources. One structure. Governance locked before deployment.</h2>
+
+    <div class="capital-stack">
+      <div>
+        <h4 style="margin: 0 0 14px; font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--mute); letter-spacing: 0.12em; text-transform: uppercase;">Capital Stack</h4>
+        <div class="stack-bar">
+          <div class="stack-seg anchor">
+            <span class="k">Anchor Investor &middot; equity</span>
+            <span class="v">$50M</span>
+          </div>
+          <div class="stack-seg constructor">
+            <span class="k">8 &times; Constructor License &middot; non-refundable</span>
+            <span class="v">$80M</span>
+          </div>
+          <div class="stack-seg" style="background: var(--card-2); border: 1px solid var(--line-strong); font-weight: 800;">
+            <span class="k">TOTAL AT CLOSE</span>
+            <span class="v" style="color: var(--gold);">$130M</span>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top: 20px; font-size: 0.92rem;">
+          Anchor equity funds commercial rights holder entity. Constructor license fees fund the
+          league's operating vehicle &mdash; event production, venue contracts, Ramsports opex, player
+          contracts. Ramsports receives 20% equity at close, plus 2% of gross league revenue (flat, not
+          tiered) &mdash; the hedge-fund "2-and-20" analog.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="margin: 0 0 14px; font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--mute); letter-spacing: 0.12em; text-transform: uppercase;">How it funds the league</h4>
+        <table class="data">
+          <tr><th>Source</th><th>Use</th></tr>
+          <tr><td>Anchor $50M</td><td>Commercial rights holder &mdash; media, sponsor, licensing</td></tr>
+          <tr><td>Constructor $80M</td><td>League operating vehicle &mdash; events, venues, Ramsports, player feed</td></tr>
+          <tr><td>Ramsports 10% eq</td><td>Governance compensation, not a cash outlay</td></tr>
+        </table>
+
+        <div class="callout gold" style="margin-top: 18px;">
+          <div class="k">Why $10M per Constructor</div>
+          <p style="margin: 0; font-size: 0.92rem;">
+            Low enough that 8 global brands can commit without board escalation.
+            High enough to create scarcity and commitment. F1 constructors pay $200M+ today;
+            $10M is Year-1 institutional entry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — RETURN ARCHITECTURE -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">04 &middot; Return Architecture</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">ENTRY &rarr; OPERATING REVENUE &rarr; PUBLIC FLOAT</div>
+    <h2 class="deck-title">How $50M compounds.</h2>
+
+    <div class="return-arch">
+      <div class="return-card">
+        <div class="k">Entry</div>
+        <div class="v">$250M+ implied</div>
+        <div class="note">$50M anchor into global commercial rights holder</div>
+      </div>
+      <div class="return-card">
+        <div class="k">Y1 &rarr; Y3 League Revenue</div>
+        <div class="v">$96M &rarr; $123M &rarr; $155M</div>
+        <div class="note">Media, sponsorship, events, team feed</div>
+      </div>
+      <div class="return-card">
+        <div class="k">Y5 League Revenue</div>
+        <div class="v">$210M</div>
+        <div class="note">EBITDA inflection Y3 &rarr; +28% margin by Y5</div>
+      </div>
+      <div class="return-card">
+        <div class="k">Enterprise value (7&times;)</div>
+        <div class="v">$1.47B at Y5</div>
+        <div class="note">Y3: $1.09B &middot; Y1: $672M</div>
+      </div>
+      <div class="return-card">
+        <div class="k">Tracking stock</div>
+        <div class="v">2029-30</div>
+        <div class="note">Public vehicle &middot; pickleball's only listed asset</div>
+      </div>
+      <div class="return-card" style="border-color: color-mix(in srgb, var(--gold) 40%, transparent);">
+        <div class="k" style="color: var(--gold);">IPO target</div>
+        <div class="v">$1B+ &middot; $10B by 2035</div>
+        <div class="note">Category-defining global asset</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">Constructor MOIC reference</div>
+      <p style="margin: 0; font-size: 0.95rem;">
+        Each Constructor's $10M license path: ~2.5&times; cash-on-cash + $20-40M unmonetized media value +
+        $40-100M Y5 equity exit &rarr; combined <strong>5-10&times; MOIC on $10M</strong>, 35-45% IRR.
+        This is the reference comp, not the anchor MOIC &mdash; the anchor owns the commercial rights holder,
+        not a Constructor seat.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — Y1-Y5 REVENUE TABLE -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">05 &middot; Y1 &rarr; Y5 Revenue Build</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">LEAGUE-LEVEL REVENUE &mdash; SIX LINES</div>
+    <h2 class="deck-title">$96M Y1 &rarr; $210M Y5.</h2>
+    <p class="deck-subtitle">
+      Six revenue streams, each with its own ramp. Media is the dominant compounder (2.5&times; Y1 &rarr; Y5).
+      Content &amp; docuseries is the second-order payoff once the media property matures. EBITDA inflection
+      in Year 3; +28% margin by Y5.
+    </p>
+
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Line item</th>
+          <th class="num">Y1</th>
+          <th class="num">Y2</th>
+          <th class="num">Y3</th>
+          <th class="num">Y4</th>
+          <th class="num">Y5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Media rights</td><td class="num accent">$32M</td><td class="num accent">$45M</td><td class="num accent">$60M</td><td class="num accent">$72M</td><td class="num accent">$82M</td></tr>
+        <tr><td>Global sponsorship (title + category)</td><td class="num">$24M</td><td class="num">$30M</td><td class="num">$36M</td><td class="num">$41M</td><td class="num">$46M</td></tr>
+        <tr><td>Event revenue (gate, hospitality, on-site)</td><td class="num">$18M</td><td class="num">$21M</td><td class="num">$25M</td><td class="num">$28M</td><td class="num">$32M</td></tr>
+        <tr><td>Team feed (from Constructors)</td><td class="num">$10M</td><td class="num">$10M</td><td class="num">$10M</td><td class="num">$12M</td><td class="num">$12M</td></tr>
+        <tr><td>Licensing / merchandise</td><td class="num">$7M</td><td class="num">$9M</td><td class="num">$12M</td><td class="num">$15M</td><td class="num">$18M</td></tr>
+        <tr><td>Content + docuseries royalties</td><td class="num">$5M</td><td class="num">$8M</td><td class="num">$12M</td><td class="num">$16M</td><td class="num">$20M</td></tr>
+        <tr><td><strong>Total League Revenue</strong></td><td class="num accent"><strong>$96M</strong></td><td class="num accent"><strong>$123M</strong></td><td class="num accent"><strong>$155M</strong></td><td class="num accent"><strong>$184M</strong></td><td class="num accent"><strong>$210M</strong></td></tr>
+        <tr><td>EBITDA margin walk</td><td class="num">&minus;8%</td><td class="num">&minus;2%</td><td class="num">+9%</td><td class="num">+18%</td><td class="num accent">+28%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid-3" style="margin-top: 28px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow">Y1 EV (7&times;)</div>
+        <h3 style="margin: 10px 0;">$672M</h3>
+        <p class="muted" style="margin: 0; font-size: 0.88rem;">Baseline launch enterprise value.</p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">Y3 EV (7&times;)</div>
+        <h3 style="margin: 10px 0;">$1.09B</h3>
+        <p class="muted" style="margin: 0; font-size: 0.88rem;">EBITDA inflection year.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Y5 EV (7&times;)</div>
+        <h3 style="margin: 10px 0;">$1.47B</h3>
+        <p class="muted" style="margin: 0; font-size: 0.88rem;">Pre-IPO enterprise value base case.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — CAP TABLE -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">06 &middot; Cap Table &mdash; Launch vs Year 5</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">INDICATIVE &mdash; BANDS, NOT POINTS</div>
+    <h2 class="deck-title">Who owns the commercial rights holder.</h2>
+    <p class="deck-subtitle">
+      Cap table reflects ownership of the commercial rights holder entity (where the anchor sits), not the
+      league operating vehicle. Constructor license fees are non-refundable operational capital, not equity
+      in the rights holder. Ranges below are indicative; exact ownership resolves at Concorde signing.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="eyebrow cyan">AT LAUNCH (Jul 2026)</div>
+        <h3 style="margin: 10px 0 18px;">Post-milestone cap</h3>
+
+        <div class="captable-bar">
+          <div class="lbl">Anchor Investor</div>
+          <div class="bar"><div class="fill" style="width: 55%; background: linear-gradient(90deg, var(--cyan), var(--lav));"></div></div>
+          <div class="pct">50-60%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Ramsports</div>
+          <div class="bar"><div class="fill" style="width: 10%; background: var(--violet);"></div></div>
+          <div class="pct">10%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Founders / mgmt</div>
+          <div class="bar"><div class="fill" style="width: 20%; background: var(--gold);"></div></div>
+          <div class="pct">15-25%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Employee pool</div>
+          <div class="bar"><div class="fill" style="width: 10%; background: var(--green);"></div></div>
+          <div class="pct">8-12%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Reserve (Y2+ expansion)</div>
+          <div class="bar"><div class="fill" style="width: 5%; background: var(--mute);"></div></div>
+          <div class="pct">3-7%</div>
+        </div>
+      </div>
+
+      <div class="card accent-violet">
+        <div class="eyebrow violet">YEAR 5 (pre-IPO)</div>
+        <h3 style="margin: 10px 0 18px;">Post-Series B + pre-IPO round</h3>
+
+        <div class="captable-bar">
+          <div class="lbl">Anchor Investor</div>
+          <div class="bar"><div class="fill" style="width: 38%; background: linear-gradient(90deg, var(--cyan), var(--lav));"></div></div>
+          <div class="pct">35-45%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Series B (2028)</div>
+          <div class="bar"><div class="fill" style="width: 15%; background: color-mix(in srgb, var(--cyan) 50%, transparent);"></div></div>
+          <div class="pct">10-18%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Pre-IPO (2029)</div>
+          <div class="bar"><div class="fill" style="width: 10%; background: color-mix(in srgb, var(--cyan) 30%, transparent);"></div></div>
+          <div class="pct">8-12%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Ramsports</div>
+          <div class="bar"><div class="fill" style="width: 7%; background: var(--violet);"></div></div>
+          <div class="pct">7-8%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Founders / mgmt</div>
+          <div class="bar"><div class="fill" style="width: 15%; background: var(--gold);"></div></div>
+          <div class="pct">12-18%</div>
+        </div>
+        <div class="captable-bar">
+          <div class="lbl">Employee pool</div>
+          <div class="bar"><div class="fill" style="width: 10%; background: var(--green);"></div></div>
+          <div class="pct">10-14%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 20px;">
+      <div class="k">Anchor governance</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Board observer at close &rarr; voting board seat converts on tracking-stock activation (2029-30).
+        Commercial-rights-committee chair at close &mdash; anchor controls media, sponsorship, and broadcast
+        deal approvals through the rights holder entity until IPO.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — DILUTION MODEL -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">07 &middot; Dilution Model</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">PRE-IPO FUNDING WINDOWS</div>
+    <h2 class="deck-title">Anchor dilution from 50-60% &rarr; 35-45% by IPO.</h2>
+    <p class="deck-subtitle">
+      Two planned capital windows between launch and IPO. Each sized to keep league-level operating
+      vehicle fully funded through the docuseries greenlight and unbundled media ramp, while preserving
+      anchor majority through tracking-stock activation.
+    </p>
+
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Round</th>
+          <th>Date</th>
+          <th class="num">Size</th>
+          <th class="num">Pre-money target</th>
+          <th>Dilution impact on anchor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Concorde close</td>
+          <td>Jul 2026</td>
+          <td class="num accent">$50M</td>
+          <td class="num">$250M+</td>
+          <td>50-60% ownership established</td>
+        </tr>
+        <tr>
+          <td>Series B &mdash; Growth</td>
+          <td>H1 2028</td>
+          <td class="num">$75-125M</td>
+          <td class="num">$750M-$1.0B</td>
+          <td>~8-12 pts dilution &middot; funds docuseries greenlight + Y3 media unbundling</td>
+        </tr>
+        <tr>
+          <td>Pre-IPO crossover</td>
+          <td>H2 2029</td>
+          <td class="num">$150-250M</td>
+          <td class="num">$1.2-1.5B</td>
+          <td>~6-10 pts dilution &middot; tracking-stock preparation capital</td>
+        </tr>
+        <tr>
+          <td>Tracking-stock IPO</td>
+          <td>2029-30</td>
+          <td class="num accent">$200-400M primary</td>
+          <td class="num accent">$1B+</td>
+          <td>~4-8 pts additional float dilution &middot; public liquidity unlocked</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow">Anchor protections</div>
+        <ul style="margin: 10px 0 0; padding-left: 20px; font-size: 0.94rem; color: var(--mute);">
+          <li>Pro-rata participation rights in every round through IPO.</li>
+          <li>Right of first offer on any Constructor seat resale pre-IPO.</li>
+          <li>Anti-dilution ratchet on Series B only if priced below anchor entry.</li>
+          <li>Board observer &rarr; voting seat conversion pre-IPO.</li>
+        </ul>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Anchor MOIC math</div>
+        <p style="margin: 0 0 10px; font-size: 0.94rem;">
+          At base-case IPO ($1B, 38% retained post-dilution): anchor stake &cong; <strong>$380M paper value</strong> on $50M entry &rarr; <strong>~7.6&times;</strong> pre-liquidity / <strong>~3.5&times;</strong> realized on dilution-adjusted exit.
+        </p>
+        <p style="margin: 0; font-size: 0.88rem; color: var(--mute);">
+          (Base-case 3.5&times; is the realized, dilution-adjusted MOIC &mdash; the "paper" 7.6&times; is the
+          underlying ownership value at IPO before liquidity discount.)
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — EXIT SCENARIOS -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">08 &middot; Exit Scenarios</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">BEAR &middot; BASE &middot; BULL</div>
+    <h2 class="deck-title">Three paths. One downside floor.</h2>
+
+    <div class="scenario-grid">
+      <div class="scenario-card bear">
+        <div class="tag">BEAR &middot; MILESTONE MISS</div>
+        <div class="moic">1.0&times;</div>
+        <h4 style="margin: 0 0 8px;">$50M refunded</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          8 Constructors not secured by July 1, 2026. Escrow releases full $50M to anchor.
+          Zero capital loss. Concorde formation expenses borne by league, not investor.
+        </p>
+      </div>
+      <div class="scenario-card base">
+        <div class="tag">BASE &middot; IPO $1B</div>
+        <div class="moic">3.5&times;</div>
+        <h4 style="margin: 0 0 8px;">$175M realized</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          Launch executes, 20 stops run, 8 brands retained, media ramps as modeled.
+          Y5 $210M revenue &rarr; $1.47B EV &rarr; tracking-stock IPO at $1B+. Dilution-adjusted.
+        </p>
+      </div>
+      <div class="scenario-card bull">
+        <div class="tag">BULL &middot; IPO $2B+</div>
+        <div class="moic">7-10&times;</div>
+        <h4 style="margin: 0 0 8px;">$350-500M realized</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          Grand Slam attendance overshoots, docuseries becomes a Drive-to-Survive analog,
+          category-leader multiple expands post-IPO. Y5 $280M revenue &rarr; $2.5B+ EV.
+        </p>
+      </div>
+    </div>
+
+    <table class="data" style="margin-top: 28px;">
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Y5 League revenue</th>
+          <th>Y5 EV (7&times;)</th>
+          <th>IPO valuation</th>
+          <th>Anchor MOIC (5 yr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Bear &mdash; milestone miss</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">$50M returned</td><td class="num accent">1.0&times;</td></tr>
+        <tr><td>Base &mdash; launch executes</td><td class="num">$210M</td><td class="num">$1.47B</td><td class="num">$1B+</td><td class="num accent">3.5&times;</td></tr>
+        <tr><td>Bull &mdash; category expansion</td><td class="num">$280M</td><td class="num">$2.5B+</td><td class="num">$2B+</td><td class="num accent">7-10&times;</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold" style="margin-top: 20px;">
+      <div class="k">Long-term</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        2035 goal: $10B category-leader valuation. Anchor retains stake post-IPO via secondary liquidity
+        windows; full realization over 7-10 year hold. The institutional base rate is compounding: wait
+        two years and compete with RedBird / CVC / Liberty / Arctos on the same asset at 3-4&times; today's price.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — PORTFOLIO SYNERGY -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">09 &middot; Portfolio Synergy</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THESIS-MAPPED TO SIDELINE PILLARS (TEMPLATE)</div>
+    <h2 class="deck-title">P1 accelerates every pillar in a participation-consumer portfolio.</h2>
+    <p class="deck-subtitle">
+      Framework designed for Sideline Group's thesis stack but drop-in replaceable for any
+      participation-consumer / sports-infrastructure fund. Each pillar maps to a P1 primitive that
+      generates inbound for portfolio companies on day one.
+    </p>
+
+    <div class="pillar-map">
+      <div class="pillar-row">
+        <div class="k">PILLAR &middot; OFFLINE TIME TAILWIND</div>
+        <div class="v">Hybrid work + AI returning afternoons to 40%+ of knowledge workers</div>
+        <div class="d">P1 answer: 75M &rarr; 300M active players by 2032. Every unlocked afternoon converts
+          participation demand. Lead indicator for every active-leisure portfolio co.</div>
+      </div>
+      <div class="pillar-row">
+        <div class="k">PILLAR &middot; COMMUNITY EXPERIENCES</div>
+        <div class="v">Real-world, participatory, brand-activated gatherings</div>
+        <div class="d">P1 answer: Festival-weekend stops. 4-5 days, 4-5k live attendance. Pro matches,
+          celebrity Fridays, food markets, concerts. Community forms around every event.</div>
+      </div>
+      <div class="pillar-row">
+        <div class="k">PILLAR &middot; PARTICIPATION SPORTS</div>
+        <div class="v">Bandit Running / UGP / Athletic Brewing / OLIPOP thesis</div>
+        <div class="d">P1 answer: Spectators become players in a single session. 2-minute learnability.
+          Constructor flywheel funds the next event. Direct distribution channel to participation-native consumers.</div>
+      </div>
+      <div class="pillar-row">
+        <div class="k">PILLAR &middot; SPORTS INFRASTRUCTURE</div>
+        <div class="v">Angel City FC / Miami HEAT / institutional-scale sport investment</div>
+        <div class="d">P1 answer: $50M anchor = global rights holder. Media, sponsorship, broadcast,
+          licensing rolled into one equity stake &mdash; the institutional layer of a category that has none.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 24px;">
+      <div class="k">Portfolio inbound</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Constructor seats map to portfolio brand archetypes: participation beverage (Athletic Brewing /
+        OLIPOP), footwear (UGP adjacency), apparel, club-sport parents (Angel City / Miami HEAT synergy).
+        Anchor equity unlocks preferred-partner pricing on any Constructor seat that aligns with an LP's
+        portfolio thesis.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 11 — PROTECTION STRUCTURE -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">10 &middot; Investor Protection Structure</div>
+    <div class="page-num">PAGE 11</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THREE LAYERS &middot; SPAC-LIKE GOVERNANCE</div>
+    <h2 class="deck-title">Capital is never at market risk until milestone is hit.</h2>
+
+    <div class="protection-grid">
+      <div class="card accent-gold">
+        <div class="num">1</div>
+        <h4 style="margin: 0 0 10px;">Escrow until milestone</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          Full $50M held in independent escrow from Concorde signing through July 1, 2026.
+          Not a single dollar deploys until the 8-Constructor milestone is verified by an independent party.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="num">2</div>
+        <h4 style="margin: 0 0 10px;">Milestone-triggered release</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          Capital converts to equity in the commercial rights holder entity only when all 8 Constructor
+          licenses are signed and $80M is confirmed in league accounts. No conversion without proof.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="num">3</div>
+        <h4 style="margin: 0 0 10px;">Full return if missed</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          If 8 brands not secured by July 1, 2026, escrow releases full $50M to anchor with zero penalty.
+          Concorde formation costs are borne by the league, not the investor.
+        </p>
+      </div>
+    </div>
+
+    <h4 style="margin: 36px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Capital deployment flow</h4>
+    <table class="data">
+      <thead>
+        <tr><th>Phase</th><th>Trigger</th><th>Capital status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Concorde formation</td>
+          <td>Anchor signs &middot; $50M committed to escrow</td>
+          <td>Governance entity formed. Capital secured, zero deployment.</td>
+        </tr>
+        <tr>
+          <td>Apr &rarr; Jul 2026 &middot; recruitment</td>
+          <td>8 Constructors &times; $10M secured and verified</td>
+          <td>All $50M remains in escrow.</td>
+        </tr>
+        <tr>
+          <td>Jul 1, 2026 &middot; milestone hit</td>
+          <td>$130M total capital deploys</td>
+          <td class="accent">Anchor converts to commercial rights holder equity. League launches Feb 2027.</td>
+        </tr>
+        <tr>
+          <td>Jul 1, 2026 &middot; milestone missed</td>
+          <td>Escrow releases $50M to anchor</td>
+          <td>No capital loss. No penalty. Concorde formation costs borne by league.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 12 — GOVERNANCE -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">11 &middot; Governance Seat</div>
+    <div class="page-num">PAGE 12</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">WHAT THE ANCHOR CONTROLS</div>
+    <h2 class="deck-title">Board observer at close. Voting board seat at tracking stock.</h2>
+
+    <div class="grid-2">
+      <div class="card accent-violet">
+        <div class="eyebrow violet">AT CLOSE (2026-07)</div>
+        <h3 style="margin: 10px 0;">Board observer</h3>
+        <ul style="padding-left: 20px; margin: 10px 0 0; font-size: 0.95rem;">
+          <li>Full board observer rights &mdash; attend every meeting, access every document.</li>
+          <li>Commercial-rights-committee <strong>chair</strong>: approves every media, sponsor, broadcast, licensing deal.</li>
+          <li>Veto right on Ramsports Concorde amendment through 2029.</li>
+          <li>Right of first offer on any Constructor seat resale through tracking-stock activation.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="eyebrow">AT TRACKING STOCK (2029-30)</div>
+        <h3 style="margin: 10px 0;">Voting seat</h3>
+        <ul style="padding-left: 20px; margin: 10px 0 0; font-size: 0.95rem;">
+          <li>Observer seat converts to full voting board seat on public-float activation.</li>
+          <li>Retains commercial-rights-committee chair through IPO.</li>
+          <li>Pro-rata participation right in IPO primary allocation.</li>
+          <li>Secondary liquidity path unlocked via public market windows post-lockup.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">The three-body architecture the anchor joins</h4>
+    <div class="pillar-map">
+      <div class="pillar-row">
+        <div class="k">INVESTOR (ANCHOR)</div>
+        <div class="v">Liberty Media analog</div>
+        <div class="d">Commercial rights holder. Media, sponsorship, broadcast, licensing. Anchor stake.</div>
+      </div>
+      <div class="pillar-row">
+        <div class="k">RAMSPORTS</div>
+        <div class="v">FIA analog</div>
+        <div class="d">Independent technical + integrity body. 3 stewards, 3 traveling refs, drug testing.
+          2% of gross league revenue + 20% equity &mdash; the hedge-fund "2-and-20" analog.</div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 20px;">
+      <div class="k">Why separation matters</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        UPA / PPA's fatal flaw is a regulator owned by the operator. Institutional capital will not back
+        that structure. P1 fixes it on day zero: Ramsports is independent, with its own comp, its own
+        governance bench, and a mandate that survives any single investor's involvement. Separation =
+        credibility = cheaper media + sponsorship = compounding valuation.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 13 — TIMING -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">12 &middot; Timing &amp; Urgency</div>
+    <div class="page-num">PAGE 13</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE DEAL HAS A CLOCK</div>
+    <h2 class="deck-title">Concorde by April 1. Milestone by July 1. Launch Feb 2027.</h2>
+
+    <div class="timeline-row">
+      <div class="d">Now &rarr; Apr 1, 2026</div>
+      <div>
+        <div class="t">Concorde Agreement signing</div>
+        <p>Anchor executes Concorde. $50M committed to escrow. Governance entity formed. Constructor recruitment begins immediately behind a confirmed anchor.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="d">Apr 1 &rarr; Jul 1, 2026</div>
+      <div>
+        <div class="t">Constructor recruitment window</div>
+        <p>8 &times; $10M Constructor license fees signed. 4 Constructor conversations currently live; $50M anchor confirmation unlocks aggressive recruitment for the remaining 4.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="d">Jul 1, 2026</div>
+      <div>
+        <div class="t">Milestone date &middot; hard deadline</div>
+        <p>$130M deploys or $50M refunds. No extensions. Binary outcome by independent verification of all 8 signed licenses.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="d">Feb 2027</div>
+      <div>
+        <div class="t">Season 1 &middot; first event</div>
+        <p>Miami Grand Slam kicks off Americas swing. 20-event global calendar begins. Media, sponsorship, and broadcast contracts activate simultaneously.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="d">2028-29</div>
+      <div>
+        <div class="t">Series B &middot; docuseries greenlight</div>
+        <p>$75-125M Series B funds docuseries production and unbundled media ramp. Drive-to-Survive analog premieres H2 2028.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="d">2029-30</div>
+      <div>
+        <div class="t">Tracking stock &middot; IPO</div>
+        <p>Public float activated. Anchor observer seat converts to voting. Base-case IPO valuation $1B+. Secondary liquidity path opens.</p>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 28px;">
+      <div class="k">Practical deadline</div>
+      <p style="margin: 0; font-size: 0.95rem;">
+        Sooner is better &mdash; 4 Constructor conversations are live and every week of anchor ambiguity slows
+        recruitment. Practical signing target: <strong>March 15, 2026</strong>. Concorde formalization:
+        <strong>April 1, 2026</strong>. Waiting 24 months = competing against RedBird / CVC / Liberty /
+        Arctos on the same asset at 3-4&times; today's implied valuation.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Investor Equity</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 14 — NEXT STEPS -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+  </div>
+
+  <div>
+    <div class="eyebrow cyan" style="margin-bottom: 20px;">NEXT STEPS</div>
+    <h2 class="deck-title grad" style="max-width: 18ch; font-size: clamp(2.6rem, 5.2vw, 4.2rem);">
+      The shortest path from this deck to signed Concorde.
+    </h2>
+
+    <div style="margin-top: 48px;">
+      <div class="step" style="margin-bottom: 14px;">
+        <div class="label">STEP 01 &middot; WEEK 1</div>
+        <h4 style="margin: 0 0 6px;">30-minute intro call</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Thesis-map to anchor's portfolio. No ask, no pressure. Deck preview + Ramsports one-pager.</p>
+      </div>
+      <div class="step" style="margin-bottom: 14px;">
+        <div class="label">STEP 02 &middot; WEEKS 2-3</div>
+        <h4 style="margin: 0 0 6px;">NDA + full DD package</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Full financial model, Ramsports DD materials, 36-Q&amp;A investor kit, live Constructor recruitment status.</p>
+      </div>
+      <div class="step" style="margin-bottom: 14px;">
+        <div class="label">STEP 03 &middot; WEEKS 3-4</div>
+        <h4 style="margin: 0 0 6px;">Principal session with Ramsports CEO</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">60-75 minute session with CFO + principals. Richard Gossett + Alex Yuen on live.</p>
+      </div>
+      <div class="step">
+        <div class="label">STEP 04 &middot; BY APR 1, 2026</div>
+        <h4 style="margin: 0 0 6px;">Concorde Agreement signing</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">$50M committed to escrow. Constructor recruitment triggers. Milestone clock starts.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">CONTACT</div>
+      <div class="v">Assay &middot; P1 World Tour</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL &mdash; Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DOCUMENT</div>
+      <div class="v">Investor Equity Deck &middot; 11 / 14</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

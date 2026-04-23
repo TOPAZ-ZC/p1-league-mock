@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Supporting Slides · Investor + Constructor Conversation Kit</title>
+<meta name="description" content="Supporting-slides conversation kit for the P1 World Tour — 36-question Q&A, prize-pool math proof, Ramsports economics, Constructor unit economics, integrity framework, and objection handlers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Deck-04 specific */
+  .qa-theme {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 24px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .qa-theme.cyan { color: var(--cyan); }
+  .qa-theme.violet { color: var(--violet); }
+  .qa-theme.gold { color: var(--gold); }
+  .qa-theme.green { color: var(--green); }
+
+  .qa {
+    padding: 16px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    margin-bottom: 12px;
+  }
+  .qa .q {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--cyan);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .qa .q .num {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    color: var(--gold);
+    margin-right: 8px;
+    letter-spacing: 0.06em;
+  }
+  .qa .a {
+    font-family: "Inter", sans-serif;
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .qa .a strong { font-weight: 700; color: var(--ink); }
+
+  .math-board {
+    padding: 36px 40px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--card);
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--ink);
+  }
+  .math-board .line { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--line); padding: 10px 0; }
+  .math-board .line:last-child { border-bottom: none; }
+  .math-board .line .l { color: var(--mute); }
+  .math-board .line .r { color: var(--ink); font-weight: 600; }
+  .math-board .line.total .l { color: var(--gold); font-family: "Outfit", sans-serif; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.9rem; }
+  .math-board .line.total .r { color: var(--gold); font-family: "Outfit", sans-serif; font-weight: 900; font-size: 1.6rem; }
+  .math-board .line.sub .l { color: var(--cyan); }
+  .math-board .line.sub .r { color: var(--cyan); font-weight: 700; }
+
+  .econ-card {
+    padding: 24px 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+  }
+  .econ-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin: 0 0 12px;
+  }
+  .econ-card.v h4 { color: var(--violet); }
+  .econ-card.g h4 { color: var(--gold); }
+  .econ-card .big {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .econ-card.g .big { background: var(--grad-warm); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .econ-card .n {
+    font-size: 0.9rem;
+    color: var(--mute);
+    line-height: 1.55;
+  }
+
+  .kit-use {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .kit-use .card h4 { margin: 0 0 10px; }
+
+  .obj {
+    padding: 18px 22px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    margin-bottom: 12px;
+  }
+  .obj .h {
+    font-family: var(--mono);
+    color: var(--red);
+    font-size: 0.84rem;
+    margin-bottom: 8px;
+    padding-left: 24px;
+    position: relative;
+  }
+  .obj .h::before {
+    content: "\2717";
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .obj .r {
+    font-family: "Inter", sans-serif;
+    font-size: 0.94rem;
+    color: var(--ink);
+    line-height: 1.5;
+    padding-left: 24px;
+    position: relative;
+  }
+  .obj .r::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+    top: 2px;
+  }
+
+  .integrity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .close-hero {
+    padding: 40px 44px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--cyan) 15%, transparent), color-mix(in srgb, var(--violet) 15%, transparent));
+    border: 1px solid var(--line-strong);
+    text-align: center;
+    margin-top: 20px;
+  }
+  .close-hero h3 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0 0 14px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .close-hero .n {
+    font-size: 1rem;
+    color: var(--ink);
+    max-width: 60ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .kit-use, .integrity-grid, .math-board {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow">DELIVERABLE 04 · IPG SCOPE-OF-WORK</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">Supporting Slides &mdash; Investor + Constructor Conversation Kit</h1>
+    <p class="lede">
+      The 36-question Q&amp;A — the prize-pool proof — the Ramsports economics card — the Constructor unit-economics one-pager — the integrity framework — objection handlers. Everything you need in a room.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">36 Q&amp;A</span></div>
+      <div class="chip violet"><span class="mono">PRIZE-POOL PROOF</span></div>
+      <div class="chip gold"><span class="mono">CONSTRUCTOR UNIT ECONOMICS</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">President, P1 League, Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — HOW TO USE THIS KIT -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">01 · How to Use This Kit</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">USE-CASE GUIDE</div>
+    <h2 class="deck-title grad">Built for the room. Cherry-pick pages as the conversation unfolds.</h2>
+
+    <div class="kit-use">
+      <div class="card accent-cyan">
+        <h4>In an investor meeting</h4>
+        <p class="muted" style="margin: 0; font-size: 0.94rem;">
+          Lead with the Master Pitch Deck (Deliverable 10). When the investor pushes into specifics, pull the 36-Q&amp;A pages that match their line of questioning. The prize-pool math proof, the Ramsports economics card, and the Constructor unit-economics one-pager each stand alone as a single-page handout.
+        </p>
+      </div>
+      <div class="card accent-violet">
+        <h4>In a Constructor meeting</h4>
+        <p class="muted" style="margin: 0; font-size: 0.94rem;">
+          Lead with the Competitive Landscape (Deliverable 02) + Target Markets (Deliverable 03). Pivot to this kit for the Constructor unit-economics one-pager and the relevant Q&amp;A clusters (Economics · Constructors / Teams · Operations). The integrity-framework page signals regulatory discipline.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <h4>In a follow-up session</h4>
+        <p class="muted" style="margin: 0; font-size: 0.94rem;">
+          Use the objection-handlers page to pressure-test readiness. Any objection that surfaces in the first meeting should already have a one-line rebuttal on that page. If a new objection surfaces, it is added to the kit before the next session.
+        </p>
+      </div>
+      <div class="card">
+        <h4>In a board / IC memo</h4>
+        <p class="muted" style="margin: 0; font-size: 0.94rem;">
+          The 36-Q&amp;A, the prize-pool proof, and the integrity framework are all print-safe on letter-size. Excerpt the relevant section as an appendix; every answer is source-pinned to the canonical synthesis layer so there is no delta between verbal and written positions.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 16px;">
+      <div class="k">Source discipline</div>
+      <p style="margin: 0;">
+        Every answer in this kit is pulled verbatim from the frozen 36-Q&amp;A in <span class="mono">_synthesis/investor-strategy.md</span> &mdash; the conversation-validated canonical source. No deck re-derives content; all decks pull from the synthesis layer. Reconciliation of any claim &rarr; synthesis source &rarr; original founding conversation.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — Q&A: PRIZE POOL & EVENTS (Q1-5) -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">02 · Q&amp;A &middot; Prize Pool &amp; Events</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE 36 Q&amp;A &middot; PART 1 OF 8</div>
+    <h2 class="deck-title">Prize pool &amp; events.</h2>
+
+    <div class="qa-theme cyan">Prize Pool &amp; Events &middot; Q1-Q5</div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q1.</span> How many events per year?</div>
+      <div class="a">20 stops. 4 quarterly swings of 5 events each. 16 standard + 4 Grand Slams.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q2.</span> What's the prize pool per event?</div>
+      <div class="a">$1M per standard stop (2 singles &times; $125k + 3 doubles &times; $250k). $2M per Grand Slam.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q3.</span> What's the total annual prize pool?</div>
+      <div class="a">$24M/yr (16 &times; $1M + 4 &times; $2M). Earlier drafts cited $28M; corrected to $24M on event-count reconciliation.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q4.</span> Why 20 stops?</div>
+      <div class="a">Enough cadence to build a weekly audience; short enough to keep festival-weekend density and player travel sustainable. F1 runs 24; MotoGP 20; PGA 40+. 20 is the sweet spot for institutional-league production.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q5.</span> Why four Grand Slams?</div>
+      <div class="a">Matches tennis's Slam structure, which is the most institutionally understood in racquet sports. Four seasonal peaks, four regional anchors, four media marquee events.</div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — Q&A: ECONOMICS (Q6-10) -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">03 · Q&amp;A &middot; Economics</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE 36 Q&amp;A &middot; PART 2 OF 8</div>
+    <h2 class="deck-title">Economics.</h2>
+
+    <div class="qa-theme violet">Economics &middot; Q6-Q10</div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q6.</span> What's the total capital at launch?</div>
+      <div class="a">$130M. $50M anchor investor + 8 &times; $10M Constructor licenses.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q7.</span> Why $10M per Constructor seat?</div>
+      <div class="a">Low enough that 8 global brands can commit without board escalation; high enough to create scarcity and commitment. Sub-$10M seats read as sponsorship, not franchise. F1 constructors pay $200M+ now; $10M is Year-1 institutional entry.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q8.</span> What does the investor get for $50M?</div>
+      <div class="a">Global commercial rights holder &mdash; media, sponsorship, broadcast, licensing. Anchor stake at $250M+ implied valuation. Tracking stock 2029-30. IPO target $1B+.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q9.</span> What's the downside protection?</div>
+      <div class="a">Full $50M returned if 8 Constructors not secured by July 1 2026. Escrow structure. Zero loss. Zero penalty.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q10.</span> What's the exit path?</div>
+      <div class="a">Tracking-stock vehicle in 2029-30 (public float). IPO at $1B+ valuation. Long-term $10B by 2035. Secondary liquidity via private market pre-IPO.</div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — Q&A: RAMSPORTS / GOVERNANCE (Q11-14) -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">04 · Q&amp;A &middot; Ramsports / Governance</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE 36 Q&amp;A &middot; PART 3 OF 8</div>
+    <h2 class="deck-title">Ramsports / Governance.</h2>
+
+    <div class="qa-theme gold">Ramsports / Governance &middot; Q11-Q14</div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q11.</span> Who is Ramsports?</div>
+      <div class="a">Independent technical + integrity body. Operating business, not a vision document. Founded by Richard Gossett with Alex Yuen (ex-NBA BIG3 China) as president. Board includes Steve Kuhn (founder MLP + DUPR), Seymour Rifkind (WPF/IPTPA), Tenniel Chu (Mission Hills), Philip Mok (HKTA/ITF).</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q12.</span> Why separate Ramsports from the Investor entity?</div>
+      <div class="a">Because UPA/PPA's governance conflict is the single biggest incumbent failure. Fans don't trust a regulator owned by the operator. Institutional capital won't back one either. Separation = credibility = cheaper media + sponsorship.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q13.</span> How is Ramsports compensated?</div>
+      <div class="a">2% of gross league revenue + 20% equity. The hedge-fund "2-and-20" analog — flat 2% management fee plus a 20% equity "performance" stake. Y1 opex ~$3M (3 stewards, 3 refs, drug testing, integrity office).</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q14.</span> Does Ramsports have real regulatory teeth?</div>
+      <div class="a">Yes. Controls player registration, event sanctioning, stewardship at stops, drug-testing protocol, dispute resolution. Cannot be overruled by Investor on technical calls.</div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — Q&A: CONSTRUCTORS / TEAMS (Q15-18) -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">05 · Q&amp;A &middot; Constructors / Teams</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE 36 Q&amp;A &middot; PART 4 OF 8</div>
+    <h2 class="deck-title">Constructors / Teams.</h2>
+
+    <div class="qa-theme cyan">Constructors / Teams &middot; Q15-Q18</div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q15.</span> Who are the 8 Constructors?</div>
+      <div class="a">Target profile: global brands with participation-consumer gravity. Target list includes Red Bull, Monster, adidas, Skechers, Coca-Cola/Pepsi, Emirates/Qatar, a sovereign-backed MENA name, and a consumer-tech partner. First 3 closes are in active dialogue.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q16.</span> How many players per team?</div>
+      <div class="a">8-player roster + 1 coach per Constructor. 64 contracted pros total across the league.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q17.</span> How are players paid?</div>
+      <div class="a">Roughly 50/50 split between team salary (Constructor-funded team feed of ~$1.9M Y5) and prize money (event-funded, $24M prize pool annual). Prize money does NOT count against Constructor salary cap.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q18.</span> What's the Constructor 5-year return?</div>
+      <div class="a">~2.5&times; cash-on-cash payback + $20-40M unmonetized media value + $40-100M Y5 equity exit = combined 5-10&times; MOIC on $10M license.</div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — Q&A: MARKET / COMPARABLES (Q19-22) -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">06 · Q&amp;A &middot; Market / Comparables</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE 36 Q&amp;A &middot; PART 5 OF 8</div>
+    <h2 class="deck-title">Market / Comparables.</h2>
+
+    <div class="qa-theme violet">Market / Comparables &middot; Q19-Q22</div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q19.</span> Why pickleball and not padel?</div>
+      <div class="a">Pickleball is growing 50%+/yr globally vs padel's 8-12%. US leadership position (75M of global 100M+ active players). Learning curve 2 minutes vs padel's 20. Infrastructure cost for a pickleball court is ~$8k vs $50k+ for padel.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q20.</span> Why now and not 2028?</div>
+      <div class="a">The Bartlett exponential window. 75M &rarr; 300M active by 2032 &mdash; that 4&times; demand curve is compounding now. Category-defining commercial rights will be priced off the Y1 base rate. Waiting 2 years = compete with RedBird/CVC/Liberty doing this deal at 3-4&times; today's implied valuation.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q21.</span> What's the LIV Golf comparable?</div>
+      <div class="a">LIV raised ~$3B+ on a similar category-vacuum thesis (PGA had a player-pay + format-innovation gap; LIV filled it). P1 has the same vacuum &mdash; PPA/UPA governance failure &mdash; and 10&times; the addressable-market runway. But P1 costs $130M not $3B, because Year 1 infrastructure doesn't require sovereign wealth scale.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q22.</span> What's the TGL comparable?</div>
+      <div class="a">TGL (Tiger/McIlroy tech-driven golf league) proved that constructor-style ownership + prime-time media windows works. P1 is TGL's format IP + F1's governance stack + LIV's capital story &mdash; applied to a sport that's 10&times; the size of golf's addressable US base.</div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — Q&A: OPERATIONS (Q23-26) + RISK (Q27-30) -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">07 · Q&amp;A &middot; Operations + Risk</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE 36 Q&amp;A &middot; PART 6-7 OF 8</div>
+    <h2 class="deck-title">Operations &amp; Risk / Mitigation.</h2>
+
+    <div class="qa-theme cyan">Operations &middot; Q23-Q26</div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q23.</span> Who runs events on the ground?</div>
+      <div class="a">Ramsports + local promoter partner per stop. Ramsports controls sanctioning + integrity; local promoter handles gate, hospitality, sponsorship activation. 4-day load-in + operate + teardown.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q24.</span> What's the venue strategy?</div>
+      <div class="a">4-8k-seat arenas. Retractable-roof preferred for weather-sensitive outdoor stops. Singapore Indoor Stadium, Coca-Cola Arena (Dubai), Moody Center (Austin), O2 Arena (London) are template targets.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q25.</span> What's the broadcast production model?</div>
+      <div class="a">Host-broadcaster feed produced by Ramsports-approved vendor. Live international distribution via Sky / ESPN / DAZN / beIN + regional partners. Docuseries pipeline separate, rights sold per season to a single streaming platform.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q26.</span> How is the docuseries monetized?</div>
+      <div class="a">Year-2 onward. Analog: F1 Drive to Survive (Netflix, estimated $50M/season windfall), Full Swing (PGA, Netflix), Break Point (ATP, Netflix). $15-30M/yr run-rate by Y3.</div>
+    </div>
+
+    <div class="qa-theme gold">Risk / Mitigation &middot; Q27-Q30</div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q27.</span> What's the biggest risk?</div>
+      <div class="a">Constructor recruitment &mdash; we need 8 global brands committed at $10M each by July 1 2026. Mitigation: 4 brands already in term-sheet dialogue as of April 2026; Sideline relationship unlocks 2 more via portfolio co-investors.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q28.</span> What if a Constructor defaults mid-season?</div>
+      <div class="a">Replacement protocol. License fee non-refundable once deployed. Constructor seat reverts to Ramsports &rarr; resold at open-market rate. Team roster protected via contractual transfer to replacement Constructor at book value.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q29.</span> What if the Olympic committee blocks the name?</div>
+      <div class="a">P1 is a commercial entity; Olympic pathway goes through Seymour Rifkind / WPF. No naming overlap. Olympic inclusion would accelerate P1's TAM (pickleball at LA 2028?), not conflict with it.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q30.</span> What if a player gets banned for integrity violation?</div>
+      <div class="a">Ramsports integrity protocol: independent drug-testing, betting-integrity monitoring, stewardship at every match. Sanctions precedent mirrors F1's. Constructor team takes reputational hit; integrity credibility compounds across the league.</div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — Q&A: THE ASK (Q31-36) -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">08 · Q&amp;A &middot; The Ask</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE 36 Q&amp;A &middot; PART 8 OF 8</div>
+    <h2 class="deck-title">The Ask.</h2>
+
+    <div class="qa-theme gold">The Ask &middot; Q31-Q36</div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q31.</span> What does the investor say yes to, specifically?</div>
+      <div class="a">Commit $50M to escrow. Sign Concorde Agreement by April 1 2026. Governance forms immediately. Capital never deploys until 8 Constructors sign by July 1 2026. If miss: full refund.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q32.</span> When does the investor need to decide?</div>
+      <div class="a">The sooner the better &mdash; 4 Constructor conversations are live and $50M-anchor confirmation unlocks aggressive recruitment. Practical deadline: March 15, 2026 for sign; April 1 for Concorde formalization.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q33.</span> What if the investor wants more than 50%?</div>
+      <div class="a">Open to discussion on anchor-plus structure. Base anchor is $50M at $250M+ implied valuation. Larger checks at the same pricing negotiable up to $75M before it becomes a different structure.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q34.</span> What if the investor wants to syndicate?</div>
+      <div class="a">Fine. Anchor + up to 2 co-anchors at same terms. Total anchor side capped at 3 LPs to protect cap-table clarity.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q35.</span> What's the governance seat for the anchor?</div>
+      <div class="a">Board observer + commercial-rights-committee chair at close. Voting board seat converts at tracking-stock activation (2029-30).</div>
+    </div>
+
+    <div class="qa">
+      <div class="q"><span class="num">Q36.</span> What happens post-IPO?</div>
+      <div class="a">Public tracking-stock float (2029-30 target). Anchor retains stake, secondary-liquidity path via public markets. IPO valuation $1B+ base case; $2B+ bull. Long-term $10B by 2035.</div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — PRIZE POOL MATH PROOF -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">09 · Prize-Pool Math Proof</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE $24M MATH &middot; SHOWN ON ONE PAGE</div>
+    <h2 class="deck-title grad">$24M annual prize pool — reconciled, not rounded.</h2>
+    <p class="deck-subtitle">
+      Earlier public drafts cited $28M. The correct figure is $24M after event-count reconciliation. The math below shows every step.
+    </p>
+
+    <div class="math-board">
+      <div class="line">
+        <span class="l">Singles events per standard stop (2 × $125k)</span>
+        <span class="r">$250,000</span>
+      </div>
+      <div class="line">
+        <span class="l">Doubles events per standard stop (3 × $250k)</span>
+        <span class="r">$750,000</span>
+      </div>
+      <div class="line sub">
+        <span class="l">= Prize pool per standard stop</span>
+        <span class="r">$1,000,000</span>
+      </div>
+      <div class="line">
+        <span class="l">16 standard stops × $1M</span>
+        <span class="r">$16,000,000</span>
+      </div>
+      <div class="line">
+        <span class="l">4 Grand Slams × $2M</span>
+        <span class="r">$8,000,000</span>
+      </div>
+      <div class="line total">
+        <span class="l">Total annual prize pool</span>
+        <span class="r">$24,000,000</span>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 20px;">
+      <div class="k">Player-pool context</div>
+      <p style="margin: 0;">
+        The $24M prize pool is one half of the ~$50M combined player pool. The other half is the Constructor-funded team feed (salary cap) &mdash; ~$1.9M per Constructor Y5 &times; 8 teams = ~$15M + bonuses &amp; incentives. Prize money does not count against the team salary cap, so the two pools are additive, not offsetting.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 11 — RAMSPORTS ECONOMICS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">10 · Ramsports Economics</div>
+    <div class="page-num">PAGE 11</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">THE 2-AND-20 ANALOG &middot; HEDGE-FUND-STYLE STRUCTURE</div>
+    <h2 class="deck-title">Independent governing body &mdash; compensated like an institutional manager.</h2>
+
+    <div class="grid-3">
+      <div class="econ-card">
+        <h4>Y1 Opex</h4>
+        <div class="big">~$3M</div>
+        <div class="n">3 stewards + 3 traveling referees + drug-testing program + integrity office. Minor line item relative to the $96M Y1 league revenue — ~3% of gross.</div>
+      </div>
+      <div class="econ-card v">
+        <h4>Revenue share</h4>
+        <div class="big">2%</div>
+        <div class="n">2% of gross league revenue — flat, not tiered. The "2" in the hedge-fund "2-and-20" analog — a compensation structure institutional capital understands immediately.</div>
+      </div>
+      <div class="econ-card g">
+        <h4>Equity stake</h4>
+        <div class="big">20%</div>
+        <div class="n">20% equity in the League entity at close. The "20" in "2-and-20." Aligns Ramsports to long-term enterprise value, not just annual run-rate fees.</div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 8px;">
+      <div class="k">Why this structure works for capital</div>
+      <p style="margin: 0;">
+        Institutional investors recognize the 2-and-20 shape instantly. It signals: competent operator, aligned incentives, disciplined cost structure. The governance body is funded out of league revenue &mdash; not from the investor's $50M anchor &mdash; so the economic structure is self-financing after launch.
+      </p>
+    </div>
+
+    <h4 style="margin: 8px 0 10px; font-family: 'Outfit', sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Y1 reconciliation</h4>
+    <table class="data">
+      <thead>
+        <tr><th>LINE</th><th>VALUE</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>League Y1 revenue</td><td class="num accent">$96M</td></tr>
+        <tr><td>Ramsports Y1 fees (2% on first $96M)</td><td class="num">~$1.92M</td></tr>
+        <tr><td>Ramsports Y1 opex</td><td class="num">~$3M</td></tr>
+        <tr><td>Y1 net cost to League</td><td class="num accent">~$5M</td></tr>
+        <tr><td>% of gross revenue</td><td class="num">&lt; 5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 12 — CONSTRUCTOR UNIT ECONOMICS -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">11 · Constructor Unit Economics</div>
+    <div class="page-num">PAGE 12</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">$10M LICENSE &rarr; $13.1M Y5 REVENUE &rarr; 5-10&times; MOIC</div>
+    <h2 class="deck-title grad">The Constructor one-pager.</h2>
+    <p class="deck-subtitle">
+      Each Constructor seat is a one-time $10M license. Y5 revenue build is the base case &mdash; fully mapped across the six Constructor revenue lines.
+    </p>
+
+    <table class="data">
+      <thead>
+        <tr><th>REVENUE LINE</th><th>Y5 CONTRIBUTION</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Team feed (from League &rarr; team operating budget)</td><td class="num accent">$1.9M</td></tr>
+        <tr><td>Title / kit / primary brand activation</td><td class="num accent">$3.0M</td></tr>
+        <tr><td>Category sponsors (4 slots &times; $0.9M)</td><td class="num accent">$3.6M</td></tr>
+        <tr><td>Merchandise</td><td class="num accent">$1.2M</td></tr>
+        <tr><td>Hospitality / event revenue share</td><td class="num accent">$1.4M</td></tr>
+        <tr><td>Content / docuseries attribution</td><td class="num accent">$0.7M</td></tr>
+        <tr><td>Regional activations</td><td class="num accent">$1.3M</td></tr>
+        <tr><td><strong>Total Y5 Constructor Revenue</strong></td><td class="num accent"><strong>$13.1M</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid-3" style="margin-top: 20px;">
+      <div class="econ-card">
+        <h4>Y5 Operating Cost</h4>
+        <div class="big">$3.5-4.5M</div>
+        <div class="n">Team salary, coaching, travel, regional marketing.</div>
+      </div>
+      <div class="econ-card v">
+        <h4>Y5 EBITDA</h4>
+        <div class="big">$6-8M</div>
+        <div class="n">Conservative band; upside to $9.1M in the upper scenario.</div>
+      </div>
+      <div class="econ-card g">
+        <h4>Y5 Valuation</h4>
+        <div class="big">$40-100M</div>
+        <div class="n">$40-65M conservative; $90-100M upside.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 8px;">
+      <div class="k">Combined 5-year MOIC = 5-10&times;</div>
+      <p style="margin: 0;">
+        ~2.5&times; cash-on-cash payback + $20-40M unmonetized media value (team IP, player brands, regional following) + $40-100M Y5 equity exit = combined 5-10&times; MOIC on the $10M license. Comp: MLP teams trade at $25-35M today in a US-only context; global Constructor valuations compound at a multiplier on top of that base.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 13 — INTEGRITY FRAMEWORK -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">12 · Integrity Framework</div>
+    <div class="page-num">PAGE 13</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">RAMSPORTS INTEGRITY PROTOCOL &middot; F1-LEVEL STANDARDS</div>
+    <h2 class="deck-title">Credibility as competitive advantage.</h2>
+    <p class="deck-subtitle">
+      Institutional capital underwrites governed sports. Fan trust and sponsor value compound when the regulator is visibly independent and the integrity protocol is enforced. Ramsports is the operating engine of that posture.
+    </p>
+
+    <div class="integrity-grid">
+      <div class="card accent-gold">
+        <div class="eyebrow gold">3 Stewards</div>
+        <h4 style="margin: 8px 0;">Independent sanctioning authority</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Three Ramsports-appointed stewards rotate across the 20-stop calendar. Final authority on in-event calls. Cannot be overruled by the commercial rights holder.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">3 Traveling Referees</div>
+        <h4 style="margin: 8px 0;">Competition oversight at every stop</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Three lead referees travel the full calendar with the tour. Consistent enforcement of competition rules across regions, venues, and surfaces. Local officials assist but do not call.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Drug Testing</div>
+        <h4 style="margin: 8px 0;">WADA-aligned protocol</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Independent drug-testing program with pre-event and at-event testing for all contracted pros. WADA-aligned substances list. Sanction precedent mirrors F1 / ATP.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Betting-Integrity Monitoring</div>
+        <h4 style="margin: 8px 0;">Live-match surveillance</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Partnership with integrity-monitoring firms (Sportradar / IBIA analog). Real-time odds surveillance across regulated markets. Immediate reporting protocol on suspicious activity.</p>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 16px;">
+      <div class="k">Why integrity compounds</div>
+      <p style="margin: 0;">
+        The incumbent (PPA/UPA/MLP) has a governance-credibility deficit that structurally caps media-rights pricing and sponsor appetite. P1 starts where the F1 post-2017 governance arrived. Credible integrity &rarr; cheaper media + sponsorship &rarr; higher Constructor economics &rarr; lower cost of capital &rarr; higher exit multiple. Every dollar spent on Ramsports integrity compounds into enterprise value.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 14 — OBJECTION HANDLERS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">13 · Objection Handlers</div>
+    <div class="page-num">PAGE 14</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">TOP 5 OBJECTIONS &middot; ONE-LINE REBUTTALS</div>
+    <h2 class="deck-title">The five objections most likely to surface. Each one already answered.</h2>
+
+    <div class="obj">
+      <div class="h">"Pickleball is a fad."</div>
+      <div class="r">75M &rarr; 300M players by 2032. 50%+ annual growth. 8&times; global search growth since 2021. Participation-sport brands (Athletic Brewing, Bandit Running, Urban Golf Performance) are compounding inside the same macro curve. Fads do not run at 50% CAGR for a decade.</div>
+    </div>
+
+    <div class="obj">
+      <div class="h">"PPA / UPA / MLP has a head start."</div>
+      <div class="r">US-only, governance-conflicted, closed-media. Institutional capital will not back that structure. P1's vacuum thesis is exactly that the incumbent cannot be institutionalized without a full restructure &mdash; which it cannot do without dismantling its own ownership structure. That's the moat.</div>
+    </div>
+
+    <div class="obj">
+      <div class="h">"$10M per Constructor seat is too high."</div>
+      <div class="r">F1 Constructors pay $200M+ today. MLP teams trade at $25-35M domestically. TGL franchises price at $50-60M. $10M is the Y1 institutional entry price for global scarcity. Sub-$10M seats read as sponsorship, not franchise &mdash; and kill the cap-table clarity investors require.</div>
+    </div>
+
+    <div class="obj">
+      <div class="h">"The calendar is too aggressive for Y1."</div>
+      <div class="r">20 stops with 4-day load-in windows. Ramsports + local-promoter execution model. Gossett + Yuen have 20+ years of Asia sports promotion; Ramsports infrastructure is already running. F1 launches 24, MotoGP runs 20 &mdash; this is proven institutional-league cadence.</div>
+    </div>
+
+    <div class="obj">
+      <div class="h">"Why not wait to confirm the curve?"</div>
+      <div class="r">Category-defining commercial rights are priced off the Y1 base rate. Waiting 2 years = compete with RedBird / CVC / Liberty / Silver Lake doing the same deal at 3-4&times; today's implied valuation. The $50M Concorde escrow makes waiting strictly dominated &mdash; the downside is capped at zero, so early-entry is pure optionality.</div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 12px;">
+      <div class="k">How to use this page</div>
+      <p style="margin: 0;">
+        Every time a new objection surfaces in the field, it gets added here with a one-line rebuttal. This page is the rehearsal script &mdash; not the playbook. The goal is to carry the objection + rebuttal into the next conversation before the investor asks it.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Supporting Slides &amp; Conversation Kit</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 15 — CLOSING -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+  </div>
+
+  <div>
+    <div class="eyebrow cyan" style="margin-bottom: 20px;">CLOSING</div>
+    <h2 class="deck-title grad" style="max-width: 20ch; font-size: clamp(2.6rem, 5.2vw, 4.2rem);">
+      Own it before pickleball finds its price.
+    </h2>
+
+    <div class="close-hero">
+      <h3>Concorde by April 1. Milestone by July 1. First event February 2027.</h3>
+      <div class="n">
+        The Concorde Agreement forms governance first, commits capital second, and deploys only on the 8-Constructor milestone. The $50M anchor is protected at every stage, and the entry valuation &mdash; $250M+ implied &mdash; is a structural non-repeat. This is the moment to own the most valuable entity in the fastest-growing sport on Earth.
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px;">
+      <div class="card">
+        <div class="eyebrow cyan">Next step 1</div>
+        <h4 style="margin: 8px 0 0; font-size: 1rem;">30-minute thesis-map call</h4>
+      </div>
+      <div class="card">
+        <div class="eyebrow violet">Next step 2</div>
+        <h4 style="margin: 8px 0 0; font-size: 1rem;">NDA + full model + Ramsports DD</h4>
+      </div>
+      <div class="card">
+        <div class="eyebrow gold">Next step 3</div>
+        <h4 style="margin: 8px 0 0; font-size: 1rem;">Concorde Agreement formation by April 1, 2026</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">CONTACT</div>
+      <div class="v">Office of the President · P1 League, Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL — Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DOCUMENT</div>
+      <div class="v">Supporting Slides &amp; Conversation Kit</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

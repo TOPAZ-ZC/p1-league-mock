@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Lender & Finance Deck</title>
+<meta name="description" content="Debt-side structure for P1 World Tour. $40-60M senior term facility against $80M Constructor license receivables. DSCR math, covenant package, refinance path to 2029-30 IPO." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Lender-specific primitives */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .coverage-grid .col {
+    padding: 22px 18px;
+    border-right: 1px solid var(--line);
+  }
+  .coverage-grid .col:last-child { border-right: none; }
+  .coverage-grid .y {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--mute);
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+  .coverage-grid .dscr {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 1;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .coverage-grid .lbl {
+    font-size: 0.76rem;
+    color: var(--mute);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .coverage-grid .col.floor .dscr { background: none; -webkit-text-fill-color: initial; color: var(--red); }
+  .coverage-grid .col.floor .lbl { color: var(--red); }
+
+  .waterfall-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .waterfall-row {
+    display: grid;
+    grid-template-columns: 48px 1fr 160px;
+    gap: 18px;
+    align-items: center;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--card);
+  }
+  .waterfall-row.priority-1 { border-color: color-mix(in srgb, var(--gold) 40%, transparent); background: color-mix(in srgb, var(--gold) 6%, transparent); }
+  .waterfall-row.priority-2 { border-color: color-mix(in srgb, var(--cyan) 40%, transparent); }
+  .waterfall-row .n {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: var(--gold);
+    line-height: 1;
+    text-align: center;
+  }
+  .waterfall-row.priority-2 .n { color: var(--cyan); }
+  .waterfall-row.priority-3 .n { color: var(--violet); }
+  .waterfall-row.priority-4 .n { color: var(--mute); }
+  .waterfall-row .t {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+  .waterfall-row .d {
+    font-size: 0.88rem;
+    color: var(--mute);
+  }
+  .waterfall-row .amt {
+    font-family: var(--mono);
+    font-size: 0.88rem;
+    color: var(--ink);
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .collat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .collat-card {
+    padding: 22px 24px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--card);
+  }
+  .collat-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 10px;
+  }
+  .collat-card .big {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin: 4px 0 8px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .covenant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .covenant-card {
+    padding: 18px 22px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .covenant-card .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .covenant-card h4 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0 0 6px;
+  }
+  .covenant-card p { margin: 0; font-size: 0.88rem; color: var(--mute); }
+
+  .comp-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 180px;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    align-items: center;
+    font-size: 0.92rem;
+  }
+  .comp-row:first-of-type { border-top: none; }
+  .comp-row .n {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+  .comp-row .meta {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--cyan);
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .footnote {
+    padding: 14px 18px;
+    border-left: 3px solid var(--amber);
+    background: color-mix(in srgb, var(--amber) 6%, transparent);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.84rem;
+    color: var(--mute);
+    margin-top: 18px;
+  }
+  .footnote strong { color: var(--amber); }
+
+  @media (max-width: 900px) {
+    .coverage-grid { grid-template-columns: 1fr 1fr; }
+    .coverage-grid .col { border-right: none; border-bottom: 1px solid var(--line); }
+    .collat-grid, .covenant-grid { grid-template-columns: 1fr !important; }
+    .waterfall-row { grid-template-columns: 40px 1fr; }
+    .waterfall-row .amt { grid-column: 2; text-align: left; }
+    .comp-row { grid-template-columns: 1fr; gap: 4px; }
+    .comp-row .meta { text-align: left; }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow gold">DELIVERABLE 12 &middot; LENDER &amp; FINANCE DECK</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">A senior term facility against the most institutionally structured deal in racquet sports.</h1>
+    <p class="lede">
+      $40-60M senior term facility secured against $80M of Constructor license receivables.
+      Drawdown contingent on Concorde close. Refinanced by tracking-stock IPO 2029-30.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip gold"><span class="mono">$40-60M FACILITY</span></div>
+      <div class="chip cyan"><span class="mono">$80M COLLATERAL</span></div>
+      <div class="chip violet"><span class="mono">DSCR 1.2&times; &rarr; 4.8&times;</span></div>
+      <div class="chip"><span class="mono">IPO REFI 2029-30</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">Senior Lender &middot; Private Briefing</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — EXECUTIVE SUMMARY -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">01 &middot; Executive Summary</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">THE DEBT-SIDE ASK IN ONE PAGE</div>
+    <h2 class="deck-title">$40-60M senior term facility. Drawn at Concorde close.</h2>
+
+    <div class="stat-bar cols-4">
+      <div class="cell"><div class="num">$40-60M</div><div class="lbl">Facility size</div></div>
+      <div class="cell"><div class="num">$80M</div><div class="lbl">Receivables collateral</div></div>
+      <div class="cell"><div class="num">1.2&times;</div><div class="lbl">Y1 DSCR floor</div></div>
+      <div class="cell"><div class="num">4.8&times;+</div><div class="lbl">Y5 DSCR ceiling</div></div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 28px;">
+      <div class="k">The shape</div>
+      <p style="margin: 0; font-size: 1rem;">
+        Senior secured term loan collateralized against 8 &times; $10M Constructor license receivables.
+        Drawdown contingent on Concorde close (full $130M capital structure verified). Facility refinanced
+        by tracking-stock IPO 2029-30 at 50-100bps tighter spread. In a wind-down scenario, facility is
+        first in the waterfall before Ramsports receivable and equity.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card accent-gold">
+        <div class="eyebrow gold">WHY DEBT AT THIS STAGE</div>
+        <h3 style="margin: 10px 0;">Capital efficiency</h3>
+        <p class="muted" style="margin: 0;">Refinances equity expense against contractually bound receivables. Extends runway through Y3 EBITDA inflection without Series B dilution. Bridge to IPO, not permanent capital structure.</p>
+      </div>
+      <div class="card accent-cyan">
+        <div class="eyebrow">WHY IT'S BANKABLE</div>
+        <h3 style="margin: 10px 0;">Contractual receivables</h3>
+        <p class="muted" style="margin: 0;">Collateral is not a revenue forecast &mdash; it's 8 countersigned Constructor license agreements at $10M each. Independent verification at close. The receivables are the deal.</p>
+      </div>
+    </div>
+
+    <div class="footnote">
+      <strong>Derived for illustration.</strong> Facility size range ($40-60M) is a reasonable derivation
+      from $80M of Constructor license collateral assuming 50-75% advance rate against contractually
+      bound receivables. Final sizing, spread, and covenants subject to lender credit process. All other
+      figures are pulled from the canonical financial model.
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — WHY DEBT -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">02 &middot; Why Debt, Why Now</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">CAPITAL EFFICIENCY AT EBITDA INFLECTION</div>
+    <h2 class="deck-title">Debt bridges the equity-expensive window.</h2>
+    <p class="deck-subtitle">
+      P1's valuation compounds fastest between Y1 launch and Y3 EBITDA inflection. A senior term facility
+      at Concorde close funds this window without issuing further equity at launch pricing &mdash; every
+      dollar of debt today is a dollar of Series B dilution avoided in 2028.
+    </p>
+
+    <div class="grid-3">
+      <div class="card accent-cyan">
+        <div class="eyebrow">Y1-Y3 operating window</div>
+        <h4 style="margin: 10px 0;">The expensive-equity window</h4>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">
+          Revenue ramps from $96M to $155M, but EBITDA turns positive only in Y3. Pre-inflection equity
+          is the most expensive capital in the stack. Debt sized to bridge this window costs less.
+        </p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">Y3 EBITDA inflection</div>
+        <h4 style="margin: 10px 0;">Serviceability kicks in</h4>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">
+          +9% EBITDA margin on $155M revenue = ~$14M EBITDA. DSCR coverage clears 2.5-3&times; on a
+          $40-60M facility. Facility becomes self-amortizing.
+        </p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">2029-30 IPO refi</div>
+        <h4 style="margin: 10px 0;">Public-market takeout</h4>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">
+          Tracking-stock IPO at $1B+ valuation refinances facility at 50-100bps tighter spread or takes
+          it out entirely with IPO primary proceeds. 4-year effective tenor, bridge-to-public profile.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">Comparable precedent</div>
+      <p style="margin: 0; font-size: 0.95rem;">
+        Liberty Media's F1 acquisition was partially debt-funded against contractual broadcast receivables.
+        PGA Tour Enterprises drew senior debt against Constructor-equivalent franchise receivables.
+        LIV Golf carried PIF-guaranteed sovereign credit facilities. Sports-IP lending is a proven
+        sub-category &mdash; P1 fits the profile.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — COLLATERAL -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">03 &middot; Collateral Structure</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">$80M OF CONTRACTUALLY BOUND RECEIVABLES</div>
+    <h2 class="deck-title">Collateral is 8 signed Constructor licenses &mdash; not revenue forecast.</h2>
+
+    <div class="collat-grid">
+      <div class="collat-card">
+        <div class="k">PRIMARY COLLATERAL</div>
+        <div class="big">$80M</div>
+        <h4 style="margin: 0 0 8px;">8 Constructor license receivables</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          $10M per seat, 8 seats, 5-year license terms, non-refundable once deployed. Payment on
+          Concorde close. Independent verification by facility agent prior to drawdown.
+        </p>
+      </div>
+      <div class="collat-card">
+        <div class="k">SECONDARY COLLATERAL</div>
+        <div class="big">$32M + ramp</div>
+        <h4 style="margin: 0 0 8px;">Y1 media-rights receivables</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          Y1 $32M media-rights contracts (regional packages in US, UK, Asia-Pacific, MENA) assigned as
+          secondary collateral. Ramps to $82M by Y5 &mdash; unlocks covenant relief as ramp progresses.
+        </p>
+      </div>
+      <div class="collat-card">
+        <div class="k">TERTIARY COLLATERAL</div>
+        <div class="big">$24M</div>
+        <h4 style="margin: 0 0 8px;">Global sponsorship receivables Y1</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          Title + category sponsorship receivables Y1 $24M, ramping to $46M Y5. Floating-lien structure;
+          specific deals assigned as they close. Perfects collateral over first 18 months.
+        </p>
+      </div>
+      <div class="collat-card">
+        <div class="k">NEGATIVE PLEDGE</div>
+        <div class="big">All-asset</div>
+        <h4 style="margin: 0 0 8px;">League operating vehicle</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          Negative pledge on league operating vehicle assets &mdash; event contracts, venue agreements,
+          player contracts, Ramsports service agreement. Prevents subordination of facility.
+        </p>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Advance rate math</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Collateral layer</th>
+          <th class="num">Face value</th>
+          <th class="num">Advance rate</th>
+          <th class="num">Borrowing base</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Constructor license receivables (primary)</td><td class="num">$80M</td><td class="num">60-75%</td><td class="num accent">$48-60M</td></tr>
+        <tr><td>Y1 media-rights receivables (secondary)</td><td class="num">$32M</td><td class="num">0-25%</td><td class="num">$0-8M</td></tr>
+        <tr><td>Y1 sponsorship receivables (tertiary)</td><td class="num">$24M</td><td class="num">0%</td><td class="num">$0</td></tr>
+        <tr><td><strong>Facility size at close</strong></td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num accent"><strong>$40-60M</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footnote">
+      <strong>Advance rates derived for illustration.</strong> Final advance rates determined at credit
+      underwriting; 60-75% against assigned Constructor receivables aligns with sports-IP lending comps.
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — DSCR MATH -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">04 &middot; DSCR Math</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">DEBT SERVICE COVERAGE RATIO Y1 &rarr; Y5</div>
+    <h2 class="deck-title">From 1.2&times; at launch to 4.8&times;+ pre-IPO.</h2>
+    <p class="deck-subtitle">
+      DSCR calculated against the upper end of the facility range ($60M) and an illustrative 6.5% fixed
+      coupon with straight amortization from Y3. Coverage improves every year as the media-rights ramp
+      outpaces amortization pace.
+    </p>
+
+    <div class="coverage-grid">
+      <div class="col floor">
+        <div class="y">Y1</div>
+        <div class="dscr">1.2&times;</div>
+        <div class="lbl">Interest-only period &middot; floor year</div>
+      </div>
+      <div class="col">
+        <div class="y">Y2</div>
+        <div class="dscr">1.8&times;</div>
+        <div class="lbl">Interest-only &middot; media ramp +40%</div>
+      </div>
+      <div class="col">
+        <div class="y">Y3</div>
+        <div class="dscr">2.6&times;</div>
+        <div class="lbl">Amortization starts &middot; EBITDA positive</div>
+      </div>
+      <div class="col">
+        <div class="y">Y4</div>
+        <div class="dscr">3.6&times;</div>
+        <div class="lbl">+18% EBITDA margin &middot; docuseries live</div>
+      </div>
+      <div class="col">
+        <div class="y">Y5</div>
+        <div class="dscr">4.8&times;+</div>
+        <div class="lbl">Pre-IPO &middot; refi candidate</div>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Illustrative service build ($60M facility &middot; 6.5% fixed)</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th class="num">League revenue</th>
+          <th class="num">EBITDA margin</th>
+          <th class="num">EBITDA</th>
+          <th class="num">Interest + amort</th>
+          <th class="num">DSCR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Y1</td><td class="num">$96M</td><td class="num">&minus;8%</td><td class="num">&minus;$7.7M</td><td class="num">$3.9M (int-only)</td><td class="num accent">1.2&times;*</td></tr>
+        <tr><td>Y2</td><td class="num">$123M</td><td class="num">&minus;2%</td><td class="num">&minus;$2.5M</td><td class="num">$3.9M (int-only)</td><td class="num accent">1.8&times;*</td></tr>
+        <tr><td>Y3</td><td class="num">$155M</td><td class="num">+9%</td><td class="num">$14.0M</td><td class="num">$5.4M</td><td class="num accent">2.6&times;</td></tr>
+        <tr><td>Y4</td><td class="num">$184M</td><td class="num">+18%</td><td class="num">$33.1M</td><td class="num">$9.2M</td><td class="num accent">3.6&times;</td></tr>
+        <tr><td>Y5</td><td class="num">$210M</td><td class="num">+28%</td><td class="num">$58.8M</td><td class="num">$12.2M</td><td class="num accent">4.8&times;+</td></tr>
+      </tbody>
+    </table>
+
+    <div class="footnote">
+      <strong>Y1-Y2 DSCR calculation</strong> uses media-rights receivables + Constructor collateral
+      availability during interest-only period, not EBITDA. Formal DSCR covenant applies from Y3 once
+      amortization begins. Pricing, tenor, and amortization schedule subject to lender credit process;
+      numbers above are illustrative.
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — COVENANTS -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">05 &middot; Covenant Structure</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">STANDARD SENIOR TERM LOAN COVENANTS</div>
+    <h2 class="deck-title">Lender protection without operational choke.</h2>
+
+    <div class="covenant-grid">
+      <div class="covenant-card">
+        <div class="k">FINANCIAL &middot; MIN DSCR</div>
+        <h4>&geq; 1.75&times; from Y3</h4>
+        <p>Tested quarterly on trailing-12 EBITDA / debt service. Cure right via equity contribution within 30 days of breach. Applies only after amortization begins Y3.</p>
+      </div>
+      <div class="covenant-card">
+        <div class="k">FINANCIAL &middot; MAX LEVERAGE</div>
+        <h4>Debt / EBITDA &leq; 3.0&times; by Y3</h4>
+        <p>Gradual step-down from Y1 holiday through Y3. Y4 target &leq; 2.0&times;. Y5 target &leq; 1.5&times;. Forces natural deleveraging as ramp progresses.</p>
+      </div>
+      <div class="covenant-card">
+        <div class="k">FINANCIAL &middot; MIN EBITDA</div>
+        <h4>Y3 &geq; $10M, Y5 &geq; $45M</h4>
+        <p>Annual trailing EBITDA floors. Tested at fiscal year-end. Breach triggers consent rights on distributions, new debt, and major asset sales &mdash; not acceleration.</p>
+      </div>
+      <div class="covenant-card">
+        <div class="k">OPERATIONAL &middot; CONSTRUCTOR RETENTION</div>
+        <h4>&geq; 6 of 8 seats active</h4>
+        <p>Number of active Constructor seats cannot fall below 6. Forced sale protocol for vacated seats. Event of default if &lt; 5 for two consecutive quarters.</p>
+      </div>
+      <div class="covenant-card">
+        <div class="k">NEGATIVE &middot; DIVIDENDS</div>
+        <h4>Blocked until Y4</h4>
+        <p>No distributions to equity holders until amortization reduces principal below $35M. Post-Y4, permitted distributions capped at 50% of free cash flow.</p>
+      </div>
+      <div class="covenant-card">
+        <div class="k">NEGATIVE &middot; NEW DEBT</div>
+        <h4>No pari-passu debt</h4>
+        <p>No new debt senior or pari-passu to facility without lender consent. Subordinated debt permitted up to $25M (Series B bridge paper) if DSCR &gt; 2.5&times;.</p>
+      </div>
+      <div class="covenant-card">
+        <div class="k">STRUCTURAL &middot; CHANGE OF CONTROL</div>
+        <h4>Mandatory prepay</h4>
+        <p>Change-of-control &mdash; anchor sells &gt;50% stake or Ramsports exits &mdash; triggers mandatory
+        prepayment at par + accrued. Tracking-stock IPO is NOT a change-of-control event.</p>
+      </div>
+      <div class="covenant-card">
+        <div class="k">REPORTING &middot; CADENCE</div>
+        <h4>Monthly ops &middot; quarterly financials</h4>
+        <p>Monthly operating dashboard (ticket sales, media delivery, Constructor payment status).
+        Quarterly audited financials. Annual budget with lender consultation.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — WATERFALL -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">06 &middot; Wind-Down Waterfall</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">CREDITOR PRIORITY IF P1 WINDS DOWN</div>
+    <h2 class="deck-title">Senior facility is first. Equity is last.</h2>
+    <p class="deck-subtitle">
+      In an orderly wind-down scenario post-launch, the priority stack is standard senior secured
+      lending. The facility's collateral position sits senior to every other claim on the league
+      operating vehicle.
+    </p>
+
+    <div class="waterfall-grid">
+      <div class="waterfall-row priority-1">
+        <div class="n">1</div>
+        <div>
+          <div class="t">Senior secured facility</div>
+          <div class="d">Outstanding principal + accrued interest + fees. Collateralized against Constructor + media receivables. First in priority on all asset proceeds.</div>
+        </div>
+        <div class="amt">$40-60M</div>
+      </div>
+      <div class="waterfall-row priority-2">
+        <div class="n">2</div>
+        <div>
+          <div class="t">Ramsports service agreement receivable</div>
+          <div class="d">Accrued but unpaid 2% revenue share + 3-month trailing steward / referee / integrity opex. Contractually prior to equity; not secured.</div>
+        </div>
+        <div class="amt">$5-10M</div>
+      </div>
+      <div class="waterfall-row priority-3">
+        <div class="n">3</div>
+        <div>
+          <div class="t">Trade creditors &amp; venue commitments</div>
+          <div class="d">Outstanding venue deposits, production vendors, player prize-money obligations, payroll. Unsecured general creditor pool.</div>
+        </div>
+        <div class="amt">$15-25M</div>
+      </div>
+      <div class="waterfall-row priority-4">
+        <div class="n">4</div>
+        <div>
+          <div class="t">Equity holders (common + preferred)</div>
+          <div class="d">Anchor, Ramsports equity, founders, employee pool. Residual only after all senior claims are satisfied. Constructor license fees are non-refundable &mdash; do not appear in waterfall.</div>
+        </div>
+        <div class="amt">Residual</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 24px;">
+      <div class="k">Pre-launch wind-down is different</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        If Concorde milestone is missed on July 1, 2026, facility is not drawn. Anchor's $50M refunds.
+        Ramsports formation costs are league-borne. No lender exposure in the pre-launch failure mode.
+        Facility drawdown is explicitly contingent on confirmed Concorde close.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — WORST CASE -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">07 &middot; Pre-Launch Failure Mode</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">THE WORST CASE IS NOT THE LENDER'S PROBLEM</div>
+    <h2 class="deck-title">Drawdown is contingent on Concorde close.</h2>
+    <p class="deck-subtitle">
+      The $50M anchor is in escrow from Concorde formation through milestone. If 8 Constructors don't
+      sign by July 1, 2026, the anchor refunds and the facility never draws. Lender exposure begins only
+      at confirmed $130M capital close.
+    </p>
+
+    <div class="grid-2">
+      <div class="card accent-gold">
+        <div class="eyebrow gold">FAILURE MODE A</div>
+        <h3 style="margin: 10px 0;">Milestone missed &middot; Jul 1, 2026</h3>
+        <ul style="padding-left: 20px; margin: 10px 0; font-size: 0.92rem;">
+          <li>Anchor's $50M refunds via escrow release</li>
+          <li>Facility is <strong>not drawn</strong> &mdash; zero lender exposure</li>
+          <li>Ramsports formation costs borne by league entity</li>
+          <li>Commitment fees (if agreed) paid through Concorde capital</li>
+        </ul>
+      </div>
+      <div class="card accent-cyan">
+        <div class="eyebrow">FAILURE MODE B</div>
+        <h3 style="margin: 10px 0;">Launch executes, Y1 revenue misses</h3>
+        <ul style="padding-left: 20px; margin: 10px 0; font-size: 0.92rem;">
+          <li>Y1 interest-only period absorbs negative EBITDA</li>
+          <li>Collateral coverage (8 licenses, paid in cash at Concorde close) exceeds principal</li>
+          <li>DSCR covenant doesn't apply until Y3 amortization starts</li>
+          <li>Cure right via equity contribution; anchor commits pro-rata if needed</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Failure-mode coverage math</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th class="num">Outstanding principal</th>
+          <th class="num">Collateral in cash</th>
+          <th class="num">Coverage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Concorde close (drawdown)</td><td class="num">$40-60M</td><td class="num">$80M (Constructor cash)</td><td class="num accent">1.33-2.00&times;</td></tr>
+        <tr><td>Y1 interest-only, full draw</td><td class="num">$60M</td><td class="num">$80M &minus; $80M deployed + $32M Y1 media</td><td class="num accent">~0.53&times; cash + receivables</td></tr>
+        <tr><td>Y3 amortization, seasoned</td><td class="num">$45M</td><td class="num">Y3 EBITDA $14M recurring + receivables</td><td class="num accent">DSCR 2.6&times;</td></tr>
+        <tr><td>Y5 pre-refi</td><td class="num">$25M</td><td class="num">Y5 EBITDA $58.8M recurring + receivables</td><td class="num accent">DSCR 4.8&times;+</td></tr>
+      </tbody>
+    </table>
+
+    <div class="footnote">
+      <strong>Y1 coverage math uses deployed capital, not gross collateral.</strong> Once $80M in
+      Constructor cash is deployed into the league operating vehicle, the facility is secured against
+      ongoing receivables streams (media, sponsorship) plus a general negative pledge on league assets
+      &mdash; not against Constructor cash itself. Full collateral analysis at credit underwriting.
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — REFI PATH -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">08 &middot; Refinance Path</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">PUBLIC IPO TAKEOUT 2029-30</div>
+    <h2 class="deck-title">4-year effective tenor. IPO refi at tighter spread.</h2>
+    <p class="deck-subtitle">
+      The facility is structured as a bridge-to-public. Primary exit is the tracking-stock IPO at
+      $1B+ valuation in 2029-30. Secondary exit is a seasoned high-yield refinancing at 50-100bps
+      tighter spread post-Y3 EBITDA inflection.
+    </p>
+
+    <div class="collat-grid">
+      <div class="collat-card">
+        <div class="k">PRIMARY EXIT &middot; 2029-30</div>
+        <div class="big">IPO takeout</div>
+        <h4 style="margin: 0 0 8px;">Public tracking-stock primary proceeds</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          $200-400M primary at $1B+ implied. Proceeds partially used to take out senior facility at par
+          plus any call protection. Mandatory prepayment trigger unless renewed.
+        </p>
+      </div>
+      <div class="collat-card">
+        <div class="k">SECONDARY EXIT &middot; Y3-Y4</div>
+        <div class="big">HY refi</div>
+        <h4 style="margin: 0 0 8px;">Seasoned high-yield refinancing</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: var(--mute);">
+          Post Y3 EBITDA inflection, facility refinances into a 5-7 year HY term loan B at 50-100bps
+          tighter spread. Existing facility repaid at par; extended tenor funds pre-IPO working capital.
+        </p>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 14px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Rate-tightening thesis</h4>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Profile</th>
+          <th class="num">Illustrative spread</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Concorde close (2026)</td><td>Pre-launch, contractual receivables only</td><td class="num">S+525 to S+600</td></tr>
+        <tr><td>Y2 seasoned (2028)</td><td>Operating business, media ramp visible</td><td class="num">S+425 to S+500</td></tr>
+        <tr><td>Y3 inflection (2029)</td><td>EBITDA positive, HY-eligible</td><td class="num">S+350 to S+425</td></tr>
+        <tr><td>Post-IPO (2030+)</td><td>Investment-grade candidate</td><td class="num">S+200 to S+300</td></tr>
+      </tbody>
+    </table>
+
+    <div class="footnote">
+      <strong>Spreads illustrative.</strong> Specific pricing subject to credit underwriting, prevailing
+      credit markets, and comparable sports-IP lending benchmarks at the time of each refinancing window.
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — COMPARABLES -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">09 &middot; Comparable Deals</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">SPORTS-IP LENDING PRECEDENT</div>
+    <h2 class="deck-title">P1 fits a well-understood sub-category.</h2>
+    <p class="deck-subtitle">
+      Sports-IP-backed lending is a defined credit sub-category with a decade of precedent. P1's profile
+      &mdash; contractual franchise receivables + media-rights ramp + governance-separated structure &mdash;
+      maps cleanly to recognized comps.
+    </p>
+
+    <div class="card">
+      <div class="comp-row">
+        <div class="n">F1 post-Liberty</div>
+        <div>Liberty Media acquisition debt stack ($4B+ facility, collateralized against broadcast + team receivables). Proved sports-IP collateral is bankable at institutional scale.</div>
+        <div class="meta">$4B+ &middot; 2017</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">PGA Tour Enterprises</div>
+        <div>Senior credit facility against franchise + sponsorship receivables. Similar governance-separated structure post-LIV settlement. Private-market financing.</div>
+        <div class="meta">$1B+ &middot; 2024</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">LIV Golf</div>
+        <div>PIF-guaranteed sovereign credit. Different structure (state-backed), but established sports-league lending at comparable revenue stage.</div>
+        <div class="meta">$3B+ &middot; 2022-24</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">UFC / TKO</div>
+        <div>Silver Lake + Endeavor debt stack against PPV / broadcast receivables. Single-sport IP with contractual media streams &mdash; closest structural analog to P1 media collateral.</div>
+        <div class="meta">$2B+ &middot; 2023</div>
+      </div>
+      <div class="comp-row">
+        <div class="n">WTA / LaLiga (CVC)</div>
+        <div>CVC sports-infrastructure debt facility model. Multi-market sports-rights collateral; CVC operating playbook directly analogous to P1's global market structure.</div>
+        <div class="meta">$1B+ &middot; 2021-22</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 28px;">
+      <div class="k">The delta vs P1</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        Every comp above is post-launch. P1's facility is pre-launch but contractually secured by
+        $80M of countersigned Constructor receivables prior to drawdown. Smaller facility size ($40-60M
+        vs $1B+ comps) reflects the earlier stage &mdash; but collateral quality (non-refundable cash
+        receivables) arguably exceeds the comps.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 11 — INTEREST COVERAGE CHART -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">10 &middot; Interest Coverage Trajectory</div>
+    <div class="page-num">PAGE 11</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">COVERAGE COMPOUNDS EVERY YEAR</div>
+    <h2 class="deck-title">Y1 1.2&times; &rarr; Y5 4.8&times;+.</h2>
+
+    <div class="coverage-grid">
+      <div class="col floor">
+        <div class="y">Y1 2027</div>
+        <div class="dscr">1.2&times;</div>
+        <div class="lbl">Floor &middot; interest-only<br>Media receivables + Constructor cash</div>
+      </div>
+      <div class="col">
+        <div class="y">Y2 2028</div>
+        <div class="dscr">1.8&times;</div>
+        <div class="lbl">Media +40% &middot; sponsorship +25%<br>Docuseries greenlit</div>
+      </div>
+      <div class="col">
+        <div class="y">Y3 2029</div>
+        <div class="dscr">2.6&times;</div>
+        <div class="lbl">EBITDA inflection &middot; amort starts<br>Pre-IPO crossover window</div>
+      </div>
+      <div class="col">
+        <div class="y">Y4 2030</div>
+        <div class="dscr">3.6&times;</div>
+        <div class="lbl">Docuseries renewal &middot; unbundled media<br>Post-IPO window</div>
+      </div>
+      <div class="col">
+        <div class="y">Y5 2031</div>
+        <div class="dscr">4.8&times;+</div>
+        <div class="lbl">Category-leader multiple<br>Facility refi candidate</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow">MEDIA-RIGHTS DRIVER</div>
+        <h3 style="margin: 10px 0;">$32M &rarr; $82M</h3>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">
+          Y1 to Y5 media rights ramp = 2.56&times;. Unbundled regional rights post-Y3 + docuseries royalties = primary DSCR growth driver. Media is the compounding stream.
+        </p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">SPONSORSHIP DRIVER</div>
+        <h3 style="margin: 10px 0;">$24M &rarr; $46M</h3>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">
+          Y1 to Y5 sponsorship ramp = 1.92&times;. Renewal cycle at 2.5-3&times; launch pricing by Y5.
+          Second major covenant-relief driver &mdash; category sponsors lock multi-year terms by Y3.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 20px;">
+      <div class="k">The compounding effect</div>
+      <p style="margin: 0; font-size: 0.94rem;">
+        DSCR math is dominated by revenue ramp, not cost control. Media + sponsorship together carry
+        $56M Y1 revenue to $128M Y5 &mdash; a 2.3&times; growth on the two highest-margin lines. Every year
+        of operation makes the facility safer, not riskier.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour &middot; Lender &amp; Finance</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 12 — TERM SHEET -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow gold">INDICATIVE TERM SHEET</div>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="deck-title grad" style="max-width: 18ch; font-size: clamp(2.4rem, 4.8vw, 3.8rem);">
+      Indicative terms &mdash; subject to credit underwriting.
+    </h2>
+
+    <div style="margin-top: 36px;">
+      <table class="data">
+        <tbody>
+          <tr><td style="width: 35%;"><strong>Borrower</strong></td><td>P1 World Tour League Operating Vehicle, LLC</td></tr>
+          <tr><td><strong>Facility type</strong></td><td>Senior secured term loan</td></tr>
+          <tr><td><strong>Facility size</strong></td><td class="accent">$40-60M (final sizing at close)</td></tr>
+          <tr><td><strong>Tenor</strong></td><td>5 years from Concorde close (2026 &rarr; 2031)</td></tr>
+          <tr><td><strong>Amortization</strong></td><td>Interest-only Y1-Y2 &middot; straight amort Y3-Y5</td></tr>
+          <tr><td><strong>Drawdown condition</strong></td><td>Concorde close verified &middot; 8 Constructor licenses countersigned &middot; $130M capital stack confirmed</td></tr>
+          <tr><td><strong>Collateral</strong></td><td>8 Constructor license receivables ($80M) + Y1 media-rights + sponsorship receivables + negative pledge on league operating vehicle</td></tr>
+          <tr><td><strong>Financial covenants</strong></td><td>Min DSCR 1.75&times; from Y3 &middot; Max debt/EBITDA 3.0&times; Y3 &rarr; 1.5&times; Y5 &middot; Min EBITDA $10M Y3 &rarr; $45M Y5</td></tr>
+          <tr><td><strong>Negative covenants</strong></td><td>No pari-passu debt &middot; dividend blocker through Y4 &middot; Constructor retention &gt; 6/8 &middot; change-of-control prepay</td></tr>
+          <tr><td><strong>Pricing (illustrative)</strong></td><td>S+525 to S+600 at close &middot; step-down to S+350-425 at Y3 inflection</td></tr>
+          <tr><td><strong>Call protection</strong></td><td>No-call Y1 &middot; 102 Y2 &middot; 101 Y3 &middot; par thereafter</td></tr>
+          <tr><td><strong>Refinance</strong></td><td>Tracking-stock IPO takeout (2029-30) OR seasoned HY refi Y3-Y4</td></tr>
+          <tr><td><strong>Reporting</strong></td><td>Monthly operating dashboard &middot; quarterly audited financials &middot; annual budget</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">INDICATIVE &mdash; not a commitment</div>
+    </div>
+    <div class="item">
+      <div class="k">CONTACT</div>
+      <div class="v">Assay &middot; P1 World Tour</div>
+    </div>
+    <div class="item">
+      <div class="k">DOCUMENT</div>
+      <div class="v">Lender &amp; Finance Deck &middot; 12 / 14</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

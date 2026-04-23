@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Feasibility &amp; Market Opportunity Report</title>
+<meta name="description" content="Formal feasibility assessment and global-market opportunity sizing for the P1 World Tour. Go / no-go recommendation with risk register and comparable-scale studies." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Deck-01 specific */
+  .tam-ring {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .tam-ring .ring {
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    text-align: left;
+  }
+  .tam-ring .ring.tam { border-top: 3px solid var(--cyan); }
+  .tam-ring .ring.sam { border-top: 3px solid var(--violet); }
+  .tam-ring .ring.som { border-top: 3px solid var(--gold); }
+  .tam-ring .ring .tag {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tam-ring .ring .v {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 6px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .tam-ring .ring.som .v { background: var(--grad-warm); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tam-ring .ring .n {
+    font-size: 0.88rem;
+    color: var(--mute);
+    line-height: 1.55;
+  }
+
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .risk {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .risk .h {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .risk .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 0.98rem;
+    color: var(--ink);
+  }
+  .risk .sev {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+  }
+  .risk .sev.high { color: var(--red); border-color: color-mix(in srgb, var(--red) 40%, transparent); }
+  .risk .sev.med { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, transparent); }
+  .risk .sev.low { color: var(--green); border-color: color-mix(in srgb, var(--green) 40%, transparent); }
+  .risk .m {
+    font-size: 0.86rem;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+  .risk .m strong { color: var(--ink); font-weight: 600; }
+
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr 1fr 1.4fr;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+    align-items: baseline;
+  }
+  .comp-row.head {
+    border-bottom: 1px solid var(--line-strong);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    padding-bottom: 10px;
+  }
+  .comp-row .c1 { font-family: "Outfit", sans-serif; font-weight: 800; font-size: 1rem; }
+  .comp-row .c2 { font-family: var(--mono); color: var(--cyan); font-size: 0.9rem; }
+  .comp-row .c3 { font-family: var(--mono); font-size: 0.84rem; color: var(--mute); }
+  .comp-row .c4 { font-size: 0.86rem; color: var(--ink); }
+
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .go-banner {
+    padding: 36px 40px;
+    border: 1px solid color-mix(in srgb, var(--green) 50%, transparent);
+    border-radius: 18px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--green) 14%, transparent), transparent 60%), var(--card);
+    margin-bottom: 28px;
+  }
+  .go-banner .verdict {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 3.4rem;
+    color: var(--green);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .go-banner .sub {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .go-banner .n {
+    font-size: 0.94rem;
+    color: var(--mute);
+    line-height: 1.6;
+  }
+
+  .src-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .src-list .src {
+    padding: 12px 16px;
+    border-left: 2px solid var(--cyan);
+    background: color-mix(in srgb, var(--cyan) 4%, transparent);
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--ink);
+  }
+  .src-list .src .t { color: var(--mute); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; font-family: "Outfit", sans-serif; letter-spacing: 0.18em; }
+
+  @media (max-width: 900px) {
+    .tam-ring, .risk-grid, .macro-grid { grid-template-columns: 1fr !important; }
+    .comp-row { grid-template-columns: 1fr 1fr !important; gap: 6px; }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow cyan">DELIVERABLE 01 · IPG SCOPE-OF-WORK</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">Feasibility &amp; Market Opportunity Report</h1>
+    <p class="lede">
+      An institutional-grade feasibility assessment of a global pickleball league built on the F1 three-body architecture. Market sizing, macro thesis, risk register, comparable-scale studies, and a formal go / no-go recommendation.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">75M → 300M PLAYERS BY 2032</span></div>
+      <div class="chip violet"><span class="mono">$18-30B ANNUAL CONSUMER SPEND</span></div>
+      <div class="chip gold"><span class="mono">VERDICT: GO</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">President, P1 League, Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — EXECUTIVE SUMMARY -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">01 · Executive Summary</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">HEADLINE FINDING</div>
+    <h2 class="deck-title grad">Pickleball is a pre-institutional category with F1-scale economics waiting to be unlocked.</h2>
+
+    <div class="go-banner">
+      <div class="verdict">GO</div>
+      <div class="sub">Build P1 World Tour on the Concorde-agreement architecture.</div>
+      <div class="n">
+        Market conditions, macro tailwinds, category vacuum, and comparable-scale precedent all align. The Concorde structure — $50M anchor into escrow, released only on the 8-Constructor milestone — reduces execution risk to a binary governance event and caps downside at zero.
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="eyebrow">Market</div>
+        <h4 style="margin: 8px 0 6px;">Exponential, not cyclical</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">75M active players today. Projected 300M by 2032. $18-30B annual consumer spend. 8× search growth since 2021.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow violet">Structure</div>
+        <h4 style="margin: 8px 0 6px;">F1 playbook, ported</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Investor + Ramsports + 8 Constructors. Governance separated from commercial rights — the pattern that unlocked F1's $20B category.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow gold">Capital</div>
+        <h4 style="margin: 8px 0 6px;">$130M launch, $50M escrowed</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Anchor capital never at market risk. Full refund if the 8-brand milestone misses July 1, 2026. Milestone-gated deployment.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 24px;">
+      <div class="k">Recommendation Summary</div>
+      <p style="margin: 0;">
+        Proceed with the Concorde Agreement on the canonical terms: $50M anchor, 8 Constructor brands at $10M each by July 1 2026, Ramsports as independent governing body. First event February 2027. Tracking-stock vehicle 2029-30, IPO target $1B+. The window to enter at pre-institutional pricing closes within 12-18 months.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — GLOBAL MARKET -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">02 · Global Pickleball Market</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">2026 &rarr; 2032 MARKET CURVE</div>
+    <h2 class="deck-title">A 4× demand curve compounding in real time.</h2>
+    <p class="deck-subtitle">
+      Pickleball is the fastest-growing participation sport in history. 75M active players today, projected 300M by 2032 — a 4× expansion across the capture window of this investment.
+    </p>
+
+    <div class="stat-bar cols-4">
+      <div class="cell"><div class="num">75M</div><div class="lbl">Active players today</div></div>
+      <div class="cell"><div class="num">300M</div><div class="lbl">Projected by 2032</div></div>
+      <div class="cell"><div class="num">$18-30B</div><div class="lbl">Annual consumer spend</div></div>
+      <div class="cell"><div class="num">8×</div><div class="lbl">Global search growth since 2021</div></div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 8px;">
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">Growth posture</div>
+        <h4 style="margin: 8px 0;">50%+ annual growth</h4>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">
+          Faster than any racquet sport in modern history. Tennis participation is flat. Padel compounds at 8-12%. Pickleball grows at 50%+ year-over-year — and that rate is accelerating, not decelerating.
+        </p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">Market composition</div>
+        <h4 style="margin: 8px 0;">75% of 2032 players haven't played yet</h4>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">
+          Three of every four players who will be active in 2032 have not yet picked up a paddle. The category has no dominant commercial brand, no institutional league, and no globalized governance — all of which P1 builds on day zero.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 8px;">
+      <div class="k">Why this matters</div>
+      <p style="margin: 0;">
+        Commercial rights to the sport will be priced off the base rate established at league formation. Every 12-month delay in establishing the category-defining entity triples the entry valuation. Y1 pricing is structurally non-repeatable.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — TAM / SAM / SOM -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">03 · TAM / SAM / SOM</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">MARKET SIZING FOR A GLOBAL LEAGUE</div>
+    <h2 class="deck-title">Three rings. One defensible capture path.</h2>
+    <p class="deck-subtitle">
+      Sized against the subset of the pickleball economy a global league can monetize — media rights, global sponsorship, gate &amp; hospitality, licensing, and docuseries.
+    </p>
+
+    <div class="tam-ring">
+      <div class="ring tam">
+        <div class="tag">TAM · Total Addressable Market</div>
+        <div class="v">$18-30B/yr</div>
+        <div class="n">Global pickleball consumer spend — paddles, courts, apparel, recreation, instruction, and participation fees across the full 75M-player active base. The outer ring.</div>
+      </div>
+      <div class="ring sam">
+        <div class="tag">SAM · Serviceable Addressable Market</div>
+        <div class="v">~$2.4B/yr</div>
+        <div class="n">League-monetizable share inside Tier-1 cities (top 40 metros by active-player density). Media rights, global sponsorship, premium events, hospitality, licensing. The share a global league can realistically tap.</div>
+      </div>
+      <div class="ring som">
+        <div class="tag">SOM · Serviceable Obtainable Market · Y5</div>
+        <div class="v">$210M/yr</div>
+        <div class="n">P1 Year-5 league revenue under the base case (media, sponsorship, events, team feed, licensing, content). Roughly 8-9% of SAM — a credible single-league share.</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 8px;">
+      <div class="card">
+        <div class="eyebrow cyan">SAM derivation</div>
+        <p style="margin: 0; font-size: 0.92rem;" class="muted">
+          40 Tier-1 metros × ~750k active-player-equivalents × ~$80/yr league-attributable spend (ticketing, hospitality, subscription, merch) = ~$2.4B annual serviceable market. Expands as the 2032 player base grows 4×.
+        </p>
+      </div>
+      <div class="card">
+        <div class="eyebrow gold">SOM derivation</div>
+        <p style="margin: 0; font-size: 0.92rem;" class="muted">
+          Y5 league revenue of $210M (media $82M + sponsors $46M + events $32M + team feed $12M + licensing $18M + content $20M) = single-digit SAM share. Comp range: F1 captures ~3-5% of global motorsport spend; PGA captures ~8% of golf spend.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — MACRO TAILWINDS -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">04 · Macro Tailwinds</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">THE STRUCTURAL SHIFT — NOT CYCLICAL</div>
+    <h2 class="deck-title">Time is being returned to consumers. They are spending it outdoors, competing.</h2>
+
+    <div class="macro-grid">
+      <div class="card accent-cyan">
+        <div class="eyebrow cyan">Hybrid Work</div>
+        <h4 style="margin: 10px 0 8px;">40%+ afternoons</h4>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">40%+ of US knowledge workers now have unstructured midday or afternoon hours — prime court-time windows that did not exist pre-2020.</p>
+      </div>
+      <div class="card accent-violet">
+        <div class="eyebrow violet">AI Time Freedom</div>
+        <h4 style="margin: 10px 0 8px;">Discretionary hours compounding</h4>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">As AI absorbs routine cognitive tasks, active leisure becomes the highest-value use of reclaimed hours. Participation sports are the structural beneficiary.</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="eyebrow gold">Participation Shift</div>
+        <h4 style="margin: 10px 0 8px;">Watch &rarr; Play</h4>
+        <p class="muted" style="margin: 0; font-size: 0.92rem;">Consumers are migrating from passive watching to active play. Pickleball's 2-minute learnability makes that conversion instantaneous — unmatched by any other racquet sport.</p>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 8px;">
+      <div class="k">The participation flywheel</div>
+      <p style="margin: 0;">
+        Spectators become players. Players buy from Constructors. Constructors fund the next event. This flywheel is why P1 compounds differently than a traditional spectator-only league — every market that hosts an event grows its own player base, which grows its own audience, which grows its own commercial base.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="eyebrow">Portfolio alignment</div>
+        <p style="margin: 0; font-size: 0.92rem;" class="muted">
+          The macro thesis aligns directly with Sideline Group pillars — offline-time tailwind, community experiences, participation sports, sports infrastructure. P1 is the pure-play expression of all four at once.
+        </p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Capital-markets context</div>
+        <p style="margin: 0; font-size: 0.92rem;" class="muted">
+          Institutional sports capital (Arctos, RedBird, CVC, Silver Lake, PIF, Mubadala) is actively hunting the next category-defining asset. None has a pickleball position. P1 is the first and only way to build that position at Y1 pricing.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — BARTLETT THESIS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">05 · The Bartlett Thesis</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">EXPONENTIAL — NOT INCREMENTAL</div>
+    <h2 class="deck-title grad">Price it before the curve reflects it.</h2>
+
+    <div class="callout violet">
+      <div class="k">Albert Bartlett · University of Colorado</div>
+      <p style="margin: 0; font-size: 1.1rem;">
+        <em>"The greatest shortcoming of the human race is our inability to understand the exponential function."</em>
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card accent-violet">
+        <div class="eyebrow violet">What the curve says</div>
+        <h4 style="margin: 10px 0 8px;">75M &rarr; 300M by 2032</h4>
+        <p class="muted" style="margin: 0; font-size: 0.94rem;">
+          At a sustained 50%+ compound growth rate, pickleball crosses 150M players in Y3, 225M in Y4, and 300M by Y6. The entire capture window of the P1 investment sits inside the steepest section of the curve.
+        </p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">What the market will miss</div>
+        <h4 style="margin: 10px 0 8px;">Most valuations extrapolate linearly</h4>
+        <p class="muted" style="margin: 0; font-size: 0.94rem;">
+          Institutional comps — PPA/UPA, MLP, regional tours — are priced on trailing 12-month linear revenue. They underprice the category by 3-5×. The window to enter on linear-assumption pricing is 12-18 months.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="k">Why before, not after</div>
+      <p style="margin: 0;">
+        Waiting two years to confirm the exponential curve means buying at 3-4× today's implied valuation, with the same cash. The structural trade is to underwrite the curve now, at $250M+ implied — and hold through the tracking-stock activation at $1B+. Category-defining commercial rights are priced off the Y1 base rate.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — RISK REGISTER -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">06 · Risk Register</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">IDENTIFIED EXECUTION RISKS + MITIGATIONS</div>
+    <h2 class="deck-title">Six material risks. Each one structurally mitigated.</h2>
+
+    <div class="risk-grid">
+      <div class="risk">
+        <div class="h">
+          <div class="name">Constructor recruitment</div>
+          <div class="sev high">HIGH</div>
+        </div>
+        <div class="m">8 global brands at $10M by July 1, 2026. <strong>Mitigation:</strong> 4 brands already in active term-sheet dialogue (April 2026). Sideline portfolio relationships unlock 2 additional co-investors. Concorde escrow = zero capital risk if milestone misses.</div>
+      </div>
+      <div class="risk">
+        <div class="h">
+          <div class="name">Regulatory / sanctioning</div>
+          <div class="sev med">MEDIUM</div>
+        </div>
+        <div class="m">USA Pickleball / UPA / IFP fragmentation; Olympic-name conflict risk. <strong>Mitigation:</strong> Ramsports is an independent governing body. Seymour Rifkind (WPF founder) chairs the Olympic-pathway relationship. No naming overlap.</div>
+      </div>
+      <div class="risk">
+        <div class="h">
+          <div class="name">Player-talent pool depth</div>
+          <div class="sev med">MEDIUM</div>
+        </div>
+        <div class="m">64 contracted pros across 8 Constructors; depth in top 200 is improving but thinner than tennis. <strong>Mitigation:</strong> $24M prize pool + team-feed economics attract cross-over athletes. Steve Kuhn (MLP founder, DUPR) on the Ramsports board runs the global rating pipeline.</div>
+      </div>
+      <div class="risk">
+        <div class="h">
+          <div class="name">Media-rights timing</div>
+          <div class="sev med">MEDIUM</div>
+        </div>
+        <div class="m">Y1 regional deals must convert to multi-year global packages by Y3. <strong>Mitigation:</strong> Launch-partner deal anchored in Y1 at global-highlight level; docuseries window Y2; unbundled live geography rights Y3-4. Modeled on F1 Liberty ramp.</div>
+      </div>
+      <div class="risk">
+        <div class="h">
+          <div class="name">Venue availability</div>
+          <div class="sev low">LOW</div>
+        </div>
+        <div class="m">4-8k-seat arenas across 17 countries on a 20-stop calendar. <strong>Mitigation:</strong> Venue inventory pre-validated (O2, Singapore Indoor Stadium, Coca-Cola Arena, Hard Rock, WiZink, Moody, Ariake, Qudos). Ramsports + local promoter model runs load-in/operate/teardown on a 4-day cycle.</div>
+      </div>
+      <div class="risk">
+        <div class="h">
+          <div class="name">Olympic calendar conflict</div>
+          <div class="sev low">LOW</div>
+        </div>
+        <div class="m">2028 LA Games could bid for pickleball inclusion; potential cannibalization of pro calendar. <strong>Mitigation:</strong> Olympic pathway flows through WPF (Rifkind) and would <em>accelerate</em> P1 TAM, not compete. Commercial P1 entity and Olympic pathway are orthogonal.</div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — COMPARABLE SCALE STUDIES -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">07 · Comparable Scale Studies</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">CATEGORY-DEFINING LEAGUE COMPARABLES</div>
+    <h2 class="deck-title">Four leagues. One pattern. The structural template is proven.</h2>
+
+    <div>
+      <div class="comp-row head">
+        <div>LEAGUE</div>
+        <div>SCALE</div>
+        <div>STRUCTURE</div>
+        <div>WHAT TRANSFERS TO P1</div>
+      </div>
+      <div class="comp-row">
+        <div class="c1">Formula 1 (Liberty Media)</div>
+        <div class="c2">~$20B EV</div>
+        <div class="c3">FIA + Liberty + 10 constructors</div>
+        <div class="c4">The three-body architecture. Separation of regulation from commercial rights unlocked the $20B multiple. P1 ports the exact pattern at Y1.</div>
+      </div>
+      <div class="comp-row">
+        <div class="c1">LIV Golf (PIF)</div>
+        <div class="c2">~$3B+ raised</div>
+        <div class="c3">Sovereign-anchor + franchise teams</div>
+        <div class="c4">Proved a category-vacuum thesis attracts institutional capital. PGA had a player-pay + format-innovation gap; LIV filled it. PPA/UPA has a governance-credibility gap; P1 fills it.</div>
+      </div>
+      <div class="comp-row">
+        <div class="c1">TGL (Tiger &amp; McIlroy)</div>
+        <div class="c2">Prime-time network launch</div>
+        <div class="c3">Tech-driven format + constructor teams</div>
+        <div class="c4">Proved constructor-style team ownership + prime-time media windows work in participation sports. P1 = TGL's format IP + F1's governance stack + LIV's capital story.</div>
+      </div>
+      <div class="comp-row">
+        <div class="c1">MLP (Major League Pickleball)</div>
+        <div class="c2">~$300M valuation</div>
+        <div class="c3">Franchise teams, draft format, US-only</div>
+        <div class="c4">Validated the franchise-team model at US scale. Steve Kuhn (MLP founder) sits on the Ramsports board — the P1 governance benefits from the MLP playbook without the US-only constraint.</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 8px;">
+      <div class="k">The through-line</div>
+      <p style="margin: 0;">
+        Every comparable proves a piece of the P1 thesis. F1 = the structure. LIV = the capital thesis. TGL = the format. MLP = the domestic scale. P1 is the first entity that integrates all four into a globally-engineered, institutionally-governed, pre-institutional-priced league.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — GO / NO-GO RECOMMENDATION -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">08 · Recommendation</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">FORMAL GO / NO-GO</div>
+    <h2 class="deck-title grad">GO — with the Concorde structure as the risk-mitigation spine.</h2>
+
+    <div class="go-banner">
+      <div class="verdict">GO</div>
+      <div class="sub">Proceed to Concorde Agreement formation on or before April 1, 2026.</div>
+      <div class="n">
+        The market, macro, governance, and capital-structure conditions are aligned. The Concorde architecture — $50M anchor escrowed, released only on 8-Constructor milestone — reduces the investment to a binary governance event and caps downside at zero. Milestone by July 1, 2026. First event February 2027.
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="eyebrow cyan">Market readiness</div>
+        <h4 style="margin: 8px 0;">GO</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">TAM trajectory, SAM sizing, SOM defensibility all supportive. Y1-pricing window closes within 12-18 months.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow violet">Structural readiness</div>
+        <h4 style="margin: 8px 0;">GO</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">Ramsports operating. Governance architecture defined. Concorde escrow protects capital until the 8-brand milestone.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow gold">Capital readiness</div>
+        <h4 style="margin: 8px 0;">GO</h4>
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">$130M launch stack defined. $50M anchor refundable. 4 Constructor conversations already live. 3.5× base / 7-10× bull 5-yr MOIC.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 8px;">
+      <div class="k">What "no-go" would require</div>
+      <p style="margin: 0;">
+        A credible case for no-go would require one or more of: (a) evidence that pickleball growth has structurally decelerated below 20%/yr, (b) a competing global league already at scale with locked governance, or (c) institutional-capital thesis for sports-infrastructure reversing. <strong>None of these conditions are present.</strong> All three are moving in the opposite direction.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — APPENDIX: SOURCES -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">09 · Appendix — Sources</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">SOURCE PIN · CANONICAL ARTIFACTS</div>
+    <h2 class="deck-title">Every claim in this report is source-pinned.</h2>
+    <p class="deck-subtitle">
+      The synthesis layer underneath this report is held in four canonical markdown files that every P1 deliverable pulls from. No deck re-derives market data, financial math, or governance structure independently.
+    </p>
+
+    <div class="src-list">
+      <div class="src">
+        <div class="t">Source 01 · League Architecture</div>
+        _synthesis/league-architecture.md — governance, Concorde, Ramsports, 20-stop structure, $24M prize pool, macro tailwinds
+      </div>
+      <div class="src">
+        <div class="t">Source 02 · Financial Model</div>
+        _synthesis/financial-model.md — Y1-5 revenue, Constructor economics, bear / base / bull scenarios, capital stack
+      </div>
+      <div class="src">
+        <div class="t">Source 03 · Launch Cities &amp; Calendar</div>
+        _synthesis/launch-cities.md — 8 launch cities with 5-axis scoring, 20-stop calendar, festival-weekend anatomy
+      </div>
+      <div class="src">
+        <div class="t">Source 04 · Investor Strategy</div>
+        _synthesis/investor-strategy.md — ideal-investor profile, 36-Q&amp;A conversation frame, 5-minute video script
+      </div>
+      <div class="src">
+        <div class="t">Source 05 · P1 Sideline Pitch (REVISED) · 2026-04 ed.</div>
+        Lean 15-page Sideline-tailored briefing deck
+      </div>
+      <div class="src">
+        <div class="t">Source 06 · P1 World Tour Deck v5</div>
+        20+ page master deck; pre-dates the Sideline-tailored revision
+      </div>
+      <div class="src">
+        <div class="t">Source 07 · Assay Strategic Packet</div>
+        Assay &rarr; Sideline strategic audit (700 lines); pinned at /packet/p1-starter-packet.html
+      </div>
+      <div class="src">
+        <div class="t">Source 08 · IPG Scope-of-Work</div>
+        P1 League / IPG Proposal (the SoW this report fulfills)
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 18px;">
+      <div class="k">Data-integrity note</div>
+      <p style="margin: 0;">
+        Prize-pool figure is $24M/yr (not $28M). Earlier public drafts cited $28M; corrected after event-count reconciliation. See Q&amp;A #3 in Deliverable 04 (Supporting Slides Kit).
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Feasibility &amp; Market Opportunity Report</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+</body>
+</html>

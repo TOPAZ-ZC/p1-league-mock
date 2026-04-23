@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>P1 World Tour — Target Market Recommendation · 8 Launch Cities</title>
+<meta name="description" content="Target-market recommendation for the P1 World Tour. 5-axis city-selection framework, 8 launch cities across 4 quarterly swings, 20-stop calendar, and Year-2 phase expansion candidates." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/print.css" />
+<link rel="stylesheet" href="../../_shared/deck-base.css" />
+<style>
+  body { background: #1a1d28; }
+  body.deck-preview { padding: 32px 0; }
+  .deck-preview .deck-page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* Deck-03 specific */
+  .axis-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Inter", sans-serif;
+    font-size: 0.92rem;
+  }
+  .axis-table th, .axis-table td {
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .axis-table th {
+    background: var(--card-2);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  .axis-table td.w {
+    font-family: var(--mono);
+    color: var(--cyan);
+    text-align: right;
+    width: 90px;
+    font-weight: 600;
+  }
+  .axis-table td.ax {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    width: 220px;
+    color: var(--ink);
+  }
+
+  .swing-hero {
+    padding: 28px 32px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--cyan) 10%, var(--card)), var(--card));
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--cyan);
+    margin-bottom: 20px;
+  }
+  .swing-hero.violet { border-left-color: var(--violet); background: linear-gradient(135deg, color-mix(in srgb, var(--violet) 10%, var(--card)), var(--card)); }
+  .swing-hero.gold { border-left-color: var(--gold); background: linear-gradient(135deg, color-mix(in srgb, var(--gold) 10%, var(--card)), var(--card)); }
+  .swing-hero.green { border-left-color: var(--green); background: linear-gradient(135deg, color-mix(in srgb, var(--green) 10%, var(--card)), var(--card)); }
+  .swing-hero .eye {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .swing-hero.violet .eye { color: var(--violet); }
+  .swing-hero.gold .eye { color: var(--gold); }
+  .swing-hero.green .eye { color: var(--green); }
+  .swing-hero h3 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.7rem;
+    margin: 0 0 8px;
+  }
+  .swing-hero .meta {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--mute);
+  }
+
+  .city-detail {
+    padding: 22px 26px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    margin-bottom: 14px;
+  }
+  .city-detail.gs { border-left: 3px solid var(--gold); }
+  .city-detail .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+  }
+  .city-detail .head .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+  .city-detail .head .badge {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: var(--gold);
+    border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+    text-transform: uppercase;
+  }
+  .city-detail .head .badge.std {
+    color: var(--cyan);
+    border-color: color-mix(in srgb, var(--cyan) 40%, transparent);
+  }
+  .city-detail .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    font-size: 0.88rem;
+  }
+  .city-detail .grid .cell .k {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .city-detail .grid .cell .v {
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .mini-city {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .mini-city .name {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .mini-city .why {
+    font-size: 0.82rem;
+    color: var(--mute);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .mini-city .match {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--cyan);
+    letter-spacing: 0.06em;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .cal-col {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+  .cal-col.s1 { border-top: 3px solid var(--cyan); }
+  .cal-col.s2 { border-top: 3px solid var(--violet); }
+  .cal-col.s3 { border-top: 3px solid var(--green); }
+  .cal-col.s4 { border-top: 3px solid var(--gold); }
+  .cal-col h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 4px;
+  }
+  .cal-col .title {
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .cal-col ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.88rem;
+  }
+  .cal-col ol li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+  .cal-col ol li:last-child { border-bottom: none; }
+  .cal-col ol li.gs { font-weight: 700; color: var(--gold); }
+  .cal-col ol li .n {
+    font-family: var(--mono);
+    color: var(--mute);
+    font-size: 0.76rem;
+  }
+
+  .phase2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .phase2 .region {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .phase2 .region .h {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .phase2 .region ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.8;
+  }
+  .phase2 .region ul li::before {
+    content: "\2022";
+    color: var(--mute);
+    margin-right: 8px;
+  }
+
+  .festival {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+  }
+  .festival th, .festival td {
+    border: 1px solid var(--line);
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .festival th {
+    background: var(--card-2);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  .festival td.day {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    color: var(--cyan);
+    width: 140px;
+  }
+
+  @media (max-width: 900px) {
+    .calendar-grid, .phase2, .city-detail .grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+</head>
+<body class="deck-preview">
+<script src="../../_shared/theme-toggle.js"></script>
+
+<!-- PAGE 1 — COVER -->
+<section class="deck-page cover">
+  <div>
+    <a class="brand" href="../../index.html">
+      <span class="mark"></span>
+      <span>P1 World Tour</span>
+    </a>
+    <div style="margin-top: 64px;">
+      <div class="eyebrow gold">DELIVERABLE 03 · IPG SCOPE-OF-WORK</div>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <h1 class="grad-text">Target Market Recommendation &mdash; 8 Launch Cities</h1>
+    <p class="lede">
+      The selection framework, the cities, the 20-stop / 17-country calendar, and the Year-2 expansion candidates. Every city scored on a 5-axis weighted framework. Every stop mapped to a Constructor activation profile.
+    </p>
+    <div class="row" style="gap: 24px; margin-top: 32px;">
+      <div class="chip cyan"><span class="mono">8 LAUNCH CITIES</span></div>
+      <div class="chip violet"><span class="mono">4 SWINGS · 4 GRAND SLAMS</span></div>
+      <div class="chip gold"><span class="mono">20 STOPS · 17 COUNTRIES</span></div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item">
+      <div class="k">PREPARED FOR</div>
+      <div class="v">President, P1 League, Inc.</div>
+    </div>
+    <div class="item">
+      <div class="k">DATED</div>
+      <div class="v">April 2026</div>
+    </div>
+    <div class="item">
+      <div class="k">STATUS</div>
+      <div class="v">CONFIDENTIAL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — SELECTION FRAMEWORK -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">01 · Selection Framework</div>
+    <div class="page-num">PAGE 02</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">5 AXES · WEIGHTED SCORING</div>
+    <h2 class="deck-title grad">Every candidate city scored 1-5 on five axes. Weighted total drives qualification.</h2>
+    <p class="deck-subtitle">
+      A city qualifies for Year-1 consideration when its weighted score is &ge; 3.8. The framework below is the model; the 8 launch cities that follow all clear the threshold with meaningful margin.
+    </p>
+
+    <table class="axis-table">
+      <thead>
+        <tr>
+          <th>AXIS</th>
+          <th>WEIGHT</th>
+          <th>WHAT IT MEASURES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ax">Pickleball TAM density</td>
+          <td class="w">25%</td>
+          <td>Active players per capita + projected 5-year growth inside the metro</td>
+        </tr>
+        <tr>
+          <td class="ax">Venue readiness</td>
+          <td class="w">20%</td>
+          <td>Arena capacity 4-8k, retractable-roof or court-surface compatibility, calendar availability in the target window</td>
+        </tr>
+        <tr>
+          <td class="ax">Media market reach</td>
+          <td class="w">20%</td>
+          <td>Domestic + international broadcast footprint; streaming concentration inside the metro</td>
+        </tr>
+        <tr>
+          <td class="ax">Political / regulatory tailwind</td>
+          <td class="w">15%</td>
+          <td>Tourism-board support, sports-hosting subsidies, visa / work-permit friction for visiting pros</td>
+        </tr>
+        <tr>
+          <td class="ax">Constructor alignment</td>
+          <td class="w">20%</td>
+          <td>Pre-existing brand gravity: hometown Constructor HQ, sponsor base, fan concentration</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top: 8px;">
+      <div class="k">Why these five axes</div>
+      <p style="margin: 0;">
+        TAM density drives the participation flywheel. Venue readiness drives execution risk. Media reach drives rights-value per stop. Regulatory tailwind drives cost structure. Constructor alignment drives local-market commercial activation. No axis is optional; a candidate failing any single axis below a 3 is disqualified regardless of weighted total.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — THE 4-SWING STRUCTURE -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">02 · The 4-Swing Structure</div>
+    <div class="page-num">PAGE 03</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">REGIONAL CLUSTERS · GRAND SLAM ANCHORS</div>
+    <h2 class="deck-title">Four quarterly swings. Each ends in a Grand Slam. Season finale is the Tour Championship.</h2>
+
+    <div class="calendar-grid">
+      <div class="cal-col s1">
+        <h4>Q1 · Feb-Apr</h4>
+        <div class="title">Americas</div>
+        <ol>
+          <li class="gs">Miami <span class="n">GS</span></li>
+          <li>Austin <span class="n">Std</span></li>
+          <li>Los Angeles <span class="n">Std</span></li>
+          <li>New York <span class="n">Std</span></li>
+          <li>Mexico City <span class="n">Std</span></li>
+        </ol>
+      </div>
+      <div class="cal-col s2">
+        <h4>Q2 · May-Jul</h4>
+        <div class="title">Europe</div>
+        <ol>
+          <li class="gs">London <span class="n">GS</span></li>
+          <li>Madrid <span class="n">Std</span></li>
+          <li>Paris <span class="n">Std</span></li>
+          <li>Milan <span class="n">Std</span></li>
+          <li>Berlin <span class="n">Std</span></li>
+        </ol>
+      </div>
+      <div class="cal-col s3">
+        <h4>Q3 · Aug-Oct</h4>
+        <div class="title">Asia-Pacific</div>
+        <ol>
+          <li class="gs">Singapore <span class="n">GS</span></li>
+          <li>Tokyo <span class="n">Std</span></li>
+          <li>Sydney <span class="n">Std</span></li>
+          <li>Hong Kong <span class="n">Std</span></li>
+          <li>Seoul <span class="n">Std</span></li>
+        </ol>
+      </div>
+      <div class="cal-col s4">
+        <h4>Q4 · Nov-Jan</h4>
+        <div class="title">MENA · Championship</div>
+        <ol>
+          <li class="gs">Dubai <span class="n">GS · TC</span></li>
+          <li>Riyadh <span class="n">Std</span></li>
+          <li>Istanbul <span class="n">Std</span></li>
+          <li>Doha <span class="n">Std</span></li>
+          <li>Cairo <span class="n">Std</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 8px;">
+      <div class="k">Why the 4-swing shape</div>
+      <p style="margin: 0;">
+        20 events is the institutional-league sweet spot — F1 runs 24, MotoGP 20, PGA 40+. The four-swing regional cluster matches tennis's Grand Slam arc, which is the most institutionally-understood racquet-sport structure. 5 stops per swing (4 standard + 1 Grand Slam) delivers monthly cadence inside each region while preserving festival-weekend density and player-travel sustainability. The Dubai Grand Slam is also the season-capping Tour Championship.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — SWING 1 AMERICAS: MIAMI + AUSTIN -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">03 · Swing 1 · Americas</div>
+    <div class="page-num">PAGE 04</div>
+  </div>
+  <div class="deck-body">
+    <div class="swing-hero">
+      <div class="eye">Q1 2027 · FEBRUARY-APRIL</div>
+      <h3>SWING 1 &mdash; AMERICAS</h3>
+      <div class="meta">Grand Slam anchor: MIAMI · Secondary: AUSTIN, LOS ANGELES, NEW YORK, MEXICO CITY</div>
+    </div>
+
+    <div class="city-detail gs">
+      <div class="head">
+        <div class="name">Miami, USA</div>
+        <div class="badge">GRAND SLAM · SWING 1</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why Miami</div>
+          <div class="v">Highest pickleball density per capita in the US. Miami-Dade has ~280k active players (2026 est). Miami is now a global sports hub — F1 GP, Formula E, ATP Masters 1000. Mazlin / Sideline HQ resonance. Latin America spillover on Spanish-language media.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">Hard Rock Stadium (retractable) or Miami-Dade Arena.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">TNT, ESPN+, DAZN footprint. International: LatAm spillover on Spanish-language feeds.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Finance, airline, apparel.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="city-detail">
+      <div class="head">
+        <div class="name">Austin, USA</div>
+        <div class="badge std">STANDARD STOP</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why Austin</div>
+          <div class="v">Fastest-growing US pickleball metro. Tech-money demographic. F1 US Grand Prix blueprint (COTA) proves the destination-sport format. Festival-weekend DNA already embedded — ACL Fest, SXSW.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">Moody Center (UT).</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">ESPN Austin + YouTube + Twitch streaming-native audience concentration.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Tech, beverage, footwear.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — SWING 1 SECONDARY STOPS -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">04 · Swing 1 · Secondary Stops</div>
+    <div class="page-num">PAGE 05</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">AMERICAS · REGIONAL SECONDARY</div>
+    <h2 class="deck-title">Three additional Americas stops complete the Q1 swing.</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="mini-city">
+        <div class="name">Los Angeles, USA</div>
+        <div class="why">West Coast media + entertainment capital. Celebrity-crossover and creator-economy density. Pre-LA 2028 Olympic halo. Venue: Crypto.com Arena / Intuit Dome overflow inventory. Direct content-pipeline linkage to the docuseries partner.</div>
+        <div class="match">CONSTRUCTOR MATCH: tech, apparel, beverage, celebrity-brand activation</div>
+      </div>
+      <div class="mini-city">
+        <div class="name">New York, USA</div>
+        <div class="why">Global media capital. Finance + luxury sponsor concentration. Highest per-capita corporate-hospitality spend in the world. Venue: Madison Square Garden (or Barclays Center). Hospitality and brand-activation inventory outpaces every stop outside Dubai.</div>
+        <div class="match">CONSTRUCTOR MATCH: finance, luxury, apparel</div>
+      </div>
+      <div class="mini-city">
+        <div class="name">Mexico City, Mexico</div>
+        <div class="why">LatAm anchor. Largest Spanish-language media market in the Americas. Growing pickleball base tracking the Austin / Miami curve with a 2-year lag. Venue: Arena CDMX or Palacio de los Deportes. Enables Spanish-language feed + regional-sponsor tier without requiring a dedicated South America stop.</div>
+        <div class="match">CONSTRUCTOR MATCH: beverage, airline, apparel, telecom</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 16px;">
+      <div class="k">Americas swing profile</div>
+      <p style="margin: 0;">
+        5 stops in the highest-value media markets in the western hemisphere. Three US stops (Miami, Austin, LA, NY), one LatAm stop (Mexico City), Grand Slam anchored in Miami. Aggregate Q1 media impressions projected at 1B+ live + highlight + docuseries residual.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — SWING 2 EUROPE: LONDON + MADRID -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">05 · Swing 2 · Europe</div>
+    <div class="page-num">PAGE 06</div>
+  </div>
+  <div class="deck-body">
+    <div class="swing-hero violet">
+      <div class="eye">Q2 2027 · MAY-JULY</div>
+      <h3>SWING 2 &mdash; EUROPE</h3>
+      <div class="meta">Grand Slam anchor: LONDON · Secondary: MADRID, PARIS, MILAN, BERLIN</div>
+    </div>
+
+    <div class="city-detail gs">
+      <div class="head">
+        <div class="name">London, UK</div>
+        <div class="badge">GRAND SLAM · SWING 2</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why London</div>
+          <div class="v">Europe's largest pickleball growth market (3× YoY 2024-2026). Wimbledon halo. Global English-language media capital. 34M active English-speaking sports fans. Broadcast infrastructure sets the anchor for all non-US feeds.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">O2 Arena (primary) or Copper Box (2012 Olympic legacy).</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">Sky Sports, BBC Sport, Eurosport. Global English-language feed.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Finance (JPMorgan, Morgan Stanley), apparel (adidas), airline (British Airways).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="city-detail">
+      <div class="head">
+        <div class="name">Madrid, Spain</div>
+        <div class="badge std">STANDARD STOP</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why Madrid</div>
+          <div class="v">Fastest-growing European pickleball country behind the UK. Padel crossover &mdash; Spain has the world's densest padel infrastructure and a court-convertibility playbook. Madrid Open tennis legacy; institutional sport-hosting relationships already in place.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">WiZink Center. Palacio Vistalegre secondary.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">Movistar +, Eurosport Iberia. Spanish + LatAm cross-feed.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Airline (Iberia), beverage, footwear.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — SWING 2 SECONDARY STOPS -->
+<section class="deck-page tint-violet">
+  <div class="deck-header">
+    <div class="page-label">06 · Swing 2 · Secondary Stops</div>
+    <div class="page-num">PAGE 07</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow violet">EUROPE · REGIONAL SECONDARY</div>
+    <h2 class="deck-title">Paris, Milan, Berlin complete the European swing.</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="mini-city">
+        <div class="name">Paris, France</div>
+        <div class="why">Global luxury + lifestyle capital. Roland Garros halo. Post-2024 Olympic venue inventory. Largest French-language sports audience. Venue: Accor Arena (Bercy) or AccorHotels Arena. Critical for luxury-sponsor and LVMH-adjacent activation.</div>
+        <div class="match">CONSTRUCTOR MATCH: luxury, airline, apparel, beverage</div>
+      </div>
+      <div class="mini-city">
+        <div class="name">Milan, Italy</div>
+        <div class="why">Italian fashion + finance capital. Fast-compounding pickleball base in northern Italy. Milan is the highest-spending European metro on premium hospitality. Venue: Mediolanum Forum. Regional activation for luxury apparel and automotive partners.</div>
+        <div class="match">CONSTRUCTOR MATCH: luxury apparel, automotive, finance, beverage</div>
+      </div>
+      <div class="mini-city">
+        <div class="name">Berlin, Germany</div>
+        <div class="why">Largest German-speaking sports media market. Sports-hosting subsidy program via Berlin Sports Metropolis initiative. Strong creator + lifestyle-content pipeline. Venue: Mercedes-Benz Arena Berlin. Direct German-language docuseries distribution via regional streaming platforms.</div>
+        <div class="match">CONSTRUCTOR MATCH: automotive, tech, apparel, beverage</div>
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top: 16px;">
+      <div class="k">Europe swing profile</div>
+      <p style="margin: 0;">
+        5 stops across five EU-5 markets (UK, Spain, France, Italy, Germany). Languages covered: English, Spanish, French, Italian, German &mdash; the five highest-value European sports-media languages. Aggregate Q2 media reach exceeds 350M households including the global English-language feed originating from London.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — SWING 3 ASIA-PACIFIC: SINGAPORE + TOKYO + SYDNEY -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">07 · Swing 3 · Asia-Pacific</div>
+    <div class="page-num">PAGE 08</div>
+  </div>
+  <div class="deck-body">
+    <div class="swing-hero green">
+      <div class="eye">Q3 2027 · AUGUST-OCTOBER</div>
+      <h3>SWING 3 &mdash; ASIA-PACIFIC</h3>
+      <div class="meta">Grand Slam anchor: SINGAPORE · Secondary: TOKYO, SYDNEY, HONG KONG, SEOUL</div>
+    </div>
+
+    <div class="city-detail gs">
+      <div class="head">
+        <div class="name">Singapore</div>
+        <div class="badge">GRAND SLAM · SWING 3</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why Singapore</div>
+          <div class="v">Asia-Pacific financial + media hub. Singapore Sports Hub purpose-built for international-league play. Government sports-subsidy program and Tourism Board alignment. Time-zone bridge for APAC + MENA broadcast scheduling.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">Singapore Indoor Stadium.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">Mediacorp, beIN Sports Asia. Global English feed via Sky distribution.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Airline (Singapore Airlines), finance (DBS, UBS), tech.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="city-detail">
+      <div class="head">
+        <div class="name">Tokyo, Japan</div>
+        <div class="badge std">STANDARD STOP</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why Tokyo</div>
+          <div class="v">Pickleball is the #1 YoY-growth urban-participation sport in Japan (2024-2026). Olympic venue inventory from Tokyo 2020. Unique cultural crossover with the soft-racket heritage &mdash; tennis, badminton, table-tennis institutional memory.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">Ariake Arena (Tokyo 2020 legacy).</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">DAZN Japan, NHK Sports, TV Tokyo.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Apparel (ASICS, Mizuno), tech (Sony), beverage (Asahi, Suntory).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="city-detail">
+      <div class="head">
+        <div class="name">Sydney, Australia</div>
+        <div class="badge std">STANDARD STOP</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why Sydney</div>
+          <div class="v">English-speaking APAC anchor. Summer-flipped calendar opens a Q3 AU-summer date (southern hemisphere). Established racquet-sport culture &mdash; tennis, squash. Media reach into New Zealand and Pacific island broadcasters.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">Qudos Bank Arena.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">Fox Sports Australia, Stan Sport. ATP / WTA comp analog.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Airline (Qantas), finance (ANZ), apparel.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 9 — SWING 3 SECONDARY STOPS -->
+<section class="deck-page">
+  <div class="deck-header">
+    <div class="page-label">08 · Swing 3 · Secondary Stops</div>
+    <div class="page-num">PAGE 09</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow">ASIA-PACIFIC · REGIONAL SECONDARY</div>
+    <h2 class="deck-title">Hong Kong and Seoul complete the Asia-Pacific swing.</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="mini-city">
+        <div class="name">Hong Kong</div>
+        <div class="why">Financial + media gateway between mainland China and international capital markets. Philip Mok (HKTA president 2015-23, ITF elected) sits on the Ramsports board &mdash; direct institutional infrastructure for venue and regulatory coordination. Venue: AsiaWorld-Arena or Kai Tak Sports Park. Dense per-capita sports-hospitality spend.</div>
+        <div class="match">CONSTRUCTOR MATCH: finance, airline (Cathay Pacific), luxury apparel</div>
+      </div>
+      <div class="mini-city">
+        <div class="name">Seoul, South Korea</div>
+        <div class="why">Largest K-content media consumption hub in APAC. Aggressive e-sport &amp; participation-sport consumer base. Government-level sport-hosting subsidies via the Seoul Metropolitan Sports Council. Venue: KSPO Dome. Direct pipeline into global K-content docuseries distribution.</div>
+        <div class="match">CONSTRUCTOR MATCH: tech (Samsung), apparel, beverage, automotive (Hyundai)</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 16px;">
+      <div class="k">Asia-Pacific swing profile</div>
+      <p style="margin: 0;">
+        5 stops across Singapore, Japan, Australia, Hong Kong, South Korea. Covers 4 distinct sports-media ecosystems: English-language international feed (Singapore / Sydney), Japanese-language (Tokyo), Chinese-language (Hong Kong), Korean-language (Seoul). Ramsports CEO Richard Gossett and President Alex Yuen both have &gt;20-year Asia sports-development track records &mdash; operational gravity is already on the ground.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 10 — SWING 4 MENA: DUBAI + RIYADH -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">09 · Swing 4 · MENA</div>
+    <div class="page-num">PAGE 10</div>
+  </div>
+  <div class="deck-body">
+    <div class="swing-hero gold">
+      <div class="eye">Q4 2027 · NOVEMBER-JANUARY</div>
+      <h3>SWING 4 &mdash; MENA · TOUR CHAMPIONSHIP</h3>
+      <div class="meta">Grand Slam anchor: DUBAI (doubles as Tour Championship) · Secondary: RIYADH, ISTANBUL, DOHA, CAIRO</div>
+    </div>
+
+    <div class="city-detail gs">
+      <div class="head">
+        <div class="name">Dubai, UAE</div>
+        <div class="badge">GRAND SLAM · TOUR CHAMPIONSHIP</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why Dubai</div>
+          <div class="v">Sports-hosting capital of MENA. Government sports investment via the Dubai Sports Council. Emirates as a title-sponsor-candidate for the Championship itself. Tourism + hospitality multiplier: Dubai routinely hosts tennis (ATP/WTA), golf, cricket Grand Slams &mdash; the infrastructure is ready. Tax-friendly jurisdiction critical for player retention across the Tour Championship.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">Coca-Cola Arena (17k) or Hamdan Sports Complex.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">Abu Dhabi Sports, beIN Sports MENA, DAZN MENA.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Airline (Emirates, Qatar, Etihad), finance (Mubadala, ADQ), apparel.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="city-detail">
+      <div class="head">
+        <div class="name">Riyadh, Saudi Arabia</div>
+        <div class="badge std">STANDARD STOP</div>
+      </div>
+      <div class="grid">
+        <div class="cell">
+          <div class="k">Why Riyadh</div>
+          <div class="v">PIF and Vision 2030 sports-hosting initiative is the largest sovereign sports-investment program in the world. LIV Golf, F1 season opener, WWE, ATP Next Gen all now Riyadh-anchored. Purpose-built venue inventory. Direct pathway to sovereign-capital title-sponsor tier.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Venue</div>
+          <div class="v">Kingdom Arena or Green Halls venue complex.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Media</div>
+          <div class="v">SSC (Saudi Sports Company), beIN Sports MENA.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Constructor match</div>
+          <div class="v">Sovereign-backed MENA brand, airline (Saudia, Riyadh Air), tech.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 11 — SWING 4 SECONDARY STOPS -->
+<section class="deck-page tint-gold">
+  <div class="deck-header">
+    <div class="page-label">10 · Swing 4 · Secondary Stops</div>
+    <div class="page-num">PAGE 11</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow gold">MENA · REGIONAL SECONDARY</div>
+    <h2 class="deck-title">Istanbul, Doha, Cairo close the season before the Dubai Tour Championship.</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="mini-city">
+        <div class="name">Istanbul, Turkey</div>
+        <div class="why">Europe-MENA bridge market. Large racquet-sport culture &mdash; tennis + table tennis institutional depth. Turkish Airlines as regional hub sponsor candidate. Venue: Ülker Sports Arena. Opens Turkish-language broadcast feed and bridges European + Middle-Eastern audiences on the same night.</div>
+        <div class="match">CONSTRUCTOR MATCH: airline (Turkish Airlines), apparel, beverage, finance</div>
+      </div>
+      <div class="mini-city">
+        <div class="name">Doha, Qatar</div>
+        <div class="why">Qatar Sports Investments (QSI) already owns PSG and the Miami Open &mdash; obvious MENA anchor relationship. World-class venue inventory post-2022 FIFA World Cup. Venue: Lusail Sports Arena or Khalifa International. Direct pathway to QSI as title-sponsor or co-anchor relationship.</div>
+        <div class="match">CONSTRUCTOR MATCH: airline (Qatar Airways), finance, sovereign-backed brand</div>
+      </div>
+      <div class="mini-city">
+        <div class="name">Cairo, Egypt</div>
+        <div class="why">Largest Arabic-language media market in Africa. Emerging pickleball base tracking MENA curve. Cairo Stadium complex. Opens the North African media footprint and adds a $3-5M-per-event gate + hospitality market at Y1 pricing well below Dubai / Doha.</div>
+        <div class="match">CONSTRUCTOR MATCH: airline (EgyptAir), beverage, apparel, regional finance</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 16px;">
+      <div class="k">MENA swing profile</div>
+      <p style="margin: 0;">
+        5 stops across UAE, Saudi Arabia, Turkey, Qatar, Egypt. Season-closing swing anchored by the Dubai Grand Slam / Tour Championship. Aggregate MENA sovereign-capital inventory (PIF, Mubadala, ADQ, QSI) represents the deepest single-region sponsor tier on the calendar. Tax-friendly player jurisdiction. Winter-climate calendar positioning.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 12 — PHASE-2 + FESTIVAL ANATOMY -->
+<section class="deck-page tint-cyan">
+  <div class="deck-header">
+    <div class="page-label">11 · Phase-2 Expansion &amp; Festival Anatomy</div>
+    <div class="page-num">PAGE 12</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">YEAR-2 PHASE-2 CANDIDATES · + FESTIVAL-WEEKEND SHAPE</div>
+    <h2 class="deck-title">Where the league grows next. And how each stop runs.</h2>
+
+    <h4 style="margin: 8px 0 10px; font-family: 'Outfit', sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Phase-2 candidate cities (Year 2)</h4>
+
+    <div class="phase2">
+      <div class="region">
+        <div class="h">Americas</div>
+        <ul>
+          <li>Toronto</li>
+          <li>S&atilde;o Paulo</li>
+          <li>Buenos Aires</li>
+          <li>Rio de Janeiro</li>
+        </ul>
+      </div>
+      <div class="region">
+        <div class="h">Europe</div>
+        <ul>
+          <li>Amsterdam</li>
+          <li>Zurich</li>
+          <li>Stockholm</li>
+          <li>Warsaw</li>
+          <li>Barcelona</li>
+        </ul>
+      </div>
+      <div class="region">
+        <div class="h">Asia</div>
+        <ul>
+          <li>Shanghai</li>
+          <li>Mumbai</li>
+          <li>Bangkok</li>
+          <li>Bali</li>
+          <li>Manila</li>
+        </ul>
+      </div>
+      <div class="region">
+        <div class="h">MENA / Africa</div>
+        <ul>
+          <li>Abu Dhabi</li>
+          <li>Tel Aviv</li>
+          <li>Johannesburg</li>
+          <li>Lagos</li>
+          <li>Cape Town</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4 style="margin: 28px 0 10px; font-family: 'Outfit', sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);">Festival-weekend anatomy · 5 days per stop</h4>
+
+    <table class="festival">
+      <thead>
+        <tr><th>DAY</th><th>ACTIVITY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="day">Thursday</td><td>Load-in. Celebrity / pro-am invitational. Fan-access practice sessions.</td></tr>
+        <tr><td class="day">Friday</td><td>Celebrity doubles (fundraiser). Opening concert. Qualifying brackets.</td></tr>
+        <tr><td class="day">Saturday</td><td>Singles + doubles semis. Music headliner night. Hospitality peak.</td></tr>
+        <tr><td class="day">Sunday</td><td>Finals day. Trophy presentation. Constructor brand showcases.</td></tr>
+        <tr><td class="day">Monday</td><td>Tear-down. Press cycle. Highlight-package drop for streaming.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout cyan" style="margin-top: 8px;">
+      <div class="k">Target per-stop scale</div>
+      <p style="margin: 0;">
+        4-5k ticketed weekend attendance &middot; $1-2M gate + hospitality per stop &middot; 200-400M media impressions (live + highlight + docuseries residual) &middot; 3-4 Constructor brand activations per stop. Year-2 calendar can expand to 24-26 stops without adding weeks by doubling selected swings &mdash; no roster, format, or travel-load changes required.
+      </p>
+    </div>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · Target Market Recommendation</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+</body>
+</html>
