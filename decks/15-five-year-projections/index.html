@@ -44,6 +44,22 @@
   .ratio .k { font-family: 'Outfit',sans-serif; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); margin-bottom: 6px; }
   .ratio .v { font-family: 'Outfit',sans-serif; font-weight: 800; font-size: 1.4rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .ratio .n { font-size: .8rem; color: var(--mute); margin-top: 4px; }
+  .src { color: var(--cyan); font-family: var(--mono); font-size: .74em; font-weight: 600; white-space: nowrap; }
+  .source-table td:first-child { color: var(--cyan); font-family: var(--mono); font-weight: 700; white-space: nowrap; }
+  .source-table td { vertical-align: top; font-size: .82rem; line-height: 1.42; }
+  .source-table a { color: var(--ink); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--cyan) 45%, transparent); }
+  .proof-list { margin: 16px 0 0; padding-left: 20px; color: var(--mute); font-size: .9rem; line-height: 1.55; }
+  .proof-list strong { color: var(--ink); }
+  .source-page { padding: 52px 60px 46px; }
+  .source-page .deck-header { margin-bottom: 26px; padding-bottom: 18px; }
+  .source-page .deck-body { gap: 12px; }
+  .source-page .deck-title { font-size: clamp(1.85rem, 3vw, 2.45rem); max-width: 28ch; margin-bottom: 6px; }
+  .source-page .deck-subtitle { font-size: .93rem; max-width: 88ch; margin-bottom: 8px; line-height: 1.42; }
+  .source-page .source-table { font-size: .68rem; }
+  .source-page .source-table th,
+  .source-page .source-table td { padding: 7px 9px; }
+  .source-page .source-table td { font-size: .68rem; line-height: 1.24; }
+  .source-page .proof-list { margin-top: 8px; font-size: .72rem; line-height: 1.32; }
   @media (max-width: 900px) {
     .scenarios, .ratio-grid { grid-template-columns: 1fr; }
     .captable { grid-template-columns: 1fr; height: auto; }
@@ -65,7 +81,7 @@
   </div>
   <div class="cover-hero">
     <h1 class="grad-text">The pro forma — both sides of the table.</h1>
-    <p class="lede">Anchor investor takes 80% of the league for $50M. Ramsports takes 20% equity + 2% of revenue. 8 Constructors pay $10M each as one-time franchise fees and run their teams on ~$4M/yr. This is what each party realistically makes over 5 years — hard revenue plus media value.</p>
+    <p class="lede">Anchor investor takes 80% of the league for $50M. Ramsports takes 20% equity + 2% of revenue. 8 Constructors pay $10M each as one-time franchise fees and run their teams on ~$4M/yr. This version ties the forecast to public sports-market comps and separates cash revenue from media value.</p>
     <div class="row" style="gap: 14px;">
       <div class="chip cyan"><span class="mono">ANCHOR 80% ON $50M</span></div>
       <div class="chip violet"><span class="mono">RAMSPORTS 20% + 2%</span></div>
@@ -74,7 +90,7 @@
   </div>
   <div class="cover-meta">
     <div class="item"><div class="k">METHOD</div><div class="v">Cap-table direct + bottom-up P&amp;L</div></div>
-    <div class="item"><div class="k">POSTURE</div><div class="v">Conservative base · pitch-deck numbers haircut ~15%</div></div>
+    <div class="item"><div class="k">POSTURE</div><div class="v">Public-comp backed · proof gates explicit</div></div>
     <div class="item"><div class="k">STATUS</div><div class="v">CONFIDENTIAL</div></div>
   </div>
 </section>
@@ -114,7 +130,7 @@
 
     <div class="callout" style="margin-top: 22px;">
       <div class="k">Valuation arithmetic — reconciling the $250M+ implied</div>
-      <p style="margin: 0;">$50M for 80% implies entry post-money of <strong>$62.5M at Concorde signing</strong>. The "$250M+ implied valuation" in the pitch materials is the <strong>milestone-close step-up</strong> — once 8 Constructor brands have committed $80M and the commercial-rights entity is activated, institutional comparables (LIV Golf commercial rights, TGL entity valuation, MLP equity) support a $250M+ mark on the same equity. Anchor's $50M is paper-valued at $200M at milestone close — a <strong>4&times; paper mark</strong> inside the first 90 days, before a single event runs.</p>
+      <p style="margin: 0;">$50M for 80% implies entry post-money of <strong>$62.5M at Concorde signing</strong>. The "$250M+ implied valuation" in the pitch materials is the <strong>milestone-close step-up</strong> — once 8 Constructor brands have committed $80M and the commercial-rights entity is activated. PGA TOUR Enterprises, Formula 1, TGL, LIV, and MLP comps support the structure, but not automatic execution <span class="src">[S1-S10]</span>. Anchor's $50M is paper-valued at $200M at milestone close — a <strong>4&times; paper mark</strong> only if the 8-Constructor proof gate is actually hit.</p>
     </div>
   </div>
   <div class="deck-footer">
@@ -131,17 +147,17 @@
   </div>
   <div class="deck-body">
     <div class="eyebrow cyan">LEAGUE-LEVEL HARD REVENUE · Y1-Y5</div>
-    <h2 class="deck-title">$72M Y1 → $190M Y5.</h2>
-    <p class="deck-subtitle">League collects media rights, global sponsorship, event gate + hospitality, licensing + merchandise royalties, and docuseries rights. Constructors pay their franchise fee Y0 then run their own team economics (next page).</p>
+    <h2 class="deck-title">$69M Y1 → $190M Y5.</h2>
+    <p class="deck-subtitle">League collects media rights, global sponsorship, event gate + hospitality, licensing + merchandise royalties, and docuseries rights. The numbers below are forecast targets source-ranged against public comps; unsigned P1 packages remain proof gates.</p>
 
     <table class="data">
       <thead>
         <tr><th>League revenue line</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y4</th><th class="num">Y5</th></tr>
       </thead>
       <tbody>
-        <tr><td>Media rights (contracted)</td><td class="num">$22M</td><td class="num">$34M</td><td class="num">$48M</td><td class="num">$62M</td><td class="num">$76M</td></tr>
-        <tr><td>Global sponsorship (title + category)</td><td class="num">$20M</td><td class="num">$26M</td><td class="num">$32M</td><td class="num">$38M</td><td class="num">$44M</td></tr>
-        <tr><td>Event revenue (gate + hospitality + F&amp;B share)</td><td class="num">$16M</td><td class="num">$19M</td><td class="num">$22M</td><td class="num">$26M</td><td class="num">$30M</td></tr>
+        <tr><td>Media rights target <span class="src">[S3,S4,S8,S10]</span></td><td class="num">$22M</td><td class="num">$34M</td><td class="num">$48M</td><td class="num">$62M</td><td class="num">$76M</td></tr>
+        <tr><td>Global sponsorship target <span class="src">[S5,S6,S8]</span></td><td class="num">$20M</td><td class="num">$26M</td><td class="num">$32M</td><td class="num">$38M</td><td class="num">$44M</td></tr>
+        <tr><td>Event revenue (gate + hospitality + F&amp;B share) <span class="src">[S3,S5]</span></td><td class="num">$16M</td><td class="num">$19M</td><td class="num">$22M</td><td class="num">$26M</td><td class="num">$30M</td></tr>
         <tr><td>League licensing + merchandise royalties</td><td class="num">$8M</td><td class="num">$11M</td><td class="num">$14M</td><td class="num">$17M</td><td class="num">$20M</td></tr>
         <tr><td>Docuseries + long-form content rights</td><td class="num">$3M</td><td class="num">$6M</td><td class="num">$10M</td><td class="num">$15M</td><td class="num">$20M</td></tr>
         <tr><td>Constructor franchise fees (Y0 only: $80M)</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td></tr>
@@ -165,7 +181,7 @@
       </tbody>
     </table>
 
-    <p class="muted" style="margin-top: 14px; font-size: .88rem;"><strong>Note on cash position.</strong> $80M Constructor franchise capital + $50M anchor = $130M cash at close. Covers the Y1 -$7M EBITDA and Y2 venue deposits with room. Y3 onward self-funding.</p>
+    <p class="muted" style="margin-top: 14px; font-size: .88rem;"><strong>Source discipline.</strong> These are not claimed signed P1 contracts. LIV's public non-U.S. 2024 filing-derived numbers show almost $65M in contract revenue but only about $2.7M in broadcast-rights revenue; MLP/UPA had not yet announced a full forward-looking media deal for 2026. P1's $22M Y1 media line requires a named launch package before external circulation.</p>
   </div>
   <div class="deck-footer">
     <span>P1 World Tour · 5-Year Projections</span>
@@ -182,7 +198,7 @@
   <div class="deck-body">
     <div class="eyebrow violet">THE NON-CASH CURRENCY SPONSORS AND CONSTRUCTORS MEASURE ROI IN</div>
     <h2 class="deck-title">$32M Y1 → $170M Y5 in earned media value.</h2>
-    <p class="deck-subtitle">Theoretical value of impressions across live broadcast + docuseries + social at blended category CPMs. Not league revenue — but the halo that justifies Constructor and sponsor commitments.</p>
+    <p class="deck-subtitle">Theoretical value of impressions across live broadcast + docuseries + social at blended category CPMs. Not league revenue — a sponsor-media-value framework that has to be measured by an accepted attribution provider <span class="src">[S11,S12]</span>.</p>
 
     <table class="data">
       <thead>
@@ -200,7 +216,7 @@
 
     <div class="callout violet" style="margin-top: 22px;">
       <div class="k">How this splits across parties</div>
-      <p style="margin: 0;">Of the ~8.4B Y5 impressions, roughly 45% are attributable to Constructor-branded surfaces (team kit on broadcast, team socials, team arc in docuseries) — ~3.8B divided across 8 Constructors = ~475M per seat. At blended $15 CPM that's <strong>~$7M/yr per Constructor in attributed media value at Y5</strong>, on top of their hard revenue. The other 55% is league-level property + player-personality + neutral-branded surfaces.</p>
+      <p style="margin: 0;">Of the ~8.4B Y5 impressions, roughly 45% are attributable to Constructor-branded surfaces (team kit on broadcast, team socials, team arc in docuseries) — ~3.8B divided across 8 Constructors = ~475M per seat. At blended $15 CPM that's <strong>~$7M/yr per Constructor in attributed media value at Y5</strong>. This is finance-usable only if a third-party measurement methodology is accepted at franchise signing.</p>
     </div>
   </div>
   <div class="deck-footer">
@@ -435,13 +451,13 @@
         <div class="prob">Probability: 25%</div>
         <div class="val">8.0×</div>
         <div class="irr">Cultural breakout, tier-1 seat</div>
-        <div class="note">F1-analog: Y5 franchise re-auction at $35-50M premium (Cadillac / Andretti F1 comps). Media halo 40% above base. Brand scores top-10 brand-lift rankings.</div>
+        <div class="note">Scarcity breakout: Y5 franchise re-auction at $35-50M premium. This is below mature F1 entry pricing, but above current MLP comps; it requires a media-rights breakout and category-leading brand demand <span class="src">[S10,S13]</span>.</div>
       </div>
     </div>
 
     <div class="callout gold" style="margin-top: 20px;">
       <div class="k">Probability-weighted Constructor expected return</div>
-      <p style="margin: 0;">(15% × 1.5×) + (60% × 4.5×) + (25% × 8.0×) = <strong>4.93× weighted</strong> over 5 years on a $10M franchise fee. Compare to: traditional sports sponsorship at ~1.5-2× measured ROI, category-exclusive media buys at ~1.2-1.8×. P1 Constructor is structurally superior to equivalent-budget sponsorship alternatives.</p>
+      <p style="margin: 0;">(15% × 1.5×) + (60% × 4.5×) + (25% × 8.0×) = <strong>4.93× weighted</strong> over 5 years on a $10M franchise fee. Current MLP comps support the base resale value better than the bull case; the upside case needs TGL-style partner depth plus F1-style scarcity dynamics <span class="src">[S6,S10,S13]</span>.</p>
     </div>
   </div>
   <div class="deck-footer">
@@ -484,7 +500,7 @@
       <div class="card accent-gold">
         <div class="eyebrow gold">CONSTRUCTOR EXPOSURE</div>
         <h4 style="margin: 10px 0;">Media halo measurability is the risk</h4>
-        <p class="muted" style="margin: 0; font-size: .92rem;">If the Constructor's brand-lift measurement firm cannot attribute impressions cleanly to P1-branded surfaces, the $22M cumulative media halo becomes unrecognized by internal marketing finance. Pre-negotiate attribution methodology at franchise signing.</p>
+        <p class="muted" style="margin: 0; font-size: .92rem;">If the Constructor's brand-lift measurement firm cannot attribute impressions cleanly to P1-branded surfaces, the $22M cumulative media halo becomes unrecognized by internal marketing finance. Pre-negotiate attribution methodology at franchise signing <span class="src">[S11,S12]</span>.</p>
       </div>
     </div>
   </div>
@@ -532,7 +548,46 @@
   </div>
 </section>
 
-<!-- PAGE 12 — BOTTOM LINE -->
+<!-- PAGE 12 — SOURCE MATRIX -->
+<section class="deck-page tint-cyan source-page" id="source-matrix">
+  <div class="deck-header">
+    <div class="page-label">11 · Public Source Matrix</div>
+    <div class="page-num">PAGE 12</div>
+  </div>
+  <div class="deck-body">
+    <div class="eyebrow cyan">WHAT THE MARKET ACTUALLY SUPPORTS</div>
+    <h2 class="deck-title">The model is comp-backed. It is not contract-backed yet.</h2>
+    <p class="deck-subtitle">The public comps support the architecture and valuation range. They do not replace P1-specific signed media, sponsorship, Constructor, venue, or docuseries agreements.</p>
+
+    <table class="data source-table">
+      <thead>
+        <tr><th>ID</th><th>Public receipt</th><th>How it constrains Deck 15</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>S1-S2</td><td><a href="https://pgatourmedia.pgatourhq.com/static-assets/page/files/pressreleases/2024/03/PGATOURSSGpartnershipannouncement.pdf">PGA TOUR Enterprises / SSG</a> plus reported $12.9B valuation.</td><td>Validates commercial-rights entity + outside strategic capital. P1's $1.10B Y5 base is far below PGA scale but still requires execution proof.</td></tr>
+        <tr><td>S3</td><td><a href="https://www.libertymedia.com/investors/financial-information/sec-filings/content/0001560385-26-000006/0001560385-26-000006.pdf">Formula 1 2025 financials</a>: USD 3.873B revenue and USD 946M Adjusted OIBDA.</td><td>Mature global-league ceiling for diversified media, sponsorship, race/event, hospitality, licensing, and team economics.</td></tr>
+        <tr><td>S4-S7</td><td><a href="https://espnpressroom.com/us/press-releases/2023/10/espn-acquires-tgl-u-s-media-rights-tgl-presented-by-sofi-to-be-seen-exclusively-on-espn-platforms/">TGL ESPN rights</a>, SoFi naming/presenting deal, partner stack, and 919K debut audience.</td><td>Supports the possibility of a new golf-adjacent league winning distribution and sponsors before full maturity. Rights fees were not publicly disclosed.</td></tr>
+        <tr><td>S8</td><td><a href="https://www.sportsbusinessjournal.com/Articles/2025/10/03/inside-liv-golfs-2024-non-us-financials/">LIV 2024 non-U.S. financials</a>: almost $65M contract revenue, about $17M sponsorship, broadcast and merch near $2.7M each.</td><td>Disciplines the media line. P1's $22M Y1 media target is not proven by current public LIV broadcast data.</td></tr>
+        <tr><td>S9-S10</td><td><a href="https://pickleball.com/news/major-league-pickleball-announces-expansion-for-2026-with-formation-of-palm-beach-royals">MLP Palm Beach Royals</a> record-high expansion valuation; later reported at $16M.</td><td>Supports the $17.5M Y5 Constructor resale base. Bull resale needs a P1 media breakout, not ordinary MLP trajectory.</td></tr>
+        <tr><td>S11-S12</td><td><a href="https://insights.relometrics.com/2024-annual-report-us-sports-scoreboard">Relo sponsor-media-value scoreboard</a> and <a href="https://www.nielsen.com/insights/2022/sports-sponsorships-are-raising-more-than-just-brand-awareness/">Nielsen sponsorship lift analysis</a>.</td><td>Supports media-value methodology. P1 must pre-negotiate third-party attribution for Constructor finance teams to recognize the halo.</td></tr>
+        <tr><td>S13</td><td><a href="https://www.newsweek.com/sports/racing/cadillac-reportedly-spent-450-million-bold-push-formula-one-spot-2044871">Cadillac reported $450M F1 anti-dilution fee</a>.</td><td>Mature scarcity comp. Useful for directionality only; P1 bull resale is deliberately far below F1 entry economics.</td></tr>
+      </tbody>
+    </table>
+
+    <ol class="proof-list">
+      <li><strong>Media proof gate:</strong> name buyer, term, territory, guarantee, and rights inventory before calling $22M Y1 contracted.</li>
+      <li><strong>Sponsor proof gate:</strong> close title/presenting and category partners, not only Constructor brands.</li>
+      <li><strong>Constructor proof gate:</strong> validate each brand can absorb $10M franchise + ~$4M/year team ops and measure media halo.</li>
+      <li><strong>Valuation proof gate:</strong> treat $1.10B Y5 EV as venture-base forecast until audited revenue and renewals exist.</li>
+    </ol>
+  </div>
+  <div class="deck-footer">
+    <span>P1 World Tour · 5-Year Projections</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- PAGE 13 — BOTTOM LINE -->
 <section class="deck-page cover">
   <div>
     <a class="brand" href="../../index.html">
@@ -564,7 +619,7 @@
     </div>
   </div>
   <div class="cover-meta">
-    <div class="item"><div class="k">DOCUMENT</div><div class="v">5-Year Projections · v2 (corrected cap table)</div></div>
+    <div class="item"><div class="k">DOCUMENT</div><div class="v">5-Year Projections · v3 (public-comp sourced)</div></div>
     <div class="item"><div class="k">BASIS</div><div class="v">80% anchor / 20% Ramsports; $10M franchise + $4M/yr Constructor opex</div></div>
     <div class="item"><div class="k">STATUS</div><div class="v">CONFIDENTIAL</div></div>
   </div>

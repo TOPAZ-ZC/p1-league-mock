@@ -1,7 +1,29 @@
-# P1 League — Session 200 Resume File
-**Updated:** 2026-04-23T17:10:00-05:00 (post-ship)
-**Previous session:** P1 League IPG-SoW fulfillment — 14 decks SHIPPED + Deck 15 (5-Year Projections) shipped + rebuilt once per SLOTH cap-table correction.
-**Status:** LIVE at https://topaz-zc.github.io/p1-league-mock/. All 15 decks + hub 200. Deck 15 needs ONE MORE REBUILD with real-market comps.
+# P1 League — Wrap File
+**Updated:** 2026-04-24
+**Status:** LIVE at https://topaz-zc.github.io/p1-league-mock/. All 15 decks + hub route 200. Deck 15 v3 now includes a public market-comp source layer and `_synthesis/market-comps.md`.
+
+## CLOSED IN SESSION 201
+
+- Numeric congruence blocker closed before this wrap: commit `e190ed5` propagated Deck 15 v2 numbers across hub/decks/synthesis.
+- Deck 15 source blocker closed in this wrap: added `_synthesis/market-comps.md`, source IDs S1-S13, proof gates, and a new source-matrix page in `decks/15-five-year-projections/index.html`.
+- Fixed Deck 15 visible mismatch: page 3 headline now says `$69M Y1 -> $190M Y5`, matching the table.
+- Public comp posture is honest: the model is comp-backed, not contract-backed; media/sponsorship/Constructor proof gates are explicit.
+
+## REMAINING BEFORE PRESIDENT SEND
+
+1. Export or print Deck 15 v3 to PDF with the source matrix included.
+2. Take fresh visual screenshots of live hub, master pitch, and Deck 15 v3 after GH Pages updates.
+3. If the President packet is sent as a single URL, lead with the hub but call out that Deck 15 contains source notes and proof gates.
+
+## SOURCE FILES
+
+- `_synthesis/market-comps.md`
+- `_synthesis/financial-model.md`
+- `decks/15-five-year-projections/index.html`
+
+---
+
+# Historical Session 200 Resume File
 
 ## CRITICAL FIRST MOVES FOR NEXT SESSION (2 concurrent tracks)
 

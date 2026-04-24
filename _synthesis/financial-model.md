@@ -2,16 +2,28 @@
 
 **Every financial claim in every deck pulls from this file. No deck invents its own math.**
 
-*Version: Deck-15 v2 reconciled (2026-04-23). Supersedes all prior Steve-pitch-deck numbers ($96M→$210M ramp). Figures below are the realistic-haircut pro forma now propagated across every deck.*
+*Version: Deck-15 v3 sourced (2026-04-24). Supersedes all prior Steve-pitch-deck numbers ($96M→$210M ramp). Figures below are the realistic-haircut pro forma now propagated across every deck and source-ranged in `_synthesis/market-comps.md`.*
 
 ---
+
+## 0. Source discipline
+
+Deck 15 is now comp-backed, not contract-backed. Public comps support the architecture and ranges:
+
+- PGA TOUR Enterprises validates the commercial-rights entity and outside strategic-capital structure.
+- Formula 1 validates the mature global-league ceiling for media, sponsorship, event, hospitality, licensing, and team economics.
+- TGL validates new-format distribution and sponsor packaging, but public rights fees are undisclosed.
+- LIV and MLP are the discipline comps: LIV's public 2024 non-U.S. numbers show the difficulty of converting audience into broadcast revenue, and current pro-pickleball has not yet proven a large forward-looking media-rights deal.
+- Relo/Nielsen support the sponsor-media-value measurement framework, not automatic cash recognition.
+
+See `_synthesis/market-comps.md` for source IDs, URLs, confidence bands, and proof gates. Any external PDF export should include that source appendix.
 
 ## 1. League-level revenue — Year 1 through Year 5
 
 | Line item | Y1 | Y2 | Y3 | Y4 | Y5 |
 |---|---:|---:|---:|---:|---:|
-| Media rights (contracted) | $22M | $34M | $48M | $62M | $76M |
-| Global sponsorship (title + category) | $20M | $26M | $32M | $38M | $44M |
+| Media rights target | $22M | $34M | $48M | $62M | $76M |
+| Global sponsorship target (title + category) | $20M | $26M | $32M | $38M | $44M |
 | Event revenue (gate + hospitality + F&B share) | $16M | $19M | $22M | $26M | $30M |
 | League licensing + merchandise royalties | $8M | $11M | $14M | $17M | $20M |
 | Docuseries + long-form content rights | $3M | $6M | $10M | $15M | $20M |
@@ -32,7 +44,7 @@ Note: Constructor franchise fees (8 × $10M = $80M) land Y0 as operating capital
 | **League EBITDA** | **($7M)** | **$11M** | **$32M** | **$57M** | **$81M** |
 | **EBITDA margin** | -10% | 11% | 25% | 36% | 43% |
 
-Enterprise value at milestone close $250M implied; base-case Y5 EV $1.10B (13.6× EBITDA / 5.8× revenue). IPO target 2029-30 at $1B+. Long-term 2035 goal $10B.
+Enterprise value at milestone close $250M implied; base-case Y5 EV $1.10B (13.6× EBITDA / 5.8× revenue). IPO target 2029-30 at $1B+. Long-term 2035 goal $10B. Treat the $1.10B Y5 EV as a venture-base forecast until signed media, sponsorship, Constructor renewals, and audited revenue exist.
 
 Cash bridge: $80M Constructor franchise fees + $50M anchor = $130M cash at close. Covers Y1 -$7M EBITDA + Y2 venue deposits with headroom. Y3 onward self-funding.
 
@@ -100,7 +112,7 @@ Cumulative Y1-Y5 operating cash inflow: ~$5.6M. Combined with -$10M franchise fe
 - **Base (60% prob):** 4.5× — hits the pro forma above; 28% blended IRR
 - **Bull (25% prob):** 8.0× — cultural breakout, F1-analog Y5 franchise re-auction at $35-50M premium (Cadillac / Andretti comps)
 
-**Probability-weighted expected Constructor MOIC: 4.93×.** Compare to: traditional sports sponsorship at ~1.5-2× measured ROI. P1 Constructor is structurally superior to equivalent-budget sponsorship alternatives.
+**Probability-weighted expected Constructor MOIC: 4.93×.** Current public MLP comps support the $17.5M base resale better than the $35M-$50M bull resale; the bull case requires a media-rights breakout and F1-style scarcity dynamics.
 
 Note: Media halo only ROI-measurable for brands already buying category-equivalent media at $10M+/yr. Target Constructor profile is large multi-national only (adidas, Red Bull, Coca-Cola, Emirates tier). Mid-market consumer brands do NOT clear the hurdle.
 
@@ -122,6 +134,8 @@ Anchor post-money at mechanical signing: $50M / 80% = $62.5M. Milestone-close im
 - **Y3-Y4 ($48M → $62M):** Unbundled live-event rights by geography. Multi-year deals replace spot buys.
 - **Y4-Y5 ($62M → $76M):** Category-defining media property. Rights renewals at 2.5-3× launch pricing.
 
+Proof gate: do not call Y1 media "contracted" externally until the buyer, territory, term, guaranteed fee, and rights inventory are named. LIV's public non-U.S. 2024 broadcast-rights revenue was much lower than this target, while TGL's ESPN relationship proves distribution but not a disclosed fee.
+
 ## 6. Sponsorship ramp — Y1 $20M → Y5 $44M
 
 | Tier | Slot count | Annual ceiling |
@@ -137,6 +151,8 @@ Target brand partners:
 - **Apparel / Footwear:** adidas, Skechers, New Balance, Lululemon
 - **Tech:** Apple TV+, Amazon Prime Video, YouTube (media+sponsor hybrid)
 - **Finance:** JPMorgan Private Bank, Morgan Stanley Wealth
+
+Proof gate: close title/presenting and category partners separately from Constructor brands. TGL's partner stack supports the packaging thesis; LIV's 2024 public sponsorship revenue is the nearest discipline comp for a new league.
 
 ## 7. Ramsports opex + economics
 
