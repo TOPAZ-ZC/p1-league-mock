@@ -59,7 +59,7 @@ Cash bridge: $80M Constructor franchise fees + $50M anchor = $130M cash at close
 | Y5 paper mark, moderate dilution | $550M (EV $1.10B @ 50% post-pre-IPO) |
 | Y5 paper mark, no dilution | $880M (holds 80% through IPO) |
 
-**Investor downside:** fully protected in escrow. If 8 Constructors not secured by July 1 2026, complete $50M refund. Zero loss.
+**Investor downside:** protected by escrow before deployment. If 8 Constructors are not secured by July 1 2026, the $50M is returned before league-capital deployment.
 
 **Bear / Base / Bull** (5-year MOIC on $50M):
 
@@ -178,6 +178,6 @@ Proof gate: close title/presenting and category partners separately from Constru
 
 1. **Escrow until milestone** — $50M never deployed until 8 Constructors signed + verified.
 2. **Milestone-triggered release** — capital only moves when the 8-brand milestone is independently verified. No milestone = no deployment.
-3. **Full return if missed** — if 8 brands not secured by July 1 2026, entire $50M returned. Zero loss. Zero penalty.
+3. **Full return if missed** — if 8 brands are not secured by July 1 2026, the entire $50M is returned from escrow before league-capital deployment.
 
 This structure reads as SPAC-like: governance built first, capital held in escrow, milestone-triggered conversion.

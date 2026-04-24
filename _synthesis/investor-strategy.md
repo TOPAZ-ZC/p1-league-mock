@@ -87,13 +87,13 @@ Q6. What's the total capital at launch?
 A. $130M. $50M anchor investor + 8 × $10M Constructor licenses.
 
 Q7. Why $10M per Constructor seat?
-A. Low enough that 8 global brands can commit without board escalation; high enough to create scarcity and commitment. Sub-$10M seats read as sponsorship, not franchise. F1 constructors pay $200M+ now; $10M is Year-1 institutional entry.
+A. Positioned so 8 global brands can evaluate the fee as a scarce league seat rather than a control acquisition; high enough to create scarcity and commitment. Sub-$10M seats read as sponsorship, not franchise. Mature Constructor-style comps price materially higher; $10M is Year-1 institutional entry.
 
 Q8. What does the investor get for $50M?
-A. Global commercial rights holder — media, sponsorship, broadcast, licensing. Anchor stake at $250M+ implied valuation. Tracking stock 2029-30. IPO target $1B+.
+A. 80% of the proposed commercial-rights company — media, sponsorship, broadcast, licensing. Anchor stake at $62.5M mechanical post-money, with a $250M+ milestone valuation case. Tracking-stock path 2029-30. IPO target case $1B+.
 
 Q9. What's the downside protection?
-A. Full $50M returned if 8 Constructors not secured by July 1 2026. Escrow structure. Zero loss. Zero penalty.
+A. Full $50M returned from escrow if 8 Constructors are not secured by July 1 2026. No league-capital deployment before the milestone.
 
 Q10. What's the exit path?
 A. Tracking-stock vehicle in 2029-30 (public float). IPO at $1B+ valuation. Long-term $10B by 2035. Secondary liquidity via private market pre-IPO.
@@ -132,7 +132,7 @@ Q19. Why pickleball and not padel?
 A. Pickleball has the stronger measured U.S. growth signal: SFIA counts 24.3M U.S. participants in 2025 and 171.8% growth from 2022-2025. Padel remains earlier in the U.S. Learning curve 2 minutes vs padel's 20. Infrastructure cost for a pickleball court is ~$8k vs $50k+ for padel.
 
 Q20. Why now and not 2028?
-A. The Bartlett window. 24.3M U.S. participants are already measured, the global model starts at 75M, and the 2032 scenario reaches 300M. Category-defining commercial rights will be priced off the Y1 base rate. Waiting 2 years = compete with RedBird/CVC/Liberty doing this deal at 3-4× today's implied valuation.
+A. The Bartlett window. 24.3M U.S. participants are already measured, the global model starts at 75M, and the 2032 scenario reaches 300M. Category-defining commercial rights are usually cheapest before proof is obvious. Waiting 2 years risks competing with RedBird/CVC/Liberty after the category has repriced.
 
 Q21. What's the LIV Golf comparable?
 A. LIV raised ~$3B+ on a similar category-vacuum thesis (PGA had a player-pay + format-innovation gap; LIV filled it). P1 has the same vacuum — PPA/UPA governance failure — and 10× the addressable-market runway. But P1 costs $130M not $3B, because Year 1 infrastructure doesn't require sovereign wealth scale.
@@ -212,7 +212,7 @@ VO: "Ramsports isn't a vision document. It's an operating business. Government r
 
 **Scene 6 — THE ASK (3:20-4:20)**
 Money in, money deployed animation. Escrow mechanics diagram. Concorde Agreement signing.
-VO: "Fifty million anchor. Into the global commercial rights holder. Two-hundred-fifty-million implied valuation. Escrow-protected until eight Constructors sign. Miss the milestone, get every dollar back. Hit it — you own the most valuable entity in the fastest-growing U.S. participation sport."
+VO: "Fifty million anchor. Into the proposed commercial-rights company. Two-hundred-fifty-million milestone valuation case. Escrow-protected until eight Constructors sign. Miss the milestone, capital comes back before deployment. Hit it — you own the platform built for the fastest-growing U.S. participation sport."
 
 **Scene 7 — LONG TERM (4:20-5:00)**
 IPO graphic. Dates flashing: 2026 Concorde. 2027 Season 1. 2029 Tracking Stock. 2035 $10B valuation.

@@ -32,7 +32,7 @@ Separation of regulation (Ramsports) from commercial rights (Investor) is the st
 
 **STEP 03 — FUNDING CLOSE** (July 1, 2026 — milestone)
 - If 8 brands hit: $130M total capital deployed. $250M+ implied valuation. First event: February 2027. Tracking-stock vehicle activated.
-- If 8 brands NOT hit: full $50M returned to investor. Zero loss, zero penalty, complete capital return.
+- If 8 brands NOT hit: full $50M returned to investor from escrow before league-capital deployment.
 
 **This is the investor-protection spine.** The $50M is never at market risk; it only converts to equity when the Constructor side of the cap table is proven.
 
