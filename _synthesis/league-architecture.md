@@ -1,6 +1,6 @@
 # P1 World Tour — League Architecture (canonical)
 
-**Every deck pulls from this file. Any change here propagates to all 14 deliverables.**
+**Every deck pulls from this file. Any change here propagates to all 15 deliverables.**
 **Source verification:** P1 Sideline Pitch REVISED (2026-04 ed.), P1 World Tour Deck v5, Assay→Sideline packet (`/packet/p1-starter-packet.html`), conversation-frozen 36-Q&A.
 
 ---
@@ -36,7 +36,7 @@ Separation of regulation (Ramsports) from commercial rights (Investor) is the st
 
 **This is the investor-protection spine.** The $50M is never at market risk; it only converts to equity when the Constructor side of the cap table is proven.
 
-## 3. Season format — 20 stops, 17 countries, 5 divisions
+## 3. Season format — 20 stops, 17 markets, 5 divisions
 
 - **20 events/yr** across Asia, Europe, Americas, Middle East
 - **Four quarterly "Swings"** — regional clusters culminating in a Grand Slam
@@ -77,7 +77,7 @@ Each Constructor fields:
 - **Richard Gossett** — CEO. Founder of 2 international companies, $300M revenue, deep Asia sports development.
 - **Alex Yuen** — President. 25 years in China. VP NBA BIG3 China 2022-24. 20 years sports promotion.
 - **Seymour Rifkind** — Board / Advisor. Founder World Pickleball Federation + IPTPA. Driving force for Olympic inclusion.
-- **Steve Kuhn** — Board / Advisor. Founder MLP (valued $300M). Founder DUPR global rating system. Key architect of the sport.
+- **Steve Kuhn** — Board / Advisor. Founder MLP. Founder DUPR global rating system. Key architect of the sport.
 - **Tenniel Chu** — Board / Advisor. Vice Chairman Mission Hills Group (world's largest golf resort developer in China).
 - **Philip Mok** — Board / Advisor. President HKTA 2015-23. Elected to ITF. Driving force behind Hong Kong Olympic Committee.
 
@@ -92,13 +92,13 @@ The incumbent (PPA/UPA/MLP) is broken on four axes. P1 is built from the opposit
 | **Governance conflict** — UPA replaced USA Pickleball as "independent" regulator while owned by PPA/MLP | Ramsports is a true independent body. Separation of regulation and commercial rights. |
 | **Player resentment** — delayed payments, one-sided contracts, minor-breach suspensions, culture of fear | Transparent governance. Athletes with real leverage. Credibility as competitive advantage. |
 | **Closed media** — fans banned from filming, creators capped at 2 min/day; repeating F1's pre-2017 mistake | Open-media model. Fans encouraged to film + share. Docuseries pipeline. Daily content quotas. Highlight syndication. |
-| **U.S. only** — no professional international pathways, governance, or media frameworks | Truly global. 20 events, 17 countries across Asia, Europe, Americas, MENA from Year 1. |
+| **U.S. only** — no professional international pathways, governance, or media frameworks | Truly global. 20 events, 17 markets across Asia, Europe, Americas, MENA from Year 1. |
 
 ## 8. The macro tailwinds (Sideline thesis alignment)
 
 | Sideline Pillar | P1 Answer |
 |---|---|
-| Offline Time Tailwind (hybrid work + AI flexibility freeing afternoons) | 75M players. Growing 50%+/yr. More paddles picked up as afternoons open. |
+| Offline Time Tailwind (hybrid work + AI flexibility freeing afternoons) | 24.3M measured U.S. participants; 75M global model base. More paddles picked up as afternoons open. |
 | Community Experiences (brands + experiences gathering people in real-world, participatory settings) | Festival-level event weekends. 4-day stops combining pro matches, music, food, celebrity play. |
 | Participation Sports (Athletic Brewing, Bandit Running, Urban Golf Performance thesis) | The participation flywheel: spectators become players; players buy from Constructors; Constructors fund the next event. |
 | Sports Infrastructure (Angel City FC, Miami HEAT — institutional-scale sport investment) | $50M anchor = global rights holder. Media, sponsorship, broadcast, licensing — the institutional layer. |

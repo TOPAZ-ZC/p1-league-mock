@@ -129,10 +129,10 @@ A. 4.9× probability-weighted MOIC on $10M franchise fee. Base case: $5.6M cumul
 **Market / Comparables**
 
 Q19. Why pickleball and not padel?
-A. Pickleball is growing 50%+/yr globally vs padel's 8-12%. US leadership position (75M of global 100M+ active players). Learning curve 2 minutes vs padel's 20. Infrastructure cost for a pickleball court is ~$8k vs $50k+ for padel.
+A. Pickleball has the stronger measured U.S. growth signal: SFIA counts 24.3M U.S. participants in 2025 and 171.8% growth from 2022-2025. Padel remains earlier in the U.S. Learning curve 2 minutes vs padel's 20. Infrastructure cost for a pickleball court is ~$8k vs $50k+ for padel.
 
 Q20. Why now and not 2028?
-A. The Bartlett exponential window. 75M → 300M active by 2032 — that 4× demand curve is compounding now. Category-defining commercial rights will be priced off the Y1 base rate. Waiting 2 years = compete with RedBird/CVC/Liberty doing this deal at 3-4× today's implied valuation.
+A. The Bartlett window. 24.3M U.S. participants are already measured, the global model starts at 75M, and the 2032 scenario reaches 300M. Category-defining commercial rights will be priced off the Y1 base rate. Waiting 2 years = compete with RedBird/CVC/Liberty doing this deal at 3-4× today's implied valuation.
 
 Q21. What's the LIV Golf comparable?
 A. LIV raised ~$3B+ on a similar category-vacuum thesis (PGA had a player-pay + format-innovation gap; LIV filled it). P1 has the same vacuum — PPA/UPA governance failure — and 10× the addressable-market runway. But P1 costs $130M not $3B, because Year 1 infrastructure doesn't require sovereign wealth scale.
@@ -192,19 +192,19 @@ A. Public tracking-stock float (2029-30 target). Anchor retains stake, secondary
 
 **Scene 1 — OPEN (0:00-0:20)**
 Aerial, sunrise over a packed stadium. Fan voices. Cut to pro player serving. Freeze on the serve.
-VO: "Seventy-five million people now play pickleball. By 2032, that's three hundred million. And there's no F1 for them."
+VO: "Twenty-four million U.S. players are already measured. The global model starts at seventy-five million and reaches three hundred million by 2032. And there's no F1 for them."
 
 **Scene 2 — THE VACUUM (0:20-0:50)**
 Split-screen: PPA logo fading / empty seats / delayed-paycheck headlines.
 VO: "The incumbent is broken. Governance conflict, player resentment, closed media, U.S.-only. The biggest sport of the next decade has no institutional home."
 
 **Scene 3 — WHAT WE'RE BUILDING (0:50-1:40)**
-Globe animation. 20 pins lighting up across 17 countries. Arena flyovers. Constructor logos.
-VO: "P1 World Tour. Twenty events. Seventeen countries. Eight Constructor brands. Fifty million-dollar player pool. Festival weekends. Open media. Governance locked before a dollar deploys."
+Globe animation. 20 pins lighting up across 17 markets. Arena flyovers. Constructor logos.
+VO: "P1 World Tour. Twenty events. Seventeen markets. Eight Constructor brands. Fifty million-dollar player pool. Festival weekends. Open media. Governance locked before a dollar deploys."
 
 **Scene 4 — THE PLAYBOOK (1:40-2:40)**
 F1 footage cross-cut with P1 concept footage. Liberty Media headline. Drive to Survive title card.
-VO: "The F1 playbook. An independent governing body. A commercial rights holder. Eight teams. We've run that playbook to twenty billion dollars. Now we run it again, in the fastest-growing sport on Earth."
+VO: "The F1 playbook. An independent governing body. A commercial rights holder. Eight teams. We've run that playbook to twenty billion dollars. Now we run it again, in the fastest-growing U.S. participation sport."
 
 **Scene 5 — RAMSPORTS (2:40-3:20)**
 Cut to Gossett, Yuen, Kuhn, Rifkind talking heads. Tournament infrastructure b-roll.
@@ -212,7 +212,7 @@ VO: "Ramsports isn't a vision document. It's an operating business. Government r
 
 **Scene 6 — THE ASK (3:20-4:20)**
 Money in, money deployed animation. Escrow mechanics diagram. Concorde Agreement signing.
-VO: "Fifty million anchor. Into the global commercial rights holder. Two-hundred-fifty-million implied valuation. Escrow-protected until eight Constructors sign. Miss the milestone, get every dollar back. Hit it — you own the most valuable entity in the fastest-growing sport on Earth."
+VO: "Fifty million anchor. Into the global commercial rights holder. Two-hundred-fifty-million implied valuation. Escrow-protected until eight Constructors sign. Miss the milestone, get every dollar back. Hit it — you own the most valuable entity in the fastest-growing U.S. participation sport."
 
 **Scene 7 — LONG TERM (4:20-5:00)**
 IPO graphic. Dates flashing: 2026 Concorde. 2027 Season 1. 2029 Tracking Stock. 2035 $10B valuation.

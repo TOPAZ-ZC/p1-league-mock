@@ -20,8 +20,19 @@
 | S11 | Relo Metrics 2024 U.S. Sports Scoreboard — https://insights.relometrics.com/2024-annual-report-us-sports-scoreboard | Relo reported $11B in sponsor media value across major U.S. leagues and 936B social impressions in 2024. | Supports sponsor-media-value methodology and the importance of social inventory. |
 | S12 | Nielsen Sports, 2022 — https://www.nielsen.com/insights/2022/sports-sponsorships-are-raising-more-than-just-brand-awareness/ | Nielsen found sponsorships drove an average 10% purchase-intent lift among exposed fanbases in a multi-market analysis. | Supports the need to convert media halo into measured brand lift; attribution methodology must be pre-negotiated. |
 | S13 | Newsweek, 2025-03-14 — https://www.newsweek.com/sports/racing/cadillac-reportedly-spent-450-million-bold-push-formula-one-spot-2044871 | Cadillac reportedly paid a $450M F1 anti-dilution fee to enter as the 11th team. | Mature scarcity comp for Constructor-seat upside; P1's $35M-$50M bull resale is far below F1 entry pricing. |
+| S14 | SFIA U.S. Pickleball Participation, 2026 — https://sfia.org/research/u-s-pickleball-participation/ | SFIA counts 24.3M U.S. pickleball participants in 2025, with 171.8% growth from 2022 to 2025. | Hard participation floor for the U.S. market; replaces unsupported 50%+ annual-growth phrasing. |
+| S15 | APP participation research, 2023 — https://www.theapp.global/news/nearly-50-million-adult-americans-have-played-pickleball | APP's broader YouGov methodology counted 48.3M U.S. adults who played at least once in the prior 12 months. | Shows the gap between strict SFIA participation and broad reach; supports using a model range instead of a single "active player" fact. |
+| S16 | World Pickleball League official site — https://www.wpbl.org/ | WPBL is an active India-based World Pickleball League property. | Naming diligence: P1 should avoid using "World Pickleball League" as its generic homepage descriptor. |
 
 ## Model Mapping
+
+### Participation base: 24.3M U.S. measured; 75M global model base; 300M 2032 scenario
+
+**Support:** SFIA's current U.S. participation count is the hard, defensible floor (S14). APP's broader "played once" methodology shows materially larger reach in the same U.S. market (S15). P1's 75M global base should therefore be described as a model base, not a verified active-player fact.
+
+**Constraint:** The 300M 2032 case is a scenario, not a sourced consensus forecast. The deck should not describe 50%+ annual global growth as a current measured fact.
+
+**Confidence:** High for the SFIA U.S. count; medium for broad U.S. reach; low-medium for global model base until a dedicated global participation study is sourced.
 
 ### League media rights: $22M Y1 -> $76M Y5
 

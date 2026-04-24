@@ -28,7 +28,7 @@
 ## CRITICAL FIRST MOVES FOR NEXT SESSION (2 concurrent tracks)
 
 ### TRACK A — Number congruence across all 15 decks (item #4 from SLOTH)
-Live hub hero is REBRANDED (P1 TOUR · World Pickleball League · no IPG framing). But
+Live hub hero is REBRANDED (P1 TOUR · Global Pickleball Tour · no IPG framing). But
 revenue tables + MOIC numbers across decks 10/11/12/13/14 + synthesis + deck 04 Q&A
 still use Steve's original pitch-deck numbers (`$96M → $210M` Y5, `$11-13.5M` Constructor Y5)
 while Deck 15 v2 uses TOPAZ-haircut numbers (`$69M → $190M` Y5, `$8.6M` Constructor Y5).
@@ -49,14 +49,13 @@ Exact patch points if option 1 chosen:
 - `decks/14-sponsorship-advisory/index.html` — ramp $24M→$46M needs to become $20M→$44M
 - `decks/04-supporting-slides/index.html` — Q7-Q18 Constructor economics Q&A answers
 
-### TRACK B — Real-market comps for Deck 15 (original item still pending)
-SLOTH wants Deck 15 rebuilt as the bulk-financial deliverable with **real market numbers**,
-not TOPAZ-derived estimates. Current Deck 15 has reasoned numbers but nothing sourced externally.
+### TRACK B — Real-market comps for Deck 15 (completed 2026-04-24)
+Deck 15 now has a public source matrix and `_synthesis/market-comps.md` source index. Media, sponsorship, Constructor resale, and participation assumptions are explicitly framed as comp-backed targets or model scenarios where no signed P1 contract exists.
 
 ### What to verify / source next session:
 1. **LIV Golf** 2022-2024 actuals — media rights, sponsorship, team-ownership revenue per seat. Sources: Saudi PIF disclosures, LIV CEO press, Sports Business Journal.
 2. **F1 constructor franchise values** — Cadillac entry reportedly ~$500M-$600M fee, Andretti attempted terms, historical Manor/Force India/Williams transactions. Sources: SBJ, The Race, Reuters.
-3. **MLP team valuations** — Steve Kuhn interviews, MLP funding round press (~$300M total entity valuation per Sideline REVISED).
+3. **MLP team valuations** — use current reported expansion-seat comps, including the $16M Palm Beach Royals report, rather than unsourced total-entity valuation shorthand.
 4. **PGA Tour Enterprises / Strategic Sports Group** — $3B deal Feb 2024. Terms disclosed. DIRECT sport-league SPAC-analog.
 5. **TGL Year-1 actuals** — 2024-2025 inaugural season. Media partner terms (ESPN), attendance, sponsor count.
 6. **Brand-lift attribution** — MAGNA/Nielsen/Relo published studies on F1 / tennis / MLS sponsor ROI. Gives real CPM-to-brand-lift conversion rates, not my $15-20 CPM guess.
@@ -170,7 +169,7 @@ Live URL + curl receipts + mobile screenshot.
 - **Media ramp:** $32M / $45M / $60M / $72M / $82M.
 - **Ramsports leadership (exact names):** Richard Gossett (CEO), Alex Yuen (President), Seymour Rifkind, Steve Kuhn, Tenniel Chu, Philip Mok.
 - **Concorde:** April 1 2026 formation, July 1 2026 milestone, Feb 2027 first event.
-- **Season format:** 20 stops, 17 countries, 5 divisions, 4 Grand Slams, festival weekends 5-day.
+- **Season format:** 20 stops, 17 markets, 5 divisions, 4 Grand Slams, festival weekends 5-day.
 
 ## DO NOT
 - Do not edit `/Users/zacharycasler/p1-mock/` — that is the OLD Session 198 prospect packet, different project.

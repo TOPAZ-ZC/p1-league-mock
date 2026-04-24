@@ -78,7 +78,7 @@ Recommendation across 4 quarterly swings, with Grand Slam anchors in each.
 - **Media:** Abu Dhabi Sports / beIN Sports MENA. DAZN MENA.
 - **Constructor match:** Airline (Emirates, Qatar, Etihad), Finance (Mubadala, ADQ), Apparel.
 
-## 3. The 20-stop, 17-country expanded calendar
+## 3. The 20-stop, 17-market expanded calendar
 
 The 8 launch cities anchor 8 of the 20 stops. The remaining 12 are regional secondary events that fill each swing to 5-stop count:
 
@@ -110,7 +110,7 @@ The 8 launch cities anchor 8 of the 20 stops. The remaining 12 are regional seco
 19. Doha
 20. Cairo
 
-**20 stops. 17 countries** (Mexico/USA dual, Japan/Korea/Singapore/HK, UAE/Qatar/Saudi/Turkey/Egypt, UK/Spain/France/Italy/Germany + Australia).
+**20 stops. 17 markets** (Mexico/USA dual, Japan/Korea/Singapore/HK, UAE/Qatar/Saudi/Turkey/Egypt, UK/Spain/France/Italy/Germany + Australia).
 
 ## 4. Phase-2 candidate cities (Y2 expansion)
 
@@ -142,8 +142,8 @@ Year-2 calendar can expand to 24-26 stops without adding weeks — by doubling s
 
 - **Feasibility deck** pulls the TAM/SAM framework + market-density data.
 - **Target market deck** IS this content, expanded into city profiles.
-- **Media rights deck** references the 20-stop / 17-country / 200-400M impression math.
+- **Media rights deck** references the 20-stop / 17-market / 200-400M impression math.
 - **Sponsorship deck** maps Constructor candidates to regional events.
-- **Master pitch + Investor deck** references "20 stops, 17 countries" as the top-line scale claim.
+- **Master pitch + Investor deck** references "20 stops, 17 markets" as the top-line scale claim.
 
 Every geographic claim in every other deck is sourced here.
